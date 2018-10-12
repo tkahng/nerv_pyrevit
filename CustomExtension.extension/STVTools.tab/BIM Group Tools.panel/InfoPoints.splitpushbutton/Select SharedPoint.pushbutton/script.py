@@ -22,11 +22,12 @@ elements = DB.FilteredElementCollector(doc)\
 selSet = []
 for e in elements:
     if e.Location != None:
-        print(e.Location.Point)
-        print(str(e.IsValidObject))
-        print(e.Parameters)
+
         pp = e.GetParameters('Family')
         for p in pp:
             if p.AsValueString() == 'Shared Point':
                 selSet.append(e)
+                print(p.Location.Point)
+                print(str(p.IsValidObject))
+                print(p.Parameters)
 revit.get_selection().set_to(selSet)
