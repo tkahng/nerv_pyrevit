@@ -27,7 +27,7 @@ for e in elements:
         for p in pp:
             if p.AsValueString() == 'Shared Point':
                 selSet.append(e)
-                print(p.Location.Point)
-                print(str(p.IsValidObject))
-                print(p.Parameters)
+                #print(p.Location.Point)
+                #print(str(p.IsValidObject))
+                #print(p.Parameters)
 revit.get_selection().set_to(selSet)

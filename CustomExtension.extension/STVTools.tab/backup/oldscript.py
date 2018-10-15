@@ -1,6 +1,8 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB
 import clr, pprint,os, sys
+sys.path.append('\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\PointData')
+import Pointdata
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
@@ -15,11 +17,6 @@ clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-fName = doc.Title
-
-sys.path.append('\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\'
-                '90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\' +fName[0: 20])
-import Pointdata
 
 
 __doc__ = 'Select the shared point of the model '\
