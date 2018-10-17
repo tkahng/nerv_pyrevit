@@ -46,7 +46,7 @@ def containment(poly, pt):
 
 
 # input ---------------------
-path = 'C:\\Users\\loum\\Documents\\Pyscripts\\'
+path = 'C:\\Users\\loum\\Documents\\Pyscripts\\ClashScripts\\'
 ew = doc.ActiveProjectLocation.GetProjectPosition(XYZ(0,0,0)).EastWest * float(-1.0)
 ns = doc.ActiveProjectLocation.GetProjectPosition(XYZ(0,0,0)).NorthSouth * float(-1.0)
 elevation = doc.ActiveProjectLocation.GetProjectPosition(XYZ(0,0,0)).Elevation * float(-1.0)
