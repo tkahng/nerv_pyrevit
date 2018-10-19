@@ -23,15 +23,17 @@ __doc__ = 'Select the shared point of the model '\
 
 # containment -----------------------------------
 
+LinkObj = FilteredElementCollector(doc).OfClass(clr.GetClrType(RevitLinkType)).ToElements()
+rvt = []
+for i in LinkObj:
+	if i.IsExternalFileReference() == True:
+		rvt.append(i)
+for a in rvt:
+	name = a.GetExternalFileReference()
+	b = a.AttachmentType
+	pp = name.GetAbsolutePath()
+	print(b)
+	print(pp)
 
-
-
-
-Links = DB.FilteredElementCollector(doc)\
-              .OfClass(clr.GetClrType(ExternalFileReference))\
-              .ToElements()
-
-
-print (Links)
 
 
