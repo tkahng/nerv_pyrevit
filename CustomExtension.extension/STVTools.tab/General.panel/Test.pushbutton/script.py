@@ -49,7 +49,8 @@ for viewPort in viewPorts:
 # Transaction Start
 t = Transaction(doc, 'Align Single View Sheets')
 # Get Fist View Position
-t.Start()
+# t.Start()
+# Get the first View port that contains SECTOR to align to
 firstViewPort = ()
 for i in viewPorts:
     id = i.SheetId.IntegerValue
@@ -60,37 +61,34 @@ for i in viewPorts:
         if sheetidentifier(i):
             firstViewPort = i
             break
+
+# Get First Viewport position to align to
 firstPosition = firstViewPort.GetBoxOutline().MinimumPoint
+firstPositionMax = firstViewPort.GetBoxOutline().MaximumPoint
 firstsheetnumber = doc.GetElement(firstViewPort.SheetId).LookupParameter('Sheet Number').AsString()
 firstsheetname = doc.GetElement(firstViewPort.SheetId).LookupParameter('Sheet Name').AsString()
 firstviewName = doc.GetElement(firstViewPort.ViewId).Name
+firstviewLoop = doc.GetElement(firstViewPort.ViewId).CropBox
+firstviewOutline = doc.GetElement(firstViewPort.ViewId).Outline
+BBox = doc.GetElement(firstViewPort.ViewId).GetCropRegionShapeManager().GetCropShape()
+Plane = ()
+for i in BBox:
+    Plane = i.GetPlane()
+    print(i.GetRectangularHeight(Plane), i.GetRectangularWidth(Plane))
+Box = doc.GetElement(firstViewPort.ViewId).GetCropRegionShapeManager().GetAnnotationCropShape()
+
+print(Box.GetRectangularHeight(Plane), Box.GetRectangularWidth(Plane))
+print(firstviewLoop.Min, firstviewLoop.Max)
+print(firstviewOutline.Min, firstviewOutline.Max)
 firstX = firstPosition.X
 firstY = firstPosition.Y
 firstZ = firstPosition.Z
-print('First View to Align to', firstsheetnumber, firstsheetname, firstviewName, firstX, firstY, firstZ)
-# Translate all other views
-for viewPort in viewPorts:
-    sId = viewPort.SheetId.IntegerValue
-    vId = viewPort.ViewId
-    sheetNumber = doc.GetElement(viewPort.SheetId).LookupParameter('Sheet Number').AsString()
-    sheetName = doc.GetElement(viewPort.SheetId).LookupParameter('Sheet Name').AsString()
-    viewName = doc.GetElement(vId).Name
-    if not sId in repeatCollector:
-        if sheetidentifier(viewPort):
-            vCenter = viewPort.GetBoxCenter()
-            vX = vCenter.X
-            vY = vCenter.Y
-            vZ = vCenter.Z
-            maxPoint = viewPort.GetBoxOutline().MaximumPoint
-            minPoint = viewPort.GetBoxOutline().MinimumPoint
-            minX = minPoint.X
-            minY = minPoint.Y
-            minZ = minPoint.Z
-            finalX = vX - minX + firstX
-            finalY = vY - minY + firstY
-            finalZ = vZ - minZ + firstZ
-            finalCenter = XYZ(finalX, finalY, finalZ)
-            viewPort.SetBoxCenter(finalCenter)
-            print('Successfully moved ' + sheetNumber + ' ' + sheetName +'    View Name: ' + viewName)
-
-t.Commit()
+print(firstX, firstY, firstZ)
+print(firstPositionMax.X, firstPositionMax.Y, firstPositionMax.Z)
+# Get First Label Data to Align to
+firstLabel = firstViewPort.GetLabelOutline().MaximumPoint
+firstLabelX = firstLabel.X
+firstLabelY = firstLabel.Y
+firstLabelZ = firstLabel.Z
+# print(firstLabelX, firstLabelY, firstLabelZ)
+# print('First View to Align to', firstsheetnumber, firstsheetname, firstviewName, firstX, firstY, firstZ)
