@@ -1,6 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB
-import clr,
+import clr
 
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
