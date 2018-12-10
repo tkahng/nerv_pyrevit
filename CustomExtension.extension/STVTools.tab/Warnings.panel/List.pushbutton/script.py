@@ -20,8 +20,8 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Prints out a warnings by category.'\
+          ' This is helpful to resolve warnings'
 
 outprint = script.get_output()
 output = pyrevit.output.get_output()
@@ -51,7 +51,7 @@ if revit.doc.IsWorkshared:
         elementId = warning.GetFailingElements()
         additionalId = warning.GetAdditionalElements()
         text = warning.GetDescriptionText()
-        if text in str(sel_warning):# warningRange>= 1357 and warningRange < 1375: # text == cate[35]:
+        if text in str(sel_warning):
             output.print_md("**#** {}-----------------\n\n"
                             "- Warning Item:{}\n\n"
                             .format(count,

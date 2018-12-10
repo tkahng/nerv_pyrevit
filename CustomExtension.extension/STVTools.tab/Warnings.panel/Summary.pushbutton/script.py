@@ -20,8 +20,8 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Print a warning summary '\
+          ' This is helpful check model health'
 
 outprint = script.get_output()
 output = pyrevit.output.get_output()
