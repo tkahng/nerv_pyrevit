@@ -13,7 +13,6 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-
 __doc__ = 'Select the shared point of the model '\
           'This is helpful check project info'
 
