@@ -47,9 +47,13 @@ if revit.doc.IsWorkshared:
             if not creator in cate:
                 cate.append(creator)
     # Select Warnings you want to print
-    sel_warning = forms.SelectFromList.show(cate, button_name='Select Item',
-                                            multiselect=False,
-                                            name_attr='Name',)
+    try:
+        sel_warning = forms.SelectFromList.show(cate, button_name='Select Item',
+                                                multiselect=False,
+                                                name_attr='Name',)
+    except:
+        sel_warning = forms.SelectFromList.show(cate, title='Select Item',
+                                                multiselect=False,)
     print('Below are all users in the model: ')
     print(cate)
     print('Below are selected user and warnings under his or her name: ')
@@ -73,7 +77,7 @@ if revit.doc.IsWorkshared:
             names.append(aCreator)
             names.append(aChangedBy)
         # print(names)
-        if sel_warning[0] in names:
+        if sel_warning[0] in names or sel_warning in names:
             output.print_md("**#** {}-----------------\n\n"
                             "- Warning Item:{}\n\n"
                             .format(count,

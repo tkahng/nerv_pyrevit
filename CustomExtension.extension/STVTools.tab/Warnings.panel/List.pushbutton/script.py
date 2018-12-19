@@ -40,8 +40,7 @@ if revit.doc.IsWorkshared:
             cate.append(categories)
 # Select Warnings you want to print
     sel_warning = forms.SelectFromList.show(cate, button_name='Select Item',
-                                            multiselect=True,
-                                            name_attr='Name',)
+                                            multiselect=True)
 
     print('Below are all warning categories: ')
 

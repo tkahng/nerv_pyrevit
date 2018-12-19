@@ -8,7 +8,7 @@ from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 from Autodesk.Revit.Creation import *
-from pyrevit import script
+from pyrevit import script, DB, revit
 from pyrevit import forms
 import pyrevit
 clr. AddReferenceByPartialName('PresentationCore')
@@ -20,9 +20,8 @@ doc = __revit__.ActiveUIDocument.Document
 archive = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\Archive\\'
 root, dirs, files = os.walk(archive).next()
 sel_archive = forms.SelectFromList.show(dirs, button_name='Select Item',
-                                        multiselect=False,
-                                        name_attr='Name', )
-systemArchive = archive + sel_archive[0] + '\\'
+                                        multiselect=False)
+systemArchive = archive + sel_archive + '\\'
 
 # Get the right point data from the right direcory
 fName = doc.Title
@@ -60,8 +59,7 @@ for file in os.listdir(systemExtra):
         __import__(file[:-3], locals(), globals())
         clashFiles.append(file)
 sel_clash = forms.SelectFromList.show(clashFiles, button_name='Select Item',
-                                        multiselect=True,
-                                        name_attr='Name', )
+                                        multiselect=True)
 # Be sure to import the right one as in all point data files are named the same.
 
 
@@ -110,8 +108,6 @@ for a in sel_clash:
             x = float(Pointdata.pointX[count]) + ew
             y = float(Pointdata.pointY[count]) + ns
             z = float(Pointdata.pointZ[count]) + elevation
-            clashName = str('No. ' + str(count + 1) + ' ID: ' + Pointdata.clashName[count])
-            clashwithID = str(Pointdata.otherFile[count] + ' ID: ' + Pointdata.clashwithID[count])
             pnt = XYZ(x,y,z)
             bPnt = Transform.CreateRotation(XYZ.BasisZ, angle).OfPoint(pnt)
 
@@ -120,8 +116,10 @@ for a in sel_clash:
             boxes = doc.Create.NewFamilyInstance(bPnt, clashPoint, Structure.StructuralType.NonStructural)
             elements.append(boxes)
 
-            boxes.LookupParameter('Clash Name').Set(clashName)
-            boxes.LookupParameter('Clash with ID').Set(clashwithID)
+            boxes.LookupParameter('Clash Number').Set(str(count + 1))
+            boxes.LookupParameter('Clash ID').Set(Pointdata.clashName[count])
+            boxes.LookupParameter('Clash with ID').Set(Pointdata.clashwithID[count])
+            boxes.LookupParameter('Clash With Model').Set(str(Pointdata.otherFile[count]))
             count += 1
         t.Commit()
 
