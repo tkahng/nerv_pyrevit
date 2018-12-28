@@ -42,9 +42,7 @@ if revit.doc.IsWorkshared:
     sel_warning = forms.SelectFromList.show(cate, button_name='Select Item',
                                             multiselect=True)
 
-    print('Below are all warning categories: ')
 
-    print(sel_warning)
 # Printing selected warnings
     for warning in warnings:
         elementId = warning.GetFailingElements()
