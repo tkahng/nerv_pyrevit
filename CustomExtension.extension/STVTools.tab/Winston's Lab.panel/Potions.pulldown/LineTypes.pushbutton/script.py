@@ -1,13 +1,13 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB
 import clr
-
+import xlsxwriter
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, ExternalFileReference, \
-	BuiltInParameter, NestedFamilyTypeReference, FamilyType, Viewport,Transaction
+	BuiltInParameter, NestedFamilyTypeReference, FamilyType, Viewport,Transaction, GraphicStyleType
 from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
