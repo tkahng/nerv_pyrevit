@@ -4,7 +4,7 @@ import clr, sys, re, os, imp
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 # clr.AddReference("System.Windows.Form")
-
+import openpyxl
 from Autodesk.Revit.DB import FilteredElementCollector, FilteredWorksetCollector, RevitLinkType,BuiltInParameter,\
     Workset,WorksetKind
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol
@@ -24,7 +24,7 @@ SendKeys.SendWait("%{F4}")
 SendKeys.Send("{Enter}")
 print('Success !')
 '''
-
+print('Get it')
 worksetName = []
 workset = FilteredWorksetCollector(doc).OfKind(WorksetKind.UserWorkset).ToWorksets()
 for w in workset:

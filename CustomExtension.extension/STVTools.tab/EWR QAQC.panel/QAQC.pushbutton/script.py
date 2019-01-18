@@ -6,10 +6,10 @@ import os
 import qcutils
 import xlsxwriter
 clr.AddReference('RevitAPI')
-clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, \
-	OpenOptions,WorksetConfiguration, WorksetConfigurationOption, DetachFromCentralOption,ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions
+	OpenOptions,WorksetConfiguration, WorksetConfigurationOption, DetachFromCentralOption,\
+    ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions
 
 from System.Collections.Generic import List
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
@@ -31,6 +31,7 @@ def RVTFileCollector(dir):
             #print(str(file))
             files.append(str(file))
     print files
+clr.AddReference('RevitAPIUI')
     return files
 
 def OpenFiles(oFile, app, audit):
