@@ -27,6 +27,6 @@ if dest_sheets:
                 all_Viewport.append(view)
         else:
             pass
-
+    revit.get_selection().set_to(all_Viewport)
 else:
     forms.alert('No sheetss selected.')

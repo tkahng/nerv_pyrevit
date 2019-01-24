@@ -18,7 +18,7 @@ from Autodesk.Revit.ApplicationServices import Application
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
-
+clr.AddReference('RevitAPIUI')
 # File Collector
 # models = r"C:\\Users\\loum\\Desktop\\File Dump\\"
 
@@ -31,7 +31,6 @@ def RVTFileCollector(dir):
             #print(str(file))
             files.append(str(file))
     print files
-clr.AddReference('RevitAPIUI')
     return files
 
 def OpenFiles(oFile, app, audit):
