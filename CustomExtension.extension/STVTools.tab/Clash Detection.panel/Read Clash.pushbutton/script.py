@@ -16,7 +16,7 @@ def FileName(dirpath):
     for file in os.listdir(dirpath):
         filenameLst.append(file)
     return filenameLst
-
+`
 
 def Pickname(tailName, noTailName):
     if len(tailName) != 0:
