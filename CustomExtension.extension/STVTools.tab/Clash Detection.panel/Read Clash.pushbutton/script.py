@@ -1,7 +1,7 @@
 import re, os
 import bs4, soupsieve
 from pyrevit import forms
-
+from datetime import date
 
 # Set the path with all the clash html files and the path of the output file that you want py revit to pick up
 clashpath = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\' \
@@ -16,7 +16,7 @@ def FileName(dirpath):
     for file in os.listdir(dirpath):
         filenameLst.append(file)
     return filenameLst
-`
+
 
 def Pickname(tailName, noTailName):
     if len(tailName) != 0:
@@ -32,10 +32,9 @@ def Pickname(tailName, noTailName):
 clashFiles = forms.pick_file(file_ext='html', multi_file=True, init_dir=clashpath, unc_paths=False)
 folderName = str(forms.GetValueWindow.show(None,
         value_type='string',
-        default='default',
-        prompt='prompt',
-        title='title')) + '\\'
-print(folderName)
+        default=str(date.today()),
+        prompt='Please Enter the Clash Report Name after the date.',
+        title='Clash Report Name')) + '\\'
 programPath = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\' \
               '90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\Archive\\' + folderName
 
@@ -47,10 +46,6 @@ IDRegex = re.compile(r'\d+')
 nameLst = []
 for clashFile in clashFiles:
     nameLst.append(os.path.basename(clashFile))
-print(clashFiles)
-print(nameLst)
-print(len(clashFiles))
-print(len(nameLst))
 
 xPntdata = []
 yPntdata = []
@@ -59,6 +54,7 @@ lstLen = []
 newfilename = ()
 count = 0
 print('We found ' + str(len(clashFiles)) + ' Clash Files.')
+pb =  forms.ProgressBar(title='Files Processing')
 
 # Write data
 for filename in clashFiles:
@@ -106,14 +102,10 @@ for filename in clashFiles:
         # TODO: Save fix function
         foundFileNames.append(Pickname(FtailName, FnoTailName))
         foundFileNames.append(Pickname(StailName, SnoTailName))
-        print(Pickname(FtailName, FnoTailName))
-        print(Pickname(StailName, SnoTailName))
     else:
         foundFileNames = ['Nodata', 'Nodata']
-    print(foundFileNames)
 
     for indiFileName in foundFileNames:
-        print(newfilename)
         xPntdata = []
         yPntdata = []
         zPntdata = []
@@ -132,10 +124,10 @@ for filename in clashFiles:
         try:
             os.mkdir(programPath + indiFileName)
         except OSError:
-            print("Creation of the directory %s failed" % programPath + indiFileName)
+            print("Creation of the directory %s failed" % programPath)
         else:
-            print("Successfully created the directory %s " % programPath + indiFileName)
-
+            print("Successfully created the directory %s " % programPath)
+        print("---------------------------------------------------------------")
         pointFile = open(programPath + indiFileName + '\\' +
                          foundFileNames[0] + ' VS ' + foundFileNames[1] + ' Pointdata.py', 'w')
         '''
@@ -164,4 +156,5 @@ for filename in clashFiles:
         pointFile.write('currentFile = ' + str(currentFile) + '\n')
         pointFile.write('otherFile = ' + str(otherFile) + '\n')
         pointFile.write('lstlen = ' + str(lstLen) + '\n')
+    pb.update_progress(count, len(clashFiles))
     count += 1
