@@ -6,7 +6,7 @@ clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import Document, BuiltInCategory, GraphicsStyleType, FilteredElementCollector, Level, \
-    ElementWorksetFilter, WorksetKind, FilteredWorksetCollector, ImportInstance
+    ElementWorksetFilter, WorksetKind, FilteredWorksetCollector, ImportInstance, FilledRegionType, BuiltInParameter
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
@@ -108,3 +108,13 @@ def CadImportsCheck(doc):
         docLink.append(linkName[count])
         docLink.append(linkName[count])
         count += 1
+    return docLink
+
+
+def FilledRegionCheck(doc):
+    instances = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
+    name = []
+    for i in instances:
+        id = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+        name.append([id])
+    return name
