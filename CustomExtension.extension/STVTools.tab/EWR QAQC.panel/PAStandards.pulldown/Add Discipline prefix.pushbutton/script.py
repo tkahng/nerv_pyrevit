@@ -1,10 +1,9 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
-from openpyxl import load_workbook
 import clr
 import csv
 import os
-import EwrQcUtils
+import PaUtils
 import xlsxwriter
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
@@ -65,37 +64,15 @@ application = uiapp.Application
 # Transaction
 if len(collectorFiles) > 0:
     t = Transaction(doc, 'Check QAQC Elements')
-    t.Start()
+
     for aDoc in collectorFiles:
         openedDoc = OpenFiles(aDoc, application, audit = False)
         workshareOp = WorksharingSaveAsOptions()
-        # Define the name and location of excel file
-        fileName = destinationFolder +'\\' + openedDoc.Title + '.xlsx'
-        # Define and Open Excel File
-        excelFile = EwrQcUtils.ExcelOpener(fileName)
-        # TODO: Create Text Tab
-        # TODO: Titleblock Tab
-        # TODO: Survey Point Tab
-        # TODO: BasePoint Tab
-        # TODO: Site Shared Point Tab
-        # TODO: Categories in Workset Tab
-        # TODO: Family Tab
-        # TODO: Workset Tab
-        # TODO: Links Tab
-        # TODO: Sheetstab, Viewstab
-        # TODO: Dimentions Tab
-        collectorLevels = EwrQcUtils.LevelCheck(openedDoc)
-        EwrQcUtils.ExcelWriter(excelFile, 'LEVEL', 1, 0, collectorLevels)
-        collectorSheetElements = EwrQcUtils.SheetElementCheck(openedDoc)
-        EwrQcUtils.ExcelWriter(excelFile, 'SHEET ELEMENT', 1, 0, collectorSheetElements)
-        collectorLines = EwrQcUtils.LineCheck(openedDoc)
-        EwrQcUtils.ExcelWriter(excelFile, 'LINES', 1, 0, collectorLines)
-        # Close Excel and Revit File
-        excelFile.close()
+        PALines = PaUtils.LineTypeCollector(openedDoc)
+        NonPALines = PaUtils.AltLineTypeCollector(openedDoc)
+        PaUtils.LineCollector(doc)
         openedDoc.Close(False)
-        print('File Saved' + fileName)
-    wb = load_workbook('C:\\Users\\loum\\Desktop\\QAQC Excel\\N17017000-3D_CENTRAL.xlsx')
-    # EwrQaUtils.FormattingLine(wb['LINE'])
+    t.Start()
     t.Commit()
 
 else:
