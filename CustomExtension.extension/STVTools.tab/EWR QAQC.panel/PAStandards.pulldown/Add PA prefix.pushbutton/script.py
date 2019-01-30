@@ -5,7 +5,7 @@ from fractions import Fraction
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, \
-    ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType
+    ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
@@ -25,14 +25,17 @@ def SplitString(name):
 '''
 # TODO Fix this function
 def AddPrefixtoAnnotation(doc):
-        levels = FilteredElementCollector(doc).OfClass(Level).ToElements()
-        discipline = str(doc.Title)[0]
-        for i in levels:
-            if i.Name[0:4] != discipline + ' - ':
-                print('Changing '+ i.Name + ' to '+ discipline + ' - ' + i.Name )
-                i.Name = discipline + ' - ' + i.Name
-            else:
-                print('Unable to change ' + i.Name)
+        annotation = FilteredElementCollector(doc).OfClass(FamilySymbol)
+        family = []
+        for i in annotation:
+            cate = i.Category.Name
+            if cate == 'Generic Annotations' or 'Symbol' in cate or 'Tag' in cate or 'Annotation' in cate:
+                continue
+            if i.Family.Name[0:5] != prefix:
+                family.append(i.Family)
+        pick = forms.
+        for f in family:
+                f.Name = prefix + f.Name
 
 # TODO Fix this function
 def AddPrefixtoLines(doc):
