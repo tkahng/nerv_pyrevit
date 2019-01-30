@@ -27,17 +27,17 @@ approvedTail = ['ENC', 'FFE', 'GEN', 'INT', 'SSM', 'C', 'CP', 'PBB', ]
 noTail = modelRegex.findall(fName)
 tail = modelRegex2.findall(fName)
 if len(tail) == 0:
-    systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\' + fName[0: 20]
+    systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + fName[0: 20]
     sys.path.append(systemExtra)
     print(systemExtra)
 else:
     nameLst = re.split('_', fName)
     if nameLst[2] in approvedTail:
-        systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\' + tail[0]
+        systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + tail[0]
         sys.path.append(systemExtra)
         print(systemExtra)
     else:
-        systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\' + fName[0: 20]
+        systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + fName[0: 20]
         sys.path.append(systemExtra)
 '''
 # date and time
@@ -86,7 +86,7 @@ FSymbol = DB.FilteredElementCollector(doc) \
 
 selSet = []
 for a in sel_clash:
-    Pointdata = imp.load_source('a', systemExtra + '\\' + a)
+    Pointdata = imp.load_source('a', systemExtra + '\\' + a)  # type: object
     print('-----------------------------------------------------------------')
     print('Here are all the clashes between ' + a[0: len(a) - 3])
     clashPoint = ()
