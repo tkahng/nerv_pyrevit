@@ -1,4 +1,4 @@
-
+import re
 import clr
 import xlsxwriter
 
@@ -6,7 +6,8 @@ clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import Document, BuiltInCategory, GraphicsStyleType, FilteredElementCollector, Level, \
-    ElementWorksetFilter, WorksetKind, FilteredWorksetCollector, ImportInstance, FilledRegionType, BuiltInParameter
+    ElementWorksetFilter, WorksetKind, FilteredWorksetCollector, ImportInstance, FilledRegionType,\
+    BuiltInParameter, FamilySymbol, UnitType, DimensionType, Viewport, CategoryType, RevitLinkInstance, RevitLinkType
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
@@ -98,15 +99,17 @@ def CadImportsCheck(doc):
     linkInstances = collector.OfClass(ImportInstance)
     linkName, linkPin = [], []
     for i in linkInstances:
-        linkName.append(i.Id)
+        linkName.append(str(i.Id.IntegerValue))
         try:
             linkPin.append(str(i.Pinned))
         except:
             linkPin.append("Error")
     count = 0
     for i in linkName:
-        docLink.append(linkName[count])
-        docLink.append(linkName[count])
+        line = []
+        line.append(linkName[count])
+        line.append(linkPin[count])
+        docLink.append(line)
         count += 1
     return docLink
 
@@ -118,3 +121,150 @@ def FilledRegionCheck(doc):
         id = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
         name.append([id])
     return name
+
+def AnnotationSymbolCheck(doc):
+    collector = FilteredElementCollector(doc)
+    instances = collector.OfClass(FamilySymbol)
+    name = []
+    for i in instances:
+        cate = i.Category.Name
+        if cate == 'Generic Annotations' or 'Symbol' in cate or 'Tag' in cate or 'Annotation' in cate:
+            name.append([i.Family.Name])
+    return(name)
+
+def SettingsCheck(doc):
+    unit = ['Tolerance']
+    unit.append(doc.GetUnits().GetFormatOptions(UnitType.UT_Length).Accuracy * 12)
+    phases = ['Phases']
+    for i in doc.Phases:
+        phases.append(i.Name)
+    out = []
+    out.append(unit)
+    out.append(phases)
+    return out
+
+def DimensionsCheck(doc):
+    modelLst = []
+    dimensions = FilteredElementCollector(doc).OfClass(DimensionType).ToElements()
+    units = doc.GetUnits().GetFormatOptions(UnitType.UT_Length).Accuracy
+    for i in dimensions:
+        parameters = []
+        try:
+            method = str(i.GetUnitsFormatOptions().Accuracy * 12)
+        except:
+            method = str(units * 12)
+        try:
+            name = i.LookupParameter('Type Name').AsString()
+            textFont = i.LookupParameter('Text Font').AsString()
+            parameters.append(name)
+            parameters.append(textFont)
+            parameters.append(method)
+            modelLst.append(parameters)
+        except:
+            pass
+        '''
+        param = i.Parameters
+        for p in param:
+            print(p.AsString())
+            print('Name: ' + str(p.Definition.Name))
+        '''
+    return modelLst
+
+def SheetsCheck(doc):
+    modelLst = []
+    viewports = FilteredElementCollector(doc).OfClass(ViewSheet).ToElements()
+    for i in viewports:
+        parameters = []
+        name = i.LookupParameter('Sheet Name').AsString()
+        viewClassification = i.LookupParameter('PA - View Classification').AsString()
+        number = i.LookupParameter('Sheet Number').AsString()
+        disGroup = i.LookupParameter('Discipline Group').AsString()
+        subDisGroup = i.LookupParameter('Discipline Sub-Group').AsString()
+        appearSheet = i.LookupParameter('Appears In Sheet List').AsString()
+        parameters.append(number)
+        parameters.append(name)
+        parameters.append(viewClassification)
+        parameters.append(appearSheet)
+        parameters.append(disGroup)
+        parameters.append(subDisGroup)
+
+        modelLst.append(parameters)
+    return modelLst
+
+def ViewsCheck(doc):
+    modelLst = []
+    viewports = FilteredElementCollector(doc).OfClass(Viewport).ToElements()
+    for i in viewports:
+        parameters = []
+        name = i.LookupParameter('View Name').AsString()
+        viewClassification = i.LookupParameter('PA - View Classification').AsString()
+        parameters.append(name)
+        parameters.append(viewClassification)
+        modelLst.append(parameters)
+    return modelLst
+
+def WorksetCheck(doc):
+    # create workset collector
+    userWorksets = FilteredWorksetCollector(doc).OfKind(WorksetKind.UserWorkset)
+    # extract workset's name and ids
+    modelLst = []
+    for i in userWorksets:
+        line = []
+        line.append(i.Name)
+        line.append(i.IsVisibleByDefault)
+        modelLst.append(line)
+    return modelLst
+
+def FamilyNameCheck(doc):
+    modelLst = []
+    family = FilteredElementCollector(doc).OfClass(FamilySymbol).ToElements()
+    exempt = ['Profiles', 'Section Marks', 'Curtain Panels', 'Section Marks', 'Generic Annotations', 'Callout Heads',
+              'Level Heads', 'View Titles']
+    for i in family:
+        line = []
+        if not i.Family.FamilyCategory.Name in exempt and not 'Tag' in i.Family.FamilyCategory.Name:
+            line.append(i.Family.FamilyCategory.Name)
+            line.append(i.Family.Name)
+            modelLst.append(line)
+    return modelLst
+
+def LinkCheck(doc):
+    LinkObj = FilteredElementCollector(doc).OfClass(RevitLinkInstance).ToElements()
+    LinkTyp = FilteredElementCollector(doc).OfClass(RevitLinkType).ToElements()
+    modelLst = []
+    count = 0
+    for a in LinkObj:
+        line = []
+        name = a.Name
+        linkSoup = re.split(':', name)
+        linkName = linkSoup[0]
+        linkLocation = linkSoup[2]
+        workset = a.LookupParameter('Workset').AsValueString()
+        attachmentType = LinkTyp[count].AttachmentType
+        line.append(linkName)
+        line.append(linkLocation)
+        line.append(workset)
+        line.append(str(a.Pinned))
+        line.append(str(attachmentType))
+        modelLst.append(line)
+        count +=1
+    return modelLst
+
+def TitleBlockCheck(doc):
+    modelLst = []
+    titleBlock = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_TitleBlocks).ToElements()
+    for i in titleBlock:
+        line = []
+        try:
+            sheetNumber = i.LookupParameter('Sheet Number').AsString()
+            line.append(sheetNumber)
+        except:
+            pass
+        try:
+            familyName = i.LookupParameter('Family').AsValueString()
+            line.append(str(familyName))
+        except:
+            pass
+        if line != []:
+            modelLst.append(line)
+    return modelLst

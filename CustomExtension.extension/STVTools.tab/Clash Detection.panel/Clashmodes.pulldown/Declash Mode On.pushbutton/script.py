@@ -1,15 +1,14 @@
-import clr
-import imp
-import os
-import re
-import sys
-from pyrevit import revit, DB
+import clr, sys, re, os, imp
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import Structure
-from Autodesk.Revit.DB import ElementId, XYZ, Transform, Transaction,FamilySymbol
-from pyrevit import script
+from Autodesk.Revit.DB import FilteredElementCollector, Structure
+from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol
+from System.Collections.Generic import List
+from Autodesk.Revit.UI import *
+from Autodesk.Revit.DB import *
+from Autodesk.Revit.Creation import *
+from pyrevit import script, DB, revit
 from pyrevit import forms
 import pyrevit
 clr. AddReferenceByPartialName('PresentationCore')
@@ -18,6 +17,11 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+archive = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\'
+root, dirs, files = os.walk(archive).next()
+sel_archive = forms.SelectFromList.show(dirs, button_name='Select Item',
+                                        multiselect=False)
+systemArchive = archive + sel_archive + '\\'
 
 # Get the right point data from the right direcory
 fName = doc.Title
@@ -27,17 +31,17 @@ approvedTail = ['ENC', 'FFE', 'GEN', 'INT', 'SSM', 'C', 'CP', 'PBB', ]
 noTail = modelRegex.findall(fName)
 tail = modelRegex2.findall(fName)
 if len(tail) == 0:
-    systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + fName[0: 20]
+    systemExtra = systemArchive + fName[0: 20]
     sys.path.append(systemExtra)
     print(systemExtra)
 else:
     nameLst = re.split('_', fName)
     if nameLst[2] in approvedTail:
-        systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + tail[0]
+        systemExtra = systemArchive + tail[0]
         sys.path.append(systemExtra)
         print(systemExtra)
     else:
-        systemExtra = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + fName[0: 20]
+        systemExtra = systemArchive + fName[0: 20]
         sys.path.append(systemExtra)
 '''
 # date and time
@@ -86,7 +90,7 @@ FSymbol = DB.FilteredElementCollector(doc) \
 
 selSet = []
 for a in sel_clash:
-    Pointdata = imp.load_source('a', systemExtra + '\\' + a)  # type: object
+    Pointdata = imp.load_source('a', systemExtra + '\\' + a)
     print('-----------------------------------------------------------------')
     print('Here are all the clashes between ' + a[0: len(a) - 3])
     clashPoint = ()
@@ -116,7 +120,6 @@ for a in sel_clash:
             boxes.LookupParameter('Clash ID').Set(Pointdata.clashName[count])
             boxes.LookupParameter('Clash with ID').Set(Pointdata.clashwithID[count])
             boxes.LookupParameter('Clash With Model').Set(str(Pointdata.otherFile[count]))
-            # boxes.LookupParameter('Clash Number').Set(str(count))
             count += 1
         t.Commit()
 

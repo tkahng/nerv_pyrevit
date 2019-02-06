@@ -20,7 +20,7 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
 # Collect Save location and Rvt Files
 collectorFiles = forms.pick_file(file_ext='rvt', multi_file=True, unc_paths=False)
-destinationFolder = forms.pick_folder(title='SaveTo.....')
+destinationFolder = forms.pick_folder()
 
 def RVTFileCollector(dir):
     files = []
@@ -82,18 +82,39 @@ if len(collectorFiles) > 0:
         # TODO: Workset Tab
         # TODO: Links Tab
         # TODO: Sheetstab, Viewstab
-        # TODO: Dimentions Tab
+        collectorDim = EwrQcUtils.DimensionsCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'DIMENSIONS', 1, 0, collectorDim)
+        collectorSettings = EwrQcUtils.SettingsCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'SETTINGS', 1, 0, collectorSettings)
+        collectorView = EwrQcUtils.ViewsCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'VIEWS', 1, 0, collectorView)
+        collectorFamily = EwrQcUtils.FamilyNameCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'FAMILY NAME', 1, 0, collectorFamily)
+        collectorLink = EwrQcUtils.LinkCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'LINKS', 1, 0, collectorLink)
+        collectorTitleBlock = EwrQcUtils.TitleBlockCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'TITLE BLOCK', 1, 0, collectorTitleBlock)
+
+
+        '''
         collectorLevels = EwrQcUtils.LevelCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'LEVEL', 1, 0, collectorLevels)
         collectorSheetElements = EwrQcUtils.SheetElementCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'SHEET ELEMENT', 1, 0, collectorSheetElements)
         collectorLines = EwrQcUtils.LineCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'LINES', 1, 0, collectorLines)
+        collectorFilledRegion = EwrQcUtils.FilledRegionCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'FILLED REGIONS', 1, 0, collectorFilledRegion)
+        collectorAnnotationSymbol = EwrQcUtils. AnnotationSymbolCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'ANNOTATION SYMBOLS', 1, 0, collectorAnnotationSymbol)
+        collectorCADImports = EwrQcUtils. CadImportsCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'CAD LINKS AND IMPORTS', 1, 0, collectorCADImports)
+        '''
         # Close Excel and Revit File
         excelFile.close()
         openedDoc.Close(False)
         print('File Saved' + fileName)
-    wb = load_workbook('C:\\Users\\loum\\Desktop\\QAQC Excel\\N17017000-3D_CENTRAL.xlsx')
+
     # EwrQaUtils.FormattingLine(wb['LINE'])
     t.Commit()
 

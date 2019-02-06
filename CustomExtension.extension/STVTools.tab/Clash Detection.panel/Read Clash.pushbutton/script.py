@@ -36,7 +36,7 @@ folderName = str(forms.GetValueWindow.show(None,
         prompt='Please Enter the Clash Report Name after the date.',
         title='Clash Report Name')) + '\\'
 programPath = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\' \
-              '90_CAD Models and Sheets\\17017000\\_PIM\\Data\\PointData\\' + folderName
+              '90_CAD Models and Sheets\\17017000\\_PIM\\PointData\\' + folderName
 
 modelNameRegex = re.compile(r'\w\d\d\d\d\d\d\d\d-\S\S_CENTRAL\S{4}?')
 modelRegex = re.compile(r'\w\d\d\d\d\d\d\d\d-\S\S_CENTRAL')
