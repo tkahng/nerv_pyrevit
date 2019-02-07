@@ -1,13 +1,14 @@
 import re
 import clr
 import xlsxwriter
-
+import math
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import Document, BuiltInCategory, GraphicsStyleType, FilteredElementCollector, Level, \
     ElementWorksetFilter, WorksetKind, FilteredWorksetCollector, ImportInstance, FilledRegionType,\
-    BuiltInParameter, FamilySymbol, UnitType, DimensionType, Viewport, CategoryType, RevitLinkInstance, RevitLinkType
+    BuiltInParameter, FamilySymbol, UnitType, DimensionType, Viewport, CategoryType, RevitLinkInstance, RevitLinkType, \
+    ViewSheet, TextElement, TextNoteType, XYZ, BasePoint, Transform, AnnotationSymbol
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
@@ -60,37 +61,23 @@ def LevelCheck(doc):
 def SheetElementCheck(doc):
     model = []
     worksets = FilteredWorksetCollector(doc).OfKind(WorksetKind.ViewWorkset).ToWorksets()
-    sheets = []
-    names = []
     sheetWorkset = []
     for workset in worksets:
         if workset.Name[6:11] == 'Sheet':
             sheetWorkset.append(workset)
     for ws in sheetWorkset:
-        sheet = []
-        name = []
-        sheet.append(ws.Name)
+        sheet = ws.Name
+         # sheet.append(ws.Name)
         elems = WorksetElements(doc, ws)
-        i = 1
-        while i < len(elems):
-            sheet.append(ws.Name)
-            i += 1
         for elem in elems:
+            name = []
             try:
+                name.append(sheet)
                 name.append(elem.GetType().ToString() + '     ' + elem.Name)
             except:
+                name.append(sheet)
                 name.append(elem.GetType().ToString() + '     ' + str(elem))
-        sheets.append(sheet)
-        names.append(name)
-    flat_sheets = [item for sublist in sheets for item in sublist]
-    flat_names = [item for sublist in names for item in sublist]
-    count = 0
-    for i in flat_sheets:
-        group = []
-        group.append(flat_sheets[count])
-        group.append(flat_names[count])
-        model.append(group)
-        count += 1
+            model.append(name)
     return model
 
 def CadImportsCheck(doc):
@@ -176,17 +163,38 @@ def SheetsCheck(doc):
     for i in viewports:
         parameters = []
         name = i.LookupParameter('Sheet Name').AsString()
-        viewClassification = i.LookupParameter('PA - View Classification').AsString()
+        try:
+            try:
+                viewClassification = i.LookupParameter('PA - View Classification').AsString()
+            except:
+                viewClassification = i.LookupParameter('View Classification').AsString()
+        except:
+            viewClassification = 'View Classification Error'
         number = i.LookupParameter('Sheet Number').AsString()
-        disGroup = i.LookupParameter('Discipline Group').AsString()
-        subDisGroup = i.LookupParameter('Discipline Sub-Group').AsString()
-        appearSheet = i.LookupParameter('Appears In Sheet List').AsString()
+        try:
+            disGroup = i.LookupParameter('Discipline Group').AsString()
+        except:
+            disGroup = 'No Value'
+        try:
+            subDisGroup = i.LookupParameter('Discipline Sub-Group').AsString()
+        except:
+            subDisGroup = 'No Value'
+        appearSheet = i.LookupParameter('Appears In Sheet List').AsValueString()
         parameters.append(number)
         parameters.append(name)
-        parameters.append(viewClassification)
-        parameters.append(appearSheet)
-        parameters.append(disGroup)
-        parameters.append(subDisGroup)
+        if not viewClassification is None:
+            parameters.append(viewClassification)
+        else:
+            parameters.append('No Value')
+        parameters.append(str(appearSheet))
+        if not disGroup is None:
+            parameters.append(disGroup)
+        else:
+            parameters.append('No Value')
+        if not subDisGroup is None:
+            parameters.append(subDisGroup)
+        else:
+            parameters.append('No Value')
 
         modelLst.append(parameters)
     return modelLst
@@ -197,7 +205,10 @@ def ViewsCheck(doc):
     for i in viewports:
         parameters = []
         name = i.LookupParameter('View Name').AsString()
-        viewClassification = i.LookupParameter('PA - View Classification').AsString()
+        try:
+            viewClassification = i.LookupParameter('PA - View Classification').AsString()
+        except:
+            viewClassification = i.LookupParameter('View Classification').AsString()
         parameters.append(name)
         parameters.append(viewClassification)
         modelLst.append(parameters)
@@ -238,13 +249,23 @@ def LinkCheck(doc):
         name = a.Name
         linkSoup = re.split(':', name)
         linkName = linkSoup[0]
-        linkLocation = linkSoup[2]
+        try:
+            linkLocation = linkSoup[2]
+        except:
+            linkLocation = 'Location Error'
         workset = a.LookupParameter('Workset').AsValueString()
-        attachmentType = LinkTyp[count].AttachmentType
+        try:
+            attachmentType = LinkTyp[count].AttachmentType
+        except:
+            attachmentType = 'Multiple instance of link found Link Obj: ' + str(len(LinkObj)) + \
+                             'Link Type: '+ str(len(LinkTyp))
         line.append(linkName)
         line.append(linkLocation)
         line.append(workset)
-        line.append(str(a.Pinned))
+        if a.Pinned == True:
+            line.append('Pinned')
+        else:
+            line.append('Not Pinned')
         line.append(str(attachmentType))
         modelLst.append(line)
         count +=1
@@ -267,4 +288,164 @@ def TitleBlockCheck(doc):
             pass
         if line != []:
             modelLst.append(line)
+    return modelLst
+
+def TextCheck(doc):
+    modelLst = []
+    textNoteType = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
+    textElement = FilteredElementCollector(doc).OfClass(TextElement).ToElements()
+    parameters = ["Type Name", "Text Font", "Text Size", "Tab Size", "Bold", "Italic",
+                  "Underline","Width Factor", "Show Border", "Background", "Color"]
+    textInstance = []
+    unique = []
+
+    for t in textElement:
+        type = t.LookupParameter('Type').AsValueString()
+        textInstance.append(type)
+        if not type in unique:
+            unique.append(type)
+    dic = {}
+    for u in unique:
+        count = textInstance.count(u)
+        dic[u] = str(count)
+
+    for i in textNoteType:
+        line = []
+        for p in parameters:
+            value = i.LookupParameter(p)
+            if value.AsValueString():
+                line.append(value.AsValueString())
+            else:
+                line.append(value.AsString())
+        try:
+            line.append(dic[i.LookupParameter('Type Name').AsString()])
+        except:
+            line.append('0')
+        modelLst.append(line)
+    return modelLst
+
+def PositionCheck(doc):
+    modelLst = []
+    line = ['Shared Point']
+# Survey Point
+    survey = []
+    base = []
+    outProjBasePt = []
+    outProjSurvPt = []
+    outProjLoc = []
+    ft2mm = 304.8
+    coll = FilteredElementCollector(doc)
+    basePt = coll.OfClass(BasePoint).ToElements()
+    for e in basePt:
+        a = e.Category.Name
+        if a == "Project Base Point":
+            outProjBasePt.append('Project Base Point"')
+            pbpEW = e.LookupParameter("E/W")
+            pbpNS = e.LookupParameter("N/S")
+            pbpElev = e.LookupParameter("Elev")
+            pbpAngle = e.LookupParameter("Angle to True North")
+            outProjBasePt.append(str(round(pbpEW.AsDouble(), 6)))
+            outProjBasePt.append(str(round(pbpNS.AsDouble(), 6)))
+            outProjBasePt.append(str(round(pbpElev.AsDouble(), 6)))
+            outProjBasePt.append(str(round(pbpAngle.AsDouble() * 180 / math.pi, 6)))
+            outProjBasePt.append('N/A')
+            outProjBasePt.append('N/A')
+            outProjBasePt.append('N/A')
+        elif a == "Survey Point":
+            outProjSurvPt.append('Project Survey Point')
+            pspEW = e.LookupParameter("E/W")
+            pspNS = e.LookupParameter("N/S")
+            pspElev = e.LookupParameter("Elev")
+            outProjSurvPt.append(str(round(pspEW.AsDouble(), 6)))
+            outProjSurvPt.append(str(round(pspNS.AsDouble(), 6)))
+            outProjSurvPt.append(str(round(pspElev.AsDouble(), 6)))
+            outProjSurvPt.append('N/A')
+            outProjSurvPt.append('N/A')
+            outProjSurvPt.append('N/A')
+            outProjSurvPt.append('N/A')
+    projLoc = doc.ActiveProjectLocation
+    origin = XYZ(0.0, 0.0, 0.0)
+
+    projPos = projLoc.get_ProjectPosition(origin)
+    if projPos == None:
+        outProjLoc.append("No Project Position at origin point")
+    else:
+        outProjLoc.append(round(projPos.EastWest * ft2mm, 6))
+        outProjLoc.append(round(projPos.NorthSouth * ft2mm, 6))
+    modelLst.append(outProjBasePt)
+    modelLst.append(outProjSurvPt)
+# Shared Point
+    shared = ()
+    SharedPoint = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Site).ToElements()
+    for i in SharedPoint:
+        try:
+            if 'Shared' in i.Name:
+                shared = i
+        except:
+            pass
+    try:
+        location = LocationShift(doc,shared.Location.Point)
+        line.append(str(location.X))
+        line.append(str(location.Y))
+        line.append(str(location.Z))
+        line.append('N/A')
+        if shared.Pinned == True:
+            line.append('Pinned')
+        else:
+            line.append('Not Pinned')
+        discipline = shared.LookupParameter('Discipline').AsString()
+        line.append(discipline)
+        workset = shared.LookupParameter('Workset').AsValueString()
+        line.append(workset)
+    except:
+        line.append('Error')
+        line.append('Error')
+        line.append('Error')
+        line.append('N/A')
+        line.append('Error')
+        line.append('Error')
+        line.append('Error')
+    modelLst.append(line)
+    return modelLst
+
+def LocationShift(doc, point):
+    cPoint = point
+    basePt = doc.ActiveProjectLocation.GetProjectPosition(XYZ(0, 0, 0))
+    ew = basePt.EastWest
+    ns = basePt.NorthSouth
+    ele = basePt.Elevation
+    angle = basePt.Angle
+    basexyz = [ew, ns, ele, angle]
+
+    rotationTransform = Transform.CreateRotation(XYZ.BasisZ, angle)
+    translationVector = XYZ(ew, ns, ele)
+    translationTransform = Transform.CreateTranslation(translationVector)
+    finalTransform = translationTransform.Multiply(rotationTransform)
+
+    aPoint = Transform.CreateRotation(XYZ.BasisZ, angle).OfPoint(XYZ(cPoint.X, cPoint.Y, cPoint.Z))
+    bPoint = XYZ(aPoint.X + ew, aPoint.Y + ns, aPoint.Z + ele)
+    return(bPoint)
+
+def CateinWorksetCheck(doc):
+    modelLst = []
+    allModel = FilteredElementCollector(doc) \
+        .WhereElementIsNotElementType() \
+        .ToElements()
+
+    allLst = []
+    for instance in allModel:
+        cate = instance.Category
+        if str(cate) != 'None':
+            a = str(cate.Name)
+            if instance.GetType() != AnnotationSymbol and str(cate.CategoryType) == 'Model' and \
+                    str(cate.Name) != 'Detail Items' and cate.AllowsBoundParameters == True and a != 'Sheets' \
+                    and a != 'Materials' and a != 'RVT Links' and a != 'Areas' and a != 'Project Information':
+
+                workset = instance.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).AsValueString()
+                combine = str(cate.Name) + ' : ' + str(workset)
+                if not combine in allLst:
+                    allLst.append(combine)
+    for i in allLst:
+        a = re.split(' : ', i)
+        modelLst.append(a)
     return modelLst

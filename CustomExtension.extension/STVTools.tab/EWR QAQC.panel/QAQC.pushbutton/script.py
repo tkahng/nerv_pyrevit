@@ -1,5 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
+import re
 import clr
 import csv
 import os
@@ -48,7 +49,6 @@ def OpenFiles(oFile, app, audit):
         DialogBoxShowingEventArgs.OverrideResult(1)
     except:
         pass
-    print(str(doc) +' Opened')
     return currentdoc
 
 
@@ -67,21 +67,15 @@ if len(collectorFiles) > 0:
     t.Start()
     for aDoc in collectorFiles:
         openedDoc = OpenFiles(aDoc, application, audit = False)
+        print(str(openedDoc.Title) + ' Opened')
         workshareOp = WorksharingSaveAsOptions()
         # Define the name and location of excel file
-        fileName = destinationFolder +'\\' + openedDoc.Title + '.xlsx'
+        rawTitle = re.split('detached', openedDoc.Title)[0]
+        title = rawTitle[0:len(rawTitle) -1]
+        fileName = destinationFolder +'\\' + title + '.xlsx'
         # Define and Open Excel File
         excelFile = EwrQcUtils.ExcelOpener(fileName)
-        # TODO: Create Text Tab
-        # TODO: Titleblock Tab
-        # TODO: Survey Point Tab
-        # TODO: BasePoint Tab
-        # TODO: Site Shared Point Tab
-        # TODO: Categories in Workset Tab
-        # TODO: Family Tab
-        # TODO: Workset Tab
-        # TODO: Links Tab
-        # TODO: Sheetstab, Viewstab
+
         collectorDim = EwrQcUtils.DimensionsCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'DIMENSIONS', 1, 0, collectorDim)
         collectorSettings = EwrQcUtils.SettingsCheck(openedDoc)
@@ -94,9 +88,14 @@ if len(collectorFiles) > 0:
         EwrQcUtils.ExcelWriter(excelFile, 'LINKS', 1, 0, collectorLink)
         collectorTitleBlock = EwrQcUtils.TitleBlockCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'TITLE BLOCK', 1, 0, collectorTitleBlock)
-
-
-        '''
+        collectorSheet = EwrQcUtils.SheetsCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'SHEETS', 1, 0, collectorSheet)
+        collectorText = EwrQcUtils.TextCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'TEXT', 1, 0, collectorText)
+        collectorPosition = EwrQcUtils.PositionCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'PROJECT INFO', 1, 0, collectorPosition)
+        collectorCateinWorkset = EwrQcUtils.CateinWorksetCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile, 'CATEGORIES IN WORKSETS', 1, 0, collectorCateinWorkset)
         collectorLevels = EwrQcUtils.LevelCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'LEVEL', 1, 0, collectorLevels)
         collectorSheetElements = EwrQcUtils.SheetElementCheck(openedDoc)
@@ -109,7 +108,9 @@ if len(collectorFiles) > 0:
         EwrQcUtils.ExcelWriter(excelFile, 'ANNOTATION SYMBOLS', 1, 0, collectorAnnotationSymbol)
         collectorCADImports = EwrQcUtils. CadImportsCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'CAD LINKS AND IMPORTS', 1, 0, collectorCADImports)
-        '''
+        collectorWorkset = EwrQcUtils.WorksetCheck(openedDoc)
+        EwrQcUtils.ExcelWriter(excelFile,'WORKSETS', 1, 0, collectorWorkset)
+
         # Close Excel and Revit File
         excelFile.close()
         openedDoc.Close(False)
