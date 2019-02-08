@@ -268,7 +268,7 @@ def LinkCheck(doc):
             line.append('Not Pinned')
         line.append(str(attachmentType))
         modelLst.append(line)
-        count +=1
+        count += 1
     return modelLst
 
 def TitleBlockCheck(doc):
@@ -431,7 +431,6 @@ def CateinWorksetCheck(doc):
     allModel = FilteredElementCollector(doc) \
         .WhereElementIsNotElementType() \
         .ToElements()
-
     allLst = []
     for instance in allModel:
         cate = instance.Category

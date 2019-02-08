@@ -32,7 +32,8 @@ def AddPrefixtoAnnotation(doc):
         family_dict = {}
         for i in annotation:
             cate = i.Category.Name
-            if cate == 'Generic Annotations' or 'Symbol' in cate or 'Tag' in cate or 'Annotation' in cate or 'Title' in cate:
+            if cate == 'Generic Annotations' or 'Symbol' in cate or 'Tag' in cate or 'Annotation' in cate \
+                    or 'Title' in cate or 'Mark' in cate or 'Head' in cate:
                 if str(i.Family.Name)[0:len(prefix)] != prefix and not i.Family in family:
                     familyName.append(i.Family.Name)
                     family.append(i.Family)
@@ -46,16 +47,40 @@ def AddPrefixtoAnnotation(doc):
                 name = family_dict[f].Name
                 if name[0:len(prefix)] != prefix:
                     if not prefix + name in changed_name:
-                        family_dict[f].Name = prefix + name
-                        changed_name.append(family_dict[f].Name)
+                        try:
+                            print('Changing {0} to {1}'.format(family_dict[f].Name, prefix + name))
+                            family_dict[f].Name = prefix + name
+                            changed_name.append(family_dict[f].Name)
+                        except:
+                            print('Changing {0} to {1} -1'.format(family_dict[f].Name, prefix + name))
+                            family_dict[f].Name = prefix + name + ' - 1'
+                            changed_name.append(family_dict[f].Name)
 
 def AddPrefixtoFilledRegion(doc):
-    levels = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
-    for i in levels:
+    regions = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
+    family = []
+    familyName = []
+    family_dict = {}
+    for i in regions:
+        name = i.LookupParameter("Type Name").AsString()
+        if str(name)[0:len(prefix)] != prefix:
+            familyName.append(name)
+            family.append(i)
+            for i in range(len(family)):
+                family_dict[familyName[i]] = family[i]
+    sel_family = forms.SelectFromList.show(familyName, button_name='Select Item you want to add prefix to',
+                                           multiselect=True)
+    for i in regions:
+        count = 1
         height = FeettoInch(i.Elevation)
         if not str(height) in i.Name:
-            print('Changing ' + i.Name + ' to ' + i.Name + ' ' + height)
-            i.Name = i.Name + ' ' + str(height)
+            try:
+                print('Changing ' + i.Name + ' to ' + i.Name + ' ' + height)
+                i.Name = i.Name + ' ' + str(height)
+            except:
+                print('Changing ' + i.Name + ' to ' + i.Name + ' ' + height + '-' + str(count))
+                i.Name = i.Name + ' ' + str(height)
+                count += 1
         else:
             print('Unable to change ' + i.Name)
 
@@ -75,8 +100,6 @@ application = uiapp.Application
 
 # Select Action Item
 actionList = ['Add PA - to Annotation Symbol',
-              'Delete Excess Line Styles',
-              'Add PA - to Line Styles',
               'Add PA - to Filled Region']
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
