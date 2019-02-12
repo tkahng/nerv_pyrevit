@@ -1,6 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
-import clr
+import clr,re,random
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
@@ -21,8 +21,7 @@ def SetFilledRegion(doc, sourceFilledRegion, DestinationFilledRegion):
     fills = FilteredElementCollector(doc).OfClass(FilledRegion).ToElements()
     for i in fills:
         if i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsElementId().ToString() == sourceFilledRegion:
-            i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM) = DestinationFilledRegion
-
+            i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).Set(DestinationFilledRegion)
             # print(sourceLineStyle.Name + ' is being changed to ' + DestinationLineStyle.Name)
 
 def CollectFilledRegionFromDoc(doc):
@@ -47,63 +46,97 @@ def DeleteExcessFilledRegions(doc, list):
             except:
                 print('Failed to Delete ' + name)
 
-def AddPrefixtoLines(doc):
-    Styles = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
+def ConsolidateRegion(doc):
+    styles = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
     _dict = {}
     paramList = []
-    out = []
+    ids = []
     # Unique Graphic Style Collector
-    for i in Styles:
-        lineColor = int(i.LineColor.Red + i.LineColor.Green + i.LineColor.Blue)
-        weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
-        pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
-        if pattern is None:
-            patternName = 'Solid'
-        else:
-            patternName = pattern.Name
-        # unique parameter of line weight + line pattern as a parameter indicator
-        uniqueParam = weight + patternName
-        if not uniqueParam in paramList and lineColor == 0:
-            if i.Name[0:len(prefix)] == prefix or i.Id.IntegerValue < 0:
-                # Create standard line style dictionary
-                line_dict[uniqueParam] = i
-                paramList.append(uniqueParam)
+    for i in styles:
+        patternId = i.FillPatternId
+        lineWeight = i.LineWeight
+        back = i.Background
+        color = str(i.Color.Red) +str(i.Color.Green) + str(i.Color.Blue)
+        name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+        id = i.Id
+        unique_param = str(patternId.IntegerValue) + str(lineWeight) + str(back) + color
+        if not unique_param in paramList:
+            paramList.append(unique_param)
+            ids.append(id)
+            _dict[str(unique_param)] = id
 
     # Non-Standard Line Changer
-    for i in lineStyles:
-        if not i.Name[0:len(prefix)] == prefix and not i.Id.IntegerValue < 0:
-            weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
-            pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
-            if pattern is None:
-                patternName = 'Solid'
-            else:
-                patternName = pattern.Name
-            uniqueParam = weight + patternName
-            # Try changing it to an existing line style in dictionary
-            try:
-                SetLineStyle(doc, i, line_dict[uniqueParam])
-                print('Changed ' + i.Name + ' to ' + line_dict[uniqueParam].Name)
-                doc.Delete(i.Id)
-            # Create a new, properly named Line Style
-            except:
-                categories = doc.Settings.Categories
-                lineCat = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines)
-                newName = prefix + 'Pen # ' + str(weight) + ' ' + str(patternName)
-                newLineStyleCat = categories.NewSubcategory(lineCat, newName)
-                doc.Regenerate()
-                newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)
-                newLineStyleCat.LineColor = Color(0x00, 0x00, 0x00);
-                try:
-                    newLineStyleCat.SetLinePatternId(pattern.Id, GraphicsStyleType.Projection)
-                except:
-                    pass
-                # Add new Line style to dictionary
-                line_dict[uniqueParam] = newLineStyleCat
-                print('Renamed ' + i.Name + ' to ' '\'' +
-                      newName + '\'')
-                SetLineStyle(doc, i, newLineStyleCat)
-                doc.Delete(i.Id)
+    instances = FilteredElementCollector(doc).OfClass(FilledRegion).ToElements()
+    for i in instances:
+        name = i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsElementId()
+        filledType = doc.GetElement(name)
+        try:
+            patternName = filledType.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+        except:
+            patternName = ''
+        try:
+            uniqueParam = str(filledType.FillPatternId.IntegerValue) + str(filledType.LineWeight) + \
+                          str(filledType.Background) + str(filledType.Color.Red) + str(filledType.Color.Green) + \
+                          str(filledType.Color.Blue)
+        except:
+            uniqueParam = 0
+        if uniqueParam in paramList and not name in ids and patternName[0:len(prefix)] != prefix:
+            i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).Set(_dict[str(uniqueParam)])
+            print(filledType.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString() + 'changed to ' +
+                  doc.GetElement(_dict[str(uniqueParam)]).get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
 
+def AddPAtoRegion(doc):
+    styles = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
+    names = []
+    dict ={}
+    for i in styles:
+        names.append(i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
+    for i in styles:
+        name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+        if name[0:len(prefix)] != prefix and not '.dwg' in name and i.Id.IntegerValue > 0:
+            destination = i.Duplicate(prefix + name)
+            SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
+            doc.Delete(i.Id)
+            print('Renamed ' + name + ' to ' + prefix + name)
+            names.append(prefix + name)
+        elif '.dwg' in name:
+            try:
+                try:
+                    patternIdName = str(doc.GetElement(i.FillPatternId).Name).replace('.dwg', ' ')
+                except:
+                    patternIdName = str(doc.GetElement(i.FillPatternId).Name)
+            except:
+                patternIdName ='Pattern'
+            proposedName = prefix + patternIdName + ' ' + str(i.Background)
+            num = 0
+            nameIteration = proposedName + ' - ' + str(num)
+            while num < 999:
+                if not proposedName in names:
+                    destination = i.Duplicate(proposedName)
+                    names.append(proposedName)
+                    break
+                elif not nameIteration in names:
+                    destination = i.Duplicate(nameIteration)
+                    names.append(nameIteration)
+                    break
+                else:
+                    num += 1
+                    nameIteration = proposedName + ' - ' + str(num)
+                    continue
+            '''
+            try:
+                try:
+                    destination = i.Duplicate(proposedName)
+                except:
+                    destination = i.Duplicate(proposedName + ' - 1')
+            except:
+                destination = i.Duplicate(proposedName + '#' + str(i.FillPatternId.IntegerValue) + ' ' 
+                + str(i.LineWeight) +str(random.randrange(999)))
+            '''
+            SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
+            doc.Delete(i.Id)
+            print('Renamed ' + name + ' to ' + destination.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
+            names.append(proposedName)
 
 # Main
 uidoc = __revit__.ActiveUIDocument
@@ -133,7 +166,9 @@ else:
         DeleteExcessFilledRegions(doc, list)
     if 'Add PA - to Filled Regions' in sel_action:
         list = CollectFilledRegionFromDoc(doc)
-        AddPrefixtoLines(doc)
+        ConsolidateRegion(doc)
+        DeleteExcessFilledRegions(doc, list)
+        AddPAtoRegion(doc)
     else:
         pass
 t.Commit()

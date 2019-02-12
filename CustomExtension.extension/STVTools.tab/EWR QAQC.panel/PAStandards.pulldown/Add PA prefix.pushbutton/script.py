@@ -99,8 +99,7 @@ application = uiapp.Application
 
 
 # Select Action Item
-actionList = ['Add PA - to Annotation Symbol',
-              'Add PA - to Filled Region']
+actionList = ['Add PA - to Annotation Symbol']
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
 # Transaction Start
