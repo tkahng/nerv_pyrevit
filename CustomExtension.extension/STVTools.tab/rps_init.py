@@ -3,14 +3,12 @@ from Autodesk.Revit.DB.Architecture import *
 from Autodesk.Revit.DB.Analysis import *
 from Autodesk.Revit.UI import *
 
-
 import clr
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 
 import System.Windows
-
 
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
