@@ -91,7 +91,7 @@ if len(collectorFiles) > 0:
         collectorSheet = EwrQcUtils.SheetsCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'SHEETS', 1, 0, collectorSheet)
         collectorText = EwrQcUtils.TextCheck(openedDoc)
-        EwrQcUtils.ExcelWriter(excelFile, 'TEXT', 1, 0, collectorText)
+        EwrQcUtils.ExcelWriter(excelFile, 'TEXT STYLE', 1, 0, collectorText)
         collectorPosition = EwrQcUtils.PositionCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'PROJECT INFO', 1, 0, collectorPosition)
         collectorCateinWorkset = EwrQcUtils.CateinWorksetCheck(openedDoc)
@@ -101,7 +101,7 @@ if len(collectorFiles) > 0:
         collectorSheetElements = EwrQcUtils.SheetElementCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'SHEET ELEMENT', 1, 0, collectorSheetElements)
         collectorLines = EwrQcUtils.LineCheck(openedDoc)
-        EwrQcUtils.ExcelWriter(excelFile, 'LINES', 1, 0, collectorLines)
+        EwrQcUtils.ExcelWriter(excelFile, 'LINE', 1, 0, collectorLines)
         collectorFilledRegion = EwrQcUtils.FilledRegionCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'FILLED REGIONS', 1, 0, collectorFilledRegion)
         collectorAnnotationSymbol = EwrQcUtils. AnnotationSymbolCheck(openedDoc)
@@ -110,7 +110,8 @@ if len(collectorFiles) > 0:
         EwrQcUtils.ExcelWriter(excelFile, 'CAD LINKS AND IMPORTS', 1, 0, collectorCADImports)
         collectorWorkset = EwrQcUtils.WorksetCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile,'WORKSETS', 1, 0, collectorWorkset)
-
+        blank =[]
+        EwrQcUtils.ExcelWriter(excelFile, 'INTRO', 1, 0, blank)
         # Close Excel and Revit File
         excelFile.close()
         openedDoc.Close(False)

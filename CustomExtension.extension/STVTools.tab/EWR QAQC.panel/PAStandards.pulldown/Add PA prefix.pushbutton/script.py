@@ -6,7 +6,7 @@ clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
-    CurveElement, Color
+    CurveElement, Color, DimensionType, BuiltInParameter, Dimension
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
@@ -16,14 +16,20 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
 # Collect Save location and Rvt Files
 prefix  = 'PA - '
-'''
+
+def SetDimensionStyle(doc, source, destination):
+    elements = FilteredElementCollector(doc).OfClass(Dimension).ToElements()
+    for i in elements:
+        if i.LookupParameter('Type').AsValueString() == source:
+            i.LookupParameter('Type').Set(destination.Id)
+
 def SplitString(name):
     pieces = re.split(name)
-    if '.dwg' is in name:
+    if '.dwg' in name:
         
-    if len(pieces) >= 2:
-        out = pieces[len(pieces)]
-'''
+        if len(pieces) >= 2:
+            out = pieces[len(pieces)]
+
 
 def AddPrefixtoAnnotation(doc):
         annotation = FilteredElementCollector(doc).OfClass(FamilySymbol)
@@ -56,38 +62,21 @@ def AddPrefixtoAnnotation(doc):
                             family_dict[f].Name = prefix + name + ' - 1'
                             changed_name.append(family_dict[f].Name)
 
-def AddPrefixtoFilledRegion(doc):
-    regions = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
-    family = []
-    familyName = []
-    family_dict = {}
-    for i in regions:
-        name = i.LookupParameter("Type Name").AsString()
-        if str(name)[0:len(prefix)] != prefix:
-            familyName.append(name)
-            family.append(i)
-            for i in range(len(family)):
-                family_dict[familyName[i]] = family[i]
-    sel_family = forms.SelectFromList.show(familyName, button_name='Select Item you want to add prefix to',
-                                           multiselect=True)
-    for i in regions:
-        count = 1
-        height = FeettoInch(i.Elevation)
-        if not str(height) in i.Name:
-            try:
-                print('Changing ' + i.Name + ' to ' + i.Name + ' ' + height)
-                i.Name = i.Name + ' ' + str(height)
-            except:
-                print('Changing ' + i.Name + ' to ' + i.Name + ' ' + height + '-' + str(count))
-                i.Name = i.Name + ' ' + str(height)
-                count += 1
-        else:
-            print('Unable to change ' + i.Name)
-
 
 # TODO Fix this Function
-def AddPrefixtoTextStyle(doc):
-    pass
+def AddPrefixtoDimension(doc):
+    dimension = FilteredElementCollector(doc).OfClass(DimensionType).ToElements()
+    for i in dimension:
+        name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+        if i.Id.IntegerValue > 0 and name[0:len(prefix)] != prefix and str(name) != '':
+            proposedName = prefix + name
+            print(proposedName, i.Id.IntegerValue)
+            destination = i.Duplicate(prefix + name)
+            SetDimensionStyle(doc, name, destination)
+            doc.Delete(i.Id)
+            print('Renamed ' + name + ' to ' + proposedName)
+
+
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -99,7 +88,8 @@ application = uiapp.Application
 
 
 # Select Action Item
-actionList = ['Add PA - to Annotation Symbol']
+actionList = ['Add PA - to Annotation Symbol',
+              'Add PA - to Dimension Symbol']
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
 # Transaction Start
@@ -112,8 +102,8 @@ if sel_action == None:
 else:
     if 'Add PA - to Annotation Symbol' in sel_action:
         AddPrefixtoAnnotation(doc)
-    if 'Add PA - to Filled Region' in sel_action:
-        AddPrefixtoFilledRegion(doc)
+    if 'Add PA - to Dimension Symbol' in sel_action:
+        AddPrefixtoDimension(doc)
     else:
         pass
 t.Commit()

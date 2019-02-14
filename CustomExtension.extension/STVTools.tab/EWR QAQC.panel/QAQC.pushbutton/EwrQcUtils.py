@@ -37,18 +37,19 @@ def LineCheck(doc):
     lines = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
     out = []
     for i in lines:
-        lineStyle = []
-        lineStyle.append(i.Name)
-        lineStyle.append(i.LineColor.Red)
-        lineStyle.append(i.LineColor.Green)
-        lineStyle.append(i.LineColor.Blue)
-        lineStyle.append(i.GetLineWeight(GraphicsStyleType.Projection))
-        pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
-        if pattern is None:
-            lineStyle.append('Solid')
-        else:
-            lineStyle.append(pattern.Name)
-        out.append(lineStyle)
+        if i.Id.IntegerValue > 0:
+            lineStyle = []
+            lineStyle.append(i.Name)
+            lineStyle.append(i.LineColor.Red)
+            lineStyle.append(i.LineColor.Green)
+            lineStyle.append(i.LineColor.Blue)
+            lineStyle.append(i.GetLineWeight(GraphicsStyleType.Projection))
+            pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
+            if pattern is None:
+                lineStyle.append('Solid')
+            else:
+                lineStyle.append(pattern.Name)
+            out.append(lineStyle)
     return out
 
 def LevelCheck(doc):
