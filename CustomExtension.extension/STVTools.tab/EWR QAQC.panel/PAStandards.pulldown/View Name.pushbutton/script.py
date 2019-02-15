@@ -1,11 +1,11 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
-import clr,re,random
+import clr,re
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
-     Color, BuiltInParameter, View
+     Color, BuiltInParameter, View, Viewport
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
@@ -31,143 +31,83 @@ dict = {'FloorPlan': 'FP',
 excemption = ['DrawingSheet', 'Undefined', 'DrawingSheet', 'ProjectBrowser', 'Report','SystemBrowser', 'CostReport',
               'LoadsReport', 'PresureLossReport', 'ColumnSchedule', 'PanelSchedule', 'Walkthrough', 'Rendering',
               'Internal']
+prefixList = ['3D', 'AP', 'BS', 'CP', 'CS', 'DL', 'DR', 'DS', 'DV', 'EE', 'EP', 'ES', 'FE', 'FP', 'IE', 'KL', 'LG',
+               'LP', 'MT', 'NB', 'NO', 'ON', 'QP', 'RD', 'RO', 'RP', 'SC', 'SL', 'SP', 'SQ','VL', 'WT',
+              'FU', 'SP',
+              'AC', 'AX', 'CM', 'CO', 'FA', 'GP', 'LI', 'LT', 'NS', 'PA', 'PP', 'RS', 'SS', 'TC', 'WD',
+              'CC', 'CD', 'CN','FP', 'FS', 'HP', 'MD', 'MH', 'PI', 'PL', 'SI', 'SK',
+              'CF', 'DP', 'FD', 'FR', 'GC', 'L', 'PP', 'RE', 'SF', 'ST', 'TB', 'WG', 'XB']
+def UniqueName(proposedName, namesList):
+    num = 1
+    nameIteration = proposedName + ' ' + str(num)
+    while num < 999:
+        if not proposedName in namesList:
+            return proposedName
+            break
+        elif not nameIteration in namesList:
+            return nameIteration
+            break
+        else:
+            num += 1
+            nameIteration = proposedName + ' ' + str(num)
+            continue
 
-def SetTextStyle(doc, source, destination):
-    elements = FilteredElementCollector(doc).OfClass(TextNote).ToElements()
-    for i in elements:
-        if i.LookupParameter('Type').AsValueString() == source:
-            i.TextNoteType = destination
-            # print(sourceLineStyle.Name + ' is being changed to ' + DestinationLineStyle.Name)
-
-def CollectTextNoteFromDoc(doc):
-    elements= FilteredElementCollector(doc).OfClass(View).ToElements()
-    # print(len(lines))
-    collector = []
-    for i in elements:
-        name = i.ViewType
-        if not name in collector:
-            collector.append(name)
-    return collector
-
-def DeleteExcessFromDoc(doc, list):
-    elements = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
-    for i in elements:
-        name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
-        if not name in list and name[0] != '<' and name[0:len(prefix)] != prefix and i.Id.IntegerValue > 0:
-            try:
-                print('Deleting Text Style ' + name)
-                doc.Delete(i.Id)
-            except:
-                print('Failed to Delete ' + name)
-
-def ConsolidateRegion(doc):
-    styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
-    _dict = {}
-    paramList = []
+def RenameViews(doc, dict, excempt):
+    views = FilteredElementCollector(doc).OfClass(View).ToElements()
     names = []
-    # Unique Graphic Style Collector
-    for i in styles:
-        offset = i.LookupParameter('Leader/Border Offset').AsDouble()
-        border = i.LookupParameter('Show Border').AsValueString()
-        font = i.LookupParameter('Text Font').AsString()
-        size = i.LookupParameter('Text Size').AsDouble()
-        width = i.LookupParameter('Width Factor').AsDouble()
-        lineWeight = i.LookupParameter('Line Weight').AsInteger()
-        back = i.LookupParameter('Background').AsValueString()
-        color = i.LookupParameter('Color').AsInteger()
-        bold = i.LookupParameter('Bold').AsInteger()
-        italic = i.LookupParameter('Italic').AsInteger()
-        underline = i.LookupParameter('Underline').AsInteger()
-        try:
-            arrow = i.LookupParameter('Leader Arrowhead').AsElementId().IntegerValue
-        except:
-            arrow = 0
-        name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
-        unique_param = str(offset) + str(border) + str(font) + str(size) + str(width) + str(lineWeight) + \
-                       str(back) + str(color) + str(bold) + str(italic) + str(underline) + str(arrow)
-
-        if not unique_param in paramList:
-            paramList.append(unique_param)
-            names.append(name)
-            _dict[str(unique_param)] = name
-
-    # Non-Standard Line Changer
-    instances = FilteredElementCollector(doc).OfClass(TextNote).ToElements()
-    for i in instances:
-        name = i.LookupParameter('Type').AsValueString()
-        type = i.TextNoteType
-        try:
-            typeName = type.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
-        except:
-            typeName = ''
-        offset = type.LookupParameter('Leader/Border Offset').AsDouble()
-        border = type.LookupParameter('Show Border').AsValueString()
-        font = type.LookupParameter('Text Font').AsString()
-        size = type.LookupParameter('Text Size').AsDouble()
-        width = type.LookupParameter('Width Factor').AsDouble()
-        lineWeight = type.LookupParameter('Line Weight').AsInteger()
-        back = type.LookupParameter('Background').AsValueString()
-        color = type.LookupParameter('Color').AsInteger()
-        bold = type.LookupParameter('Bold').AsInteger()
-        italic = type.LookupParameter('Italic').AsInteger()
-        underline = type.LookupParameter('Underline').AsInteger()
-        try:
-            arrow = i.LookupParameter('Leader Arrowhead').AsElementId().IntegerValue
-        except:
-            arrow = 0
-        try:
-            uniqueParam = str(offset) + str(border) + str(font) + str(size) + str(width) + str(lineWeight) + \
-                       str(back) + str(color) + str(bold) + str(italic) +str (underline) + str(arrow)
-        except:
-            uniqueParam = 0
-        if uniqueParam in paramList and not name in names and typeName[0:len(prefix)] != prefix:
-            i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).Set(_dict[str(uniqueParam)])
-            print(name + 'changed to ' + _dict[str(uniqueParam)])
-
-def Translator(element, text1, text2):
-    if element == 0:
-        return text1
-    else:
-        return text2
-
-def FeettoInch(number):
-    inch = (number) * 12 * 10
-    inchInt = inch
-    result = str(inchInt) + '\"' +'/10\"'
-    return result
-
-def AddPAtoText(doc):
-    styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
-    names = []
-    dict ={}
-    for i in styles:
-        names.append(i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
-    for i in styles:
-        name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
-        if name[0:len(prefix)] != prefix and i.Id.IntegerValue > 0:
+    for i in views:
+        name = i.ViewName
+        names.append(str(name))
+    viewRegex = re.compile(r'^\w\w-\S\S-(.*)')
+    viewRegex03 = re.compile(r'^\w\w-(.*)')
+    for i in views:
+        name = i.ViewName
+        type = i.ViewType
+        if viewRegex.findall(name) == [] and viewRegex03.findall(name) == []:
             try:
-                proposedName = prefix + 'TEXT '+ FeettoInch(i.LookupParameter('Text Size').AsDouble()) + ' '+ \
-                               i.LookupParameter('Background').AsValueString() + \
-                               Translator(i.LookupParameter('Bold').AsInteger(),'', 'Bold') + ' ' + \
-                               Translator(i.LookupParameter('Italic').AsInteger(),'', 'Italic') + ' '+ \
-                               Translator(i.LookupParameter('Underline').AsInteger(), '', 'Underline') + ' ' + \
-                               doc.GetElement(i.LookupParameter('Leader Arrowhead').AsElementId()).get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
-                destination = i.Duplicate(proposedName)
-                SetTextStyle(doc, name, destination)
-                doc.Delete(i.Id)
-                print('Renamed ' + name + ' to ' + proposedName)
-                names.append(proposedName)
+                if len(re.split('-', name)) <= 2 and not str(type) in excempt and not 'Revision Schedule' in str(name):
+                    proposedName = UniqueName(dict[str(type)] + '-' + str(name), names)
+                    names.append(proposedName)
+                    i.ViewName = proposedName
+                    print(name + ' Changed to ' + proposedName)
+                if len(re.split('-', name)) > 2 and not str(type) in excempt and not 'Revision Schedule' in str(name):
+                    first = re.split('-', name)[0]
+                    proposedName = UniqueName(dict[str(type)] + str(name)[len(first):],names)
+                    names.append(proposedName)
+                    i.ViewName = proposedName
+                    print(name + ' Changed to ' + proposedName)
             except:
-                proposedName = prefix + 'TEXT '+ name
-                destination = i.Duplicate(proposedName)
-                SetTextStyle(doc, name, destination)
-                doc.Delete(i.Id)
-                print('Renamed ' + name + ' to ' + proposedName)
-                names.append(proposedName)
-def SetAllTextNotetoArial(doc):
-    styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
-    for i in styles:
-        i.LookupParameter('Text Font').Set('Arial')
+                print('Failed ' + name)
+
+def FillPAViewClasshification(doc):
+    sheetViewIds = []
+    viewports = FilteredElementCollector(doc).OfClass(Viewport).ToElements()
+    for i in viewports:
+        sheetViewIds.append(str(i.ViewId.IntegerValue))
+    views = FilteredElementCollector(doc).OfClass(View).ToElements()
+    for i in views:
+        name = i.ViewName
+        id = str(i.Id.IntegerValue)
+        if id in sheetViewIds:
+            try:
+                viewClassification = i.LookupParameter('PA - View Classification').AsString()
+                if not viewClassification:
+                    i.LookupParameter('PA - View Classification').Set('Design Views')
+                    print(name + ' View Classification changed to Design Views')
+            except:
+                print('PA - View Classification not found')
+                # break
+        else:
+            try:
+                viewClassification = i.LookupParameter('PA - View Classification').AsString()
+                if not viewClassification:
+                    i.LookupParameter('PA - View Classification').Set('Working Views')
+                    print(name + ' View Classification changed to Working Views')
+            except:
+                print('PA - View Classification not found')
+                # break
+
+
 
 # Main
 uidoc = __revit__.ActiveUIDocument
@@ -179,9 +119,8 @@ uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
 # Select Action Item
-actionList = ['Delete Excess Text Styles',
-              'Set all text note to Arial',
-              'Add PA - to Text Styles',
+actionList = ['Rename Views',
+              'Fill PA - View Classification',
               ]
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
@@ -194,16 +133,10 @@ if sel_action == None:
                 yes=False,
                 no=False, retry=False, warn_icon=True, options=None, exitscript=False)
 else:
-    if 'Delete Excess Text Styles' in sel_action:
-        list = CollectTextNoteFromDoc(doc)
-        DeleteExcessFromDoc(doc, list)
-    if 'Set all text note to Arial' in sel_action:
-        SetAllTextNotetoArial(doc)
-    if 'Add PA - to Text Styles' in sel_action:
-        list = CollectTextNoteFromDoc(doc)
-        ConsolidateRegion(doc)
-        DeleteExcessFromDoc(doc, list)
-        AddPAtoText(doc)
+    if 'Rename Views' in sel_action:
+        RenameViews(doc, dict, excemption)
+    if 'Fill PA - View Classification' in sel_action:
+        FillPAViewClasshification(doc)
     else:
         pass
 t.Commit()
