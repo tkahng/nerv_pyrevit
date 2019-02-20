@@ -5,7 +5,7 @@ clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
-     Color, BuiltInParameter, View, Viewport
+     Color, BuiltInParameter, View, Viewport, ViewSheet
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
@@ -37,6 +37,7 @@ prefixList = ['3D', 'AP', 'BS', 'CP', 'CS', 'DL', 'DR', 'DS', 'DV', 'EE', 'EP', 
               'AC', 'AX', 'CM', 'CO', 'FA', 'GP', 'LI', 'LT', 'NS', 'PA', 'PP', 'RS', 'SS', 'TC', 'WD',
               'CC', 'CD', 'CN','FP', 'FS', 'HP', 'MD', 'MH', 'PI', 'PL', 'SI', 'SK',
               'CF', 'DP', 'FD', 'FR', 'GC', 'L', 'PP', 'RE', 'SF', 'ST', 'TB', 'WG', 'XB']
+
 def UniqueName(proposedName, namesList):
     num = 1
     nameIteration = proposedName + ' ' + str(num)
@@ -107,8 +108,6 @@ def FillPAViewClasshification(doc):
                 print('PA - View Classification not found')
                 # break
 
-
-
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -120,8 +119,7 @@ application = uiapp.Application
 
 # Select Action Item
 actionList = ['Rename Views',
-              'Fill PA - View Classification',
-              ]
+              'Fill PA - View Classification']
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
 # Transaction Start
