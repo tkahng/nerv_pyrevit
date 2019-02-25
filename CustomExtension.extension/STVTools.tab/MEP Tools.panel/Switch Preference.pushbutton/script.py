@@ -40,7 +40,7 @@ def ChangePreferenceTee(pipeType):
         if i.Family.FamilyCategory.Name == 'Pipe Fittings':
             if not i in fittings:
                 fittings.append(i)
-    for i in fittings:
+    for i in fittings: 
         print(i.Family.Name + ' ' + i.LookupParameter('Type Name').AsString())
     # sel_pipe = forms.SelectFromList.show(fittings, button_name='Select Item',
                                                  # multiselect=True)
