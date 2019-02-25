@@ -30,6 +30,8 @@ def Pickname(tailName, noTailName):
     return newfilename
 
 clashFiles = forms.pick_file(file_ext='html', multi_file=True, init_dir=clashpath, unc_paths=False)
+print(clashFiles)
+
 folderName = str(forms.GetValueWindow.show(None,
         value_type='string',
         default=str(date.today()),

@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 from pyrevit.framework import List
 from pyrevit import revit, DB
-import clr, pprint,os
+import clr
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
@@ -35,12 +36,16 @@ if revit.doc.IsWorkshared:
     warningRange = 0
 
     for i in warnings:
-        categories = i.GetDescriptionText()
+        # decode utf-8 to ascii
+        text = i.GetDescriptionText().decode().encode('utf-8')
+        udata = text.decode("utf-8")
+        categories = udata.encode("ascii", "ignore")
         if not categories in cate:
             cate.append(categories)
 # Select Warnings you want to print
-    sel_warning = forms.SelectFromList.show(cate, button_name='Select Item',
-                                            multiselect=True)
+    sel_warning = forms.SelectFromList.show(cate,
+                                            multiselect=True,
+                                            button_name='Select Item')
 
 
 # Printing selected warnings
