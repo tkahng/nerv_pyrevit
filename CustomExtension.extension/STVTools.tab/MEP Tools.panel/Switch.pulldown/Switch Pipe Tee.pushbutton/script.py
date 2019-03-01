@@ -21,7 +21,6 @@ __doc__ = 'Switch Elbow Preference of selected Pipe'\
           'You can either select the pipe you want to switch ' \
           'or pick from list'
 def CheckSelection(doc):
-    sel = ()
     selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 

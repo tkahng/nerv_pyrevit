@@ -2,7 +2,6 @@ from pyrevit.framework import List
 from pyrevit import revit, DB, forms
 import re
 import clr
-import csv
 import os
 import EwrQcUtils
 import xlsxwriter
