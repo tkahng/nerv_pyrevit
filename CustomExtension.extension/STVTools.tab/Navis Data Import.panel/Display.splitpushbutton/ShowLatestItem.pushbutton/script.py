@@ -64,6 +64,11 @@ name = PAFileNameProcessor(doc)
 print(name)
 content = openedFile.readlines()
 content.reverse()
+i = []
+for c in content:
+    portions = re.split(";", c)
+    itemDate = portions[0]
+    itemTime = portions[1]
 i = content[0]
 portions = re.split(";", i)
 itemDate = portions[0]
@@ -82,3 +87,6 @@ if name == model[0:len(model) - 1]:
     print(itemTime + '      ' + currentid + '      ' + comment)
 else:
     print('Latest Item is not in your model')
+# TODO: Show Latest Time Stamp
+# TODO: Group based on time Stamp
+# TODO:Skip print just select and zoom

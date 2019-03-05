@@ -54,7 +54,7 @@ uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
 # Transaction
-actionList = ['Add Discipline code to Level', 'Add Height to Level']
+actionList = ['Add Discipline code to Level']
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item',
                                         multiselect=False)
 print(sel_action)
