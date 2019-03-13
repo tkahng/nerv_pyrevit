@@ -2,15 +2,23 @@ import clr, re, datetime
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
+
 from Autodesk.Revit.DB import FilteredElementCollector, Structure
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol,ElementId
 from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 from Autodesk.Revit.Creation import *
+
+import pyrevit
 from pyrevit import script, DB, revit
 from pyrevit import forms
-import pyrevit
+from pyrevit import coreutils
+from pyrevit.compat import safe_strtype
+from pyrevit import DB
+from pyrevit.output import linkmaker
+from pyrevit.coreutils.logger import get_logger
+
 import ConfigParser
 from os.path import expanduser
 clr. AddReferenceByPartialName('PresentationCore')
@@ -19,6 +27,8 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 outprint = script.get_output()
+
+
 def ConfigSectionMap(section):
     dict1 = {}
     options = Config.options(section)
@@ -31,14 +41,7 @@ def ConfigSectionMap(section):
             print("exception on %s!" % option)
             dict1[option] = None
     return dict1
-home = expanduser("~")
-cfgfile = open(home + "\\STVTools.ini")
-Config = ConfigParser.ConfigParser()
-Config.read(home + "\\STVTools.ini")
-filePath = ConfigSectionMap("NavisFilePath")["datapath"]
-print(filePath)
 
-openedFile = open(filePath)
 
 def PAFileNameProcessor(doc):
     fName = doc.Title
@@ -57,10 +60,32 @@ def PAFileNameProcessor(doc):
         else:
             name = fName[0: 20] + fileType
     return name
+
+# Open File
+home = expanduser("~")
+cfgfile = open(home + "\\STVTools.ini")
+Config = ConfigParser.ConfigParser()
+Config.read(home + "\\STVTools.ini")
+filePath = ConfigSectionMap("NavisFilePath")["datapath"]
+print(filePath)
+openedFile = open(filePath)
+
+# Program Start
 name = PAFileNameProcessor(doc)
 print(name)
 content = openedFile.readlines()
 content.reverse()
+groupIndi = []
+for i in content:
+    portions = re.split(";", i)
+    grouping = portions[6]
+    groupIndi.append(grouping)
+
+lastId = ()
+num = 1
+allId = []
+# print group separation line
+print('---------------------------------------')
 for i in content:
     portions = re.split(";", i)
     date = portions[0]
@@ -68,14 +93,41 @@ for i in content:
     rawId = portions[2]
     rawModel = portions[3]
     comment = portions[4]
+    username = portions[5]
+    grouping = portions[6]
     id = re.split(':', rawId)[2]
-    model = re.split(':',rawModel)[2]
+    model = re.split(':', rawModel)[2]
+    # print line info
     if name == model[0:len(model) - 1]:
+        if grouping != lastId:
+            if len(allId) > 1:
+                good = coreutils.prepare_html_str(linkmaker.make_link(allId, contents='GROUP SELECT'))
+                print('Select all ' + str(len(allId)) + ' elements   ' + good + ' Group ID: ' + str(grouping))
+                print('---------------------------------------')
+                # print ('GROUP ' + str(num) + '---------------------------------------')
+                num += 1
+                allId = []
+            else:
+                print('---------------------------------------')
+                allId = []
         element = doc.GetElement(ElementId(int(id[0:len(id)-1])))
         try:
             currentid = format(outprint.linkify(element.Id))
         except:
             currentid = id[0:len(id)-1]
-        print(date + '  ' + time + '      ' + currentid + '      ' + comment)
+        print(date + '  ' + time + '    ' + 'User: ' + username + '      ' + currentid  +'      ' + comment)
+        allId.append(element.Id)
+        lastId = grouping
     else:
         pass
+
+if len(allId) > 1:
+
+    good = coreutils.prepare_html_str(linkmaker.make_link(allId, contents='GROUP SELECT'))
+    print('Select all ' + str(len(allId)) + ' elements   ' + good + ' Group ID: ' + str(lastId))
+    print('---------------------------------------')
+    num += 1
+    allId = []
+else:
+    print('---------------------------------------')
+    allId = []

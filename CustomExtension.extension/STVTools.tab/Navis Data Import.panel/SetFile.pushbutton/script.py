@@ -30,7 +30,7 @@ cfgfile = open(home + "\\STVTools.ini",'w')
 Config = ConfigParser.ConfigParser()
 # add the settings to the structure of the file, and lets write it out...
 Config.add_section('NavisFilePath')
-Config.set('NavisFilePath','DataPath',filePath)
+Config.set('NavisFilePath', 'DataPath', filePath)
 Config.write(cfgfile)
 cfgfile.close()
 print("Data File Set to: " + filePath)

@@ -4,7 +4,7 @@
     <content url="file://$USER_HOME$/Documents/Revit 2018.2 SDK/Samples/AllViews/CS/bin/Debug">
       <sourceFolder url="file://$USER_HOME$/Documents/Revit 2018.2 SDK/Samples/AllViews/CS/bin/Debug" isTestSource="false" />
     </content>
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/CustomExtension.extension" />
     <orderEntry type="jdk" jdkName="Python 2.7 (untitled1)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="R Skeletons" level="application" />

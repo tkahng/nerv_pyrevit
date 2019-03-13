@@ -1,4 +1,4 @@
-import clr
+import clr,sys
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
@@ -34,7 +34,13 @@ def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
     # add the settings to the structure of the file, and lets write it out...
     Config.add_section('NavisFilePath')
     Config.set('NavisFilePath','DataPath',' ')
+
+    # Add master new system folder setting
+    Config.add_section('SysDir')
+    Config.set('SysDir', 'MasterPackage', r'\\Uspadgv1dcl01\NY BIM GROUP\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\packages\\')
+    Config.set('SysDir', 'SecondaryPackage', r'\\Uspadgv1dcl01\BIM - B&F\00 - BIM Resources\06_BIM Tools\04-pyRevit\STVTools\CustomExtension.extension\packages\\')
     Config.write(cfgfile)
+    sys.path.append(r'\\Uspadgv1dcl01\NY BIM GROUP\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\packages\\')
     cfgfile.close()
     ribbons = __rvt__.GetRibbonPanels("STVTools")
     for i in ribbons:

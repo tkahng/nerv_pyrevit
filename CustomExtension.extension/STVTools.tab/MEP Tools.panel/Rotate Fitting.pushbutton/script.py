@@ -64,8 +64,8 @@ ductloc = inn[1].Location
 center = primary.Origin
 line = DB.Line.CreateBound(pointOne, pointTwo)
 disconnect(inn[1])
-ductloc.Rotate(line,angle)
-success = loc.Rotate(line,angle)
+ductloc.Rotate(line, angle)
+success = loc.Rotate(line, angle)
 conns[0].ConnectTo(conns[1])
 
 t.Commit()

@@ -2,10 +2,10 @@ import clr, re
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import FilteredElementCollector, Structure
-from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol,ElementId
+from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol, \
+    ElementId, FilteredElementCollector, Structure
 from System.Collections.Generic import List
-from Autodesk.Revit.UI import *
+from Autodesk.Revit.UI import TaskDialog
 from Autodesk.Revit.DB import *
 from Autodesk.Revit.Creation import *
 from pyrevit import script, DB, revit
@@ -34,14 +34,6 @@ def ConfigSectionMap(section):
             print("exception on %s!" % option)
             dict1[option] = None
     return dict1
-home = expanduser("~")
-cfgfile = open(home + "\\STVTools.ini")
-Config = ConfigParser.ConfigParser()
-Config.read(home + "\\STVTools.ini")
-filePath = ConfigSectionMap("NavisFilePath")["datapath"]
-print(filePath)
-
-openedFile = open(filePath)
 
 def PAFileNameProcessor(doc):
     fName = doc.Title
@@ -60,33 +52,44 @@ def PAFileNameProcessor(doc):
         else:
             name = fName[0: 20] + fileType
     return name
+
+# Program Start Process Files
+home = expanduser("~")
+cfgfile = open(home + "\\STVTools.ini")
+Config = ConfigParser.ConfigParser()
+Config.read(home + "\\STVTools.ini")
+filePath = ConfigSectionMap("NavisFilePath")["datapath"]
+openedFile = open(filePath)
 name = PAFileNameProcessor(doc)
-print(name)
 content = openedFile.readlines()
 content.reverse()
-i = []
-for c in content:
-    portions = re.split(";", c)
-    itemDate = portions[0]
-    itemTime = portions[1]
-i = content[0]
-portions = re.split(";", i)
-itemDate = portions[0]
-itemTime = portions[1]
-rawId = portions[2]
-rawModel = portions[3]
-comment = portions[4]
-id = re.split(':', rawId)[2]
-model = re.split(':',rawModel)[2]
-if name == model[0:len(model) - 1]:
-    element = doc.GetElement(ElementId(int(id[0:len(id)-1])))
-    try:
-        currentid = format(outprint.linkify(element.Id))
-    except:
-        currentid = id[0:len(id)-1]
-    print(itemTime + '      ' + currentid + '      ' + comment)
+lastId = ()
+selection = []
+
+# Top Item Model Name
+topItem = re.split(";", content[0])
+topGrouping = topItem[6]
+topModel = re.split(':', topItem[3])[2]
+topModelName = topModel[0 : len(topModel) - 1]
+
+# Selection portion
+if topModelName != name:
+    TaskDialog.Show('Error', 'Latest Item is not in your model')
 else:
-    print('Latest Item is not in your model')
-# TODO: Show Latest Time Stamp
-# TODO: Group based on time Stamp
-# TODO:Skip print just select and zoom
+    # Split the line content
+    for i in content:
+        portions = re.split(";", i)
+        rawId = portions[2]
+        rawModel = portions[3]
+        grouping = portions[6]
+        id = re.split(':', rawId)[2]
+        model = re.split(':', rawModel)[2]
+        if name == model[0:len(model) - 1]:
+            if grouping == topGrouping:
+                element = doc.GetElement(ElementId(int(id[0:len(id)-1])))
+                selection.append(element)
+            else:
+                break
+        else:
+            break
+    revit.get_selection().set_to(selection)
