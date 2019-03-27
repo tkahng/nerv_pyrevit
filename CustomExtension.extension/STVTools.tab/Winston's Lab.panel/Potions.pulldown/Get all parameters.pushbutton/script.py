@@ -1,6 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB
-import clr, sys, re, os, imp
+import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 # clr.AddReference("System.Windows.Form")
@@ -19,11 +19,6 @@ from System.Windows.Forms import Application, SendKeys
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-'''
-SendKeys.SendWait("%{F4}")
-SendKeys.Send("{Enter}")
-print('Success !')
-'''
 
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""

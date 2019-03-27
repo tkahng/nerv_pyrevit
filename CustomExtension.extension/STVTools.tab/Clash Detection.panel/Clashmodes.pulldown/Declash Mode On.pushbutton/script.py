@@ -5,8 +5,6 @@ clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Structure
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol
 from System.Collections.Generic import List
-from Autodesk.Revit.UI import *
-from Autodesk.Revit.DB import *
 from Autodesk.Revit.Creation import *
 from pyrevit import script, DB, revit
 from pyrevit import forms
@@ -14,6 +12,9 @@ import pyrevit
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
+# Documentation of work
+__doc__ = 'Select the shared point of the model '\
+          ' This is helpful check project info'
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
@@ -49,8 +50,7 @@ import datetime
 now = datetime.datetime.now()
 print(now.year + now.month)
 '''
-__doc__ = 'Select the shared point of the model '\
-          ' This is helpful check project info'
+
 # clash files
 clashFiles = []
 for file in os.listdir(systemExtra):
@@ -122,7 +122,6 @@ for a in sel_clash:
             boxes.LookupParameter('Clash With Model').Set(str(Pointdata.otherFile[count]))
             count += 1
         t.Commit()
-
 
         secondCount = 0
         for el in elements:

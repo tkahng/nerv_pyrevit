@@ -30,11 +30,13 @@ def Pickname(tailName, noTailName):
     return newfilename
 
 clashFiles = forms.pick_file(file_ext='html', multi_file=True, init_dir=clashpath, unc_paths=False)
-print(clashFiles)
-
+# get the name of the folder picked
+pickedFilePath = os.path.dirname(clashFiles[0])
+pickedFolder = os.path.basename(os.path.dirname(pickedFilePath))
+print(pickedFolder)
 folderName = str(forms.GetValueWindow.show(None,
         value_type='string',
-        default=str(date.today()),
+        default=pickedFolder,
         prompt='Please Enter the Clash Report Name after the date.',
         title='Clash Report Name')) + '\\'
 programPath = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\' \

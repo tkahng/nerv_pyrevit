@@ -4,8 +4,6 @@ clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from System.Collections.Generic import List
 from Autodesk.Revit.UI import RibbonPanel
-from Autodesk.Revit.DB import *
-from Autodesk.Revit.Creation import *
 from pyrevit import script, DB, revit, UI
 from pyrevit import forms
 import pyrevit
@@ -16,9 +14,6 @@ clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 
-outprint = script.get_output()
-
-filePath = ''
 # print(script.get_all_buttons())
 
 # lets create that config file for next time...

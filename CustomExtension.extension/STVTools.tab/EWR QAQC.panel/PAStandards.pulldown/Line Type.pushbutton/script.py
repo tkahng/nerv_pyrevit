@@ -63,7 +63,7 @@ def AddPrefixtoLines(doc):
         # unique parameter of line weight + line pattern as a parameter indicator
         uniqueParam = weight + patternName
         if not uniqueParam in paramList and lineColor == 0:
-            if i.Name[0:len(prefix)] == prefix or i.Id.IntegerValue < 0:
+            if i.Name[0:len(prefix)] == prefix and i.Id.IntegerValue > 0:
                 # Create standard line style dictionary
                 line_dict[uniqueParam] = i
                 paramList.append(uniqueParam)
@@ -109,7 +109,8 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 __doc__ = 'WARNING: will delete line styles ' \
-          'Please do not use lightly'
+          'Please do not use lightly,' \
+          ' Please make sure you can have ownership of line elements'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

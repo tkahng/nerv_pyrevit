@@ -1,8 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
-import re
-import clr
-import os
+import re, clr, os, threading
 import EwrQcUtils
 import xlsxwriter
 clr.AddReference('RevitAPI')
@@ -14,7 +12,7 @@ from System.Collections.Generic import List
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
-clr. AddReferenceByPartialName('PresentationCore')
+clr.AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
@@ -59,6 +57,9 @@ __doc__ = 'Open projects and resave in a specific location'\
             'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
+def DimensionProcessing(openedDoc):
+    collectorDim = EwrQcUtils.DimensionsCheck(openedDoc)
+    EwrQcUtils.ExcelWriter(excelFile, 'DIMENSIONS', 1, 0, collectorDim)
 
 # Transaction
 if len(collectorFiles) > 0:
@@ -75,8 +76,10 @@ if len(collectorFiles) > 0:
         # Define and Open Excel File
         excelFile = EwrQcUtils.ExcelOpener(fileName)
 
-        collectorDim = EwrQcUtils.DimensionsCheck(openedDoc)
-        EwrQcUtils.ExcelWriter(excelFile, 'DIMENSIONS', 1, 0, collectorDim)
+        threading.Thread(name = 'DimensionsCheck', target = DimensionProcessing(openedDoc))
+
+        # collectorDim = EwrQcUtils.DimensionsCheck(openedDoc)
+        # EwrQcUtils.ExcelWriter(excelFile, 'DIMENSIONS', 1, 0, collectorDim)
         collectorSettings = EwrQcUtils.SettingsCheck(openedDoc)
         EwrQcUtils.ExcelWriter(excelFile, 'SETTINGS', 1, 0, collectorSettings)
         collectorView = EwrQcUtils.ViewsCheck(openedDoc)

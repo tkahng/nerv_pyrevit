@@ -37,8 +37,8 @@ if revit.doc.IsWorkshared:
 
     for i in warnings:
         # decode utf-8 to ascii
-        text = i.GetDescriptionText().decode().encode('utf-8')
-        udata = text.decode("utf-8")
+        text = i.GetDescriptionText()# .decode().encode('utf-8')
+        udata = text# .decode("utf-8")
         categories = udata.encode("ascii", "ignore")
         if not categories in cate:
             cate.append(categories)

@@ -1,7 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB
 import clr
-
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
@@ -13,14 +12,12 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Perform a clean up of all Clashpoint Object in the model'\
+          'Clash points are usually to be considered temp objects that ' \
+          'should be regulary cleaned up'
 
 
 # input ---------------------
-
-
-
 # Transaction Start
 t = Transaction(doc, 'Delete Clash Points')
 t.Start()
