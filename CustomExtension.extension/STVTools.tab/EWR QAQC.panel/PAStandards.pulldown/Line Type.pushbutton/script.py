@@ -27,7 +27,6 @@ def SetLineStyle(doc, sourceLineStyle, DestinationLineStyle):
 
 def CollectLineStylefromLine(doc):
     lines = FilteredElementCollector(doc).OfClass(CurveElement).ToElements()
-    # print(len(lines))
     lineStyles = []
     for i in lines:
         if not i.LineStyle.Name in lineStyles:
@@ -103,14 +102,16 @@ def AddPrefixtoLines(doc):
                 SetLineStyle(doc, i, newLineStyleCat)
                 doc.Delete(i.Id)
 
-
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 __doc__ = 'WARNING: will delete line styles ' \
           'Please do not use lightly,' \
-          ' Please make sure you can have ownership of line elements'
+          'Please make sure you can have ownership of line elements' \
+          'Please rename lines you want to keep to ' \
+          'the right format Example: PA - White'
+
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

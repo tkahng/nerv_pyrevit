@@ -1,31 +1,40 @@
-import clr, math
-clr.AddReference('RevitAPI')
-clr.AddReference('RevitAPIUI')
-clr.AddReference("System")
+import math
 from Autodesk.Revit.DB import Document, FilteredElementCollector, PerformanceAdviser, FamilySymbol,BuiltInCategory, \
     MEPCurveType, RoutingPreferenceRuleGroupType, RoutingConditions, RoutingPreferenceErrorLevel, RoutingPreferenceRule,\
     PreferredJunctionType,Transaction, BuiltInParameter, XYZ, Line, Connector
 from Autodesk.Revit.UI.Selection import ObjectType
 from Autodesk.Revit.DB.Plumbing import PipeType
-clr. AddReferenceByPartialName('PresentationCore')
-clr.AddReferenceByPartialName('PresentationFramework')
-clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 from pyrevit.framework import List
-from pyrevit import revit, DB
-from collections import defaultdict
-from pyrevit import script
+from pyrevit import revit, DB, UI
 from pyrevit import forms
 
+class PipeSelectionFilter(UI.Selection.ISelectionFilter):
+    # standard API override function
+    def AllowElement(self, element):
+		if element.Category.Name == "Pipes":
+			return True
+		else:
+			return False
+
+class PipeFittingSelectionFilter(UI.Selection.ISelectionFilter):
+	# standard API override function
+	def AllowElement(self, element):
+		if element.Category.Name == "Pipe Fittings":
+			return True
+		else:
+			return False
 
 __doc__ = 'Rotate Pipe Fittings connected to pipe'\
           'Click the tool, select the pipe and then the fitting ' \
           'Type in a number you want to rotate and you are good to go,'\
           'Can Take negative Values'
+pipFilter = PipeSelectionFilter()
+fittingFilter = PipeFittingSelectionFilter()
 choices = uidoc.Selection
-pipeRef = choices.PickObject(ObjectType.Element, "Pick Pipe")
-connectorRef = choices.PickObject(ObjectType.Element, "Pick Pipe Fitting")
+pipeRef = choices.PickObject(ObjectType.Element, pipFilter, "Pick Pipe")
+connectorRef = choices.PickObject(ObjectType.Element, fittingFilter, "Pick Pipe Fitting")
 pipe = doc.GetElement(pipeRef.ElementId)
 connector = doc.GetElement(connectorRef.ElementId)
 angleInput = str(forms.GetValueWindow.show(None,
