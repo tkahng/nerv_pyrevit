@@ -1,3 +1,17 @@
+import sys
+import ConfigParser
+from os.path import expanduser
+# Set system path
+home = expanduser("~")
+cfgfile = open(home + "\\STVTools.ini", 'r')
+config = ConfigParser.ConfigParser()
+config.read(home + "\\STVTools.ini")
+# Master Path
+syspath1 = config.get('SysDir','MasterPackage')
+sys.path.append(syspath1)
+# Built Path
+syspath2 = config.get('SysDir','SecondaryPackage')
+sys.path.append(syspath2)
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
 import re, clr, os, threading

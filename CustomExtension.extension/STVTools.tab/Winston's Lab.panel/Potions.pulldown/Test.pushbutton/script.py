@@ -20,14 +20,8 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 
-lines = FilteredElementCollector(doc).OfClass(CurveElement).ToElements()
-# print(len(lines))
-lineStyles = ''
-for i in lines:
-    style = i.LineStyle.Name
-    if style == 'Invisible' or style == 'INVISIBLE 2':
-        lineStyles += str(i.Id.IntegerValue) + ';'
-print(lineStyles)
+destinationFolder = forms.pick_folder()
+print(destinationFolder)
 
 
 

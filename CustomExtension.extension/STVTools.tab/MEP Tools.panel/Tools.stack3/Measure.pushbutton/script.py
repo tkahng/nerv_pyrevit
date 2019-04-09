@@ -50,6 +50,7 @@ while result == 'Retry':
         overallLength = 0.00
         for i in pipeRef:
             pipe = doc.GetElement(i.ElementId)
+            # Pipe
             try:
                 overallLength += pipe.Location.Curve.Length
                 print(overallLength)
