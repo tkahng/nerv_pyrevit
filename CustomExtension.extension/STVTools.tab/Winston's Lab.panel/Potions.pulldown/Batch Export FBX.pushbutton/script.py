@@ -53,7 +53,6 @@ for f in collectorFiles:
     saveOp.SetWorksharingOptions(workOp)
     title = currentDoc.Title
     currentDoc.SaveAs(destinationFolder + '\\' + title, saveOp)
-
     currentDoc.Close(False)
     # Open again
     currentDoc2 = FileUtilities.OpenFile(destinationFolder + '\\' + title, application, False)
