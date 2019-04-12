@@ -53,7 +53,6 @@ while result == 'Retry':
             # Pipe
             try:
                 overallLength += pipe.Location.Curve.Length
-                print(overallLength)
             except:
                 overallLength += pipe.GetOriginalGeometry(Options()).GetBoundingBox().Max.DistanceTo(pipe.GetOriginalGeometry(Options()).GetBoundingBox().Min)
         result = str(TaskDialog.Show("Measure", "Overall Length " + str(FeettoInch(overallLength)) + " feet", TaskDialogCommonButtons.Retry))
