@@ -22,7 +22,7 @@ clr.AddReference('RevitAPIUI')
 # clr.AddReference("System.Windows.Form")
 from Autodesk.Revit.DB import FilteredElementCollector, FilteredWorksetCollector, Element, Transaction, \
     ElementParameterFilter, ParameterValueProvider,ElementId,BuiltInParameter ,FilterStringRule, FilterStringEquals, \
-    FilterNumericEquals, FilterIntegerRule, FilterDoubleRule, FilterElementIdRule
+    FilterNumericEquals, FilterIntegerRule, FilterDoubleRule, FilterElementIdRule, Reference
 from Autodesk.Revit.UI.Selection import ObjectType
 from Autodesk.Revit.UI import TaskDialog, TaskDialogCommonButtons, TaskDialogResult
 from System.Collections.Generic import List
@@ -34,13 +34,30 @@ doc = __revit__.ActiveUIDocument.Document
 # import user packages
 import Selection
 
+def get_selected_elements(doc):
+    """API change in Revit 2016 makes old method throw an error"""
+    try:
+        # Revit 2016
+        return [doc.GetElement(id)
+                for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
+    except:
+        # old method
+        return list(__revit__.ActiveUIDocument.Selection.Elements)
 # get needed params
+# get current selection
+currentChoice = []
+for i in get_selected_elements(doc):
+    currentChoice.append(i)
+
+
 params = []
 selection = []
 choices = uidoc.Selection
-ref = choices.PickObject(ObjectType.Element, "Pick Element")
-
-selection.append(doc.GetElement(ref.ElementId))
+if not currentChoice:
+    ref = choices.PickObject(ObjectType.Element, "Pick Element")
+    selection.append(doc.GetElement(ref.ElementId))
+else:
+    selection.append(currentChoice[0])
 # selection = Selection.get_selected_elements(doc)
 # convenience variable for first element in selection
 if len(selection):

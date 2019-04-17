@@ -36,7 +36,6 @@ def get_selected_elements(doc):
         # old method
         return list(__revit__.ActiveUIDocument.Selection.Elements)
 
-
 class ConduitSelectionFilter(UI.Selection.ISelectionFilter):
     # standard API override function
     def AllowElement(self, element):
