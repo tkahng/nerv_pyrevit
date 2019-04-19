@@ -108,6 +108,23 @@ def FillPAViewClasshification(doc):
                 print('PA - View Classification not found')
                 # break
 
+def FillTitleonSheetParam(doc):
+
+    sheetViewIds = []
+    viewports = FilteredElementCollector(doc).OfClass(Viewport).ToElements()
+    for i in viewports:
+        sheetViewIds.append(str(i.ViewId.IntegerValue))
+    views = FilteredElementCollector(doc).OfClass(View).ToElements()
+    for i in views:
+        name = i.ViewName
+        id = str(i.Id.IntegerValue)
+        if id in sheetViewIds:
+            title = i.LookupParameter('Title on Sheet').AsString()
+            print('Name: ' + name)
+            print('Title: ' + title)
+            if not title:
+                i.LookupParameter('Title on Sheet').Set(name)
+                print('Set: ' + name)
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -118,7 +135,8 @@ uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
 # Select Action Item
-actionList = ['Rename Views',
+actionList = ['Fill Title on Sheet Parameter',
+                'Rename Views',
               'Fill PA - View Classification']
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
@@ -131,6 +149,8 @@ if sel_action == None:
                 yes=False,
                 no=False, retry=False, warn_icon=True, options=None, exitscript=False)
 else:
+    if 'Fill Title on Sheet Parameter' in sel_action:
+        FillTitleonSheetParam(doc)
     if 'Rename Views' in sel_action:
         RenameViews(doc, dict, excemption)
     if 'Fill PA - View Classification' in sel_action:

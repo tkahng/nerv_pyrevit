@@ -1,4 +1,4 @@
-import sys
+import sys, clr
 import ConfigParser
 from os.path import expanduser
 # Set system path
@@ -16,10 +16,10 @@ sys.path.append(syspath2)
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,\
     Transaction,FailureHandlingOptions, CurveElement, ImportInstance
 from Autodesk.Revit.UI import TaskDialog, RevitCommandId, PostableCommand
-
+clr.AddReference("System.Windows.Forms")
+from System.Windows.Forms import SendKeys
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-
 from pyrevit.framework import List
 from pyrevit import revit, DB
 from pyrevit import script
@@ -51,8 +51,4 @@ def CadImportsbyName(doc, names):
 dwgs = CadImportsName(doc)
 picked = sel_action = forms.SelectFromList.show(dwgs, button_name='Select Item', multiselect=True)
 links = CadImportsbyName(doc,picked)
-print(len(links))
-
-# uidoc.PostCommand()
-explode = uidoc.RevitCommandId.LookupCommandId('Wall')
-print(explode)
+revit.get_selection().set_to(links)

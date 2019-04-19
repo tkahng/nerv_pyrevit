@@ -1,8 +1,5 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
-import clr,re,random
-clr.AddReference('RevitAPI')
-clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
      Color, BuiltInParameter, TextNote, TextNoteType
@@ -10,10 +7,6 @@ from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
 
-clr.AddReferenceByPartialName('PresentationCore')
-clr.AddReferenceByPartialName('PresentationFramework')
-clr.AddReferenceByPartialName('System.Windows.Forms')
-clr.AddReference('RevitAPIUI')
 # Define the prefix we want to track and add
 prefix = 'PA - '
 
@@ -136,7 +129,8 @@ def AddPAtoText(doc):
                                Translator(i.LookupParameter('Bold').AsInteger(),'', 'Bold') + ' ' + \
                                Translator(i.LookupParameter('Italic').AsInteger(),'', 'Italic') + ' '+ \
                                Translator(i.LookupParameter('Underline').AsInteger(), '', 'Underline') + ' ' + \
-                               doc.GetElement(i.LookupParameter('Leader Arrowhead').AsElementId()).get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+                               doc.GetElement(i.LookupParameter('Leader Arrowhead').AsElementId()).get_Parameter\
+                                   (BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
                 destination = i.Duplicate(proposedName)
                 SetTextStyle(doc, name, destination)
                 doc.Delete(i.Id)
@@ -149,10 +143,32 @@ def AddPAtoText(doc):
                 doc.Delete(i.Id)
                 print('Renamed ' + name + ' to ' + proposedName)
                 names.append(proposedName)
+
 def SetAllTextNotetoArial(doc):
     styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
     for i in styles:
         i.LookupParameter('Text Font').Set('Arial')
+
+def AppendPrefix(doc):
+
+    styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
+    names = {}
+    styleName = []
+    for i in styles:
+        names[i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()] = i
+        styleName.append(i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
+
+    sel_styles = forms.SelectFromList.show(styleName, button_name='Select Item you want to add prefix to',
+                                           multiselect=True)
+    for i in sel_styles:
+        name = names[i].get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
+        if name[0:len(prefix)] != prefix and names[i].Id.IntegerValue > 0:
+            proposedName = prefix + name
+            print(proposedName, names[i].Id.IntegerValue)
+            destination = names[i].Duplicate(prefix + name)
+            SetTextStyle(doc, name, destination)
+            doc.Delete(names[i].Id)
+            print('Appended Prefix to' + name + ' to ' + proposedName)
 
 # Main
 uidoc = __revit__.ActiveUIDocument
@@ -164,7 +180,8 @@ uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
 # Select Action Item
-actionList = ['Delete Excess Text Styles',
+actionList = ['Append Prefix to selected(protect)',
+              'Delete Excess Text Styles',
               'Set all text note to Arial',
               'Add PA - to Text Styles',
               ]
@@ -179,6 +196,8 @@ if sel_action == None:
                 yes=False,
                 no=False, retry=False, warn_icon=True, options=None, exitscript=False)
 else:
+    if 'Append Prefix to selected(protect)' in sel_action:
+        AppendPrefix(doc)
     if 'Delete Excess Text Styles' in sel_action:
         list = CollectTextNoteFromDoc(doc)
         DeleteExcessFromDoc(doc, list)
