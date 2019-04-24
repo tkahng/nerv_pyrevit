@@ -97,7 +97,7 @@ def AddPAtoRegion(doc):
             destination = i.Duplicate(prefix + name)
             SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
             doc.Delete(i.Id)
-            print('Renamed ' + name + ' to ' + prefix + name)
+            # print('Renamed ' + name + ' to ' + prefix + name)
             names.append(prefix + name)
         elif '.dwg' in name:
             try:
@@ -135,7 +135,7 @@ def AddPAtoRegion(doc):
             '''
             SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
             doc.Delete(i.Id)
-            print('Renamed ' + name + ' to ' + destination.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
+            # print('Renamed ' + name + ' to ' + destination.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
             names.append(proposedName)
 
 # Main

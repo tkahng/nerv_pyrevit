@@ -5,7 +5,7 @@ clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
-    CurveElement, Color
+    CurveElement, Color, BuiltInParameter
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
@@ -102,6 +102,44 @@ def AddPrefixtoLines(doc):
                 SetLineStyle(doc, i, newLineStyleCat)
                 doc.Delete(i.Id)
 
+def AppendPrefixtoLines(doc):
+
+    lineStyles = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
+    names = {}
+    styleName = []
+    for i in lineStyles:
+        if not i.Name[0:len(prefix)] == prefix and not i.Id.IntegerValue < 0:
+            names[i.Name] = i
+            styleName.append(i.Name)
+    sel_styleName = forms.SelectFromList.show(styleName, button_name='Select Item', multiselect=True)
+    sel_style = []
+    for i in sel_styleName:
+        sel_style.append(names[i])
+    # Non-Standard Line Changer
+    for i in sel_style:
+            weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
+            pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
+            if pattern is None:
+                patternName = 'Solid'
+            else:
+                patternName = pattern.Name
+            uniqueParam = weight + patternName
+            categories = doc.Settings.Categories
+            lineCat = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines)
+            newName = prefix + i.Name
+            newLineStyleCat = categories.NewSubcategory(lineCat, newName)
+            doc.Regenerate()
+            newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)
+            newLineStyleCat.LineColor = i.LineColor
+            try:
+                newLineStyleCat.SetLinePatternId(pattern.Id, GraphicsStyleType.Projection)
+            except:
+                pass
+            # Add new Line style to dictionary
+            print('Appended Prefix to ' + i.Name + ' to ' '\'' +
+                  newName + '\'')
+            SetLineStyle(doc, i, newLineStyleCat)
+            doc.Delete(i.Id)
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -116,7 +154,8 @@ uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
 # Select Action Item
-actionList = ['Delete Excess Line Styles',
+actionList = ['Append Prefix to selected Line Styles(protect)',
+              'Delete Excess Line Styles',
               'Add PA - to Line Styles',]
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
@@ -129,6 +168,8 @@ if sel_action == None:
                 yes=False,
                 no=False, retry=False, warn_icon=True, options=None, exitscript=False)
 else:
+    if 'Append Prefix to selected Line Styles(protect)'in sel_action:
+        AppendPrefixtoLines(doc)
     if 'Delete Excess Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
         DeleteExcessLineStyles(doc, list)
