@@ -49,20 +49,21 @@ def get_selected_elements(doc):
         # old method
         return list(__revit__.ActiveUIDocument.Selection.Elements)
 
+
+lines = get_selected_elements(doc)
+i = 0
 t = Transaction(doc, 'Correct Lines')
 t.Start()
-lines = get_selected_elements(doc)
 for l in lines:
+
     #if l.Category.Name == '<Sketch>':
     off_line = l.GeometryCurve
     sketchPlane = l.SketchPlane
     try:
-        correct_line = Warnings.CorrectLineXY(off_line, 0.01)
+        correct_line = Warnings.CorrectLineXY(off_line, 0.02)
         print(correct_line)
         l.SetGeometryCurve(correct_line, True)
     except:
-
         outprint = script.get_output()
         print("Exception raised" + format(outprint.linkify(l.Id)))
-
 t.Commit()
