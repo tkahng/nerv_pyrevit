@@ -68,13 +68,16 @@ def AddPrefixtoDimension(doc):
     dimension = FilteredElementCollector(doc).OfClass(DimensionType).ToElements()
     for i in dimension:
         name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
-        if i.Id.IntegerValue > 0 and name[0:len(prefix)] != prefix and str(name) != '':
-            proposedName = prefix + name
-            print(proposedName, i.Id.IntegerValue)
-            destination = i.Duplicate(prefix + name)
-            SetDimensionStyle(doc, name, destination)
-            doc.Delete(i.Id)
-            print('Renamed ' + name + ' to ' + proposedName)
+        try:
+            if i.Id.IntegerValue > 0 and name[0:len(prefix)] != prefix and str(name) != '':
+                proposedName = prefix + name
+                print(proposedName, i.Id.IntegerValue)
+                destination = i.Duplicate(prefix + name)
+                SetDimensionStyle(doc, name, destination)
+                doc.Delete(i.Id)
+                print('Renamed ' + name + ' to ' + proposedName)
+        except:
+            print(name + 'fail')
 
 
 # Main

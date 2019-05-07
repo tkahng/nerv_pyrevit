@@ -95,8 +95,8 @@ cate = []
 sel_warning = ()
 outprint = script.get_output()
 path = 'C:\\Users\\loum\\Documents\\Pyscripts\\ClashScripts\\'
-t = Transaction(doc, 'Correct Lines')
-t.Start()
+# t = Transaction(doc, 'Correct Lines')
+# t.Start()
 if revit.doc.IsWorkshared:
     warnings = doc.GetWarnings()
 # select selected warnings
@@ -110,6 +110,7 @@ if revit.doc.IsWorkshared:
                 selection.append(doc.GetElement(e))
             for a in additionalId:
                 selection.append(doc.GetElement(a))
+            # Setups
             loc = ()
             wall_start = ()
             wall_end = ()
@@ -145,22 +146,25 @@ if revit.doc.IsWorkshared:
                 proj_start = line.GeometryCurve.Project(wall_start).XYZPoint
                 proj_end = line.GeometryCurve.Project(wall_end).XYZPoint
                 print(proj_start, proj_end)
-
+# Scenario 1
                 if CloseNumber(proj_start.X, line_start.X) \
                         and CloseNumber(proj_start.Y, line_start.Y)\
                         and CloseNumber(proj_end.X, line_end.X)\
                         and CloseNumber(proj_end.Y, line_end.Y):
                     print('1')
+                    t = Transaction(doc, 'Correct Lines 1')
+                    t.Start()
                     doc.Delete(line.Id)
                     print('Deletion of excess successful')
-                    # t.Commit()
+                    t.Commit()
+# Scenario 2
                 elif (CloseNumber(proj_start.X, line_start.X) \
                         and CloseNumber(proj_start.Y, line_start.Y))\
                         and (not CloseNumber(proj_end.X, line_end.X) \
                         or not CloseNumber(proj_end.Y, line_end.Y)):
                     print('2')
-                    # t = Transaction(doc, 'Correct Lines')
-                    # t.Start()
+                    t = Transaction(doc, 'Correct Lines 2')
+                    t.Start()
                     try:
                         newLine = Line.CreateBound(proj_end, line_end)
                         line.SetGeometryCurve(newLine, True)
@@ -168,15 +172,15 @@ if revit.doc.IsWorkshared:
                     except:
                         print("Wall" + format(outprint.linkify(wall.Id)))
                         print("Line" + format(outprint.linkify(line.Id)))
-                    # t.Commit()
-
+                    t.Commit()
+# Scenario 4
                 elif (CloseNumber(proj_end.X, line_end.X) \
                      and CloseNumber(proj_end.Y, line_end.Y)) \
                      and (not CloseNumber(proj_start.X, line_start.X) \
                      or not CloseNumber(proj_start.Y, line_start.Y)):
                     print('3')
-                    # t = Transaction(doc, 'Correct Lines')
-                    # t.Start()
+                    t = Transaction(doc, 'Correct Lines 3')
+                    t.Start()
                     try:
                         newLine = Line.CreateBound(proj_start, line_start)
                         line.SetGeometryCurve(newLine, True)
@@ -184,13 +188,15 @@ if revit.doc.IsWorkshared:
                     except:
                         print("Wall" + format(outprint.linkify(wall.Id)))
                         print("Line" + format(outprint.linkify(line.Id)))
-                    # t.Commit()
-
+                    t.Commit()
+# Scenario 4
                 elif (not CloseNumber(proj_start.X, line_start.X) \
                      or not CloseNumber(proj_start.Y, line_start.Y)) \
                      and (not CloseNumber(proj_end.X, line_end.X) \
                      or not CloseNumber(proj_end.Y, line_end.Y)):
                     print('4')
+                    t = Transaction(doc, 'Correct Lines 4')
+                    t.Start()
                     try:
                         newLine1 = Line.CreateBound(proj_start, line_start)
                         line.SetGeometryCurve(newLine1, True)
@@ -207,9 +213,10 @@ if revit.doc.IsWorkshared:
                         # print("Wall" + format(outprint.linkify(wall.Id)))
                         # print("Line" + format(outprint.linkify(line.Id)))
                     '''
+                    t.Commit()
                 else:
                     print('Error 5')
                 print("---------------")
             except:
                 print('Error 6')
-t.Commit()
+# t.Commit()

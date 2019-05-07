@@ -82,7 +82,7 @@ def ConsolidateRegion(doc):
             uniqueParam = 0
         if uniqueParam in paramList and not name in ids and patternName[0:len(prefix)] != prefix:
             i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).Set(_dict[str(uniqueParam)])
-            print(filledType.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString() + 'changed to ' +
+            print(filledType.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString() + ' changed to ' +
                   doc.GetElement(_dict[str(uniqueParam)]).get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
 
 def AddPAtoRegion(doc):
@@ -94,11 +94,14 @@ def AddPAtoRegion(doc):
     for i in styles:
         name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
         if name[0:len(prefix)] != prefix and not '.dwg' in name and i.Id.IntegerValue > 0:
-            destination = i.Duplicate(prefix + name)
-            SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
-            doc.Delete(i.Id)
-            # print('Renamed ' + name + ' to ' + prefix + name)
-            names.append(prefix + name)
+            try:
+                destination = i.Duplicate(prefix + name)
+                SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
+                doc.Delete(i.Id)
+                # print('Renamed ' + name + ' to ' + prefix + name)
+                names.append(prefix + name)
+            except:
+                print('Failed to Delete ' + name)
         elif '.dwg' in name:
             try:
                 try:
@@ -123,18 +126,11 @@ def AddPAtoRegion(doc):
                     num += 1
                     nameIteration = proposedName + ' - ' + str(num)
                     continue
-            '''
             try:
-                try:
-                    destination = i.Duplicate(proposedName)
-                except:
-                    destination = i.Duplicate(proposedName + ' - 1')
+                SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
+                doc.Delete(i.Id)
             except:
-                destination = i.Duplicate(proposedName + '#' + str(i.FillPatternId.IntegerValue) + ' ' 
-                + str(i.LineWeight) +str(random.randrange(999)))
-            '''
-            SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
-            doc.Delete(i.Id)
+                print('Fail' + name)
             # print('Renamed ' + name + ' to ' + destination.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
             names.append(proposedName)
 
@@ -155,7 +151,6 @@ sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', mu
 # Transaction Start
 t = Transaction(doc, 'Add PA prefix to Name')
 t.Start()
-
 if sel_action == None:
     forms.alert('No Action selected', title='Error', sub_msg=None, expanded=None, footer='', ok=True, cancel=False,
                 yes=False,
