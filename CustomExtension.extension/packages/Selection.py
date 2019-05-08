@@ -1,3 +1,4 @@
+# Get all the elements
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""
     try:
@@ -8,7 +9,8 @@ def get_selected_elements(doc):
         # old method
         return list(__revit__.ActiveUIDocument.Selection.Elements)
 
-def get_all_parameters(element):
+# get all parameters as dictionary with names nad values
+def get_all_parameters_as_dic(element):
     '''
     Get a Dictionary of all element name, value and parameter object
     :param element:
@@ -31,3 +33,4 @@ def get_all_parameters(element):
             elif 'ElementId' in str(param.StorageType):
                 _param[name + ': '+ str(param.AsElementId().IntegerValue)] = param
     return _param
+
