@@ -66,7 +66,3 @@ views = []
 for i in selection:
     name = doc.GetWorksetTable().GetWorkset(i.WorksetId).Name
     print(i.Category.Name + '   ' + format(outprint.linkify(i.Id)) + '    ' + name)
-
-
-
-
