@@ -45,23 +45,32 @@ def FamilyNameChange(doc):
             if familyName[0:2] == 'PA':
                 pass
             elif familyRegex.findall(familyName) == [] and familyName[0:2] != 'PA' and len(re.split('-', familyName)) <=1:
-                proposedName = UniqueName(cate + '-Generic-' + str(familyName), namesLst)
-                i.Family.Name = str(proposedName)
+                proposedName = UniqueName(cate + '-Generic-' + familyName, namesLst)
+                try:
+                    i.Family.Name = proposedName
+                except:
+                    pass
                 namesLst.append(proposedName)
-                print('Changed 1 ' + familyName + ' to ' + str(proposedName))
+                print('Changed 1 ' + familyName + ' to ' + proposedName)
 
             elif familyRegex.findall(familyName) == [] and familyName[0:2] != 'PA' and len(re.split('-', familyName)) == 2 :
-                proposedName = UniqueName(cate + '-Generic-' + str(familyName).replace('-', '_'), namesLst)
-                i.Family.Name = str(proposedName)
+                proposedName = UniqueName(cate + '-Generic-' + familyName.replace('-', '_'), namesLst)
+                try:
+                    i.Family.Name = proposedName
+                except:
+                    pass
                 namesLst.append(proposedName)
-                print('Changed 2 ' + familyName + ' to ' + str(proposedName))
+                print('Changed 2 ' + familyName + ' to ' + proposedName)
 
             elif familyRegex.findall(familyName) != [] and familyName[0:len(cate)] != cate and familyName[0:len(cate)-1] != cate[0: len(cate) -1]\
                     and familyName[0:2] != 'PA':
                 proposedName = UniqueName(cate + '-' + 'Generic-' + familyName.replace('-', '_'), namesLst)
-                i.Family.Name = str(proposedName)
+                try:
+                    i.Family.Name = proposedName
+                except:
+                    pass
                 namesLst.append(proposedName)
-                print('Changed 3 ' + familyName + ' to ' + str(proposedName))
+                print('Changed 3 ' + familyName + ' to ' + proposedName)
 
 
 

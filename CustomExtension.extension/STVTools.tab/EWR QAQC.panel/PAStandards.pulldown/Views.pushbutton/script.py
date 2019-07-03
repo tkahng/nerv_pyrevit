@@ -16,10 +16,22 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
 # Define the prefix we want to track and add
 prefix = 'PA - '
+'''
 dict = {'FloorPlan': 'FP',
         'CeilingPlan': 'CP',
         'Elevation': 'IE',
         'ThreeD': '3D',
+        'Schedule':'SQ',
+        'DraftingView': 'DR',
+        'Legend': 'LG',
+        'EngineeringPlan': 'ES',
+        'AreaPlan': 'AP',
+        'Section': 'SP',
+        'Detail': 'DV'}
+'''
+dict = {'FloorPlan': 'FP',
+        'CeilingPlan': 'CP',
+        'Elevation': 'IE',
         'Schedule':'SQ',
         'DraftingView': 'DR',
         'Legend': 'LG',
@@ -58,7 +70,7 @@ def RenameViews(doc, dict, excempt):
     names = []
     for i in views:
         name = i.ViewName
-        names.append(str(name))
+        names.append(name)
     viewRegex = re.compile(r'^\w\w-\S\S-(.*)')
     viewRegex03 = re.compile(r'^\w\w-(.*)')
     for i in views:

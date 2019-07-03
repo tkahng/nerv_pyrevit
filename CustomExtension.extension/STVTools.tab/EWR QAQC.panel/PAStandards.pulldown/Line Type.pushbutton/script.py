@@ -126,7 +126,11 @@ def AppendPrefixtoLines(doc):
             uniqueParam = weight + patternName
             categories = doc.Settings.Categories
             lineCat = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines)
-            newName = prefix + i.Name
+            count = 0
+            if not prefix + i.Name in styleName:
+                newName = prefix + i.Name
+            else:
+                newName = prefix + i.Name + '-1'
             newLineStyleCat = categories.NewSubcategory(lineCat, newName)
             doc.Regenerate()
             newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)

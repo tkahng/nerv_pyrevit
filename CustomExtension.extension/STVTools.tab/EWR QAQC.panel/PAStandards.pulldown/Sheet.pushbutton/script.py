@@ -16,13 +16,14 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
 
 
-Discipline = ['Architecture', 'Electrical', 'Mechanical', 'Structural']
+Discipline = ['Architecture', 'Electrical', 'Mechanical', 'Structural', 'ARCHITECTURAL']
 
 subDiscipline = {
     'Architecture': ['Architecture', 'Landscape'],
     'Electrical': ['Electrical', 'Electronics'],
     'Mechanical': ['HVAC', 'Plumbing', 'Fire Protection'],
-    'Structural': ['Structural']
+    'Structural': ['Structural'],
+    'ARCHITECTURAL': ['ARCHITECTURAL'],
 }
 
 def FillDisciplineandSubDiscipline(doc, discipline, SubDiscipline):

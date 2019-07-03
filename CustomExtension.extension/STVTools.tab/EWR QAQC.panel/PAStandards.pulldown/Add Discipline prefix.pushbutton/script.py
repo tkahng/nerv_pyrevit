@@ -20,7 +20,7 @@ def AddDisciplinetoLevel(doc):
         levels = FilteredElementCollector(doc).OfClass(Level).ToElements()
         discipline = str(doc.Title)[0]
         for i in levels:
-            if i.Name[0:4] != discipline + ' - ':
+            if i.Name[0:4] != discipline + ' - ' and i.Name[0:2] != discipline + '-':
                 print('Changing '+ i.Name + ' to '+ discipline + ' - ' + i.Name )
                 i.Name = discipline + ' - ' + i.Name
             else:
