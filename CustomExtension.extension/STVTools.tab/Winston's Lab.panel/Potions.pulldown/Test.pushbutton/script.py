@@ -20,10 +20,8 @@ import System, Selection
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, ViewSchedule, View, Reference, Wall, OverrideGraphicSettings, Color
-
+    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, ViewSchedule, View
 from Autodesk.Revit.UI import TaskDialog
-from Autodesk.Revit.UI.Selection import ObjectType
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
@@ -36,18 +34,21 @@ import os
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
+def RenameViews(doc):
+    views = FilteredElementCollector(doc).OfClass(View).ToElements()
+    names = []
 
-import Autodesk.Revit.UI.Selection
-from Autodesk.Revit.UI import UIDocument
+    for i in views:
+        name = i.ViewName
+        if name[0:3] == 'SQ-':
+            i.ViewName = name[3:]
 
-def Override(doc, ElementId):
-    ogs = OverrideGraphicSettings()
-    ogs.SetProjectionLineColor(Color(0, 255, 0))
-    doc.ActiveView.SetElementOverrides(ElementId, ogs)
-id = uidoc.Selection.PickObject(ObjectType.Element,"Select an element").ElementId
-t = Transaction(doc, 'Recover Overide')
+selection =  FilteredElementCollector(doc).OfClass(ViewSchedule).ToElements()
+t = Transaction(doc, 'Change Level Name')
 t.Start()
+RenameViews(doc)
+print("Hellow World")
 
-Override(doc, id)
-# recoverdoc.Close(False)
 t.Commit()
+
+
