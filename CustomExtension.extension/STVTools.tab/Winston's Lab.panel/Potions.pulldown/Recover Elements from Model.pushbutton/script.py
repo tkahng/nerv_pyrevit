@@ -39,14 +39,7 @@ def Views_name_Id_Collector(doc):
         else:
             pass
     return modelDic
-'''
-# Open Recover doc in back ground
-uiapp = UIApplication(doc.Application)
-application = uiapp.Application
-collectorFile = forms.pick_file(file_ext='rvt', multi_file=False, unc_paths=False)
 
-recoverdoc = FileUtilities.OpenFile(collectorFile, application, audit = False)
-'''
 appDocs = {}
 for d in doc.Application.Documents:
     appDocs[d.Title] = d

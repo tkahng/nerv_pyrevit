@@ -55,7 +55,6 @@ print(now.year + now.month)
 clashFiles = []
 for file in os.listdir(systemExtra):
     if file.endswith(".py"):
-        # print(os.path.join(clashpath, file))
         __import__(file[:-3], locals(), globals())
         clashFiles.append(file)
 sel_clash = forms.SelectFromList.show(clashFiles, button_name='Select Item',

@@ -20,8 +20,7 @@ import System, Selection
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, ViewSchedule, View, Reference, Wall, OverrideGraphicSettings, Color
-
+    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, ViewSchedule, View, Reference, Wall
 from Autodesk.Revit.UI import TaskDialog
 from Autodesk.Revit.UI.Selection import ObjectType
 clr. AddReferenceByPartialName('PresentationCore')
@@ -40,14 +39,12 @@ from pyrevit import forms
 import Autodesk.Revit.UI.Selection
 from Autodesk.Revit.UI import UIDocument
 
-def Override(doc, ElementId):
-    ogs = OverrideGraphicSettings()
-    ogs.SetProjectionLineColor(Color(0, 255, 0))
-    doc.ActiveView.SetElementOverrides(ElementId, ogs)
-id = uidoc.Selection.PickObject(ObjectType.Element,"Select an element").ElementId
-t = Transaction(doc, 'Recover Overide')
-t.Start()
 
-Override(doc, id)
-# recoverdoc.Close(False)
+t = Transaction(doc, 'Fix Room')
+t.Start()
+modelLst = []
+rooms = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).ToElements()
+for i in rooms:
+    name1= i.LookupParameter('RDS-Space Type').AsString()
+    i.LookupParameter('RDS_Space Type').Set(name1)
 t.Commit()

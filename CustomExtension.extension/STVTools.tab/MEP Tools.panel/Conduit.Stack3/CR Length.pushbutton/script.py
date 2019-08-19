@@ -1,4 +1,4 @@
-import sys
+import sys, math
 import ConfigParser
 from os.path import expanduser
 # Set system path
@@ -61,7 +61,11 @@ while result == 'Retry':
             if conduit.Category.Name == 'Conduits':
                 length += conduit.LookupParameter("Length").AsDouble()
             else:
-                length += conduit.LookupParameter("Conduit Length").AsDouble()
+                angle = conduit.LookupParameter("Angle").AsDouble()
+                radius = conduit.LookupParameter("Bend Radius").AsDouble()
+                length += radius * angle
+                # Backup Length Parameter for fittings, mostly not correct
+                # length += conduit.LookupParameter("Conduit Length").AsDouble()
         result = str(TaskDialog.Show("Measure", "Overall Length " + str(QuestionableMath.FeettoInchNotRounded(length)) + " feet", TaskDialogCommonButtons.Retry))
         uidoc.RefreshActiveView()
     except:

@@ -25,15 +25,8 @@ def get_all_string_parameters(element):
 
 runs = FilteredElementCollector(doc).OfClass(ConduitRun).ToElements()
 t = Transaction(doc, 'Map Conduit Param to Conduit Runs')
-t.Start()
 
-'''
-dic = {}
-for run in runs:
-    guid = str(uuid.uuid1())
-    comment = run.LookupParameter('Comments').Set(guid)
-    dic[guid] = run
-'''
+t.Start()
 conduits = FilteredElementCollector(doc).OfClass(Conduit).ToElements()
 all_params = get_all_string_parameters(conduits[0])
 params = forms.SelectFromList.show(all_params, button_name='Select parameters',

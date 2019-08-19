@@ -162,3 +162,4 @@ for filename in clashFiles:
         pointFile.write('lstlen = ' + str(lstLen) + '\n')
     pb.update_progress(count, len(clashFiles))
     count += 1
+print("Finished!!!!!")
