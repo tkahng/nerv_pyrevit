@@ -158,12 +158,18 @@ if sel_action == None:
 else:
     if 'Delete Excess Filled Regions' in sel_action:
         list = CollectFilledRegionFromDoc(doc)
-        DeleteExcessFilledRegions(doc, list)
+        try:
+            DeleteExcessFilledRegions(doc, list)
+        except:
+            print("Fail 1")
     if 'Add PA - to Filled Regions' in sel_action:
         list = CollectFilledRegionFromDoc(doc)
-        ConsolidateRegion(doc)
-        DeleteExcessFilledRegions(doc, list)
-        AddPAtoRegion(doc)
+        try:
+            ConsolidateRegion(doc)
+            DeleteExcessFilledRegions(doc, list)
+            AddPAtoRegion(doc)
+        except:
+            print("Fail 2")
     else:
         pass
 t.Commit()

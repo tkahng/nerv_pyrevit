@@ -47,7 +47,7 @@ def get_all_parameters(element):
                     _param.append(name + ': ' +     str(param.AsString()))
                 except:
                     _param.append(name + ': '+ str(param.AsValueString()))
-            elif 'Interger' in str(param.StorageType):
+            elif 'Integer' in str(param.StorageType):
                 _param.append(name + ': ' + str(param.AsInterger()))
             elif 'Double' in str(param.StorageType):
                 _param.append(name + ': ' + str(param.AsDouble()))

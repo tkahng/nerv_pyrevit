@@ -173,13 +173,22 @@ if sel_action == None:
                 no=False, retry=False, warn_icon=True, options=None, exitscript=False)
 else:
     if 'Append Prefix to selected Line Styles(protect)'in sel_action:
-        AppendPrefixtoLines(doc)
+        try:
+            AppendPrefixtoLines(doc)
+        except:
+            print("Fail 1")
     if 'Delete Excess Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
-        DeleteExcessLineStyles(doc, list)
+        try:
+            DeleteExcessLineStyles(doc, list)
+        except:
+            print("Fail 2")
     if 'Add PA - to Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
-        AddPrefixtoLines(doc)
+        try:
+            AddPrefixtoLines(doc)
+        except:
+            print("Fail 3")
     else:
         pass
 t.Commit()

@@ -12,7 +12,7 @@ sys.path.append(syspath1)
 # Built Path
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
-
+import time
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,\
     Transaction,FailureHandlingOptions, CurveElement, ImportInstance
 from Autodesk.Revit.UI import TaskDialog, RevitCommandId, PostableCommand

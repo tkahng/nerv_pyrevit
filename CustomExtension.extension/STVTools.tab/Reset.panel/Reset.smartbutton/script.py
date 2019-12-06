@@ -13,6 +13,14 @@ from os.path import expanduser
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
+from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEventArgs, IdlingEventArgs
+from Autodesk.Revit.UI import RevitCommandId, PostableCommand, TaskDialog
+
+
+# I'm using ViewActivating event here as example.
+# The handler function will be executed every time a Revit view is activated:
+
+
 
 # print(script.get_all_buttons())
 
@@ -44,4 +52,6 @@ def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
             for b in buttons:
                 if b.Name == 'Display':
                     b.Enabled = False
+
+
 

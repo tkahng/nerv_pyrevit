@@ -15,19 +15,20 @@ syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-
+from Autodesk.Revit.UI import UIApplication
 import System, Selection
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, ViewSchedule, View
-from Autodesk.Revit.UI import TaskDialog
+    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, ViewSchedule, View, ImportInstance, XYZ
+from Autodesk.Revit.UI import RevitCommandId, PostableCommand, TaskDialog
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 import System.Windows.Forms
-uidoc = __revit__.ActiveUIDocument
-doc = __revit__.ActiveUIDocument.Document
+import time
+uiapp = UIApplication(doc.Application)
+application = uiapp.Application
 from pyrevit.framework import List
 from pyrevit import revit, DB
 import os
@@ -44,20 +45,25 @@ def get_selected_elements(doc):
         # old method
         return list(__revit__.ActiveUIDocument.Selection.Elements)
 
-selection = get_selected_elements(doc)
 
-FSymbol = DB.FilteredElementCollector(doc) \
-    .OfClass(clr.GetClrType(FamilySymbol)) .OfCategory(BuiltInCategory.OST_GenericAnnotation)\
-    .ToElements()
-for i in FSymbol:
-    if i.Family.Name == 'Site-Generic-Clashpoint':
-        clashPoint = i
-
-t = Transaction(doc, 'Replace dwg')
+from System import EventHandler, Uri
+from pyrevit import framework
+from pyrevit import script
+from pyrevit import DB, UI
+from Autodesk.Revit.DB import TextNoteType
+from System import EventHandler, Uri
+from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEventArgs, IdlingEventArgs
+clr.AddReferenceByPartialName('System.Windows.Forms')
+from System.Windows.Forms import SendKeys
+t = Transaction(doc, 'Add PA prefix to Name')
 t.Start()
-for cad in selection:
-    location = cad.Location
-    boxes = doc.Create.NewFamilyInstance(bPnt, clashPoint, Structure.StructuralType.NonStructural)
+styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
+for i in styles:
+    font = i.LookupParameter('Text Font').AsString()
+    if font != 'Arial Narrow':
+        i.LookupParameter('Text Font').Set('Arial')
+    else:
+        i.LookupParameter('Text Font').Set('Arial')
+        i.LookupParameter('Width Factor').Set(0.82)
+
 t.Commit()
-
-

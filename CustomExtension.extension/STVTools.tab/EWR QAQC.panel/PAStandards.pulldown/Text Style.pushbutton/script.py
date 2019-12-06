@@ -147,7 +147,12 @@ def AddPAtoText(doc):
 def SetAllTextNotetoArial(doc):
     styles = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
     for i in styles:
-        i.LookupParameter('Text Font').Set('Arial')
+        font = i.LookupParameter('Text Font').AsString()
+        if font != 'Arial Narrow':
+            i.LookupParameter('Text Font').Set('Arial')
+        else:
+            i.LookupParameter('Text Font').Set('Arial')
+            i.LookupParameter('Width Factor').Set(0.82)
 
 def AppendPrefix(doc):
 
@@ -200,14 +205,23 @@ else:
         AppendPrefix(doc)
     if 'Delete Excess Text Styles' in sel_action:
         list = CollectTextNoteFromDoc(doc)
-        DeleteExcessFromDoc(doc, list)
+        try:
+            DeleteExcessFromDoc(doc, list)
+        except:
+            print("Fail 1")
     if 'Set all text note to Arial' in sel_action:
-        SetAllTextNotetoArial(doc)
+        try:
+            SetAllTextNotetoArial(doc)
+        except:
+            print("Fail 2")
     if 'Add PA - to Text Styles' in sel_action:
         list = CollectTextNoteFromDoc(doc)
-        ConsolidateRegion(doc)
-        DeleteExcessFromDoc(doc, list)
-        AddPAtoText(doc)
+        try:
+            ConsolidateRegion(doc)
+            DeleteExcessFromDoc(doc, list)
+            AddPAtoText(doc)
+        except:
+            print("Fail")
     else:
         pass
 t.Commit()
