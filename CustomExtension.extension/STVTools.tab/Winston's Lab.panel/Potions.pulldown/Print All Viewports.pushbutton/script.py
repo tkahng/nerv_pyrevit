@@ -2,7 +2,6 @@
 import sys, clr, re, bs4
 import ConfigParser
 from os.path import expanduser
-from bs4 import BeautifulSoup
 # Set system path
 home = expanduser("~")
 cfgfile = open(home + "\\STVTools.ini", 'r')
@@ -37,7 +36,7 @@ from pyrevit import revit, DB
 import os
 from collections import defaultdict
 from pyrevit import script, coreutils
-from pyrevit import forms, coreutils
+from pyrevit import forms
 
 # logging module
 import logging
@@ -58,7 +57,7 @@ def get_selected_elements(doc):
         # old method
         return list(__revit__.ActiveUIDocument.Selection.Elements)
 
-import bs4, soupsieve
+
 from System import EventHandler, Uri
 from pyrevit import framework
 from pyrevit import script
@@ -68,13 +67,19 @@ from System import EventHandler, Uri
 from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEventArgs, IdlingEventArgs
 clr.AddReferenceByPartialName('System.Windows.Forms')
 from System.Windows.Forms import SendKeys
-from pyrevit import script
 
-output = script.get_output()
+def ViewsCheck(doc):
+    modelLst = []
+    viewports = FilteredElementCollector(doc).OfClass(Viewport).ToElements()
+    for i in viewports:
+        parameters = ""
+        name = i.LookupParameter('View Name').AsString()
+        id = i.Id.ToString()
+        parameters = id + ", " + name
+        modelLst.append(parameters)
+    return modelLst
 
-collectorFile = forms.pick_file(file_ext='html', multi_file=False, unc_paths=False)
 
-
-output.open_page(collectorFile)
-
-
+out = ViewsCheck(doc)
+for o in out:
+    print(o)

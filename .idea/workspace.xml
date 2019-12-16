@@ -1,66 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py" line="70" />
+    <bookmark url="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py" line="72" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="86902620-fbf8-470b-9797-01576c803a76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.pushbutton/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.pushbutton/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.pushbutton/off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.pushbutton/on.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.pushbutton/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Print All Viewports.pushbutton/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Print All Viewports.pushbutton/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Print All Viewports.pushbutton/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Selection 2SecAlt/off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Selection 2SecAlt/on.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Selection 2SecAlt/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2..smartbutton/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2..smartbutton/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2..smartbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Reset.panel/Reset.smartbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Reset.panel/Reset.smartbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Get all parameters.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Get all parameters.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Select DWG.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Select DWG.pushbutton/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Selection 2SecAlt/Thumbs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Selection 2SecAlt/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Thumbs.db" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/script.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="-640">
+                    <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+                    <folding>
+                      <element signature="e#0#13#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="348">
+                    <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="43" />
+            <state relative-caret-position="1022">
+              <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="109" column="41" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#1#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py">
+        <entry file="file://B:/00 - BIM Resources/06_BIM Tools/04-pyRevit/STVTools/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="185" column="47" lean-forward="true" selection-start-line="185" selection-start-column="47" selection-end-line="185" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1328">
-              <caret line="79" column="52" lean-forward="true" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="380">
+              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -68,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+            <state relative-caret-position="488">
+              <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -77,13 +108,49 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test.pushbutton/script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
-              <caret line="61" column="52" lean-forward="true" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
+            <state relative-caret-position="234">
+              <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
               <folding>
-                <element signature="e#1#20#0" expanded="true" />
+                <element signature="e#1#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/pyRevit/extensions/pyRevitTools.extension/pyRevit.tab/Project.panel/ptools.stack/Links.pulldown/ListDWGs.pushbutton/ListDWGs_script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/icon.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-276">
+              <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,27 +177,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Get all parameters.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Reset.panel/Reset.smartbutton/script.py" />
-        <option value="C:/pyRevit/extensions/pyRevitTools.extension/pyRevit.tab/Toggles.panel/toggles2.stack/Sync Views.smartbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Select DWG.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.smartbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" />
+        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py" />
+        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py" />
         <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-45" />
-    <option name="y" value="-6" />
-    <option name="width" value="1541" />
-    <option name="height" value="869" />
+    <option name="x" value="815" />
+    <option name="y" value="9" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1PWUk7OijY1YBtczIvL6ASwCJWs" />
   <component name="ProjectView">
@@ -154,6 +211,12 @@
               <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
               <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
               <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
               <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -170,33 +233,6 @@
               <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
               <item name="EWR QAQC.panel" type="462c0819:PsiDirectoryNode" />
               <item name="PAStandards.pulldown" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
-              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
-              <item name="EWR QAQC.panel" type="462c0819:PsiDirectoryNode" />
-              <item name="PAStandards.pulldown" type="462c0819:PsiDirectoryNode" />
-              <item name="Family Name.pushbutton" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
-              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
-              <item name="EWR QAQC.panel" type="462c0819:PsiDirectoryNode" />
-              <item name="PAStandards.pulldown" type="462c0819:PsiDirectoryNode" />
-              <item name="Filled Region.pushbutton" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
-              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
-              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
-              <item name="EWR QAQC.panel" type="462c0819:PsiDirectoryNode" />
-              <item name="PAStandards.pulldown" type="462c0819:PsiDirectoryNode" />
-              <item name="Line Type.pushbutton" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
@@ -212,6 +248,29 @@
               <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
               <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
               <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="EWR QAQC.panel" type="462c0819:PsiDirectoryNode" />
+              <item name="QAQC.pulldown" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="Reset.panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="Reset.panel" type="462c0819:PsiDirectoryNode" />
+              <item name="Reset.smartbutton" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
               <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -229,7 +288,16 @@
               <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
               <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
               <item name="Potions.pulldown" type="462c0819:PsiDirectoryNode" />
-              <item name="SmartButton.pushbutton" type="462c0819:PsiDirectoryNode" />
+              <item name="Copy Element Id to File.pushbutton" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pyRevit_custom_STV" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
+              <item name="Potions.pulldown" type="462c0819:PsiDirectoryNode" />
+              <item name="Read Clash Report.pushbutton" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pyRevit_custom_STV" type="b2602c69:ProjectViewProjectNode" />
@@ -247,7 +315,7 @@
               <item name="STVTools.tab" type="462c0819:PsiDirectoryNode" />
               <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
               <item name="Potions.pulldown" type="462c0819:PsiDirectoryNode" />
-              <item name="Test2.smartbutton" type="462c0819:PsiDirectoryNode" />
+              <item name="Test2..smartbutton" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -256,17 +324,27 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/BIM Group Tools.panel/Team.stack3/Parameters.pulldown" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown\Select DWG.pushbutton" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\EWR QAQC.panel\PAStandards.pulldown" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\EWR QAQC.panel\PAStandards.pulldown\DWG to Annotation.pushbutton" />
-      <recent name="C:\Users\gongc\Documents\GitHub\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\BIM Group Tools.panel\Team.stack3\Parameters.pulldown" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -278,6 +356,18 @@
         <RuleState>
           <option name="name" value="StatusDashboardGroupingRule" />
         </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -310,7 +400,10 @@
       <workItem from="1570567544301" duration="66322000" />
       <workItem from="1571324409926" duration="282000" />
       <workItem from="1575483283052" duration="37206000" />
-      <workItem from="1575663562120" duration="4589000" />
+      <workItem from="1575663562120" duration="35503000" />
+      <workItem from="1576011912524" duration="1154000" />
+      <workItem from="1576101374530" duration="1675000" />
+      <workItem from="1576507403649" duration="16773000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1567608033229</created>
@@ -319,17 +412,24 @@
       <option name="project" value="LOCAL" />
       <updated>1567608033230</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update after crash">
+      <created>1575671550404</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575671550405</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138867000" />
+    <option name="totallyTimeSpent" value="19872000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.256" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26133335" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -393,204 +493,168 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="update after crash" />
+    <option name="LAST_COMMIT_MESSAGE" value="update after crash" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576103338936">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576103338936" />
+    <state x="739" y="273" key="FileChooserDialogImpl" timestamp="1576102914754">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="273" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576102914754" />
+    <state x="2166" y="227" key="SettingsEditor" timestamp="1576103506083">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2166" y="227" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576103418845" />
+    <state x="2166" y="227" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1576103506083" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Get parameters of elements.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="60" column="76" selection-start-line="60" selection-start-column="76" selection-end-line="60" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton.old/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Add PA prefix.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="111" column="10" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Get all parameters.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://C:/pyRevit/extensions/pyRevitTools.extension/pyRevit.tab/Toggles.panel/toggles2.stack/Sync Views.smartbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="83" column="11" lean-forward="true" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Room fix.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Reset.panel/Reset.smartbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fitting.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Reset.panel/Reset.smartbutton/icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://C:/pyRevit-master/site-packages/win32api.pyd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1872" />
-      </provider>
-    </entry>
-    <entry file="file://C:/pyRevit-master/site-packages/pynput/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/pynput-1.5.2.tar/dist/pynput-1.5.2/pynput-1.5.2/setup.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/pyRevit-master/site-packages/bs4/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11700">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Select DWG.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/SmartButton.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="185" column="47" lean-forward="true" selection-start-line="185" selection-start-column="47" selection-end-line="185" selection-end-column="47" />
+        <state relative-caret-position="3700">
+          <caret line="185" column="47" selection-start-line="185" selection-start-column="47" selection-end-line="185" selection-end-column="47" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="61" column="52" lean-forward="true" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1328">
-          <caret line="79" column="52" lean-forward="true" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
+        <state relative-caret-position="650">
+          <caret line="79" column="52" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/packages/FileUtilities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Reset.panel/Reset.smartbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="42" column="137" selection-start-line="42" selection-start-column="137" selection-end-line="42" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2..smartbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+          <folding>
+            <element signature="e#1#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/EwrQcUtils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8580">
+          <caret line="434" column="41" selection-start-line="434" selection-start-column="41" selection-end-line="434" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Selection 2SecAlt/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3220">
+          <caret line="172" column="43" selection-start-line="172" selection-start-column="43" selection-end-line="172" selection-end-column="43" />
+          <folding>
+            <element signature="e#3719#3728#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        <state relative-caret-position="488">
+          <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py">
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="43" />
+        <state relative-caret-position="-276">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/pyRevit/extensions/pyRevitTools.extension/pyRevit.tab/Project.panel/ptools.stack/Links.pulldown/ListDWGs.pushbutton/ListDWGs_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1022">
+          <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-640">
+          <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://B:/00 - BIM Resources/06_BIM Tools/04-pyRevit/STVTools/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="109" column="41" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
+          <folding>
+            <element signature="e#1#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/STVTools.tab/Winston's Lab.panel/Potions.pulldown/Test.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
+          <folding>
+            <element signature="e#1#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
