@@ -19,8 +19,8 @@ import System, Selection
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, Family,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag
-
+    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag, BuiltInParameter
+import time
 from Autodesk.Revit.DB.Architecture import RoomTag
 from Autodesk.Revit.UI import TaskDialog
 clr. AddReferenceByPartialName('PresentationCore')
@@ -36,28 +36,19 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 
-# Body
-output = []
-t = Transaction(doc, "Get Orphaned Room Tag")
-# Transaction Start
-#t.Start()
-cl = FilteredElementCollector(doc)
-tag = cl.OfClass(SpatialElementTag).ToElements()
-for z in tag:
-#	x = z.IsOrphaned
-#	if x:
-#		y = z.Id
-#		#doc.Delete(y)
-#		i = y.ToString()
-#		wset = z.GetParameters("Workset")
-#		for a in wset:
-#			b = a.AsString()
-#		output.append(i)
-#		output.append(b)
-	wset = z.GetParameters("Workset")
-	for a in wset:
-		b = a.AsValueString()
-		output.append(b)
-#t.Commit()
-print(output)
-
+f = open("U:\\B52\\ids.txt", "r")
+ele = f.readline().split(",")
+e = ele[0]
+if e:
+    f.close()
+    line = ""
+    revit.get_selection().set_to(None)
+    if not doc.GetElement(ElementId(int(e))):
+        for k in ele[1:]:
+            line += k + ","
+        updateLine = line[0: len(line) - 1]
+        w = open("U:\\B52\\ids.txt", "w")
+        w.write(updateLine)
+        w.close()
+    else:
+        pass

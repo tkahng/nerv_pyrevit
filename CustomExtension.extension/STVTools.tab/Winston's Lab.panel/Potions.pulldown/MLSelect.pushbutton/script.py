@@ -19,8 +19,8 @@ import System, Selection
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, Family,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag
-
+    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag, BuiltInParameter
+import time
 from Autodesk.Revit.DB.Architecture import RoomTag
 from Autodesk.Revit.UI import TaskDialog
 clr. AddReferenceByPartialName('PresentationCore')
@@ -35,29 +35,36 @@ import os
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
-
-# Body
-output = []
-t = Transaction(doc, "Get Orphaned Room Tag")
-# Transaction Start
-#t.Start()
-cl = FilteredElementCollector(doc)
-tag = cl.OfClass(SpatialElementTag).ToElements()
-for z in tag:
-#	x = z.IsOrphaned
-#	if x:
-#		y = z.Id
-#		#doc.Delete(y)
-#		i = y.ToString()
-#		wset = z.GetParameters("Workset")
-#		for a in wset:
-#			b = a.AsString()
-#		output.append(i)
-#		output.append(b)
-	wset = z.GetParameters("Workset")
-	for a in wset:
-		b = a.AsValueString()
-		output.append(b)
-#t.Commit()
-print(output)
+'''
+e = str(forms.GetValueWindow.show(None,
+        value_type='string',
+    default=str(),
+        prompt='Please Enter Element ID',
+        title='Element ID'))
+explodeElement = doc.GetElement(ElementId(int(e)))
+viewId = explodeElement.OwnerViewId
+view = doc.GetElement(viewId)
+uidoc.ActiveView = view
+revit.get_selection().set_to(explodeElement)
+'''
+f = open("U:\\B52\\ids.txt", "r")
+ele = f.readline().split(",")
+e = ele[0]
+f.close()
+if e:
+    line = ""
+    explodeElement = doc.GetElement(ElementId(int(e)))
+    # Activate View
+    if explodeElement:
+        viewId = explodeElement.OwnerViewId
+        view = doc.GetElement(viewId)
+        uidoc.ActiveView = view
+        revit.get_selection().set_to(explodeElement)
+    else:
+        for k in ele[1:]:
+            line += k + ","
+        updateLine = line[0: len(line) - 1]
+        w = open("U:\\B52\\ids.txt", "w")
+        w.write(updateLine)
+        w.close()
 

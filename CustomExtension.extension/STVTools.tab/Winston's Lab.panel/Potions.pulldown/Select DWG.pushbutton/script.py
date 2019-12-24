@@ -35,7 +35,7 @@ def CadImportsName(doc):
     linkName = []
     for i in linkInstances:
         name = str(i.LookupParameter("Name").AsString())
-        if not name in linkName:
+        if not name in linkName and not i.IsLinked:
             linkName.append(name)
     return linkName
 
@@ -44,7 +44,7 @@ def CadImportsbyName(doc, names):
     linkInstances = collector.OfClass(ImportInstance)
     link = []
     for i in linkInstances:
-        if str(i.LookupParameter("Name").AsString()) in names:
+        if str(i.LookupParameter("Name").AsString()) in names and not i.IsLinked:
             link.append(i)
     return link
 
