@@ -96,7 +96,7 @@ Give an example
 Deployment and update on a large scale is recommended by using a server based read only location for the location to host this repository. Use a .bat file or any other desired methods in the background to modify the ini file located in each user's Revit Plugin Folder:
 
 Autodesk Revit addins are generally loaded from the following locations. 
-
+```
 User Addins:
 %appdata%\Autodesk\Revit\Addins\
 
@@ -108,7 +108,7 @@ C:\ProgramData\Autodesk\ApplicationPlugins\
 
 Autodesk servers and services:
 C:\Program Files\Autodesk\Revit 2016\AddIns\
-
+```
 ## Built With
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
