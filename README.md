@@ -59,7 +59,7 @@ This project will use [SemVer](http://semver.org/) for versioning after all mile
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/lmengfan/pyRevit_Custom_Tools/blob/master/LICENSE) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/lmengfan/Nerv_pyRevit/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
