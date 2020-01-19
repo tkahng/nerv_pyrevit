@@ -63,7 +63,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 ## Acknowledgments
 
-* [Ehsan Iran-Nejad](https://github.com/eirannejad) This work is mostly based on his work on pyRevit
-* [Revit API docs](https://www.revitapidocs.com/)
-* [Gui Talarico](https://github.com/gtalarico) Revit Python Wrapper
-* [Daren Thomas](https://github.com/daren-thomas) Revit Python Shell was used for most of the testing work
+* [Ehsan Iran-Nejad](https://github.com/eirannejad) This work is mostly based on his work on pyRevit.
+* [Revit API docs](https://www.revitapidocs.com/) Revit API documentation site is used for reference.
+* [Gui Talarico](https://github.com/gtalarico) Revit Python Wrapper Library.
+* [Daren Thomas](https://github.com/daren-thomas) Revit Python Shell was used for most of the testing work.
