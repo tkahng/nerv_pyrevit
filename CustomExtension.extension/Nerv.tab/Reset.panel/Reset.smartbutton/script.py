@@ -17,8 +17,6 @@ from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEvent
 from Autodesk.Revit.UI import RevitCommandId, PostableCommand, TaskDialog
 
 
-# I'm using ViewActivating event here as example.
-# The handler function will be executed every time a Revit view is activated:
 from Autodesk.Revit.DB import Document,\
     OpenOptions,WorksetConfiguration, WorksetConfigurationOption, DetachFromCentralOption,\
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions
