@@ -1,2 +1,0 @@
-title: Nerv for pyRevit
-description: Introduction Page to the Nerv for pyRevit Tool
