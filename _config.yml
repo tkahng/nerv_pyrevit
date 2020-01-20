@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: Nerv for pyRevit
 description: This is an intro page for Nerv for pyRevit. Please contact loumengfan@gmail.com for any questions
-logo: [Location of the logo]
+logo: nerv_logo.png
 show_downloads: true
