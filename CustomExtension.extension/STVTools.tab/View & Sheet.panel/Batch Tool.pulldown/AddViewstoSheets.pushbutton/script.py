@@ -61,7 +61,7 @@ if selected_views:
                         viewport = DB.Viewport.Create(revit.doc,
                                            dest_sheets[count].Id,
                                            selected_view.Id,
-                                           DB.XYZ(1.25, 1, 0))
+                                           DB.XYZ(17, 11, 0))
                         all_Viewport.append(viewport)
                     except Exception as place_err:
                         print('Error placing view on sheet: {} -> {}'

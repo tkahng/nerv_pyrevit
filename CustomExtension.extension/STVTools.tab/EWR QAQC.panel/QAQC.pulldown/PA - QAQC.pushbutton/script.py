@@ -40,7 +40,6 @@ def RVTFileCollector(dir):
         if file.endswith(".rvt"):
             #print(str(file))
             files.append(str(file))
-    print files
     return files
 
 def OpenFiles(oFile, app, audit):

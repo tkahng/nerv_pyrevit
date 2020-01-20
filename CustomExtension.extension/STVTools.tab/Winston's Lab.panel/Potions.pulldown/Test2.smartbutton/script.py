@@ -41,7 +41,6 @@ SYNC_EXPLODE_ENV_VAR = 'EXPLODEACTIVE'
 ROTATION_KEY = 'STATEONE'
 
 
-'
 def sendKey(sender, args):
     global elements
     global ROTATION_KEY

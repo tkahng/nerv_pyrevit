@@ -216,12 +216,10 @@ else:
             print("Fail 2")
     if 'Add PA - to Text Styles' in sel_action:
         list = CollectTextNoteFromDoc(doc)
-        try:
-            ConsolidateRegion(doc)
-            DeleteExcessFromDoc(doc, list)
-            AddPAtoText(doc)
-        except:
-            print("Fail")
+
+        ConsolidateRegion(doc)
+        DeleteExcessFromDoc(doc, list)
+        AddPAtoText(doc)
     else:
         pass
 t.Commit()

@@ -14,18 +14,22 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
-
 import System, Selection
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, Family,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag
-
-from Autodesk.Revit.DB.Architecture import RoomTag
-from Autodesk.Revit.UI import TaskDialog
+    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag, RevitLinkInstance, RevitLinkType, \
+    OpenOptions,WorksetConfiguration, WorksetConfigurationOption, DetachFromCentralOption,\
+    ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions
+import re
+from Autodesk.Revit.DB import Level, BuiltInParameter
+from Autodesk.Revit.UI import TaskDialog, UIApplication
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
+clr.AddReferenceByPartialName('System')
+import System
+from System import Guid
 import System.Windows.Forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -35,29 +39,14 @@ import os
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
+from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 
-# Body
-output = []
-t = Transaction(doc, "Get Orphaned Room Tag")
-# Transaction Start
-#t.Start()
-cl = FilteredElementCollector(doc)
-tag = cl.OfClass(SpatialElementTag).ToElements()
-for z in tag:
-#	x = z.IsOrphaned
-#	if x:
-#		y = z.Id
-#		#doc.Delete(y)
-#		i = y.ToString()
-#		wset = z.GetParameters("Workset")
-#		for a in wset:
-#			b = a.AsString()
-#		output.append(i)
-#		output.append(b)
-	wset = z.GetParameters("Workset")
-	for a in wset:
-		b = a.AsValueString()
-		output.append(b)
-#t.Commit()
-print(output)
+uiapp = UIApplication(doc.Application)
+application = uiapp.Application
+
+
+ModelGUID = doc.GetCloudModelPath().GetModelGUID()
+ProjectGUID = doc.GetCloudModelPath().GetProjectGUID()
+print("Model GUID: " + str(ModelGUID))
+print("Project GUID: " + str(ProjectGUID))
 

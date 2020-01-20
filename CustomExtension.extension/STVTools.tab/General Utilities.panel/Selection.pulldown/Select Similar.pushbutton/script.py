@@ -62,16 +62,16 @@ else:
 # convenience variable for first element in selection
 if len(selection):
     s0 = selection[0]
-for i in Selection.get_all_parameters(selection[0]).keys():
+for i in Selection.get_all_parameters_as_dic(selection[0]).keys():
     params.append(i)
 # Select Needed parameter
 sel_param_ids = []
 sel_params = []
 sel_param_strings = forms.SelectFromList.show(params, button_name='Select Params', multiselect=True)
 for i in sel_param_strings:
-    sel_param_ids.append(Selection.get_all_parameters(selection[0])[i].Id)
+    sel_param_ids.append(Selection.get_all_parameters_as_dic(selection[0])[i].Id)
 for i in sel_param_strings:
-    sel_params.append(Selection.get_all_parameters(selection[0])[i])
+    sel_params.append(Selection.get_all_parameters_as_dic(selection[0])[i])
 # process parameters into names and string values
 names = []
 values = []

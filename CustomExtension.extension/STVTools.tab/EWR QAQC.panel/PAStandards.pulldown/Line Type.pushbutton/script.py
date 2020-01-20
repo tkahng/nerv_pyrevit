@@ -87,20 +87,23 @@ def AddPrefixtoLines(doc):
                 categories = doc.Settings.Categories
                 lineCat = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines)
                 newName = prefix + 'Pen # ' + str(weight) + ' ' + str(patternName)
-                newLineStyleCat = categories.NewSubcategory(lineCat, newName)
-                doc.Regenerate()
-                newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)
-                newLineStyleCat.LineColor = Color(0x00, 0x00, 0x00);
                 try:
-                    newLineStyleCat.SetLinePatternId(pattern.Id, GraphicsStyleType.Projection)
+                    newLineStyleCat = categories.NewSubcategory(lineCat, newName)
+                    doc.Regenerate()
+                    newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)
+                    newLineStyleCat.LineColor = Color(0x00, 0x00, 0x00);
+                    try:
+                        newLineStyleCat.SetLinePatternId(pattern.Id, GraphicsStyleType.Projection)
+                    except:
+                        pass
+                    # Add new Line style to dictionary
+                    line_dict[uniqueParam] = newLineStyleCat
+                    print('Renamed ' + i.Name + ' to ' '\'' +
+                          newName + '\'')
+                    SetLineStyle(doc, i, newLineStyleCat)
+                    doc.Delete(i.Id)
                 except:
-                    pass
-                # Add new Line style to dictionary
-                line_dict[uniqueParam] = newLineStyleCat
-                print('Renamed ' + i.Name + ' to ' '\'' +
-                      newName + '\'')
-                SetLineStyle(doc, i, newLineStyleCat)
-                doc.Delete(i.Id)
+                    print("Contains wrong characters")
 
 def AppendPrefixtoLines(doc):
 
@@ -142,8 +145,11 @@ def AppendPrefixtoLines(doc):
             # Add new Line style to dictionary
             print('Appended Prefix to ' + i.Name + ' to ' '\'' +
                   newName + '\'')
-            SetLineStyle(doc, i, newLineStyleCat)
-            doc.Delete(i.Id)
+            try:
+                SetLineStyle(doc, i, newLineStyleCat)
+                doc.Delete(i.Id)
+            except:
+                print('Fail to set line, maybe it contains prohibited characters.')
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -185,10 +191,10 @@ else:
             print("Fail 2")
     if 'Add PA - to Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
-        try:
-            AddPrefixtoLines(doc)
-        except:
-            print("Fail 3")
+        #try:
+        AddPrefixtoLines(doc)
+        #except:
+            #print("Fail 3")
     else:
         pass
 t.Commit()

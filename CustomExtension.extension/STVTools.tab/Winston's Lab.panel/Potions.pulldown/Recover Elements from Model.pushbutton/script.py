@@ -17,7 +17,7 @@ import System, Selection, FileUtilities
 import System.Threading
 import System.Threading.Tasks
 from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,Transaction,\
-    FailureHandlingOptions, CurveElement, ElementTransformUtils, BuiltInCategory, Transform, CopyPasteOptions, ViewPlan
+    FailureHandlingOptions, CurveElement, ElementTransformUtils, BuiltInCategory, Transform, CopyPasteOptions, ViewPlan, ViewDrafting, ImportInstance, ElementParameterFilter, FilterNumericEquals, FilterIntegerRule
 from Autodesk.Revit.UI import TaskDialog
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -31,9 +31,10 @@ from pyrevit import forms
 
 def Views_name_Id_Collector(doc):
     modelDic = {}
-    viewports = FilteredElementCollector(doc).OfClass(ViewPlan).ToElements()
+    viewports = FilteredElementCollector(doc).OfClass(ViewDrafting).ToElements()
     for i in viewports:
-        name = i.Title.decode().encode('utf-8')
+        # name = unicode(i.Title, "utf-8")
+        name = i.Title.decode('utf-8', 'ignore')
         if name:
             modelDic[name] = i
         else:
@@ -47,7 +48,6 @@ recoverdocName = forms.SelectFromList.show(appDocs.keys(), button_name='Source D
 recoverdoc = appDocs[recoverdocName]
 recoverviews = Views_name_Id_Collector(recoverdoc)
 recoverViewName = forms.SelectFromList.show(recoverviews.keys(), button_name='Source View ', multiselect= True)
-
 views = Views_name_Id_Collector(doc)
 # desViewName = forms.SelectFromList.show(views.keys(), button_name='Destination View',
                                         # multiselect= False)
@@ -55,26 +55,34 @@ views = Views_name_Id_Collector(doc)
 t = Transaction(doc, 'Recover Elements')
 t.Start()
 for i in recoverViewName:
-    recoverview = recoverviews[i]
-    desview = views[i]
-    # Collector all elements needed
-    elementspool = FilteredElementCollector(recoverdoc, recoverview.Id).OfCategory(BuiltInCategory.OST_DoorTags).ToElementIds()
-    elements = FilteredElementCollector(recoverdoc, recoverview.Id).OfCategory(BuiltInCategory.OST_DoorTags).ToElementIds()
-    print(len(elementspool))
-    count = 0
-    for ele in elementspool:
-        a = recoverdoc.GetElement(ele).IsOrphaned
-        if a:
-           elements.Remove(ele)
+    try:
+        recoverview = recoverviews[i]
+        desview = views[i]
+        # destination = FilteredElementCollector(doc, desview.Id).OfClass(ImportInstance).ToElementIds()
+        elementspool = FilteredElementCollector(recoverdoc, recoverview.Id).OfClass(ImportInstance).ToElements()
+        elements = FilteredElementCollector(recoverdoc, recoverview.Id).OfClass(ImportInstance).ToElementIds()
+        # print(len(elements))
+        count = 0
+        for ele in elementspool:
+            a = ele.IsLinked
+            if a:
+               elements.Remove(ele.Id)
+            else:
+                count += 1
+        if desview:
+            print("found " + str(len(elements)) + " elements")
+            if elements:
+                trans = None
+                op = CopyPasteOptions()
+                ElementTransformUtils.CopyElements(recoverview, elements, desview, trans, op)
+                print("copied " + i.ToString())
+            else:
+                print("failed State no Elements" + i.ToString())
         else:
-            pass
-        count += 1
-    if elements and desview:
-        trans = None
-        op = CopyPasteOptions()
-        ElementTransformUtils.CopyElements(recoverview, elements, desview, trans, op)
-    else:
-        print(i.ToString() +' view does not have door tags or view not found')
+            print("failed State view not valid" + i.ToString())
+    except:
+        print("failed State final script fail " + i.ToString())
+
 
 # recoverdoc.Close(False)
 t.Commit()
