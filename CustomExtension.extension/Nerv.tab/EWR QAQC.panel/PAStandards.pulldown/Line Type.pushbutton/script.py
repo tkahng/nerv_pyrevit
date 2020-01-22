@@ -1,6 +1,6 @@
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms
-import clr
+import clr, time
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
@@ -34,10 +34,10 @@ def CollectLineStylefromLine(doc):
     return lineStyles
 
 
-def DeleteExcessLineStyles(doc, list):
+def DeleteExcessLineStyles(doc, list, start_time, limit):
     lineStyle = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
     for i in lineStyle:
-        if not i.Name in list and i.Name[0] != '<' and i.Name[0:5] != prefix and i.Id.IntegerValue > 0:
+        if not i.Name in list and i.Name[0] != '<' and i.Name[0:5] != prefix and i.Id.IntegerValue > 0 and time.time()-start_time < limit:
             try:
                 print('Deleting Line Style ' + i.Name)
                 doc.Delete(i.Id)
@@ -45,7 +45,7 @@ def DeleteExcessLineStyles(doc, list):
                 print('Failed to Delete ' + i.Name)
 
 
-def AddPrefixtoLines(doc):
+def AddPrefixtoLines(doc, start_time, limit):
     lineStyles = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
     line_dict = {}
     paramList = []
@@ -69,7 +69,7 @@ def AddPrefixtoLines(doc):
 
     # Non-Standard Line Changer
     for i in lineStyles:
-        if not i.Name[0:len(prefix)] == prefix and not i.Id.IntegerValue < 0:
+        if not i.Name[0:len(prefix)] == prefix and not i.Id.IntegerValue < 0 and time.time()-start_time < limit:
             weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
             pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
             if pattern is None:
@@ -78,34 +78,36 @@ def AddPrefixtoLines(doc):
                 patternName = pattern.Name
             uniqueParam = weight + patternName
             # Try changing it to an existing line style in dictionary
-            try:
+            if line_dict[uniqueParam]:
+            # try:
                 SetLineStyle(doc, i, line_dict[uniqueParam])
                 print('Changed ' + i.Name + ' to ' + line_dict[uniqueParam].Name)
                 doc.Delete(i.Id)
             # Create a new, properly named Line Style
-            except:
+            # except:
+            else:
                 categories = doc.Settings.Categories
                 lineCat = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines)
                 newName = prefix + 'Pen # ' + str(weight) + ' ' + str(patternName)
+                #try:
+                newLineStyleCat = categories.NewSubcategory(lineCat, newName)
+                doc.Regenerate()
+                newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)
+                newLineStyleCat.LineColor = Color(0x00, 0x00, 0x00);
                 try:
-                    newLineStyleCat = categories.NewSubcategory(lineCat, newName)
-                    doc.Regenerate()
-                    newLineStyleCat.SetLineWeight(int(weight), GraphicsStyleType.Projection)
-                    newLineStyleCat.LineColor = Color(0x00, 0x00, 0x00);
-                    try:
-                        newLineStyleCat.SetLinePatternId(pattern.Id, GraphicsStyleType.Projection)
-                    except:
-                        pass
-                    # Add new Line style to dictionary
-                    line_dict[uniqueParam] = newLineStyleCat
-                    print('Renamed ' + i.Name + ' to ' '\'' +
-                          newName + '\'')
-                    SetLineStyle(doc, i, newLineStyleCat)
-                    doc.Delete(i.Id)
+                    newLineStyleCat.SetLinePatternId(pattern.Id, GraphicsStyleType.Projection)
                 except:
-                    print("Contains wrong characters")
+                    pass
+                # Add new Line style to dictionary
+                line_dict[uniqueParam] = newLineStyleCat
+                print('Renamed ' + i.Name + ' to ' '\'' +
+                      newName + '\'')
+                SetLineStyle(doc, i, newLineStyleCat)
+                doc.Delete(i.Id)
+                #except:
+                    #print('Contains wrong characters ' + '\'' + i.Name + '\'')
 
-def AppendPrefixtoLines(doc):
+def AppendPrefixtoLines(doc, start_time, limit):
 
     lineStyles = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
     names = {}
@@ -120,6 +122,7 @@ def AppendPrefixtoLines(doc):
         sel_style.append(names[i])
     # Non-Standard Line Changer
     for i in sel_style:
+        if time.time()-start_time < limit:
             weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
             pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
             if pattern is None:
@@ -172,7 +175,9 @@ sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', mu
 # Transaction Start
 t = Transaction(doc, 'Add PA prefix to Name')
 t.Start()
-
+start_time = time.time()
+limit = 3600
+print(start_time)
 if sel_action == None:
     forms.alert('No Action selected', title='Error', sub_msg=None, expanded=None, footer='', ok=True, cancel=False,
                 yes=False,
@@ -180,21 +185,25 @@ if sel_action == None:
 else:
     if 'Append Prefix to selected Line Styles(protect)'in sel_action:
         try:
-            AppendPrefixtoLines(doc)
+            AppendPrefixtoLines(doc, start_time, limit)
         except:
             print("Fail 1")
     if 'Delete Excess Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
         try:
-            DeleteExcessLineStyles(doc, list)
+            DeleteExcessLineStyles(doc, list, start_time, limit)
         except:
             print("Fail 2")
     if 'Add PA - to Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
         #try:
-        AddPrefixtoLines(doc)
+        AddPrefixtoLines(doc, start_time, limit)
         #except:
             #print("Fail 3")
     else:
         pass
+print(time.time())
+if time.time() - start_time > limit:
+    print("Time Out")
+print('Done')
 t.Commit()
