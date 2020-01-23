@@ -10,6 +10,7 @@ import pyrevit
 from pyrevit import framework
 import ConfigParser
 from os.path import expanduser
+# import datetime
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
@@ -23,6 +24,8 @@ from Autodesk.Revit.DB import Document,\
 import System
 from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from System import Guid
+# from System import DateTime
+
 
 # print(script.get_all_buttons())
 def OpenCloudFiles(modelGUID, projectGUID, app, audit):
@@ -52,7 +55,6 @@ def SaveCloudModel(document, filePath):
     saveOpt.Compact = True
     document.SaveAs(filePath + document.Title + ".rvt", saveOpt)
     document.Close()
-
 
 filePath = "C:\\Users\\loum\\Desktop\\acad\\"
 modelGUID = Guid("e77aa560-8776-4a0e-8192-3044c5e240df")
@@ -87,6 +89,20 @@ def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
     sys.path.append(r'\\Uspadgv1dcl01\NY BIM GROUP\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\packages\\')
 
     modelsDic = dict(Config.items('Cloud'))
+
+    # afterHours = DateTime.Parse("2020/1/1 21:00:00.000")
+    # timeStamp = datetime.datetime.now().time()  # Throw away the date information
+    # Timer after which time download model will start
+    '''
+    setTime = datetime.time(21, 00, 00)
+    if Config.get('General', 'clouddownload') == "1" and setTime <= timeStamp:
+        downloadModel = True
+    elif Config.get('General', 'clouddownload') == "2":
+        downloadModel = True
+    else:
+        pass
+    '''
+
     if Config.get('General','clouddownload') == "1" :
         n = 1
         for i in modelsDic.values():

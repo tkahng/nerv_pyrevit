@@ -78,14 +78,14 @@ def AddPrefixtoLines(doc, start_time, limit):
                 patternName = pattern.Name
             uniqueParam = weight + patternName
             # Try changing it to an existing line style in dictionary
-            if line_dict[uniqueParam]:
-            # try:
+            # if line_dict[uniqueParam]:
+            try:
                 SetLineStyle(doc, i, line_dict[uniqueParam])
                 print('Changed ' + i.Name + ' to ' + line_dict[uniqueParam].Name)
                 doc.Delete(i.Id)
             # Create a new, properly named Line Style
-            # except:
-            else:
+            except:
+            # else:
                 categories = doc.Settings.Categories
                 lineCat = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines)
                 newName = prefix + 'Pen # ' + str(weight) + ' ' + str(patternName)

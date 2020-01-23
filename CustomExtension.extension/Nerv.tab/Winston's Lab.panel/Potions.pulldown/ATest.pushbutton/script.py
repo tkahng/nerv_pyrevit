@@ -60,4 +60,19 @@ for v in viewports:
     print v.Name
 '''
 
-selection = Selection.get_selected_elements(doc)
+# selection = Selection.get_selected_elements(doc)
+import datetime
+downloadModel = False
+timeStamp = datetime.datetime.now().time()  # Throw away the date information
+# Timer after which time download model will start
+setTime = datetime.time(21, 00, 00)
+if config.get('General','clouddownload') == "1" and setTime <= timeStamp:
+    downloadModel = True
+elif config.get('General','clouddownload') == "2":
+    downloadModel = True
+else:
+    pass
+
+print(downloadModel)
+
+
