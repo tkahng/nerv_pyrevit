@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86902620-fbf8-470b-9797-01576c803a76" name="Default Changelist" comment="Rename Tool bar">
+    <list default="true" id="86902620-fbf8-470b-9797-01576c803a76" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="file:W:/../..//W:/Tools/Repo/pyRevit_custom_STV/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,120 +12,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/packages/Warnings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/AddViewstoSheets.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2540">
-              <caret line="127" column="56" selection-start-line="127" selection-start-column="56" selection-end-line="127" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1260">
-              <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
-              <folding>
-                <element signature="e#1#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Get parameters of elements.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Recover Elements from Model.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fitting.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1180">
-              <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4080">
-              <caret line="206" column="21" selection-start-line="206" selection-start-column="21" selection-end-line="206" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -134,96 +19,39 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>tabName</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py" />
-        <option value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1PWUk7OijY1YBtczIvL6ASwCJWs" />
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="pyRevit_custom_STV" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="CustomExtension.extension" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="CustomExtension.extension" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Nerv.tab" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="CustomExtension.extension" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Nerv.tab" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Reset.panel" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="pyRevit_custom_STV" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="CustomExtension.extension" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Nerv.tab" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Reset.panel" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Reset.smartbutton" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane" />
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Melca.pushbutton" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="Y:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\Winston's Lab.panel\Potions.pulldown\Melca.pushbutton" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown\MLTest.pushbutton" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown\Select DWG.pushbutton" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\EWR QAQC.panel\PAStandards.pulldown" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\STVTools.tab\Winston's Lab.panel\Potions.pulldown" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -289,6 +117,11 @@
       <workItem from="1579706580691" duration="2589000" />
       <workItem from="1579719138966" duration="3380000" />
       <workItem from="1579791546848" duration="12000" />
+      <workItem from="1579791594288" duration="979000" />
+      <workItem from="1579794390931" duration="969000" />
+      <workItem from="1579802506775" duration="37000" />
+      <workItem from="1579802556897" duration="7429000" />
+      <workItem from="1579877646069" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1567608033229</created>
@@ -332,18 +165,32 @@
       <option name="project" value="LOCAL" />
       <updated>1579719164307</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="debug line tool">
+      <created>1579791680279</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579791680279</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24449000" />
+    <option name="totallyTimeSpent" value="598000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15138593" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -351,20 +198,14 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3290461" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.16184351" />
-      <window_info anchor="bottom" id="Python Console" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="R Packages" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Key Promoter X" />
+      <window_info anchor="right" id="R Graphics" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="R Graphics" order="4" />
-      <window_info anchor="right" id="R Packages" order="5" />
-      <window_info anchor="right" id="Key Promoter X" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,16 +249,19 @@
     <MESSAGE value="update after crash" />
     <MESSAGE value="Read Clash Report" />
     <MESSAGE value="Rename Tool bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename Tool bar" />
+    <MESSAGE value="debug line tool" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug line tool" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576103338936">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2334" y="174" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579810480077">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2334" y="174" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@1920.0.1920.1040" timestamp="1579810480077" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576103338936" />
-    <state x="739" y="273" key="FileChooserDialogImpl" timestamp="1576102914754">
+    <state x="739" y="273" key="FileChooserDialogImpl" timestamp="1579802526741">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="739" y="273" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@0.0.1920.1040" timestamp="1579802526741" />
     <state x="739" y="273" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576102914754" />
     <state x="509" y="161" key="SettingsEditor" timestamp="1579718399173">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -425,118 +269,13 @@
     <state x="509" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579718399173" />
     <state x="509" y="161" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576857737805" />
     <state x="2166" y="227" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1576103506083" />
+    <state x="655" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1579802557045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@0.0.1920.1040" timestamp="1579802557045" />
     <state x="615" y="188" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1576859405430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="615" y="188" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1576859405430" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/EwrQcUtils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Magic.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-292">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/packages/Warnings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/AddViewstoSheets.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="47" column="26" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2540">
-          <caret line="127" column="56" selection-start-line="127" selection-start-column="56" selection-end-line="127" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
-          <folding>
-            <element signature="e#1#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Get parameters of elements.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Recover Elements from Model.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fitting.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1180">
-          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4080">
-          <caret line="206" column="21" selection-start-line="206" selection-start-column="21" selection-end-line="206" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
