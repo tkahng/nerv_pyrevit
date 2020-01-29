@@ -44,15 +44,24 @@ import xlsxwriter
 # Create a workbook and add worksheets
 #workbook = xlsxwriter.Workbook("Orphaned Elements.xlsx")
 #worksheet = workbook.add_worksheet()
+filelocation = forms.pick_file(file_ext='txt', multi_file=False, unc_paths=False)
 
+out = []
 LId = uidoc.Selection.GetElementIds()
 for Id in LId:
     sel = doc.GetElement(Id)
-    eName = sel.Name
+    eName = sel.Category.Name
     wId = sel.WorksetId
     wSet = doc.GetWorksetTable().GetWorkset(wId)
     wName = wSet.Name
-    print(eName, Id.IntegerValue, wName)
+    out.append(str(eName) + "," + str(Id.IntegerValue) + "," + str(wName))
+
+file = open(filelocation, "w")
+for line in out:
+    file.write(line)
+    file.write("\n")
+
+file.close()
     #row = 1
     #col = 0
     #worksheet.write(row, col, eName)

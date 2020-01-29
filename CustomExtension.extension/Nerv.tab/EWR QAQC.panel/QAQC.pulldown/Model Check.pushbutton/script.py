@@ -93,38 +93,10 @@ def LinesProcessing(openedDoc):
 def CadImportsProcessing(openedDoc):
     collectorCADImports = WmataQcUtils.CadImportsCheck(openedDoc)
     WmataQcUtils.ExcelWriter(excelFile, 'CAD LINKS AND IMPORTS', 1, 0, collectorCADImports)
+# Pick an action
+process = ["Links Check", "Categoty in Workset", "TitleBlock Check", "Text Check", "Lines Check", "Cad Import Check"]
+pickedProcess = forms.SelectFromList.show(process, button_name='Select Item', multiselect=True)
 
-'''
-def DimensionProcessing(openedDoc):
-    collectorDim = WmataQcUtils.DimensionsCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'DIMENSIONS', 1, 0, collectorDim)
-def SettingsProcessing(openedDoc):
-    collectorSettings = WmataQcUtils.SettingsCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'SETTINGS', 1, 0, collectorSettings)
-def FamiliesProcessing(openedDoc):
-    collectorFamily = WmataQcUtils.FamilyNameCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'FAMILY NAME', 1, 0, collectorFamily)
-    
-def PositionProcessing(openedDoc):
-    collectorPosition = WmataQcUtils.PositionCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'PROJECT INFO', 1, 0, collectorPosition)
-def LevelsProcessing(openedDoc):
-    collectorLevels = WmataQcUtils.LevelCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'LEVEL', 1, 0, collectorLevels)
-def SheetElementsProcessing(openedDoc):
-    collectorSheetElements = WmataQcUtils.SheetElementCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'SHEET ELEMENT', 1, 0, collectorSheetElements)
-def FilledRegionsProcessing(openedDoc):
-    collectorFilledRegion = WmataQcUtils.FilledRegionCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'FILLED REGIONS', 1, 0, collectorFilledRegion)
-def AnnotationsProcessing(openedDoc):
-    collectorAnnotationSymbol = WmataQcUtils.AnnotationSymbolCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'ANNOTATION SYMBOLS', 1, 0, collectorAnnotationSymbol)
-def WorksetsProcessing(openedDoc):
-    collectorWorkset = WmataQcUtils.WorksetCheck(openedDoc)
-    WmataQcUtils.ExcelWriter(excelFile, 'WORKSETS', 1, 0, collectorWorkset)
-'''
-# Transaction
 if len(collectorFiles) > 0:
     t = Transaction(doc, 'Check QAQC Elements')
     t.Start()
@@ -142,22 +114,28 @@ if len(collectorFiles) > 0:
         blank =[]
         WmataQcUtils.ExcelWriter(excelFile, 'INTRO', 1, 0, blank)
         # Checking
-        threading.Thread(name='DimensionsCheck', target = DimensionProcessing(openedDoc))
+        #threading.Thread(name='DimensionsCheck', target = DimensionProcessing(openedDoc))
         #threading.Thread(name='SettingsCheck', target=SettingsProcessing(openedDoc))
-        threading.Thread(name='ViewsCheck', target=ViewsProcessing(openedDoc))
+        #threading.Thread(name='ViewsCheck', target=ViewsProcessing(openedDoc))
         #threading.Thread(name='FamiliesCheck', target=FamiliesProcessing(openedDoc))
-        threading.Thread(name='LinksCheck', target=LinksProcessing(openedDoc))
-        threading.Thread(name='TitleBlockCheck', target=TitleBlocksProcessing(openedDoc))
-        threading.Thread(name='SheetsCheck', target=SheetsProcessing(openedDoc))
-        threading.Thread(name='TextsCheck', target=TextsProcessing(openedDoc))
-        #threading.Thread(name='PositionsCheck', target=PositionProcessing(openedDoc))
-        threading.Thread(name='CateinWorksetsCheck', target=CateinWorksetsProcessing(openedDoc))
+        if "Links Check" in pickedProcess:
+            threading.Thread(name='LinksCheck', target=LinksProcessing(openedDoc))
+        if "TitleBlock Check" in pickedProcess:
+            threading.Thread(name='TitleBlockCheck', target=TitleBlocksProcessing(openedDoc))
+        #threading.Thread(name='SheetsCheck', target=SheetsProcessing(openedDoc))
+        if "Text Check" in pickedProcess:
+            threading.Thread(name='TextsCheck', target=TextsProcessing(openedDoc))
+        # threading.Thread(name='PositionsCheck', target=PositionProcessing(openedDoc))
+        if "Categoty in Workset" in pickedProcess:
+            threading.Thread(name='CateinWorksetsCheck', target=CateinWorksetsProcessing(openedDoc))
         #threading.Thread(name='LevelssCheck', target=LevelsProcessing(openedDoc))
         #threading.Thread(name='SheetElementsCheck', target=SheetElementsProcessing(openedDoc))
-        threading.Thread(name='LinesCheck', target=LinesProcessing(openedDoc))
+        if "Lines Check" in pickedProcess:
+            threading.Thread(name='LinesCheck', target=LinesProcessing(openedDoc))
         #threading.Thread(name='FilledRegionsCheck', target=FilledRegionsProcessing(openedDoc))
         #threading.Thread(name='AnnotationsCheck', target=AnnotationsProcessing(openedDoc))
-        threading.Thread(name='CadImportCheck', target=CadImportsProcessing(openedDoc))
+        if "Cad Import Check" in pickedProcess:
+            threading.Thread(name='CadImportCheck', target=CadImportsProcessing(openedDoc))
         #threading.Thread(name='WorksetsCheck', target=WorksetsProcessing(openedDoc))
 
         # Close Excel and Revit File

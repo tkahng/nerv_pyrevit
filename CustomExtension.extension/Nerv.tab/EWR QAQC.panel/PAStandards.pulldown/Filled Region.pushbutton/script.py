@@ -44,7 +44,7 @@ def DeleteExcessFilledRegions(doc, list):
                 print('Deleting Filled Region Style ' + name)
                 doc.Delete(i.Id)
             except:
-                print('Failed to Delete ' + name)
+                print('Error: Failed to Delete ' + name + ' ' + i.Id.ToString())
 
 def ConsolidateRegion(doc):
     styles = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
@@ -101,7 +101,7 @@ def AddPAtoRegion(doc):
                 # print('Renamed ' + name + ' to ' + prefix + name)
                 names.append(prefix + name)
             except:
-                print('Failed to Delete ' + name)
+                print('Failed to Delete ' + name + i.Id.ToString())
         elif '.dwg' in name:
             try:
                 try:

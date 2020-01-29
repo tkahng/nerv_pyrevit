@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Nerv_pyRevit.iml" filepath="$PROJECT_DIR$/.idea/Nerv_pyRevit.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" filepath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" />
     </modules>
   </component>

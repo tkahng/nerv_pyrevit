@@ -37,13 +37,16 @@ def CollectLineStylefromLine(doc):
 def DeleteExcessLineStyles(doc, list, start_time, limit):
     lineStyle = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
     for i in lineStyle:
+        # individual transactions
+        t = Transaction(doc, 'Delete Excess Line Styles')
+        t.Start()
         if not i.Name in list and i.Name[0] != '<' and i.Name[0:5] != prefix and i.Id.IntegerValue > 0 and time.time()-start_time < limit:
             try:
                 print('Deleting Line Style ' + i.Name)
                 doc.Delete(i.Id)
             except:
                 print('Failed to Delete ' + i.Name)
-
+        t.Commit()
 
 def AddPrefixtoLines(doc, start_time, limit):
     lineStyles = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
@@ -69,6 +72,8 @@ def AddPrefixtoLines(doc, start_time, limit):
 
     # Non-Standard Line Changer
     for i in lineStyles:
+        t = Transaction(doc, 'Add PA prefix to Name')
+        t.Start()
         if not i.Name[0:len(prefix)] == prefix and not i.Id.IntegerValue < 0 and time.time()-start_time < limit:
             weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
             pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
@@ -106,7 +111,7 @@ def AddPrefixtoLines(doc, start_time, limit):
                 doc.Delete(i.Id)
                 #except:
                     #print('Contains wrong characters ' + '\'' + i.Name + '\'')
-
+        t.Commit()
 def AppendPrefixtoLines(doc, start_time, limit):
 
     lineStyles = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
@@ -122,6 +127,8 @@ def AppendPrefixtoLines(doc, start_time, limit):
         sel_style.append(names[i])
     # Non-Standard Line Changer
     for i in sel_style:
+        t = Transaction(doc, 'Add PA prefix to Name')
+        t.Start()
         if time.time()-start_time < limit:
             weight = i.GetLineWeight(GraphicsStyleType.Projection).ToString()
             pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
@@ -153,6 +160,7 @@ def AppendPrefixtoLines(doc, start_time, limit):
                 doc.Delete(i.Id)
             except:
                 print('Fail to set line, maybe it contains prohibited characters.')
+        t.Commit()
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -173,10 +181,10 @@ actionList = ['Append Prefix to selected Line Styles(protect)',
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
 # Transaction Start
-t = Transaction(doc, 'Add PA prefix to Name')
-t.Start()
+# t = Transaction(doc, 'Add PA prefix to Name')
+# t.Start()
 start_time = time.time()
-limit = 3600
+limit = 300
 print(start_time)
 if sel_action == None:
     forms.alert('No Action selected', title='Error', sub_msg=None, expanded=None, footer='', ok=True, cancel=False,
@@ -204,6 +212,7 @@ else:
         pass
 print(time.time())
 if time.time() - start_time > limit:
-    print("Time Out")
+    print("Script Time Out!! The process is stopped due to the mass of the process might hang you revit for more than 4 hrs"
+          "Please run the Tool again until you do not see this message to complete clan up")
 print('Done')
-t.Commit()
+# t.Commit()
