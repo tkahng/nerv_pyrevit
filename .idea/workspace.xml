@@ -54,6 +54,7 @@
       <updated>1580236968709</updated>
       <workItem from="1580237098939" duration="3756000" />
       <workItem from="1580331889191" duration="740000" />
+      <workItem from="1580344196773" duration="665000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
@@ -81,14 +82,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="56" key="SettingsEditor/0.0.1536.824/1874.-1050.1680.1010/194.-1050.1680.1010@0.0.1536.824" timestamp="1580237459598" />
-    <state x="503" y="219" key="Vcs.Push.Dialog.v2" timestamp="1580344206086">
+    <state x="503" y="219" key="Vcs.Push.Dialog.v2" timestamp="1580344776249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920/1874.-1050.1680.969/194.-1050.1680.969@0.0.1707.920" timestamp="1580332379184" />
-    <state x="503" y="219" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580344206086" />
+    <state x="503" y="219" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580344776249" />
     <state x="568" y="93" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580239427994">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="568" y="93" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/1874.-1050.1680.1010/194.-1050.1680.1010@0.0.1536.824" timestamp="1580239427994" />
+    <state x="655" y="312" key="git4idea.merge.GitPullDialog" timestamp="1580344675193">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="312" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580344675193" />
   </component>
 </project>
