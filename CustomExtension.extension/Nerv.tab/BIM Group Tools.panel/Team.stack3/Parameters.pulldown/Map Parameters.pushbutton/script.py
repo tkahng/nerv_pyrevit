@@ -60,10 +60,10 @@ for x in selection:
     v2 = x.LookupParameter(parameter2)
     if v1 is None:
         output = alert("The first input is not a valid parameter.")
-        break
+        pass
     elif v2 is None:
         output = alert("The second input is not a valid parameter.")
-        break
+        pass
     else:
         if v1.StorageType == v2.StorageType:
             if v1.StorageType == StorageType.Integer:
@@ -82,7 +82,7 @@ for x in selection:
             value2.append(v2)
         else:
             output = alert("The two parameters are not the same type, try again.")
-            break
+            pass
 t.Commit()
 
 
