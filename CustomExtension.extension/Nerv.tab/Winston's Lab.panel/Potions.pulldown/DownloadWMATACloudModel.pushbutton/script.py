@@ -51,7 +51,8 @@ def OpenCloudFiles(modelGUID, projectGUID, app, audit):
     else:
         openOpt.Audit = False
     # openOpt.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets
-    wsopt = WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets)
+    wsopt = WorksetConfiguration\
+        (WorksetConfigurationOption.CloseAllWorksets)
     # wsopt.Open(worksetList)
     openOpt.SetOpenWorksetsConfiguration(wsopt)
     modelPath = ModelPathUtils.ConvertCloudGUIDsToCloudPath(projectGUID, modelGUID)
