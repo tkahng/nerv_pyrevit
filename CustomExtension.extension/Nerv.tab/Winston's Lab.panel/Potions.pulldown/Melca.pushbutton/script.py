@@ -36,6 +36,11 @@ from pyrevit import script
 from pyrevit import forms
 from Autodesk.Revit.UI import TaskDialog, UIApplication
 
+#2020-02-06 SCA change - to _
+
+
+
+'''
 # 2020-01-23 Exporting Orphaned Elements
 from Autodesk.Revit.UI.Selection import Selection
 import xlsxwriter
@@ -70,7 +75,7 @@ file.close()
     #row += 1
 
 #workbook.close()
-
+'''
 
 '''
 def ExcelOpener(fileName):

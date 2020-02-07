@@ -230,6 +230,21 @@ def ViewsCheck(doc):
         modelLst.append(parameters)
     return modelLst
 
+def SheetElementCheck(doc):
+    model = []
+    views = FilteredElementCollector(doc).OfClass(ViewSheet).ToElements()
+
+    for viewSheet in views:
+        sheet = viewSheet.Title
+        elems = FilteredElementCollector(doc, viewSheet.Id).ToElements()
+        for elem in elems:
+            name = []
+            name.append(sheet)
+            name.append(elem.GetType().ToString())
+            name.append(elem.Name)
+            model.append(name)
+    return model
+
 # Warnings
 
 # View Template
@@ -243,27 +258,6 @@ def LevelCheck(doc):
         out.append([i.Name])
     return out
 
-def SheetElementCheck(doc):
-    model = []
-    worksets = FilteredWorksetCollector(doc).OfKind(WorksetKind.ViewWorkset).ToWorksets()
-    sheetWorkset = []
-    for workset in worksets:
-        if workset.Name[6:11] == 'Sheet':
-            sheetWorkset.append(workset)
-    for ws in sheetWorkset:
-        sheet = ws.Name
-         # sheet.append(ws.Name)
-        elems = WorksetElements(doc, ws)
-        for elem in elems:
-            name = []
-            try:
-                name.append(sheet)
-                name.append(elem.GetType().ToString() + '     ' + elem.Name)
-            except:
-                name.append(sheet)
-                name.append(elem.GetType().ToString() + '     ' + str(elem))
-            model.append(name)
-    return model
 
 def FilledRegionCheck(doc):
     instances = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()

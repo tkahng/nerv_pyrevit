@@ -15,12 +15,8 @@ syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
 import System, Selection
-import System.Threading
-import System.Threading.Tasks
-from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, Family,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag, RevitLinkInstance, \
-    RevitLinkType, View, BoundingBoxXYZ
-import re
+import System.Threading, System.Threading.Tasks
+from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle
 from Autodesk.Revit.DB import Level, BuiltInParameter
 from Autodesk.Revit.UI import TaskDialog
 clr. AddReferenceByPartialName('PresentationCore')
@@ -60,19 +56,31 @@ for v in viewports:
     print v.Name
 '''
 
-# selection = Selection.get_selected_elements(doc)
-import datetime
-downloadModel = False
-timeStamp = datetime.datetime.now().time()  # Throw away the date information
-# Timer after which time download model will start
-setTime = datetime.time(21, 00, 00)
-if config.get('General','clouddownload') == "1" and setTime <= timeStamp:
-    downloadModel = True
-elif config.get('General','clouddownload') == "2":
-    downloadModel = True
-else:
-    pass
+gStyle = FilteredElementCollector(doc).OfClass(GraphicsStyle).ToElements()
+collection = []
+for g in gStyle:
+    list = []
+    workSet = g.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).AsValueString()
+    if workSet == "Object Styles":
+        if g.GraphicsStyleCategory.Parent:
+            print(g.GraphicsStyleCategory.Parent.Name.ToString())
+        else:
+            print("None")
+        # print(workSet + " " + g.Name + " " + g.GraphicsStyleType.ToString() + " " +
+        #      g.GraphicsStyleCategory.Parent.Name.ToString() + " " + g.GraphicsStyleCategory.GetLineWeight(g.GraphicsStyleType).ToString() + " " + g.GraphicsStyleCategory.GetLinePatternId(g.GraphicsStyleType).ToString()
+         #     )
 
-print(downloadModel)
-
+    '''
+    params = Selection.get_all_parameters_as_dic(g).keys()
+    values = Selection.get_all_parameters_as_dic(g).values()
+    count = 0
+    for i in params:
+        list.append(i)# + ' : ' + values[count])
+        count += 1
+    collection.append(list)
+for i in collection:
+    print('----------------------')
+    for a in i:
+        print(a)
+        '''
 

@@ -93,8 +93,13 @@ def LinesProcessing(openedDoc):
 def CadImportsProcessing(openedDoc):
     collectorCADImports = WmataQcUtils.CadImportsCheck(openedDoc)
     WmataQcUtils.ExcelWriter(excelFile, 'CAD LINKS AND IMPORTS', 1, 0, collectorCADImports)
+def SheetElementsProcessing(openedDoc):
+    collectorSheetElements = WmataQcUtils.SheetElementCheck(openedDoc)
+    WmataQcUtils.ExcelWriter(excelFile, 'SHEET ELEMENT', 1, 0, collectorSheetElements)
+
 # Pick an action
-process = ["Links Check", "Categoty in Workset", "TitleBlock Check", "Text Check", "Lines Check", "Cad Import Check"]
+process = ["Links Check", "Categoty in Workset", "TitleBlock Check", "Text Check",
+           "Lines Check", "Cad Import Check", "Sheet Element Check"]
 pickedProcess = forms.SelectFromList.show(process, button_name='Select Item', multiselect=True)
 
 if len(collectorFiles) > 0:
@@ -136,6 +141,9 @@ if len(collectorFiles) > 0:
         #threading.Thread(name='AnnotationsCheck', target=AnnotationsProcessing(openedDoc))
         if "Cad Import Check" in pickedProcess:
             threading.Thread(name='CadImportCheck', target=CadImportsProcessing(openedDoc))
+        #threading.Thread(name='WorksetsCheck', target=WorksetsProcessing(openedDoc))
+        if "Sheet Element Check" in pickedProcess:
+            threading.Thread(name='CadImportCheck', target=SheetElementsProcessing(openedDoc))
         #threading.Thread(name='WorksetsCheck', target=WorksetsProcessing(openedDoc))
 
         # Close Excel and Revit File
