@@ -41,36 +41,39 @@ def FamilyNameChange(doc):
     for i in family:
         if not i.Family.FamilyCategory.Name in exempt and not 'Tag' in i.Family.FamilyCategory.Name:
             cate = i.Family.FamilyCategory.Name
-            familyName = i.Family.Name
-            if familyName[0:2] == 'PA':
-                pass
-            elif familyRegex.findall(familyName) == [] and familyName[0:2] != 'PA' and len(re.split('-', familyName)) <=1:
-                proposedName = UniqueName(cate + '-Generic-' + familyName, namesLst)
-                try:
-                    i.Family.Name = proposedName
-                except:
+            if cate != "Generic Models":
+                familyName = i.Family.Name
+                if familyName[0:2] == 'PA':
                     pass
-                namesLst.append(proposedName)
-                print('Changed 1 ' + familyName + ' to ' + proposedName)
+                elif familyRegex.findall(familyName) == [] and familyName[0:2] != 'PA' and len(re.split('-', familyName)) <=1:
+                    proposedName = UniqueName(cate + '-Generic-' + familyName, namesLst)
+                    try:
+                        i.Family.Name = proposedName
+                    except:
+                        pass
+                    namesLst.append(proposedName)
+                    print('Changed 1 ' + familyName + ' to ' + proposedName)
 
-            elif familyRegex.findall(familyName) == [] and familyName[0:2] != 'PA' and len(re.split('-', familyName)) == 2 :
-                proposedName = UniqueName(cate + '-Generic-' + familyName.replace('-', '_'), namesLst)
-                try:
-                    i.Family.Name = proposedName
-                except:
-                    pass
-                namesLst.append(proposedName)
-                print('Changed 2 ' + familyName + ' to ' + proposedName)
+                elif familyRegex.findall(familyName) == [] and familyName[0:2] != 'PA' and len(re.split('-', familyName)) == 2 :
+                    proposedName = UniqueName(cate + '-Generic-' + familyName.replace('-', '_'), namesLst)
+                    try:
+                        i.Family.Name = proposedName
+                    except:
+                        pass
+                    namesLst.append(proposedName)
+                    print('Changed 2 ' + familyName + ' to ' + proposedName)
 
-            elif familyRegex.findall(familyName) != [] and familyName[0:len(cate)] != cate and familyName[0:len(cate)-1] != cate[0: len(cate) -1]\
-                    and familyName[0:2] != 'PA':
-                proposedName = UniqueName(cate + '-' + 'Generic-' + familyName.replace('-', '_'), namesLst)
-                try:
-                    i.Family.Name = proposedName
-                except:
-                    pass
-                namesLst.append(proposedName)
-                print('Changed 3 ' + familyName + ' to ' + proposedName)
+                elif familyRegex.findall(familyName) != [] and familyName[0:len(cate)] != cate and familyName[0:len(cate)-1] != cate[0: len(cate) -1]\
+                        and familyName[0:2] != 'PA':
+                    proposedName = UniqueName(cate + '-' + 'Generic-' + familyName.replace('-', '_'), namesLst)
+                    try:
+                        i.Family.Name = proposedName
+                    except:
+                        pass
+                    namesLst.append(proposedName)
+                    print('Changed 3 ' + familyName + ' to ' + proposedName)
+            else:
+                print("GENERIC MODEL EXCEPTION, NOT CHANGED!")
 
 
 

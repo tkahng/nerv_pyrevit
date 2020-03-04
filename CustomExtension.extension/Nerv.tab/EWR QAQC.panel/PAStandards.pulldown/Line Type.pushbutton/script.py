@@ -36,17 +36,64 @@ def CollectLineStylefromLine(doc):
 
 def DeleteExcessLineStyles(doc, list, start_time, limit):
     lineStyle = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
+    standard = {}
     for i in lineStyle:
         # individual transactions
         t = Transaction(doc, 'Delete Excess Line Styles')
         t.Start()
-        if not i.Name in list and i.Name[0] != '<' and i.Name[0:5] != prefix and i.Id.IntegerValue > 0 and time.time()-start_time < limit:
+        if not i.Name in list and i.Name[0] != '<' and i.Id.IntegerValue > 0 and time.time()-start_time < limit:
             try:
-                print('Deleting Line Style ' + i.Name)
-                doc.Delete(i.Id)
+                if i.Name[0:5] == prefix:
+                    standard[i.Name] = i
+                else:
+                    print('Deleting Line Style ' + i.Name)
+                    doc.Delete(i.Id)
+
             except:
                 print('Failed to Delete ' + i.Name)
         t.Commit()
+
+    sel_delete = forms.SelectFromList.show(standard.keys(), button_name='Select Item', multiselect=True)
+    for s in sel_delete:
+        if time.time()-start_time < limit:
+            t = Transaction(doc, 'Delete Excess Line Styles')
+            t.Start()
+            print('Deleting Line Style ' + standard[s].Name)
+            doc.Delete(standard[s].Id)
+            t.Commit()
+
+class NervLinePattern:
+    kind = 'canine'  # class variable shared by all instances
+
+    def __init__(self, inTypes, inLength):
+        self.types = inTypes  # instance variable unique to each instance
+        self.length = inLength  # instance variable unique to each instance
+
+def DeleteExcessLinePatterns(doc, start_time, limit):
+    patternData = {}
+    lineStyle = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
+    standard = {}
+    for i in lineStyle:
+        pattern = doc.GetElement(i.GetLinePatternId(GraphicsStyleType.Projection))
+        try:
+            segments = pattern.GetLinePattern().GetSegments()
+
+            types = []
+            length = []
+            for s in segments:
+                length.append(s.Length)
+                types.append(str(s.Type))
+                p = NervLinePattern(types, length)
+            if not patternData[types]:
+                if not patternData[types] == length:
+                    patternData[types] = length
+                    print(types)
+                    print(length)
+                else:
+                    doc.Delete(pattern)
+                    print('1')
+        except:
+            pass
 
 def AddPrefixtoLines(doc, start_time, limit):
     lineStyles = doc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines).SubCategories
@@ -177,6 +224,7 @@ application = uiapp.Application
 # Select Action Item
 actionList = ['Append Prefix to selected Line Styles(protect)',
               'Delete Excess Line Styles',
+              'Delete Excess Line Patterns',
               'Add PA - to Line Styles',]
 sel_action = forms.SelectFromList.show(actionList, button_name='Select Item', multiselect=True)
 
@@ -202,6 +250,9 @@ else:
             DeleteExcessLineStyles(doc, list, start_time, limit)
         except:
             print("Fail 2")
+    if 'Delete Excess Line Patterns' in sel_action:
+        DeleteExcessLinePatterns(doc, start_time, limit)
+
     if 'Add PA - to Line Styles' in sel_action:
         list = CollectLineStylefromLine(doc)
         #try:

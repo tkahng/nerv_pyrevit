@@ -26,7 +26,7 @@ dict = {'FloorPlan': 'FP',
         'Legend': 'LG',
         'EngineeringPlan': 'ES',
         'AreaPlan': 'AP',
-        'Section': 'SP',
+        'Section': 'SC',
         'Detail': 'DV'}
 '''
 dict = {'FloorPlan': 'FP',
@@ -37,7 +37,7 @@ dict = {'FloorPlan': 'FP',
         'Legend': 'LG',
         'EngineeringPlan': 'ES',
         'AreaPlan': 'AP',
-        'Section': 'SP',
+        'Section': 'SC',
         'Detail': 'DV'}
 
 excemption = ['DrawingSheet', 'Undefined', 'DrawingSheet', 'ProjectBrowser', 'Report','SystemBrowser', 'CostReport',

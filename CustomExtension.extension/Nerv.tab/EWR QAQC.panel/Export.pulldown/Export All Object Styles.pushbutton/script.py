@@ -72,9 +72,9 @@ def GetObjectStyleData(g):
     except:
         pass
     return list
-def GetCategoryData(g, type):
+def GetCategoryData(parent, g, type):
     list = []
-    list.append("")
+    list.append(parent)
     list.append(g.Name)
     list.append(type.ToString())
     try:
@@ -102,11 +102,11 @@ def GetCategoryData(g, type):
     return list
 destinationFolder = forms.pick_folder()
 gStyle = FilteredElementCollector(doc).OfClass(GraphicsStyle).ToElements()
-collectionInvalid = [['Category Type','Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
-collectionModel = [['Category Type','Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
-collectionAnno = [['Category Type','Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
-collectionInternal = [['Category Type','Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
-collectionAnalytical = [['Category Type','Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
+collectionInvalid = [['Category Type', 'Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
+collectionModel = [['Category Type', 'Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
+collectionAnno = [['Category Type', 'Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
+collectionInternal = [['Category Type', 'Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
+collectionAnalytical = [['Category Type', 'Category', 'Type', 'Line Weight', 'R', 'G', 'B', 'Pattern', 'Material']]
 for g in gStyle:
     workSet = g.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).AsValueString()
     if workSet == "Object Styles" and not g.GraphicsStyleCategory.Parent:
@@ -127,15 +127,15 @@ for g in gStyle:
             for i in g.GraphicsStyleCategory.SubCategories:
                 subList = [i.Name]
                 if type == "Invalid":
-                    collectionInvalid.append(GetCategoryData(i, g.GraphicsStyleType))
+                    collectionInvalid.append(GetCategoryData(g.Name, i, g.GraphicsStyleType))
                 elif type == "Model":
-                    collectionModel.append(GetCategoryData(i, g.GraphicsStyleType))
+                    collectionModel.append(GetCategoryData(g.Name, i, g.GraphicsStyleType))
                 elif type == "Annotation":
-                    collectionAnno.append(GetCategoryData(i, g.GraphicsStyleType))
+                    collectionAnno.append(GetCategoryData(g.Name, i, g.GraphicsStyleType))
                 elif type == "Internal":
-                    collectionInternal.append(GetCategoryData(i, g.GraphicsStyleType))
+                    collectionInternal.append(GetCategoryData(g.Name, i, g.GraphicsStyleType))
                 elif type == "AnalyticalModel":
-                    collectionAnalytical.append(GetCategoryData(i, g.GraphicsStyleType))
+                    collectionAnalytical.append(GetCategoryData(g.Name, i, g.GraphicsStyleType))
 
 fileName = destinationFolder + '\\' + doc.Title + '.xlsx'
 excelFile = ExcelOpener(fileName)
