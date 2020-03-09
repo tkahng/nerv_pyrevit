@@ -26,8 +26,7 @@ import System.Windows.Forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 views = FilteredElementCollector(doc).OfClass(View).ToElements()
-t = Transaction(doc, 'Change Template')
-t.Start()
+
 templates = {}
 rawParam = {}
 
@@ -45,6 +44,8 @@ for c in selectedTemplates:
 selectedPrarm = forms.SelectFromList.show(rawParam.keys(), button_name='Select Item', multiselect=True)
 
 
+t = Transaction(doc, 'Change Template')
+t.Start()
 for c in selectedTemplates:
 	para = List[ElementId]()
 	for v in templates[c].Parameters:
@@ -52,7 +53,5 @@ for c in selectedTemplates:
 			para.Add(v.Id)
 	templates[c].SetNonControlledTemplateParameterIds(para)
 selection = Selection.get_selected_elements(doc)
-
-
 t.Commit()
 

@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMax.pushbutton/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMax.pushbutton/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMin.pushbutton/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMin.pushbutton/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/Toggle Leader.pushbutton/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/Toggle Leader.pushbutton/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Import Room to Space.pushbutton/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Import Room to Space.pushbutton/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Import Room to Space.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/Export.pulldown/Export All Object Styles.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/Export.pulldown/Export All Object Styles.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Family Name.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Family Name.pushbutton/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Views.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Views.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/Model Check.pushbutton/WmataQcUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/Model Check.pushbutton/WmataQcUtils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Off Axis.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Off Axis.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/List.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/List.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/MLSelect.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/MLSelect.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Melca.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Melca.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/packages/Warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/packages/Warnings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +103,7 @@
       <workItem from="1582915245041" duration="472000" />
       <workItem from="1583159132688" duration="431000" />
       <workItem from="1583251637525" duration="9842000" />
-      <workItem from="1583350758481" duration="2312000" />
+      <workItem from="1583350758481" duration="2971000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
