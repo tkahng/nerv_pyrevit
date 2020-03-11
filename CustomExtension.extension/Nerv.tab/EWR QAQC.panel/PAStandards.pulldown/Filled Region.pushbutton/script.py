@@ -17,6 +17,21 @@ clr.AddReference('RevitAPIUI')
 # Define the prefix we want to track and add
 prefix = 'PA - '
 
+def UniqueName(proposedName, namesList):
+    num = 1
+    nameIteration = proposedName + ' ' + str(num)
+    while num < 999:
+        if not proposedName in namesList:
+            return proposedName
+            break
+        elif not nameIteration in namesList:
+            return nameIteration
+            break
+        else:
+            num += 1
+            nameIteration = proposedName + ' ' + str(num)
+            continue
+
 def SetFilledRegion(doc, sourceFilledRegion, DestinationFilledRegion):
     fills = FilteredElementCollector(doc).OfClass(FilledRegion).ToElements()
     for i in fills:
@@ -40,22 +55,29 @@ def DeleteExcessFilledRegions(doc, list):
         name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
         id  = i.Id.ToString()
         if not id in list and name[0] != '<' and name[0:5] != prefix and i.Id.IntegerValue > 0:
-            try:
-                print('Deleting Filled Region Style ' + name)
-                doc.Delete(i.Id)
-            except:
-                print('Error: Failed to Delete ' + name + ' ' + i.Id.ToString())
+            #try:
+            print('Deleting Filled Region Style ' + name)
+            doc.Delete(i.Id)
+            # except:
+                # print('Error: Failed to Delete ' + name + ' ' + i.Id.ToString())
 
 def ConsolidateRegion(doc):
     styles = FilteredElementCollector(doc).OfClass(FilledRegionType).ToElements()
     _dict = {}
     paramList = []
     ids = []
+    names = []
     # Unique Graphic Style Collector
     for i in styles:
-        patternId = i.FillPatternId
+        try:
+            patternId = i.FillPatternId
+        except:
+            patternId = "Solid"
         lineWeight = i.LineWeight
-        back = i.Background
+        try:
+            back = i.Background
+        except:
+            back = "None"
         color = str(i.Color.Red) +str(i.Color.Green) + str(i.Color.Blue)
         name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
         id = i.Id
@@ -64,7 +86,8 @@ def ConsolidateRegion(doc):
             paramList.append(unique_param)
             ids.append(id)
             _dict[str(unique_param)] = id
-
+    for i in styles:
+        names.append(i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString().lower())
     # Non-Standard Line Changer
     instances = FilteredElementCollector(doc).OfClass(FilledRegion).ToElements()
     for i in instances:
@@ -81,7 +104,9 @@ def ConsolidateRegion(doc):
         except:
             uniqueParam = 0
         if uniqueParam in paramList and not name in ids and patternName[0:len(prefix)] != prefix:
-            i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).Set(_dict[str(uniqueParam)])
+            newName = UniqueName(prefix.lower + ' - ' + patternName, names)
+            i.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).Set("PA" + newName[2:])
+            names.append(newName)
             print(filledType.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString() + ' changed to ' +
                   doc.GetElement(_dict[str(uniqueParam)]).get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
 
@@ -90,18 +115,21 @@ def AddPAtoRegion(doc):
     names = []
     dict ={}
     for i in styles:
-        names.append(i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString())
+        names.append(i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString().lower())
+    print(names)
     for i in styles:
         name = i.get_Parameter(BuiltInParameter.SYMBOL_NAME_PARAM).AsString()
         if name[0:len(prefix)] != prefix and not '.dwg' in name and i.Id.IntegerValue > 0:
-            try:
-                destination = i.Duplicate(prefix + name)
-                SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
-                doc.Delete(i.Id)
-                # print('Renamed ' + name + ' to ' + prefix + name)
-                names.append(prefix + name)
-            except:
-                print('Failed to Delete ' + name + i.Id.ToString())
+            #try:
+            newName = UniqueName(prefix.lower()+name.lower(), names)
+            print("%" + newName)
+            destination = i.Duplicate("PA" + newName[2:])
+            SetFilledRegion(doc, str(i.Id.IntegerValue), destination.Id)
+            doc.Delete(i.Id)
+            # print('Renamed ' + name + ' to ' + prefix + name)
+            names.append(newName)
+            #except:
+                #print('Failed to Delete ' + name + i.Id.ToString())
         elif '.dwg' in name:
             try:
                 try:
@@ -158,18 +186,18 @@ if sel_action == None:
 else:
     if 'Delete Excess Filled Regions' in sel_action:
         list = CollectFilledRegionFromDoc(doc)
-        try:
-            DeleteExcessFilledRegions(doc, list)
-        except:
-            print("Fail 1")
+        # try:
+        DeleteExcessFilledRegions(doc, list)
+        # except:
+            # print("Fail 1")
     if 'Add PA - to Filled Regions' in sel_action:
         list = CollectFilledRegionFromDoc(doc)
-        try:
-            ConsolidateRegion(doc)
-            DeleteExcessFilledRegions(doc, list)
-            AddPAtoRegion(doc)
-        except:
-            print("Fail 2")
+        # try:
+        ConsolidateRegion(doc)
+        DeleteExcessFilledRegions(doc, list)
+        AddPAtoRegion(doc)
+        # except:
+            # print("Fail 2")
     else:
         pass
 t.Commit()

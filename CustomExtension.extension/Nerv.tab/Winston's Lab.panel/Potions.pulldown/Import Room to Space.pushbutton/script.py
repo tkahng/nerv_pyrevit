@@ -49,6 +49,9 @@ for linkdoc in linkdocs:
 		pass
 levels = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements()
 
+linkrooms = []
+linkrooms.append(FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).WhereElementIsNotElementType().ToElements())
+levels = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements()
 t = Transaction(doc, 'Create Spaces')
 t.Start()
 for g_rooms in linkrooms:
@@ -66,23 +69,28 @@ for g_rooms in linkrooms:
 				if elev == elev2:
 					level2 = level
 
-			if level2 is not None and round(level2.Elevation) == round(doc.ActiveView.GenLevel.Elevation):
-				name = room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString()
-				number = room.get_Parameter(BuiltInParameter.ROOM_NUMBER).AsString()
-				height = room.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET).AsDouble()
-				sOptions = SpatialElementBoundaryOptions()
-				sOptions.StoreFreeBoundaryFaces = True
-				line = room.GetBoundarySegments(sOptions)
-				for llist in line:
-					for l in llist:
-						ll = l.GetCurve()
-						cArray.Append(ll)
 
-				doc.Create.NewSpaceBoundaryLines(doc.ActiveView.SketchPlane, cArray, doc.ActiveView);
-				space = doc.Create.NewSpace(level2, uv)
-				space.get_Parameter(BuiltInParameter.ROOM_NAME).Set(name)
-				space.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set(number)
-				space.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET).Set(height)
+			if level2 is not None:
+				if round(level2.Elevation) == round(doc.ActiveView.GenLevel.Elevation):
+					name = room.get_Parameter(BuiltInParameter.ROOM_NAME).AsString()
+					number = room.get_Parameter(BuiltInParameter.ROOM_NUMBER).AsString()
+					height = room.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET).AsDouble()
+					sOptions = SpatialElementBoundaryOptions()
+					sOptions.StoreFreeBoundaryFaces = True
+					line = room.GetBoundarySegments(sOptions)
+					for llist in line:
+						for l in llist:
+							ll = l.GetCurve()
+							cArray.Append(ll)
+
+				try:
+					# doc.Create.NewSpaceBoundaryLines(doc.ActiveView.SketchPlane, cArray, doc.ActiveView)
+					space = doc.Create.NewSpace(level2, uv)
+					space.get_Parameter(BuiltInParameter.ROOM_NAME).Set(name)
+					space.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set(number)
+					space.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET).Set(height)
+				except:
+					pass
 				# list.append(space)
 t.Commit()
 

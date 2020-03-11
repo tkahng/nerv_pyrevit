@@ -26,6 +26,7 @@ import System.Windows.Forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 views = FilteredElementCollector(doc).OfClass(View).ToElements()
+'''
 t = Transaction(doc, 'Change Template')
 t.Start()
 templates = {}
@@ -56,3 +57,35 @@ selection = Selection.get_selected_elements(doc)
 
 t.Commit()
 
+def UniqueName(proposedName, namesList):
+    num = 1
+    nameIteration = proposedName + ' ' + str(num)
+    while num < 999:
+        if not proposedName in namesList:
+            return proposedName
+            break
+        elif not nameIteration in namesList:
+            return nameIteration
+            break
+        else:
+            num += 1
+            nameIteration = proposedName + ' ' + str(num)
+            continue
+
+nameList = ["a" , "b", "c", "a 1"]
+
+print(UniqueName('a', nameList))
+
+
+t = Transaction(doc, 'Change Template')
+t.Start()
+
+selection = Selection.get_selected_elements(doc)
+for i in selection:
+    try:
+        i.LookupParameter('COBie.Type.Category').Set('21-05 10 Equipment')
+    except:
+        print("Failure")
+
+t.Commit()
+'''
