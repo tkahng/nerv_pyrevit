@@ -16,7 +16,7 @@ sys.path.append(syspath2)
 import Selection
 clr.AddReference('System')
 from System.Collections.Generic import List
-from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle, Transaction, BuiltInCategory, RevitLinkInstance, UV, XYZ,SpatialElementBoundaryOptions, CurveArray,ElementId, View
+from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle, Transaction, BuiltInCategory, RevitLinkInstance, UV, XYZ,SpatialElementBoundaryOptions, CurveArray,ElementId, View, RevitLinkType
 
 from pyrevit import revit, DB, forms
 clr. AddReferenceByPartialName('PresentationCore')
@@ -89,3 +89,14 @@ for i in selection:
 
 t.Commit()
 '''
+t = Transaction(doc, 'Change Template')
+t.Start()
+
+links = FilteredElementCollector(doc).OfClass(clr.GetClrType(RevitLinkType)).ToElements()
+for i in links:
+    try:
+        i.LookupParameter('Room Bounding').Set(True)
+    except:
+        print("Failure")
+
+t.Commit()

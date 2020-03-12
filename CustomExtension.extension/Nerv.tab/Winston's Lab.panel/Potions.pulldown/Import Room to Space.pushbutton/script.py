@@ -48,10 +48,11 @@ for linkdoc in linkdocs:
 	except:
 		pass
 levels = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements()
-
+'''
 linkrooms = []
 linkrooms.append(FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).WhereElementIsNotElementType().ToElements())
 levels = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Levels).WhereElementIsNotElementType().ToElements()
+'''
 t = Transaction(doc, 'Create Spaces')
 t.Start()
 for g_rooms in linkrooms:
@@ -82,13 +83,13 @@ for g_rooms in linkrooms:
 						for l in llist:
 							ll = l.GetCurve()
 							cArray.Append(ll)
-
 				try:
 					# doc.Create.NewSpaceBoundaryLines(doc.ActiveView.SketchPlane, cArray, doc.ActiveView)
 					space = doc.Create.NewSpace(level2, uv)
 					space.get_Parameter(BuiltInParameter.ROOM_NAME).Set(name)
 					space.get_Parameter(BuiltInParameter.ROOM_NUMBER).Set(number)
 					space.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET).Set(height)
+
 				except:
 					pass
 				# list.append(space)
