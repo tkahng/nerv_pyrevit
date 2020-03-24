@@ -1,15 +1,9 @@
-from pyrevit.framework import List
 from pyrevit import revit, DB
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import FilteredElementCollector
-from Autodesk.Revit.DB import BuiltInCategory, ElementId
-from System.Collections.Generic import List
-
-from Autodesk.Revit.DB import *
-
+from Autodesk.Revit.DB import BasePoint
 doc = __revit__.ActiveUIDocument.Document
 
 __doc__ = 'Select the survey point of the model '\

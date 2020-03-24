@@ -29,21 +29,22 @@ def ExcelWriter(workbook, SheetName, startRow, startCol, list):
             col += 1
         row += 1
 
-# Text Type Name Text Font & Everything
+# Text Type Name, Text Font & Everything
 def TextCheck(doc):
     modelLst = []
     textElement = FilteredElementCollector(doc).OfClass(TextElement).ToElements()
     textNoteType = FilteredElementCollector(doc).OfClass(TextNoteType).ToElements()
     parameters = ["Type Name", "Text Font", "Text Size", "Tab Size", "Bold", "Italic",
-                  "Underline","Width Factor", "Show Border", "Background", "Color"]
+                  "Underline", "Width Factor", "Show Border", "Background", "Color"]
     textInstance = []
     unique = []
-
+    # Get Text Type
     for t in textElement:
         type = t.LookupParameter("Type").AsValueString()
         textInstance.append(type)
         if not type in unique:
             unique.append(type)
+    # associate text type count with the text type
     dic = {}
     for u in unique:
         count = textInstance.count(u)

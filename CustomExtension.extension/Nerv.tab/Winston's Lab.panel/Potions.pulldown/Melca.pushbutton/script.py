@@ -37,7 +37,7 @@ from pyrevit import forms
 from Autodesk.Revit.UI import TaskDialog, UIApplication
 
 from Autodesk.Revit.UI.Selection import Selection
-
+'''
 LId = uidoc.Selection.GetElementIds()
 worksetsTable = doc.GetWorksetTable()
 Id = worksetsTable.GetActiveWorksetId()
@@ -48,6 +48,7 @@ for e in LId:
     wsparam.Set(Id.IntegerValue)
 t.Commit()
 '''
+
 #2020-02-27 Change View Name from SP to SC
 # Transaction Start
 t = Transaction(doc, 'Change View Name from SP to SC')
@@ -56,16 +57,21 @@ views = FilteredElementCollector(doc).OfClass(View).ToElements()
 names = []
 for i in views:
     name = i.ViewName
-    if name[:2] == "PA":
+    #if name[2:3] == "-":
+        #a = name[:2]
+        #b = name[3:]
+        #i.ViewName = a + b
+        #names.append(name)
+    if name[:2] == "SP":
         a = name[2:]
-        i.ViewName = "CP" + a
+        i.ViewName = "SC" + a
         names.append(name)
     else:
         pass
 print(names)
 print("finished")
 t.Commit()
-'''
+
 
 '''
     viewRegex = re.compile(r'^\w\w-\S\S-(.*)')

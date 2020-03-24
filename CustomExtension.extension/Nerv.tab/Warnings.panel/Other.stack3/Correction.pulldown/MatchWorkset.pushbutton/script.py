@@ -1,5 +1,5 @@
 
-import sys, clr
+import sys, clr, re
 import ConfigParser
 from os.path import expanduser
 # Set system path
@@ -34,22 +34,29 @@ fail = ""
 if selection:
     data = {}
     worksets = FilteredWorksetCollector(doc).OfKind(WorksetKind.UserWorkset).ToWorksets()
+    occurance = []
     for ele in selection:
-        name = ele.Category.Name
         worksetName = ele.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).AsValueString()
+        occurance.append(worksetName)
         workset = None
         for w in worksets:
             if w.Name == worksetName:
                 workset = w
         data[worksetName] = workset
-    sel_workSet = forms.SelectFromList.show(data.keys(), button_name='Select Item and workset', multiselect=False)
-    selectedWorkset = data[str(sel_workSet)]
+    display = []
+    for w in data.keys():
+        display.append(w + ':' + str(occurance.count(w)))
+    sel_workSet = forms.SelectFromList.show(display, button_name='Select Item and workset', multiselect=False)
+    selectedWorkset = data[str(re.split(":", sel_workSet)[0])]
+
 
     for o in selection:
-        try:
-            o.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).Set(selectedWorkset.Id.IntegerValue)
-        except:
-            fail += o.Id.ToString() + ";"
+        if o.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).AsValueString() != selectedWorkset.Name:
+            try:
+                o.get_Parameter(BuiltInParameter.ELEM_PARTITION_PARAM).Set(selectedWorkset.Id.IntegerValue)
+            except:
+                fail += o.Id.ToString() + ";"
+
 else:
     print("Please Select Item")
 t.Commit()

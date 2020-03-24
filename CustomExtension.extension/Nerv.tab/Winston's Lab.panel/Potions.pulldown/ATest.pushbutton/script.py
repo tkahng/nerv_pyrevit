@@ -15,8 +15,8 @@ syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 import Selection
 clr.AddReference('System')
-from System.Collections.Generic import List
-from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle, Transaction, BuiltInCategory, RevitLinkInstance, UV, XYZ,SpatialElementBoundaryOptions, CurveArray,ElementId, View, RevitLinkType
+from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle, Transaction, BuiltInCategory, \
+    RevitLinkInstance, UV, XYZ,SpatialElementBoundaryOptions, CurveArray,ElementId, View, RevitLinkType, FamilySymbol
 
 from pyrevit import revit, DB, forms
 clr. AddReferenceByPartialName('PresentationCore')
@@ -89,13 +89,15 @@ for i in selection:
 
 t.Commit()
 '''
-t = Transaction(doc, 'Change Template')
+t = Transaction(doc, 'Change Name')
 t.Start()
 
-links = FilteredElementCollector(doc).OfClass(clr.GetClrType(RevitLinkType)).ToElements()
-for i in links:
+families = FilteredElementCollector(doc).OfClass(FamilySymbol).ToElements()
+for i in families:
     try:
-        i.LookupParameter('Room Bounding').Set(True)
+        proposedName = i.Family.Name.replace(" - ", "-")
+        if i.Family.Name != proposedName:
+            i.Family.Name = proposedName
     except:
         print("Failure")
 
