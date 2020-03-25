@@ -47,6 +47,7 @@ view = doc.GetElement(viewId)
 uidoc.ActiveView = view
 revit.get_selection().set_to(explodeElement)
 '''
+
 f = open("U:\\B52\\ids.txt", "r")
 ele = f.readline().split(",")
 e = ele[0]
@@ -67,4 +68,3 @@ if e:
         w = open("U:\\B52\\ids.txt", "w")
         w.write(updateLine)
         w.close()
-

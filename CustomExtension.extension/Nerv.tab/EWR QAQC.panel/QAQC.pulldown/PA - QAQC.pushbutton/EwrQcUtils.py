@@ -419,12 +419,10 @@ def LocationShift(doc, point):
     ele = basePt.Elevation
     angle = basePt.Angle
     basexyz = [ew, ns, ele, angle]
-
     rotationTransform = Transform.CreateRotation(XYZ.BasisZ, angle)
     translationVector = XYZ(ew, ns, ele)
     translationTransform = Transform.CreateTranslation(translationVector)
     finalTransform = translationTransform.Multiply(rotationTransform)
-
     aPoint = Transform.CreateRotation(XYZ.BasisZ, angle).OfPoint(XYZ(cPoint.X, cPoint.Y, cPoint.Z))
     bPoint = XYZ(aPoint.X + ew, aPoint.Y + ns, aPoint.Z + ele)
     return(bPoint)

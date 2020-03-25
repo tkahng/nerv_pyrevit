@@ -1,19 +1,16 @@
-from pyrevit.framework import List
 from pyrevit import revit, DB
 import clr
-
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import FilteredElementCollector
 from Autodesk.Revit.DB import BuiltInCategory, ElementId
-from System.Collections.Generic import List
-
 
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Select the shared point of the model'\
+          'This is helpful check project info'\
+            'This Element has to be in Site Category'\
+            ' and family named Shared Point'
 
 
 elements = DB.FilteredElementCollector(doc)\
@@ -22,7 +19,6 @@ elements = DB.FilteredElementCollector(doc)\
 selSet = []
 for e in elements:
     if e.Location != None:
-
         pp = e.GetParameters('Family')
         for p in pp:
             if p.AsValueString() == 'Shared Point':

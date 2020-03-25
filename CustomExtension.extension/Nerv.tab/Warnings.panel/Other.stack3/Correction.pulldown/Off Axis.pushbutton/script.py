@@ -50,38 +50,70 @@ def get_selected_elements(doc):
         return list(__revit__.ActiveUIDocument.Selection.Elements)
 # t = Transaction(doc, 'Correct Lines')
 # t.Start()
-lines = []
+allLines = []
+allWalls = []
 if revit.doc.IsWorkshared:
     warnings = doc.GetWarnings()
 # select selected warnings
+
     for warning in warnings:
+        lines = []
+        walls = []
         elementId = warning.GetFailingElements()
         additionalId = warning.GetAdditionalElements()
         text = warning.GetDescriptionText()
-        if 'Line is slightly off axis' in text:
+
+        if 'lLine is slightly off axis' in text or 'lLine in Sketch is slightly off axis' in text:
             for e in elementId:
                 lines.append(doc.GetElement(e))
-                print(e)
+        elif 'Wall is slightly off axis' in text or 'Curve-Based Family is slightly off axis' in text:
+            for e in elementId:
+                walls.append(doc.GetElement(e))
+        allLines.append(lines)
+        allWalls.append(walls)
+
 
 i = 0
-t = Transaction(doc, 'Correct Lines')
-t.Start()
-for l in lines:
-    #if l.Category.Name == '<Sketch>':
-    off_line = l.GeometryCurve
-    joined = JoinGeometryUtils.GetJoinedElements(doc, l)
-    sketchPlane = l.SketchPlane
-    correct_line = Warnings.CorrectLineXY(off_line, 0.02)
-    print(correct_line)
-    # l.SetSketchPlaneAndCurve(sketchPlane, correct_line)
-    l.SetGeometryCurve(correct_line, True)
-    '''
-        if joined:
-            for j in joined:
-                JoinGeometryUtils.JoinGeometry(doc, l, j)
-        
-    except:
-        outprint = script.get_output()
-        print("Exception raised" + format(outprint.linkify(l.Id)))
+for line in allLines:
+    t = Transaction(doc, 'Correct Lines')
+    t.Start()
+    for l in line:
+        #if l.Category.Name == '<Sketch>':
+        off_line = l.GeometryCurve
+        joined = JoinGeometryUtils.GetJoinedElements(doc, l)
+        for j in joined:
+            print(j)
+        sketchPlane = l.SketchPlane
+        correct_line = Warnings.CorrectLineXY(off_line, 0.08)
+        print(correct_line)
+        try:
+            try:
+                l.SetSketchPlaneAndCurve(sketchPlane, correct_line)
+            except:
+                l.SetGeometryCurve(correct_line, True)
+        except:
+            print('Curve Set Error')
         '''
-t.Commit()
+            if joined:
+                for j in joined:
+                    JoinGeometryUtils.JoinGeometry(doc, l, j)
+            
+        except:
+            outprint = script.get_output()
+            print("Exception raised" + format(outprint.linkify(l.Id)))
+            '''
+    t.Commit()
+for wall in allWalls:
+    t = Transaction(doc, 'Correct Walls')
+    t.Start()
+    for l in wall:
+        try:
+            off_line = l.Location.Curve
+            correct_line = Warnings.CorrectLineXY(off_line, 0.08)
+            print(correct_line)
+            # l.SetSketchPlaneAndCurve(sketchPlane, correct_line)
+            l.Location.Curve = correct_line
+        except:
+            pass
+
+    t.Commit()

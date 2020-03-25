@@ -25,7 +25,7 @@ choices = uidoc.Selection
 ref = choices.PickObject(ObjectType.Element, "Pick Element")
 ele = doc.GetElement(ref.ElementId)
 fType = ele.Symbol.Family.Name
-print(fType)
+#print(fType)
 Obj = FilteredElementCollector(doc).OfClass(FamilyInstance).ToElements()
 selec = []
 for i in Obj:
