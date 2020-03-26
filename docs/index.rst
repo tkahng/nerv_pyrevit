@@ -16,7 +16,7 @@ need to know for using nerv plugin.
 
 ========================================
 
-**pyRevit Module**
+**nerv module**
 
 * :doc:`nerv/general.rst`
 * :doc:`nerv/bim_group_tools.rst`
@@ -29,7 +29,7 @@ need to know for using nerv plugin.
 ..  toctree::
     :maxdepth: 2
     :hidden:
-    :caption: pyRevit Module
+    :caption: nerv module
 
     nerv/general.rst
     nerv/bim_group_tools.rst
