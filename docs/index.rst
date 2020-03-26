@@ -16,6 +16,16 @@ need to know for using nerv plugin.
 
 ========================================
 
+**pyRevit Module**
+
+* :doc:`nerv/general.rst`
+* :doc:`nerv/bim_group_tools.rst`
+* :doc:`nerv/general_utilities.rst`
+* :doc:`nerv/electrical.rst`
+* :doc:`nerv/warnings.rst`
+* :doc:`nerv/clash_detection.rst`
+
+
 .. toctree::
    :maxdepth: 2
    :caption: nerv_buttons
@@ -28,9 +38,3 @@ need to know for using nerv plugin.
     nerv/clash_detection.rst
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
