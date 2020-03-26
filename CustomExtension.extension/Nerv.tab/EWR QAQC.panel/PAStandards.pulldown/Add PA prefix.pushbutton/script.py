@@ -1,19 +1,18 @@
-from pyrevit.framework import List
 from pyrevit import revit, DB, forms
 import clr, re
-from fractions import Fraction
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
     CurveElement, Color, DimensionType, BuiltInParameter, Dimension
-from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
-from Autodesk.Revit.ApplicationServices import Application
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
+
+__doc__ = 'Add PA prefix to annotation or dimension families.'
+
 # Collect Save location and Rvt Files
 prefix  = 'PA - '
 
@@ -84,8 +83,8 @@ def AddPrefixtoDimension(doc):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Open projects and resave in a specific location'\
-            'Please do not use lightly'
+#__doc__ = 'Open projects and resave in a specific location'\
+            #'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
