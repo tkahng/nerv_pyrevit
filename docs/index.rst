@@ -26,9 +26,10 @@ need to know for using nerv plugin.
 * :doc:`nerv/clash_detection.rst`
 
 
-.. toctree::
-   :maxdepth: 2
-   :caption: nerv_buttons
+..  toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: pyRevit Module
 
     nerv/general.rst
     nerv/bim_group_tools.rst
