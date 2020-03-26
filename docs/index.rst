@@ -3,13 +3,29 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to nerv_pyrevit's documentation!
+..  note::
+    This documentation is a work-in-progress. Thanks for your patience.
+
+Index
+-----s
+
+**Getting Started**
+
+I suggest reading this section completely as it provides 99% of what you will
+need to know for using nerv plugin.
+
 ========================================
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Contents:
+   :maxdepth: 2
+   :caption: nerv_buttons
 
+    nerv/general.rst
+    nerv/bim_group_tools.rst
+    nerv/general_utilities.rst
+    nerv/electrical.rst
+    nerv/warnings.rst
+    nerv/clash_detection.rst
 
 
 Indices and tables
