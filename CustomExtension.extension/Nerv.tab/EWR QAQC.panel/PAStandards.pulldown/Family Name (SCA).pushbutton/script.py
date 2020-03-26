@@ -14,6 +14,9 @@ clr.AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
+
+__doc__ = 'Modify family names according to SCA standard.'
+
 # Define the prefix we want to track and add
 def UniqueName(proposedName, namesList):
     num = 1
