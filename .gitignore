@@ -12,3 +12,4 @@ bin-release/
 *.xml
 .idea/workspace.xml
 *.xml
+*.xml
