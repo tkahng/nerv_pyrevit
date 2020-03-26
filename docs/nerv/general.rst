@@ -3,13 +3,10 @@ General
 
 General tab provides a overview for the program and help links
 
-pyrevit.forms.toaster
+test1
 *********************
+test1
 
-test
-
-
-pyrevit.forms.utils
+test1
 *******************
-
 test 2s
