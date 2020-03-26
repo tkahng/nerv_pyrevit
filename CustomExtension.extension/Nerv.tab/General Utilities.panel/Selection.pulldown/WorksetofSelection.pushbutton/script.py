@@ -18,22 +18,26 @@ sys.path.append(syspath2)
 import System
 import System.Threading
 import System.Threading.Tasks
-from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, FamilySymbol,Transaction,\
-    FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId
+from Autodesk.Revit.DB import Document, FilteredElementCollector, PerformanceAdviser, FamilySymbol, Transaction,\
+    FailureHandlingOptions, BuiltInCategory, ElementId
 from Autodesk.Revit.UI import TaskDialog
 from Autodesk.Revit.UI.Selection import ObjectType
-uidoc = __revit__.ActiveUIDocument
-doc = __revit__.ActiveUIDocument.Document
 from pyrevit.framework import List
 from pyrevit import revit, DB
-import os
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
+
+uidoc = __revit__.ActiveUIDocument
+doc = __revit__.ActiveUIDocument.Document
 '''
 for d in doc.Application.Documents:
     print(d.Title)
 '''
+
+__doc__ = 'Report the Category, Element ID and Workset of the selected element(s).'\
+          'Click the Element ID to zoom in each element.'
+
 filter = FilteredElementCollector(doc)
 outprint = script.get_output()
 def get_selected_elements(doc):

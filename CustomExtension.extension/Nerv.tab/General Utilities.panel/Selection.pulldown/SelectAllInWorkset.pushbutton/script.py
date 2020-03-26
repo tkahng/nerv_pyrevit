@@ -31,6 +31,8 @@ from pyrevit import forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+__doc__ = 'Select all the elements in the same workset as the workset of the current selected element.'\
+
 # import user packages
 import Selection
 
