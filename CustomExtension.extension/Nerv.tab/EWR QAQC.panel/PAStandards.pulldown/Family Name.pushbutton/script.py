@@ -1,4 +1,3 @@
-from pyrevit.framework import List
 from pyrevit import revit, DB, forms
 import clr,re
 clr.AddReference('RevitAPI')
@@ -6,9 +5,7 @@ clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, BuiltInCategory, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level, FilledRegionType, FamilySymbol, GraphicsStyleType, \
      Color, BuiltInParameter, TextNote, TextNoteType
-from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
-from Autodesk.Revit.ApplicationServices import Application
 
 clr.AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')

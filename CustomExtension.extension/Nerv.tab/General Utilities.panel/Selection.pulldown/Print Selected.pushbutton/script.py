@@ -27,10 +27,10 @@ import System.Windows.Forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-
+__doc__ = 'Report the Element ID of the selected element(s).' \
+          'Please select element(s) first.'
 
 views = FilteredElementCollector(doc).OfClass(View).ToElements()
-
 
 output = script.get_output()
 selection = Selection.get_selected_elements(doc)

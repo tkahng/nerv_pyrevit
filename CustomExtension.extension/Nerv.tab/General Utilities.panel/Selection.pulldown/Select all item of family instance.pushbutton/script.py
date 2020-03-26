@@ -17,8 +17,7 @@ doc = __revit__.ActiveUIDocument.Document
 selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Select all items that are the same as one certain family instance.'
 
 # containment -----------------------------------
 choices = uidoc.Selection
@@ -29,6 +28,7 @@ fType = ele.Symbol.Family.Name
 Obj = FilteredElementCollector(doc).OfClass(FamilyInstance).ToElements()
 selec = []
 for i in Obj:
+    # WALL DOES NOT HAVE SYMBOL. MODIFY IT!!!
 	if i.Symbol.Family.Name == fType:
 		selec.append(i)
 revit.get_selection().set_to(selec)

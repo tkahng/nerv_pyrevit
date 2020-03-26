@@ -1,20 +1,17 @@
-from pyrevit.framework import List
 from pyrevit import revit, DB, forms
 import clr
-from fractions import Fraction
 clr.AddReference('RevitAPI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Transaction, ImportInstance, \
     ModelPathUtils, SaveAsOptions, WorksharingSaveAsOptions, Level
-from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
-from Autodesk.Revit.ApplicationServices import Application
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
 # Collect Save location and Rvt Files
 
+__doc__ = 'Add Discipline code to Level.'
 
 def AddDisciplinetoLevel(doc):
         levels = FilteredElementCollector(doc).OfClass(Level).ToElements()
@@ -25,7 +22,6 @@ def AddDisciplinetoLevel(doc):
                 i.Name = discipline + ' - ' + i.Name
             else:
                 print('Unable to change ' + i.Name)
-
 
 def AddLevelNumtoLevel(doc):
     levels = FilteredElementCollector(doc).OfClass(Level).ToElements()
@@ -48,8 +44,6 @@ def FeettoInch(number):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Open projects and resave in a specific location'\
-            'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

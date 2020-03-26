@@ -12,7 +12,6 @@ sys.path.append(syspath1)
 # Built Path
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
-
 # Imports
 from pyrevit.framework import List
 from pyrevit import revit, DB
@@ -30,6 +29,8 @@ from pyrevit import script
 from pyrevit import forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
+
+__doc__ = 'Select all items that have .'
 
 # import user packages
 import Selection
