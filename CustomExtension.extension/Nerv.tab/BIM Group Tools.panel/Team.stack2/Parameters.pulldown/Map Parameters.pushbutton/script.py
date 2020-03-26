@@ -19,14 +19,12 @@ doc = __revit__.ActiveUIDocument.Document
 __doc__ = 'Map the Value of one parameter to another parameter.'\
           'Please Select the element(s) you wish to map first.'\
 
-
 from Autodesk.Revit.UI import TaskDialog
 from pyrevit import forms
 from Autodesk.Revit.DB import Transaction, StorageType
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 import Selection
-
 
 def alert(msg):
     TaskDialog.Show('CHENGYING GONG', msg)
