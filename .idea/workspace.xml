@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
-      <change afterPath="$PROJECT_DIR$/readthedocs.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/About/docs_changelog.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/About/faq.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/About/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/About/introduction.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Clash Detection/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Electrical/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/General Utilities/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/General/about.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/General/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Warnings/index.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/BIM Group Tools.panel/Team.stack2/Parameters.pulldown/_layout" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/BIM Group Tools.panel/Team.stack2/Parameters.pulldown/_layout" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Views.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Views.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select Similar.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select Similar.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select all item of family instance.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select all item of family instance.pushbutton/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/WorksetofSelection.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/WorksetofSelection.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General.panel/About.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General.panel/About.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/bim_group_tools.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/clash_detection.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/electrical.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/general.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/general_utilities.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/warnings.rst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,22 +63,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/nerv/General" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\View &amp; Sheet.panel\Batch Tool.pulldown\Change View Template" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\Warnings.panel\Other.stack3\Correction.pulldown" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Align.pulldown" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\Winston's Lab.panel\Potions.pulldown" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\EWR QAQC.panel\Export.pulldown\Export All Object Styles.pushbutton" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Warnings" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General_Utilities" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Electrical" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Clash_Detection" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Selection.pulldown" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.docs_gen">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="pyRevit_custom_STV" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +93,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton/script.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docs_gen" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pyRevit_custom_STV" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\gongc\AppData\Local\Programs\Python\Python38\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/docs_gen.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,6 +145,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.docs_gen" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -176,6 +226,11 @@
       <workItem from="1585149864716" duration="4154000" />
       <workItem from="1585171061444" duration="599000" />
       <workItem from="1585232321458" duration="2106000" />
+      <workItem from="1585236767915" duration="8216000" />
+      <workItem from="1585256755718" duration="602000" />
+      <workItem from="1585317502050" duration="3977000" />
+      <workItem from="1585331836670" duration="5092000" />
+      <workItem from="1585594237169" duration="4410000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
@@ -195,10 +250,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fix workspace bug" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="178" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585232454855">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="142" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585237199115">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="142" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585170986565" />
+    <state x="142" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585237199115" />
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1582645920436" />
     <state x="178" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585232454855" />
     <state x="714" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585066565561">
@@ -219,37 +274,54 @@
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1582645789836" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585232753950" />
     <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580416727816" />
-    <state x="56" y="138" width="981" height="707" key="SettingsEditor" timestamp="1585233043359">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585255489516">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489516" />
+    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585255489516">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489516" />
+    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585255489515">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489515" />
+    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585255489516">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489516" />
+    <state x="56" y="138" width="981" height="707" key="SettingsEditor" timestamp="1585254400604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="279" y="56" key="SettingsEditor/0.0.1536.824/1874.-1050.1680.1010/194.-1050.1680.1010@0.0.1536.824" timestamp="1580237459598" />
-    <state x="302" y="117" width="981" height="707" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585170904088" />
+    <state x="31" y="77" width="981" height="707" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585237212498" />
     <state x="359" y="144" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1582662572380" />
     <state x="2269" y="71" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@1920.0.1920.1040" timestamp="1581366238357" />
-    <state x="56" y="138" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585233043359" />
+    <state x="56" y="138" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585254400604" />
     <state x="2269" y="71" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@1920.0.1920.1040" timestamp="1581369940356" />
     <state x="503" y="219" key="Vcs.Push.Dialog.v2" timestamp="1580344776249">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="447" y="194" key="Vcs.Push.Dialog.v2/0.0.1707.920/1874.-1050.1680.969/194.-1050.1680.969@0.0.1707.920" timestamp="1580332379184" />
     <state x="503" y="219" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580344776249" />
-    <state x="655" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1585150283701">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="524" y="271" key="com.intellij.ide.util.TipDialog" timestamp="1585331865164">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/-1920.616.1536.832/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582303583047" />
-    <state x="524" y="271" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585149865610" />
+    <state x="524" y="271" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585331865164" />
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1583159132913" />
     <state x="2575" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@1920.0.1920.1040" timestamp="1584367180846" />
-    <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585150283701" />
+    <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585324334550" />
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/-3840.-288.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582576396599" />
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@0.0.1920.1040" timestamp="1581367396421" />
     <state x="2575" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@1920.0.1920.1040" timestamp="1581016040997" />
     <state x="2575" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580416631735" />
-    <state x="2630" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583851732886">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="710" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585596191952">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="568" y="93" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/1874.-1050.1680.1010/194.-1050.1680.1010@0.0.1536.824" timestamp="1580239427994" />
     <state x="2630" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@1920.0.1920.1040" timestamp="1581366036062" />
+    <state x="710" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585596191952" />
     <state x="2630" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1583851732886" />
     <state x="1135" y="205" width="785" height="789" key="find.popup" timestamp="1584024748937">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -263,10 +335,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="655" y="312" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580344675193" />
-    <state x="1146" y="195" width="672" height="678" key="search.everywhere.popup" timestamp="1584475804000">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="917" y="155" width="672" height="538" key="search.everywhere.popup" timestamp="1585253022786">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="917" y="155" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585253022786" />
     <state x="1146" y="195" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584475804000" />
     <state x="1144" y="193" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582211683188" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Family Name (SCA).pushbutton/script.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

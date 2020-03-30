@@ -374,7 +374,8 @@ def MergeLines(doc, start_time, limit):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'WARNING: will delete line styles ' \
+__doc__ = 'Modify line types, click to see more options.' \
+          'WARNING: will delete line styles ' \
           'Please do not use lightly,' \
           'Please make sure you can have ownership of line elements' \
           'Please rename lines you want to keep to ' \

@@ -14,6 +14,9 @@ clr.AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
+
+__doc__ = 'Rename view names according to PA standard.'
+
 # Define the prefix we want to track and add
 prefix = 'PA - '
 '''
@@ -141,8 +144,6 @@ def FillTitleonSheetParam(doc):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'WARNING: will delete line styles ' \
-          'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

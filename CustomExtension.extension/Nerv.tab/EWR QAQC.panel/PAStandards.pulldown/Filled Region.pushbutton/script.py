@@ -10,6 +10,8 @@ from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 from Autodesk.Revit.UI import UIApplication
 from Autodesk.Revit.ApplicationServices import Application
 
+__doc__ = 'Delete Excess Filled Regions and/or Add PA - to Filled Regions'
+
 clr.AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
@@ -166,8 +168,6 @@ def AddPAtoRegion(doc):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'WARNING: will delete line styles ' \
-          'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

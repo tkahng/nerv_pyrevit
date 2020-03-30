@@ -179,8 +179,9 @@ def AppendPrefix(doc):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'WARNING: will delete line styles ' \
+__doc__ = 'Modify Text Style, click to see more options ' \
           'Please do not use lightly'
+
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

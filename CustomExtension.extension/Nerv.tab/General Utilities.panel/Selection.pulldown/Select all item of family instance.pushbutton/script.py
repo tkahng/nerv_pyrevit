@@ -17,7 +17,7 @@ doc = __revit__.ActiveUIDocument.Document
 selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 
-__doc__ = 'Select all items that are the same as one certain family instance.'
+__doc__ = 'Select all items that are the same as one certain family instance you are going to select.'
 
 # containment -----------------------------------
 choices = uidoc.Selection

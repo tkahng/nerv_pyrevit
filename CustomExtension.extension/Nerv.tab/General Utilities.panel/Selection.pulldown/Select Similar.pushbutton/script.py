@@ -30,7 +30,7 @@ from pyrevit import forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Select all items that have .'
+__doc__ = 'Select all items that have the same parameter which you are going to select.'
 
 # import user packages
 import Selection
