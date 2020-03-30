@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/About/introduction.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/About/introduction.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs_gen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +204,7 @@
       <workItem from="1585256755718" duration="602000" />
       <workItem from="1585317502050" duration="3977000" />
       <workItem from="1585331836670" duration="5092000" />
-      <workItem from="1585594237169" duration="7024000" />
+      <workItem from="1585594237169" duration="7338000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
@@ -247,22 +248,22 @@
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1582645789836" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585232753950" />
     <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580416727816" />
-    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585255489516">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585602123497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489516" />
-    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585255489516">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
+    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585602123497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489516" />
-    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585255489515">
+    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
+    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585602123497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489515" />
-    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585255489516">
+    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
+    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585602123497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585255489516" />
+    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
     <state x="56" y="138" width="981" height="707" key="SettingsEditor" timestamp="1585254400604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -324,5 +325,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pyRevit_custom_STV$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1585602123481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
   </component>
 </project>

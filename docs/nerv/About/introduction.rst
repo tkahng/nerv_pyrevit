@@ -16,7 +16,3 @@ Before you start
 Please contact mengfan.lou@stvin.com for latest updates and installation instructions
 
 
-About Godot Engine
-------------------
-
-The plugin contains many tools, so it is hard to put it in a few words
