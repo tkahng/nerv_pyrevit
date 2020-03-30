@@ -18,12 +18,12 @@ need to know for using nerv plugin.
 
 **nerv module**
 
-* :doc:`nerv/general`
-* :doc:`nerv/bim_group_tools`
-* :doc:`nerv/general_utilities`
-* :doc:`nerv/electrical`
-* :doc:`nerv/warnings`
-* :doc:`nerv/clash_detection`
+* :doc:`nerv/general/index.rst`
+* :doc:`nerv/bim_group_tools/index.rst`
+* :doc:`nerv/general_utilities/index.rst`
+* :doc:`nerv/electrical/index.rst`
+* :doc:`nerv/warnings/index.rst`
+* :doc:`nerv/clash_detection/index.rst`
 
 
 ..  toctree::
@@ -31,11 +31,11 @@ need to know for using nerv plugin.
     :hidden:
     :caption: nerv module
 
-    nerv/General
-    nerv/BIM Group Tools
-    nerv/General Utilities
-    nerv/Electrical
-    nerv/Warnings
-    nerv/Clash Detection
+    nerv/General/index.rst
+    nerv/BIM Group Tools/index.rst
+    nerv/General Utilities/index.rst
+    nerv/Electrical/index.rst
+    nerv/Warnings/index.rst
+    nerv/Clash Detection/index.rst
 
 

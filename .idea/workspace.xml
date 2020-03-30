@@ -2,36 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
-      <change afterPath="$PROJECT_DIR$/docs/nerv/About/docs_changelog.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/About/faq.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/About/index.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/About/introduction.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/Clash Detection/index.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/Electrical/index.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/General Utilities/index.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/General/about.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/General/index.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/nerv/Warnings/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/BIM Group Tools.panel/Team.stack2/Parameters.pulldown/_layout" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/BIM Group Tools.panel/Team.stack2/Parameters.pulldown/_layout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Filled Region.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Line Type.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Text Style.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Views.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Views.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/PA - QAQC.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select Similar.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select Similar.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select all item of family instance.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Select all item of family instance.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General.panel/About.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General.panel/About.pushbutton/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/bim_group_tools.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/clash_detection.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/electrical.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/general.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/general_utilities.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/warnings.rst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +202,7 @@
       <workItem from="1585256755718" duration="602000" />
       <workItem from="1585317502050" duration="3977000" />
       <workItem from="1585331836670" duration="5092000" />
-      <workItem from="1585594237169" duration="4410000" />
+      <workItem from="1585594237169" duration="4937000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
