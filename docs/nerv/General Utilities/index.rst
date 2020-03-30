@@ -1,7 +1,6 @@
+General Utilities
+*********************
 .. toctree::
    :maxdepth: 1
-   :name: toc-about
+   :name: general_utilities
 
-   introduction
-   faq
-   docs_changelog

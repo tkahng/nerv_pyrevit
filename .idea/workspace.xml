@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Clash Detection/_static/logos/ana_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Electrical/_static/logos/ana_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/General/_static/logos/ana_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/About/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/About/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/BIM Group Tools/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/BIM Group Tools/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/Clash Detection/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/Clash Detection/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/Electrical/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/Electrical/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/General Utilities/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/General Utilities/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/Warnings/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/Warnings/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/_static/logos/ana_icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/BIM Group Tools/_static/logos/ana_icon.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,18 +44,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/nerv/General" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/nerv/BIM Group Tools" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\BIM Group Tools" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Clash Detection" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Electrical" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Warnings" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General_Utilities" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Electrical" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Clash_Detection" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Selection.pulldown" />
     </key>
   </component>
@@ -202,7 +212,7 @@
       <workItem from="1585256755718" duration="602000" />
       <workItem from="1585317502050" duration="3977000" />
       <workItem from="1585331836670" duration="5092000" />
-      <workItem from="1585594237169" duration="4937000" />
+      <workItem from="1585594237169" duration="6197000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
