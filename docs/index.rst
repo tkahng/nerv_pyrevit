@@ -31,6 +31,7 @@ need to know for using nerv plugin.
     :hidden:
     :caption: nerv module
 
+    nerv/About/index.rst
     nerv/General/index.rst
     nerv/BIM Group Tools/index.rst
     nerv/General Utilities/index.rst
