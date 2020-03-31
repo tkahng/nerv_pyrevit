@@ -95,5 +95,3 @@ for cad in replaceImports:
         doc.Delete(cad.Id)
         count += 1
 t.Commit()
-
-

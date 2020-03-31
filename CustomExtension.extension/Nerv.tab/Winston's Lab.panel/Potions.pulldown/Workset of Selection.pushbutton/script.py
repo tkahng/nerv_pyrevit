@@ -16,7 +16,6 @@ sys.path.append(syspath2)
 
 
 
-
 # body
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document

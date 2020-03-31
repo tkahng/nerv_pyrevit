@@ -43,7 +43,6 @@ for oFile in files:
     openOpt.SetOpenWorksetsConfiguration(wsopt)
     modelPath = ModelPathUtils.ConvertUserVisiblePathToModelPath(str(models) + '\\' + oFile)
     modelString = models + oFile
-
     # Application.OpenDocumentFile(modelPath, openOpt)
     __revit__.OpenAndActivateDocument(modelPath, openOpt, False)
     # Define doc
@@ -54,6 +53,7 @@ for oFile in files:
 
     __doc__ = 'Open projects and remove all the links '\
             'Please do not use lightly'
+    
     t = Transaction(doc, 'Delete Excess Sheets Elements')
     # Get Fist View Position
     t.Start()

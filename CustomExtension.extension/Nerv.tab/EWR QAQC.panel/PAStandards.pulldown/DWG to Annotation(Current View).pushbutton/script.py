@@ -16,13 +16,9 @@ sys.path.append(syspath2)
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-
 from Autodesk.Revit.DB import Document,FilteredElementCollector,FamilySymbol,Transaction,\
      BuiltInCategory, ElementId, ViewSchedule, View, ImportInstance
 from Autodesk.Revit.UI import TaskDialog
-
-uidoc = __revit__.ActiveUIDocument
-doc = __revit__.ActiveUIDocument.Document
 from pyrevit.framework import List
 from pyrevit import revit, DB
 from pyrevit import forms
@@ -42,12 +38,10 @@ def get_selected_elements(doc):
 importInstance = []
 replaceImports = []
 
-
 # collect dwg from view
 imports = DB.FilteredElementCollector(doc) \
     .OfClass(ImportInstance) .OwnedByView(doc.ActiveView.Id)\
     .ToElements()
-
 
 for i in imports:
     if not i.LookupParameter('Name').AsString() in importInstance:
@@ -81,7 +75,6 @@ replaceName = forms.SelectFromList.show(sNames,
 for i in symbols:
     if i.Family.Name == replaceName:
         replaceAnno = i
-
 
 t = Transaction(doc, 'Replace dwg')
 t.Start()

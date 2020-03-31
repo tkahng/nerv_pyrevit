@@ -69,6 +69,7 @@ doc = __revit__.ActiveUIDocument.Document
 
 __doc__ = 'Open projects and resave in a specific location'\
             'Please do not use lightly'
+
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

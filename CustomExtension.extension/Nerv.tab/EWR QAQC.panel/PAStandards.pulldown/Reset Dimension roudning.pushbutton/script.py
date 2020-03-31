@@ -15,6 +15,9 @@ clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 clr.AddReference('RevitAPIUI')
+
+__doc__ = 'Reset Dimension rounding.'
+
 # Collect Save location and Rvt Files
 prefix  = 'PA - '
 
@@ -27,7 +30,6 @@ def SetDimensionStyle(doc, source, destination):
 def SplitString(name):
     pieces = re.split(name)
     if '.dwg' in name:
-        
         if len(pieces) >= 2:
             out = pieces[len(pieces)]
 
@@ -49,8 +51,7 @@ def SetDimensiontoOneEigth(doc):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Open projects and resave in a specific location'\
-            'Please do not use lightly'
+
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 

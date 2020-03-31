@@ -44,7 +44,8 @@ def FillDisciplineandSubDiscipline(doc, discipline, SubDiscipline):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'WARNING: will force change Sheet Disciplines ' \
+__doc__ = 'Modify Sheet Disciplines' \
+          'WARNING: will force change Sheet Disciplines ' \
           'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
