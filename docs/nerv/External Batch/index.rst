@@ -1,6 +1,7 @@
-Warnings
+External Batch
 *********************
+
 .. toctree::
    :maxdepth: 1
-   :name: nerv-warnings
+   :name: nerv_external_batch
 

@@ -2,8 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
+      <change afterPath="$PROJECT_DIR$/docs/nerv/EWR QAQC/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/External Batch/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/MEP Tools/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Navis Data Import/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Sheets and Views/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/View &amp; Sheet/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/nerv/Winston's Lab/index.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/About/introduction.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/About/introduction.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Reset Dimension roudning.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Reset Dimension roudning.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Sheet.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/Sheet.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/Family - QAQC.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/Family - QAQC.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/Model Check.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/Model Check.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Delete Excess Sheets from files.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Delete Excess Sheets from files.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Test2.smartbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Workset of Selection.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Workset of Selection.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/About/docs_changelog.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/About/docs_changelog.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/About/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/About/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/BIM Group Tools/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/BIM Group Tools/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/Clash Detection/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/Clash Detection/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/Electrical/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/Electrical/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/General Utilities/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/General Utilities/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/General/about.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/General/about.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/General/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/General/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/Warnings/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/nerv/Warnings/index.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs_gen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,20 +61,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/nerv/BIM Group Tools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/nerv/Winston's Lab" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\BIM Group Tools" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Clash Detection" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Electrical" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Warnings" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Selection.pulldown" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Winston's Lab" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Warnings" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\View &amp; Sheet" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Sheets and Views" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Reset" />
     </key>
   </component>
   <component name="RunManager" selected="Python.docs_gen">
@@ -204,7 +229,11 @@
       <workItem from="1585256755718" duration="602000" />
       <workItem from="1585317502050" duration="3977000" />
       <workItem from="1585331836670" duration="5092000" />
-      <workItem from="1585594237169" duration="7338000" />
+      <workItem from="1585594237169" duration="8392000" />
+      <workItem from="1585657624856" duration="15214000" />
+      <workItem from="1585685826657" duration="2395000" />
+      <workItem from="1585689085778" duration="1012000" />
+      <workItem from="1585690964445" duration="5847000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
@@ -248,22 +277,22 @@
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1582645789836" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585232753950" />
     <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580416727816" />
-    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585602123497">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585696744995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
-    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585602123497">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585696744995" />
+    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585696744994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
-    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585602123497">
+    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585696744994" />
+    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585696744993">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
-    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585602123497">
+    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585696744993" />
+    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585696744995">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585602123497" />
+    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585696744995" />
     <state x="56" y="138" width="981" height="707" key="SettingsEditor" timestamp="1585254400604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -290,12 +319,12 @@
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@0.0.1920.1040" timestamp="1581367396421" />
     <state x="2575" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040/-1920.616.1536.824@1920.0.1920.1040" timestamp="1581016040997" />
     <state x="2575" y="342" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580416631735" />
-    <state x="710" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585596191952">
+    <state x="710" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585602450787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="568" y="93" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824/1874.-1050.1680.1010/194.-1050.1680.1010@0.0.1536.824" timestamp="1580239427994" />
     <state x="2630" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@1920.0.1920.1040" timestamp="1581366036062" />
-    <state x="710" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585596191952" />
+    <state x="710" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585602450787" />
     <state x="2630" y="117" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1583851732886" />
     <state x="1135" y="205" width="785" height="789" key="find.popup" timestamp="1584024748937">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -327,6 +356,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pyRevit_custom_STV$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1585602123481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
+    <SUITE FILE_PATH="coverage/pyRevit_custom_STV$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1585696744983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
   </component>
 </project>

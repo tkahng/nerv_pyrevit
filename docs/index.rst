@@ -18,25 +18,22 @@ need to know for using nerv plugin.
 
 **nerv module**
 
-* :doc:`nerv/general/index.rst`
-* :doc:`nerv/bim_group_tools/index.rst`
-* :doc:`nerv/general_utilities/index.rst`
-* :doc:`nerv/electrical/index.rst`
-* :doc:`nerv/warnings/index.rst`
-* :doc:`nerv/clash_detection/index.rst`
-
 
 ..  toctree::
-    :maxdepth: 2
+    :maxdepth: 3
     :hidden:
     :caption: nerv module
 
-    nerv/About/index.rst
-    nerv/General/index.rst
-    nerv/BIM Group Tools/index.rst
-    nerv/General Utilities/index.rst
-    nerv/Electrical/index.rst
-    nerv/Warnings/index.rst
-    nerv/Clash Detection/index.rst
-
-
+    nerv/BIM Group Tools/index
+    nerv/Clash Detection/index
+    nerv/EWR QAQC/index
+    nerv/External Batch/index
+    nerv/General Utilities/index
+    nerv/General/index
+    nerv/MEP Tools/index
+    nerv/Navis Data Import/index
+    nerv/Reset/index
+    nerv/Sheets and Views/index
+    nerv/View & Sheet/index
+    nerv/Warnings/index
+    nerv/Winston's Lab/index

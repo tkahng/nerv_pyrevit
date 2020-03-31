@@ -1,6 +1,7 @@
-Warnings
+Sheets and Views
 *********************
+
 .. toctree::
    :maxdepth: 1
-   :name: nerv-warnings
+   :name: nerv-sheets&views
 

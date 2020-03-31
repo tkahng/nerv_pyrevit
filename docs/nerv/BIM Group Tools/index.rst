@@ -1,6 +1,11 @@
 BIM Group Tools
 *********************
+
+GENERIC
+
+
 .. toctree::
    :maxdepth: 1
-   :name: toc-about
+   :name: toc-bim
 
+   open_file
