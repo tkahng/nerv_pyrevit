@@ -6,6 +6,6 @@ GENERIC file description
 
 .. toctree::
    :maxdepth: 1
-   :name: toc-about
+   :name: toc-bim
 
    open_file
