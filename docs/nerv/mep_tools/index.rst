@@ -10,3 +10,8 @@ Description
    extend
    rotate_fitting
    rotate/index.rst
+   conduit/index.rst
+   rotate/index.rst
+   rotate/index.rst
+   rotate/index.rst
+   rotate/index.rst

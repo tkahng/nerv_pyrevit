@@ -8,3 +8,5 @@ Description
    :name: toc-general_utilities
 
    rotate(z)
+   align/index.rst
+   selection/index.rst

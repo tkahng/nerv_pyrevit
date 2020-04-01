@@ -8,3 +8,4 @@ Description
    :name: toc-navis_data_import
 
    setfile
+   display/index.rst

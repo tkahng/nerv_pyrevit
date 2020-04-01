@@ -9,3 +9,4 @@ GENERIC file description
    :name: toc-bim
 
    open_file
+   infopoints/index.rst

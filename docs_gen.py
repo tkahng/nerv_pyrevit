@@ -57,6 +57,7 @@ for i, j, y in os.walk(path):
 
         # make pushbutton .rst for each push button
         for item in j:
+            # Create .rst for pushbutton
             if ".pushbutton" in item:
                 # if not os.path.isfile(dir + "\\" + item[:-11] + ".rst"):
                 imageDis = dir + "\\" + "_static" + "\\" + item[:-11].replace(' ', '_').lower() + ".png"
@@ -69,6 +70,7 @@ for i, j, y in os.walk(path):
                 if not item[:-11].replace(' ', '_').lower() in panelIndexRead:
                     panelIndex.write("\n   " + item[:-11].replace(' ', '_').lower())
             else:
+                # Create Sub-index files
                 subName = item.split(".")[0].replace(' ', '_').lower()
                 if not os.path.exists(dir + "\\" + subName):
                     os.mkdir(dir + "\\" + subName)
@@ -78,27 +80,38 @@ for i, j, y in os.walk(path):
                     f = open(dir + '\\' + subName + "\\index.rst", "w")
                     f.write(subName.replace(' ', '_').lower() + index + 'toc-' + subName.replace(' ', '_').lower() + "\n")
                     f.close()
+                    subPanelIndex = open(dir + "\\index.rst", "a+")
+                    subPanelIndexRead = open(dir + "\\index.rst", "r").read()
+                    if not subName.replace(' ', '_').lower() in subPanelIndexRead:
+                        subPanelIndex.write("\n   " + subName.replace(' ', '_').lower() + '/' + "index.rst")
 
-                    # if not os.path.isfile(dir + "\\index.rst"):
-                        # f = open("\\" + subName + "\\index.rst", "a+")
-                        #f.write(os.path.basename(i[:-6]).replace(' ',
-                                                                # '_').lower() + index + 'toc-' + os.path.basename(
-                            #i[:-6]).replace(' ', '_').lower() + "\n")
-                        #f.close()
-                '''
-                if not "stack" in item.lower() and not "smartbutton" in item.lower():
-                    # print(i + '\\'+ item)
-                    for aa, bb, cc in os.walk(i + '\\' + item):
-                        if bb:
-                            if not os.path.exists(dir):
-                                os.mkdir(dir)
+                    if not "stack" in item.lower() and not "smartbutton" in item.lower():
+                        # print(i + '\\'+ item)
+                        for aa, bb, cc in os.walk(i + '\\' + item):
+                            if bb:
+                                for subButton in bb:
+                                    imageDis = dir + '\\' + subName + "\\" + "_static" + "\\" + subButton.split(".")[0].replace(' ',
+                                                                                                  '_').lower() + ".png"
+                                    try :
+                                        shutil.copy(i + '\\' + item + "\\" + subButton + "\\"+ "icon.png", imageDis)
+                                    except:
+                                        shutil.copy(i + '\\' + item  + "\\" + "icon.png", imageDis)
+                                    subPushButtonFile = open(dir + '\\' + subName + "\\" + subButton.split(".")[0].replace(' ', '_').lower() + ".rst", "w")
+                                    subPushButtonFile.write(subButton.split(".")[0] + buttonTemplate.format(
+                                        "_static" + "/" + subButton.split(".")[0].replace(' ', '_').lower() + ".png") + subButton.split(".")[0].replace(
+                                        ' ', '_').lower())
+                                    subPushButtonFile.close()
+                                    subPanelIndex = open(dir + '\\' + subName + "\\index.rst", "a+")
+                                    subPanelIndexRead = open(dir + '\\' + subName + "\\index.rst", "r").read()
+                                    if not subButton.split(".")[0].replace(' ', '_').lower() in subPanelIndexRead:
+                                        subPanelIndex.write("\n   " + subButton.split(".")[0].replace(' ', '_').lower())
 
-                            # dir = os.path.join(docPath, os.path.basename(i[:-6]).replace(' ', '_').lower())
-                            # print(dir)
+                                # dir = os.path.join(docPath, os.path.basename(i[:-6]).replace(' ', '_').lower())
+                                # print(dir)
                 #else:
                     #if not os.path.exists(dir + "\\" + subName + ):
                         #os.mkdir(dir + "\\" + subName)
-                        '''
+
 
 
 
