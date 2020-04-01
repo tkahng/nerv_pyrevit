@@ -17,7 +17,7 @@ buttonTemplate = "\n\
 *********************\n\
 \n\
 .. figure:: {0}\n\
-    :align: left\n\
+   :align: left\n\
 \n\
    "
 
@@ -67,7 +67,7 @@ for i, j, y in os.walk(path):
                 panelIndex = open(dir + "\\index.rst", "a+")
                 panelIndexRead = open(dir + "\\index.rst", "r").read()
                 if not item[:-11].replace(' ', '_').lower() in panelIndexRead:
-                    panelIndex.write("\n    " + item[:-11].replace(' ', '_').lower())
+                    panelIndex.write("\n   " + item[:-11].replace(' ', '_').lower())
             else:
                 subName = item.split(".")[0].replace(' ', '_').lower()
                 if not os.path.exists(dir + "\\" + subName):

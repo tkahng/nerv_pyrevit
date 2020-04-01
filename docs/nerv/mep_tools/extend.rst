@@ -2,6 +2,6 @@ Extend
 *********************
 
 .. figure:: _static/extend.png
-    :align: left
+   :align: left
 
    extend
