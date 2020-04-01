@@ -95,15 +95,15 @@ def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
     # Timer after which time download model will start
     '''
     setTime = datetime.time(21, 00, 00)
-    if Config.get('General', 'clouddownload') == "1" and setTime <= timeStamp:
+    if Config.get('general', 'clouddownload') == "1" and setTime <= timeStamp:
         downloadModel = True
-    elif Config.get('General', 'clouddownload') == "2":
+    elif Config.get('general', 'clouddownload') == "2":
         downloadModel = True
     else:
         pass
     '''
 
-    if Config.get('General','clouddownload') == "1" :
+    if Config.get('general','clouddownload') == "1" :
         n = 1
         for i in modelsDic.values():
             list = i.split(";")
