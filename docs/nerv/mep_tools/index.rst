@@ -15,3 +15,4 @@ Description
    rotate/index.rst
    rotate/index.rst
    rotate/index.rst
+   tools/index.rst

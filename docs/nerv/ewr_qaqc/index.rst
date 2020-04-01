@@ -10,3 +10,4 @@ Description
    export/index.rst
    pastandards/index.rst
    reset_name/index.rst
+   qaqc/index.rst

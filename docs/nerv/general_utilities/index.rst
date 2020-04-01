@@ -10,3 +10,4 @@ Description
    rotate(z)
    align/index.rst
    selection/index.rst
+   link/index.rst

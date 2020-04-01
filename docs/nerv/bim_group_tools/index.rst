@@ -10,3 +10,4 @@ GENERIC file description
 
    open_file
    infopoints/index.rst
+   team/index.rst

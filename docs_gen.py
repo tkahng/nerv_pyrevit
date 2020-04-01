@@ -82,7 +82,7 @@ for i, j, y in os.walk(path):
                     f.close()
                     subPanelIndex = open(dir + "\\index.rst", "a+")
                     subPanelIndexRead = open(dir + "\\index.rst", "r").read()
-                    if not subName.replace(' ', '_').lower() in subPanelIndexRead:
+                    if not subName.replace(' ', '_').lower() + '/' + "index.rst" in subPanelIndexRead:
                         subPanelIndex.write("\n   " + subName.replace(' ', '_').lower() + '/' + "index.rst")
 
                     if not "stack" in item.lower() and not "smartbutton" in item.lower():
