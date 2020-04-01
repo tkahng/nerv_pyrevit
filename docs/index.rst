@@ -24,7 +24,7 @@ need to know for using nerv plugin.
     :hidden:
     :caption: nerv module
 
-    nerv/BIM Group Tools/index
+    nerv/BIM_Group_Tools/index
     nerv/Clash Detection/index
     nerv/EWR QAQC/index
     nerv/External Batch/index
