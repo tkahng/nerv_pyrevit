@@ -7,4 +7,4 @@ Description
    :maxdepth: 1
    :name: toc-general
 
-    about
+   about

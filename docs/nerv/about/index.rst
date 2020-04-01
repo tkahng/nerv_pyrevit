@@ -4,7 +4,7 @@ This is the General introduction page of the plugin which includes changelog and
 
 .. toctree::
    :maxdepth: 1
-   :name: nerv-about
+   :name: toc-about
 
    introduction
    faq
