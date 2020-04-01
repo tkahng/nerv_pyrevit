@@ -25,6 +25,7 @@ need to know for using nerv plugin.
     :caption: nerv module
 
 
+    nerv/about/index.rst
     nerv/bim_group_tools/index.rst
     nerv/clash_detection/index.rst
     nerv/ewr_qaqc/index.rst
