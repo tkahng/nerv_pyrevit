@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/nerv/clash_detection/index.rst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/nerv/ewr_qaqc/index.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/general/_static/about.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/general/_static/logos/ana_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/general/about.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/nerv/general/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/nerv/external_batch/index.rst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/nerv/general_utilities/_static/rotate(z).png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/nerv/general_utilities/index.rst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/nerv/general_utilities/rotate(z).rst" beforeDir="false" />
@@ -230,7 +228,7 @@
       <workItem from="1585685826657" duration="2395000" />
       <workItem from="1585689085778" duration="1012000" />
       <workItem from="1585690964445" duration="6517000" />
-      <workItem from="1585745009519" duration="1508000" />
+      <workItem from="1585745009519" duration="1947000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
@@ -274,22 +272,22 @@
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040/-3840.-288.1920.1040@0.0.1920.1040" timestamp="1582645789836" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585232753950" />
     <state x="2660" y="274" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1580416727816" />
-    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585746896045">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom" timestamp="1585747250582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585746896045" />
-    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585746896045">
+    <state width="939" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585747250582" />
+    <state width="939" height="282" key="GridCell.Tab.0.center" timestamp="1585747250582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585746896045" />
-    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585746896045">
+    <state width="939" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585747250582" />
+    <state width="939" height="282" key="GridCell.Tab.0.left" timestamp="1585747250581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585746896045" />
-    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585746896045">
+    <state width="939" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585747250581" />
+    <state width="939" height="282" key="GridCell.Tab.0.right" timestamp="1585747250582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585746896045" />
+    <state width="939" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585747250582" />
     <state x="56" y="138" width="981" height="707" key="SettingsEditor" timestamp="1585254400604">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -353,6 +351,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pyRevit_custom_STV$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1585746896038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
+    <SUITE FILE_PATH="coverage/pyRevit_custom_STV$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1585747250573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
   </component>
 </project>

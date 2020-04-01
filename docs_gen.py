@@ -39,7 +39,7 @@ for i, j, y in os.walk(path):
             os.mkdir(dir + "\\_static")
         if not os.path.isfile(dir + "\\index.rst"):
             f = open(dir + "\\index.rst", "w")
-            f.write(os.path.basename(i[:-6]).replace(' ', '_').lower() + index + 'nerv-' + os.path.basename(i[:-6]).replace(' ', '_').lower())
+            f.write(os.path.basename(i[:-6]).replace(' ', '_').lower() + index + 'nerv-' + os.path.basename(i[:-6]).replace(' ', '_').lower() + "\n")
             f.close()
 
         else:
