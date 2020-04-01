@@ -5,4 +5,4 @@ Description
 
 .. toctree::
    :maxdepth: 1
-   :name: nerv-sheets_and_views
+   :name: toc-sheets_and_views

@@ -5,6 +5,6 @@ Description
 
 .. toctree::
    :maxdepth: 1
-   :name: nerv-general_utilities
+   :name: toc-general_utilities
 
    rotate(z)

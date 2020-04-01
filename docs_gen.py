@@ -39,7 +39,7 @@ for i, j, y in os.walk(path):
             os.mkdir(dir + "\\_static")
         if not os.path.isfile(dir + "\\index.rst"):
             f = open(dir + "\\index.rst", "w")
-            f.write(os.path.basename(i[:-6]).replace(' ', '_').lower() + index + 'nerv-' + os.path.basename(i[:-6]).replace(' ', '_').lower() + "\n")
+            f.write(os.path.basename(i[:-6]).replace(' ', '_').lower() + index + 'toc-' + os.path.basename(i[:-6]).replace(' ', '_').lower() + "\n")
             f.close()
 
         else:
@@ -72,5 +72,16 @@ for i, j, y in os.walk(path):
                 subName = item.split(".")[0].replace(' ', '_').lower()
                 if not os.path.exists(dir + "\\" + subName):
                     os.mkdir(dir + "\\" + subName)
+                if not "stack" in item.lower():
+                    print( i + '\\'+ item)
+                    #for aa, bb, cc in os.walk( i + '\\' + item):
+                        #if i[-5:] == 'panel':
+                        #print(aa)
+                            # dir = os.path.join(docPath, os.path.basename(i[:-6]).replace(' ', '_').lower())
+                            # print(dir)
+                #else:
+                    #if not os.path.exists(dir + "\\" + subName + ):
+                        #os.mkdir(dir + "\\" + subName)
+
 
 

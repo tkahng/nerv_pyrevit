@@ -5,4 +5,4 @@ Description
 
 .. toctree::
    :maxdepth: 1
-   :name: nerv-clash_detection
+   :name: toc-clash_detection

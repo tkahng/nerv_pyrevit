@@ -5,4 +5,4 @@ Description
 
 .. toctree::
    :maxdepth: 1
-   :name: nerv-external_batch
+   :name: toc-external_batch

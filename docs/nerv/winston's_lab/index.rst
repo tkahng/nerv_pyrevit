@@ -5,4 +5,4 @@ Description
 
 .. toctree::
    :maxdepth: 1
-   :name: nerv-winston's_lab
+   :name: toc-winston's_lab
