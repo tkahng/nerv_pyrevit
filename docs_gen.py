@@ -72,16 +72,33 @@ for i, j, y in os.walk(path):
                 subName = item.split(".")[0].replace(' ', '_').lower()
                 if not os.path.exists(dir + "\\" + subName):
                     os.mkdir(dir + "\\" + subName)
-                if not "stack" in item.lower():
-                    print( i + '\\'+ item)
-                    #for aa, bb, cc in os.walk( i + '\\' + item):
-                        #if i[-5:] == 'panel':
-                        #print(aa)
+                if not os.path.exists(dir + "\\" + subName + "\\_static"):
+                    os.mkdir(dir + "\\" + subName + "\\_static")
+                if not os.path.isfile(dir + subName + "\\index.rst"):
+                    f = open(dir + '\\' + subName + "\\index.rst", "w")
+                    f.write(subName.replace(' ', '_').lower() + index + 'toc-' + subName.replace(' ', '_').lower() + "\n")
+                    f.close()
+
+                    # if not os.path.isfile(dir + "\\index.rst"):
+                        # f = open("\\" + subName + "\\index.rst", "a+")
+                        #f.write(os.path.basename(i[:-6]).replace(' ',
+                                                                # '_').lower() + index + 'toc-' + os.path.basename(
+                            #i[:-6]).replace(' ', '_').lower() + "\n")
+                        #f.close()
+                '''
+                if not "stack" in item.lower() and not "smartbutton" in item.lower():
+                    # print(i + '\\'+ item)
+                    for aa, bb, cc in os.walk(i + '\\' + item):
+                        if bb:
+                            if not os.path.exists(dir):
+                                os.mkdir(dir)
+
                             # dir = os.path.join(docPath, os.path.basename(i[:-6]).replace(' ', '_').lower())
                             # print(dir)
                 #else:
                     #if not os.path.exists(dir + "\\" + subName + ):
                         #os.mkdir(dir + "\\" + subName)
+                        '''
 
 
 

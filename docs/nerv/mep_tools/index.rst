@@ -9,3 +9,4 @@ Description
 
    extend
    rotate_fitting
+   rotate/index.rst
