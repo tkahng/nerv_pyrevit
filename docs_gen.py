@@ -18,7 +18,8 @@ buttonTemplate = "\n\
 \n\
 .. figure:: {0}\n\
     :align: left\n\
-\n"
+\n\
+   "
 
 print(buttonTemplate.format('saidjwijd'))
 

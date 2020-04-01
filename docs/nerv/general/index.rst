@@ -1,11 +1,9 @@
-General
+general
 ===========================
 
-General tab provides a overview for the program and help links
-
+Description
 
 .. toctree::
    :maxdepth: 1
-   :name: toc-about
-
-   about
+   :name: nerv-general
+    about
