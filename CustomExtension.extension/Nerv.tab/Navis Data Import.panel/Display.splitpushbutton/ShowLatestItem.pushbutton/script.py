@@ -15,6 +15,7 @@ import ConfigParser
 from os.path import expanduser
 # Get current date
 
+__doc__ = 'Show Latestet recorded items in Navisworks'
 
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')

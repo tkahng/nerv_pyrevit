@@ -63,6 +63,7 @@ __doc__ = 'Rotate Pipe Fittings connected to pipe'\
           'Click the tool, select the pipe and then the fitting ' \
           'Type in a number you want to rotate and you are good to go,'\
           'Can Take negative Values'
+
 pipFilter = PipeSelectionFilter()
 # fittingFilter = PipeFittingSelectionFilter()
 pipeandfittingFilter = PipeandPipeFittingSelectionFilter()

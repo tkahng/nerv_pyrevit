@@ -15,8 +15,7 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 selection = [doc.GetElement(id) for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 
-__doc__ = 'Fast Reload Model '\
-          'This is helpful check project info'
+__doc__ = 'Reload Model Link or reload from other place.'
 
 # Pick the Link you want to relink
 allLinkObj = FilteredElementCollector(doc).OfClass(RevitLinkType).ToElements()

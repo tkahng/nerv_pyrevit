@@ -38,5 +38,35 @@ from Autodesk.Revit.UI import RevitCommandId
 from Autodesk.Revit.UI.Events import CommandEventArgs
 #from Autodesk.Revit.UI.Selection import Selection
 
-a = RevitCommandId.Id
-print(a)
+__doc__ = 'Add number to the Drawing No. according to other disciplines.'
+
+t = Transaction(doc, "Add Number to Drawing No.")
+
+# categorize Drawing No.
+withNo = []
+withoutNo = []
+skipNo = []
+# input the added number
+
+t.Start()
+# get sheets
+sheets = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements()
+# categorize Drawing No.
+for sheet in sheets:
+    DrawingNumber = sheet.LookupParameter("Drawing No.").AsString()
+    if DrawingNumber == None or DrawingNumber == "":
+        withoutNo.append(sheet)
+    elif DrawingNumber == "-":
+        skipNo.append(sheet)
+    else:
+        withNo.append(sheet)
+# if the Drawing No. parameter is not filled
+
+for w in withNo:
+    DrawingNo = w.LookupParameter("Drawing No.").AsString()
+    para = w.LookupParameter("Drawing No.")
+    if DrawingNo[0:5] != "M1323":
+        para.Set("M1323-" + str(DrawingNo))
+
+t.Commit()
+# M1323-1

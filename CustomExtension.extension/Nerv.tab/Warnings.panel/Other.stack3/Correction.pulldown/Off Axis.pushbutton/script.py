@@ -36,8 +36,7 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 import Warnings
 
-__doc__ = 'Prints out a warnings by category.'\
-          ' This is helpful to resolve warnings'
+__doc__ = 'Fix most of the ... is slightly off axis warnings.'
 
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""

@@ -22,6 +22,7 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+__doc__ = 'Switch the tag(s) leader on/off'
 
 selection = Selection.get_selected_elements(doc)
 t = Transaction(doc, 'Toggle Leader')

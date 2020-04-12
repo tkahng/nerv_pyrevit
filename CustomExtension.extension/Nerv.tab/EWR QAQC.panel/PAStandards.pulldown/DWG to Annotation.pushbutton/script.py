@@ -1,4 +1,3 @@
-
 import sys, clr
 import ConfigParser
 from os.path import expanduser
@@ -16,17 +15,14 @@ sys.path.append(syspath2)
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-
 from Autodesk.Revit.DB import Document,FilteredElementCollector,FamilySymbol,Transaction,\
      BuiltInCategory, ElementId, ViewSchedule, View, ImportInstance
 from Autodesk.Revit.UI import TaskDialog
-
-uidoc = __revit__.ActiveUIDocument
-doc = __revit__.ActiveUIDocument.Document
 from pyrevit.framework import List
 from pyrevit import revit, DB
 from pyrevit import forms
 
+__doc__ = 'Replace DWG with Annotation, select from a list.'
 
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""

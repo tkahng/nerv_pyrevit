@@ -26,10 +26,8 @@ class PipeFittingSelectionFilter(UI.Selection.ISelectionFilter):
 		else:
 			return False
 
-__doc__ = 'Rotate Pipe Fittings connected to pipe'\
-          'Click the tool, select the pipe and then the fitting ' \
-          'Type in a number you want to rotate and you are good to go,'\
-          'Can Take negative Values'
+__doc__ = 'Extend pipe.'
+
 pipFilter = PipeSelectionFilter()
 choices = uidoc.Selection
 pipeRef = choices.PickObject(ObjectType.Element, pipFilter, "Pick Pipe")

@@ -3,24 +3,18 @@ clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 
-from Autodesk.Revit.DB import FilteredElementCollector, Structure
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol,ElementId
-from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 from Autodesk.Revit.Creation import *
-
-import pyrevit
 from pyrevit import script, DB, revit
-from pyrevit import forms
 from pyrevit import coreutils
-from pyrevit.compat import safe_strtype
-from pyrevit import DB
 from pyrevit.output import linkmaker
-from pyrevit.coreutils.logger import get_logger
-
 import ConfigParser
 from os.path import expanduser
+
+__doc__ = 'Show All recorded items in Navisworks'
+
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')

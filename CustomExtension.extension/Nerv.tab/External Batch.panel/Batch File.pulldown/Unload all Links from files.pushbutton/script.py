@@ -24,6 +24,10 @@ for file in os.listdir(models):
         files.append(str(file))
 counter = 0
 worksetList = []
+
+__doc__ = 'Open projects and remove all the links.' \
+          'Please do not use lightly'
+
 # Open Files
 for oFile in files:
     openOpt = OpenOptions()
@@ -42,8 +46,6 @@ for oFile in files:
     selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 
-    __doc__ = 'Open projects and remove all the links '\
-            'Please do not use lightly'
     t = Transaction(doc, 'Delete CAD Elements')
     # Get Fist View Position
     t.Start()

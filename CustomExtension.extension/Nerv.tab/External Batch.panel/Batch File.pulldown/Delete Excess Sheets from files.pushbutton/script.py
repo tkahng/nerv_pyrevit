@@ -18,6 +18,8 @@ clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 
+__doc__ = 'Delete Excess Sheet(s) from files.'
+
 # Model Path and file path
 # models = r"\\uspadgv1dcl01\\NY BIM GROUP\\Projects\\3019262 (EWR T1)\\Models Sync\\NWC Export\\"
 # models = r'C:\Users\loum\Desktop\File Dump\\'
@@ -50,14 +52,11 @@ for oFile in files:
     doc = __revit__.ActiveUIDocument.Document
     selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
-
-    __doc__ = 'Open projects and remove all the links '\
-            'Please do not use lightly'
     
     t = Transaction(doc, 'Delete Excess Sheets Elements')
     # Get Fist View Position
     t.Start()
-
+# TODO: CHECK WHAT HAPPENED TO THIS
     RvtSheetObj = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements()
 
     for i in RvtSheetObj:

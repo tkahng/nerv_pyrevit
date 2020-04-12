@@ -33,9 +33,9 @@ import os
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
-__doc__ = 'Print all the irregular pipe slopes and element id in current selection'\
-          'Tolerance at 0.001 ' \
-          'clear list 12/12, 0.5/12, 0.25/12, 0.125/12, 0.0625/12'
+
+__doc__ = 'Print all the  pipe slopes and element id in selection, please make a selection to run'
+
 def isclose(a, b, rel_tol=1e-08, abs_tol=1e-03):
     return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 

@@ -14,9 +14,8 @@ from os.path import expanduser
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
-from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEventArgs, IdlingEventArgs
-from Autodesk.Revit.UI import RevitCommandId, PostableCommand, TaskDialog
 
+__doc__ = 'Auto Button by BIM Group to attach auto scripts.'
 
 from Autodesk.Revit.DB import Document,\
     OpenOptions,WorksetConfiguration, WorksetConfigurationOption, DetachFromCentralOption,\
@@ -103,7 +102,7 @@ def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
         pass
     '''
 
-    if Config.get('general','clouddownload') == "1" :
+    if Config.get('General','clouddownload') == "1" :
         n = 1
         for i in modelsDic.values():
             list = i.split(";")

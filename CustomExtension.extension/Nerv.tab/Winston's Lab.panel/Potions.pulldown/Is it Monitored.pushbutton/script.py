@@ -8,9 +8,9 @@ clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector
 from Autodesk.Revit.DB import *
 from System.Collections.Generic import List
-
-
 doc = __revit__.ActiveUIDocument.Document
+
+__doc__ = 'Print Project Base Point, Survey Point, Shared Point parameters.'
 
 basePt = DB.FilteredElementCollector(doc)\
               .OfCategory(BuiltInCategory.OST_Site)\

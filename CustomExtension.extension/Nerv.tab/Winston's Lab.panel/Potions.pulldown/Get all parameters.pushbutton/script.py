@@ -19,6 +19,7 @@ from System.Windows.Forms import Application, SendKeys
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+__doc__ = 'Get all parameters of the selected element.'
 
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""
@@ -48,7 +49,7 @@ def get_all_parameters(element):
                 except:
                     _param.append(name + ': '+ str(param.AsValueString()))
             elif 'Integer' in str(param.StorageType):
-                _param.append(name + ': ' + str(param.AsInterger()))
+                _param.append(name + ': ' + str(param.AsInteger()))
             elif 'Double' in str(param.StorageType):
                 _param.append(name + ': ' + str(param.AsDouble()))
             elif 'ElementId' in str(param.StorageType):

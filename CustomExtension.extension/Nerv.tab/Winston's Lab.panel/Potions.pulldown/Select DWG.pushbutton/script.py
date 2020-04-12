@@ -29,6 +29,8 @@ destinationFolder = forms.pick_folder()
 print(destinationFolder)
 '''
 
+__doc__ = 'Select DWG imports'
+
 def CadImportsName(doc):
     collector = FilteredElementCollector(doc)
     linkInstances = collector.OfClass(ImportInstance)

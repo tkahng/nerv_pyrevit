@@ -19,6 +19,8 @@ from System.Windows.Forms import Application, SendKeys
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+__doc__ = 'Switch link workset.'
+
 '''
 SendKeys.SendWait("%{F4}")
 SendKeys.Send("{Enter}")

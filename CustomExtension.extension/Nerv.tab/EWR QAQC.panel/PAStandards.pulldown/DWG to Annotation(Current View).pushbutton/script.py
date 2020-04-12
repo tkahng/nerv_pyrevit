@@ -1,4 +1,3 @@
-
 import sys, clr
 import ConfigParser
 from os.path import expanduser
@@ -23,6 +22,7 @@ from pyrevit.framework import List
 from pyrevit import revit, DB
 from pyrevit import forms
 
+__doc__ = 'Replace DWG in current view with Annotation, select from a list.'
 
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""

@@ -2,12 +2,10 @@
 from Autodesk.Revit.DB import Document, MEPCurveType, Reference, Options
 from Autodesk.Revit.UI.Selection import ObjectType
 from Autodesk.Revit.UI import TaskDialog, TaskDialogCommonButtons
-from Autodesk.Revit.DB.Plumbing import PipeType
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-from pyrevit.framework import List
 from pyrevit import revit, DB, UI
-from pyrevit import forms
+
 
 class PipeandFittingsSelectionFilter(UI.Selection.ISelectionFilter):
     # standard API override function
@@ -34,8 +32,8 @@ def FeettoInch(number):
 
     result = str(feet) + '\' ' + str(inch) + '\"'
     return result
-__doc__ = 'Measure Pip Element Length'\
-          'this Ignore fitting length '
+__doc__ = 'Measure Pip Element Length '\
+          'this Ignore fitting length is estimated '
 
 currentChoice = []
 for i in get_selected_elements(doc):

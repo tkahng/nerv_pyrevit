@@ -48,6 +48,8 @@ uidoc.ActiveView = view
 revit.get_selection().set_to(explodeElement)
 '''
 
+__doc__ = 'Select DWG for BIM Group'
+
 f = open("U:\\B52\\ids.txt", "r")
 ele = f.readline().split(",")
 e = ele[0]

@@ -18,8 +18,7 @@ doc = __revit__.ActiveUIDocument.Document
 selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Check the link type, whether it is attachment or overlay.'
 
 # containment -----------------------------------
 
@@ -32,6 +31,7 @@ for a in rvt:
 	name = a.GetExternalFileReference()
 	b = a.AttachmentType
 	pp = name.GetAbsolutePath()
+	# TODO: pp cannot write the real path but an Autodesk.Revit.DB.FilePath object
 	print(b)
 	print(pp)
 

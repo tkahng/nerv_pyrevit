@@ -15,9 +15,6 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
-
-
-
 # body
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -70,6 +67,8 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 from System.Windows.Forms import SendKeys
 from pyrevit import script
 
+__doc__ = 'Open Clash Report in a website with clickable element id'
+
 output = script.get_output()
 
 collectorFile = forms.pick_file(file_ext='html', multi_file=False, unc_paths=False)
@@ -94,8 +93,6 @@ otherID = elementIDPool[1:: 2]
 # Read in the file
 with open(collectorFile, 'r') as file :
   filedata = file.read()
-
-
 
 # get unique Items
 unique = []

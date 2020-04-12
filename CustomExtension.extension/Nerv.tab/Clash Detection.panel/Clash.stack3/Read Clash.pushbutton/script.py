@@ -1,7 +1,8 @@
 import re, os
 import bs4, soupsieve
 from pyrevit import forms
-from datetime import date
+
+__doc__ = 'STV BIM button to read clash data off html and generate data files'
 
 # Set the path with all the clash html files and the path of the output file that you want py revit to pick up
 clashpath = '\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\3019262\\3019262_0001\\90_CAD Models and Sheets\\' \

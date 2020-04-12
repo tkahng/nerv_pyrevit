@@ -30,6 +30,7 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 
+__doc__ = 'Select room bounding elements of selected room'
 
 selection = Selection.get_selected_elements(doc)
 

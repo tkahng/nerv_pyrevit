@@ -28,6 +28,7 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 
+__doc__ = 'Get all parameters of the selected element'
 
 selection = Selection.get_selected_elements(doc)
 
@@ -45,3 +46,4 @@ for i in selection:
 print(params)
 print(values)
 # TODO finish this method
+# wait what this is not finished??

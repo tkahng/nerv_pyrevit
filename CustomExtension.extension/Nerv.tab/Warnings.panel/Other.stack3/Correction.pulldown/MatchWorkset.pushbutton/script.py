@@ -24,8 +24,12 @@ clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 import System.Windows.Forms
+
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
+
+__doc__ = 'Report the workset(s) of selected elements and change them into one workset you are going to select.'\
+
 views = FilteredElementCollector(doc).OfClass(View).ToElements()
 selection = Selection.get_selected_elements(doc)
 t = Transaction(doc, 'Change Workset')

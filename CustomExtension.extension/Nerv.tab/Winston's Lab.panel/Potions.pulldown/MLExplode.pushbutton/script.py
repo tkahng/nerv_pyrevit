@@ -36,6 +36,8 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 
+__doc__ = 'Explode DWG for BIM Group'
+
 f = open("U:\\B52\\ids.txt", "r")
 ele = f.readline().split(",")
 e = ele[0]

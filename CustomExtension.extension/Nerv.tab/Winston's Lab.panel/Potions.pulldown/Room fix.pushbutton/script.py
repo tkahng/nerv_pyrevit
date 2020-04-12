@@ -39,6 +39,7 @@ from pyrevit import forms
 import Autodesk.Revit.UI.Selection
 from Autodesk.Revit.UI import UIDocument
 
+__doc__ = 'Rename room "RDS_Space Type" name using "RDS-Space Type" name'
 
 t = Transaction(doc, 'Fix Room')
 t.Start()

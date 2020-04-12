@@ -26,6 +26,9 @@ from pyrevit.framework import List
 from pyrevit import revit, DB, script, forms, UI
 import QuestionableMath
 
+__doc__ = 'Select the base point of the model. '\
+          'This is helpful check project info'
+
 def get_all_string_parameters(element):
     parameters = element.Parameters
     _param = []

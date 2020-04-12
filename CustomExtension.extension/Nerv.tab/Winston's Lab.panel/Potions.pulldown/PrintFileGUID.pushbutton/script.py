@@ -43,7 +43,7 @@ from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
-
+__doc__ = 'Print Model GUID and Project GUID'
 
 ModelGUID = doc.GetCloudModelPath().GetModelGUID()
 ProjectGUID = doc.GetCloudModelPath().GetProjectGUID()

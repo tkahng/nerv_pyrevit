@@ -22,6 +22,7 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+__doc__ = 'Align text notes to left.'
 
 selection = Selection.get_selected_elements(doc)
 t = Transaction(doc, 'Rid Leader')
@@ -41,7 +42,6 @@ if selection:
 			eleMin = i.get_BoundingBox(doc.ActiveView).Min.X
 			distance = location - eleMin
 			i.Location.Move(XYZ(distance, 0 , 0))
-
 t.Commit()
 
 selection = Selection.get_selected_elements(doc)

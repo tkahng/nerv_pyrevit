@@ -20,6 +20,8 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 
+__doc__ = 'Print the element id of lines with a specific line style name'
+
 lines = FilteredElementCollector(doc).OfClass(CurveElement).ToElements()
 # print(len(lines))
 lineStyles = ''

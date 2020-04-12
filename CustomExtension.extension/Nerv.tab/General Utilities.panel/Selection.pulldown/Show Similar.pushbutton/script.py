@@ -34,6 +34,25 @@ doc = __revit__.ActiveUIDocument.Document
 # import user packages
 import Selection
 
+def get_all_parameters(element):
+    parameters = element.Parameters
+    _param = []
+    for param in parameters:
+        if param:
+            name = param.Definition.Name
+            if 'String' in str(param.StorageType):
+                try:
+                    _param.append(name + ': ' + str(param.AsString()))
+                except:
+                    _param.append(name + ': ' + str(param.AsValueString()))
+            elif 'Interger' in str(param.StorageType):
+                _param.append(name + ': ' + str(param.AsInterger()))
+            elif 'Double' in str(param.StorageType):
+                _param.append(name + ': ' + str(param.AsDouble()))
+            elif 'ElementId' in str(param.StorageType):
+                _param.append(name + ': ' + str(param.AsElementId().IntegerValue))
+    return _param
+
 # get needed params
 params = []
 selection = []
@@ -68,6 +87,7 @@ outprint = script.get_output()
 fRules = []
 # create parameter filter by data type
 for i in sel_params:
+    fRule = ()
     pvp = ParameterValueProvider(sel_param_ids[count])
     if 'String' in str(i.StorageType):
         fnrv = FilterStringEquals()

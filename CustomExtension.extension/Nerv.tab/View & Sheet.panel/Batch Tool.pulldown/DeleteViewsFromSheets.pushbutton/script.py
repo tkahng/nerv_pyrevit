@@ -6,7 +6,7 @@ from pyrevit import script
 
 
 __author__ = 'Martin Lou'
-__doc__ = 'Delete all views from selected sheets'
+__doc__ = 'Delete all views from selected sheets.'
 
 
 logger = script.get_logger()

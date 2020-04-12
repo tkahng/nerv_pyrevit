@@ -1,13 +1,10 @@
-from pyrevit.framework import List
 from pyrevit import revit, DB
-import clr, pprint,os
+import clr, pprint
 import Pointdata
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import FilteredElementCollector
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform
-from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 clr. AddReferenceByPartialName('PresentationCore')
@@ -17,8 +14,7 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Read clash data off html and generate Scopebox data from a specific file'
 
 # containment -----------------------------------
 def tolist(obj1):

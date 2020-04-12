@@ -4,7 +4,6 @@ clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
 from Autodesk.Revit.DB import FilteredElementCollector, Structure
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction,FamilySymbol
-from System.Collections.Generic import List
 from Autodesk.Revit.Creation import *
 from pyrevit import script, DB, revit
 from pyrevit import forms
@@ -13,8 +12,9 @@ clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 # Documentation of work
-__doc__ = 'Select the shared point of the model '\
-          ' This is helpful check project info'
+
+__doc__ = 'Create a red orb on existing Clashes, have to read off a file pre-prepared by STV BIM using the Read Clash Tool'
+
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
@@ -44,12 +44,7 @@ else:
     else:
         systemExtra = systemArchive + fName[0: 20]
         sys.path.append(systemExtra)
-'''
-# date and time
-import datetime
-now = datetime.datetime.now()
-print(now.year + now.month)
-'''
+
 
 # clash files
 clashFiles = []

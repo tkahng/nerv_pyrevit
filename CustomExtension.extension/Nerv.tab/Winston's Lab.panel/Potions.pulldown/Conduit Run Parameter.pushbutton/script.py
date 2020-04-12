@@ -9,8 +9,10 @@ doc = __revit__.ActiveUIDocument.Document
 from pyrevit.framework import List
 from pyrevit import revit, DB, script, forms
 
+__doc__ = 'Map conduit parameter to conduit run parameter'
+
 runs = FilteredElementCollector(doc).OfClass(ConduitRun).ToElements()
-t = Transaction(doc, 'Rotate Fitting')
+t = Transaction(doc, 'Map Conduit Parameter')
 t.Start()
 def get_all_string_parameters(element):
     parameters = element.Parameters

@@ -16,6 +16,8 @@ from pyrevit import script
 from pyrevit import forms
 import pyrevit
 
+__doc__ = 'Print the Element Id of selected performance issues category.'
+
 text = []
 
 def PerformanceCollector(doc):
@@ -50,6 +52,8 @@ def PerformanceCollector(doc):
         count += 1
 
     return out
+
+# TODO: INFORM USER HOW MANY INSTANCES WILL BE SHOWN AND ASK HOW MANY WANT TO BE SHOWN NEXT
 
 PerformanceCollector(doc)
 

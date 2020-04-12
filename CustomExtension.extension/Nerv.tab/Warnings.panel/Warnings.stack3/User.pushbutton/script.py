@@ -1,16 +1,12 @@
-from pyrevit.framework import List
+
 from pyrevit import revit, DB
-import clr, pprint,os
-from collections import defaultdict
+import clr
 from pyrevit import script
 from pyrevit import forms
 import pyrevit
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import FilteredElementCollector
-from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform
-from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 from Autodesk.Revit.ApplicationServices import Application
@@ -21,8 +17,7 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 
-__doc__ = 'Print Warning based on the selection of username.'\
-          ' This is intended to distribute warning responsibilities'
+__doc__ = 'Print user names in model and Warnings based on the selection of username.'
 
 outprint = script.get_output()
 output = pyrevit.output.get_output()

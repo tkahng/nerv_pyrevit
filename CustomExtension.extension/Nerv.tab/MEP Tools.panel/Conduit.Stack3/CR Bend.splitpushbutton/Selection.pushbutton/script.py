@@ -20,8 +20,9 @@ from Autodesk.Revit.UI.Selection import ObjectType
 from Autodesk.Revit.DB.Electrical import Conduit, ConduitRun
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-__doc__ = 'Map Conduit parameters to Conduit Runs'\
-          'Rely on perfect info regard conduit parameters '
+
+__doc__ = 'Get Selected Conduit Runs to see Conduit Run Overall Angle'
+
 from pyrevit.framework import List
 from pyrevit import revit, DB, script, forms, UI
 import QuestionableMath
@@ -38,6 +39,7 @@ def get_all_string_parameters(element):
                 except:
                     _param.append(name)
     return _param
+
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""
     try:
@@ -60,7 +62,7 @@ runs = FilteredElementCollector(doc).OfClass(ConduitRun).ToElements()
 for i in runs:
     print(i.Id)
 '''
-__doc__ = 'Get Conduit Run to see Conduit Run Overall Angle'
+
 currentChoice = []
 for i in get_selected_elements(doc):
     currentChoice.append(Reference(i))

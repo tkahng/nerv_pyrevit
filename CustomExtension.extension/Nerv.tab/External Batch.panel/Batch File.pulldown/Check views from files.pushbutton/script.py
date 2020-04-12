@@ -17,6 +17,9 @@ from Autodesk.Revit.ApplicationServices import Application
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
+
+__doc__ = 'Check whether certain view(s) from files at a specific location exist or not.' \
+
 # models = r"\\uspadgv1dcl01\\NY BIM GROUP\\Projects\\3019262 (EWR T1)\\Models Sync\\NWC Export\\"
 models = r"C:\\Users\\loum\\Desktop\\File Dump\\"
 files = []

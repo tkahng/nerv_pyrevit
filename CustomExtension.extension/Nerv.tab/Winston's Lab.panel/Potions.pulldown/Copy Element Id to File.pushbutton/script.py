@@ -14,8 +14,7 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
-
-
+__doc__ = 'Open projects and resave in a specific location'
 
 # body
 uidoc = __revit__.ActiveUIDocument
@@ -67,6 +66,8 @@ from System import EventHandler, Uri
 from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEventArgs, IdlingEventArgs
 clr.AddReferenceByPartialName('System.Windows.Forms')
 from System.Windows.Forms import SendKeys
+
+__doc__ = 'Export element id of selected element(s) to an existing txt file'
 
 collectorFile = forms.pick_file(file_ext='txt', multi_file=False, unc_paths=False)
 updateLine = ""

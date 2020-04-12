@@ -41,6 +41,8 @@ def Views_name_Id_Collector(doc):
             pass
     return modelDic
 
+__doc__ = 'Copy elements from the backup model to the current model'
+
 appDocs = {}
 for d in doc.Application.Documents:
     appDocs[d.Title] = d

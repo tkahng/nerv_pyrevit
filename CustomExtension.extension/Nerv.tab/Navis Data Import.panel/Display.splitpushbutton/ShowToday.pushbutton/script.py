@@ -16,6 +16,7 @@ from pyrevit import coreutils
 from pyrevit.output import linkmaker
 # Get Today's Date
 
+__doc__ = 'Show Today\'s recorded items in Navisworks'
 
 todayDate = System.DateTime.Now.ToString("yyyy-MM-dd")
 todayTime = System.DateTime.Now.ToString("hh:mm:ss")

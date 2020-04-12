@@ -18,6 +18,9 @@ clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
+
+__doc__ = 'Show All recorded items in Navisworks'
+
 outprint = script.get_output()
 path = r'\\stvgroup.stvinc.com\v3\DGPA\Vol3\Projects\3019262\3019262_0001\90_CAD Models and Sheets\17017000\_PIM\Data\NavisData'
 filePath = forms.pick_file(file_ext='txt', multi_file=False, init_dir=path, unc_paths=False)
@@ -25,6 +28,8 @@ filePath = forms.pick_file(file_ext='txt', multi_file=False, init_dir=path, unc_
 openedFile = open(filePath)
 # lets create that config file for next time...
 home = expanduser("~")
+
+
 
 cfgfile = open(home + "\\STVTools.ini",'w')
 Config = ConfigParser.ConfigParser()

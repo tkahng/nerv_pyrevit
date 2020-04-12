@@ -17,22 +17,15 @@ import clr, Selection
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import Document, FilteredElementCollector, PerformanceAdviser, FamilySymbol,BuiltInCategory, \
-    MEPCurveType, RoutingPreferenceRuleGroupType, RoutingConditions, RoutingPreferenceErrorLevel, RoutingPreferenceRule,\
-    PreferredJunctionType,Transaction, BuiltInParameter
-from Autodesk.Revit.DB.Plumbing import PipeType, Pipe
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
 clr.AddReferenceByPartialName('System.Windows.Forms')
 from Autodesk.Revit.UI import TaskDialog, TaskDialogCommonButtons, TaskDialogResult
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-from pyrevit.framework import List
-from pyrevit import revit, DB
-import os
-from collections import defaultdict
 from pyrevit import script
-from pyrevit import forms
+
+
 __doc__ = 'Print all the irregular pipe slopes and element id in selection'\
           'Tolerance at 0.001 ' \
           'clear list 12/12, 0.5/12, 0.25/12, 0.125/12, 0.0625/12'

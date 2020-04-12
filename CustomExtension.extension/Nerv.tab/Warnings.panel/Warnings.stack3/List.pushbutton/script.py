@@ -1,17 +1,13 @@
 # -*- coding: utf-8 -*-
-from pyrevit.framework import List
+
 from pyrevit import revit, DB
 import clr
-from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 import pyrevit
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitAPIUI')
 clr.AddReference("System")
-from Autodesk.Revit.DB import FilteredElementCollector
-from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Transaction
-from System.Collections.Generic import List
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 clr. AddReferenceByPartialName('PresentationCore')
@@ -21,7 +17,7 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
 
-__doc__ = 'Prints out a warnings by category.'\
+__doc__ = 'Prints out warnings by category with Element Id.'\
           ' This is helpful to resolve warnings'
 
 outprint = script.get_output()

@@ -44,6 +44,8 @@ from Autodesk.Revit.UI.Events import DialogBoxShowingEventArgs
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
+__doc__ = 'Download WMATA Cloud Model'
+
 def OpenCloudFiles(modelGUID, projectGUID, app, audit):
     openOpt = OpenOptions()
     if audit == True:

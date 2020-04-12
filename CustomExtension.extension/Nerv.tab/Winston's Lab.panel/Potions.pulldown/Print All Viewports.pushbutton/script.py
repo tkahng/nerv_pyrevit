@@ -14,8 +14,7 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
-
-
+__doc__ = 'Open projects and resave in a specific location'
 
 # body
 uidoc = __revit__.ActiveUIDocument
@@ -45,7 +44,7 @@ userName = application.Username
 logFile = '\\\\Uspadgv1dcl01\\NY BIM GROUP\\Tools\\Repo\\pyRevit_custom_STV\\logs\\' + str(datetime.date.today()) + "_" + userName + '_applog.log'
 logging.basicConfig(filename=logFile, filemode='w', format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
-
+__doc__ = 'Print all viewports element id and view names'
 
 def get_selected_elements(doc):
     """API change in Revit 2016 makes old method throw an error"""

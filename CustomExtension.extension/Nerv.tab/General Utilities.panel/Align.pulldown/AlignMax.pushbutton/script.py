@@ -22,6 +22,8 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
+__doc__ = 'Align text notes to right.'
+
 selection = Selection.get_selected_elements(doc)
 t = Transaction(doc, 'Rid Leader')
 t.Start()

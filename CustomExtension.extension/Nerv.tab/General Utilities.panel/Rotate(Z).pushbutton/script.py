@@ -25,10 +25,7 @@ from pyrevit.framework import List
 from pyrevit import revit, DB, UI
 from pyrevit import forms
 
-
-
 __doc__ = 'Rotate on Z axis based on object location points or center point of location line'
-
 
 choices = uidoc.Selection
 objRef = choices.PickObjects(ObjectType.Element, "Pick Pipe Fitting")

@@ -20,8 +20,10 @@ from Autodesk.Revit.UI.Selection import ObjectType
 from Autodesk.Revit.DB.Electrical import Conduit, ConduitRun
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
+
 __doc__ = 'Map Conduit parameters to Conduit Runs'\
           'Rely on perfect info regard conduit parameters '
+
 from pyrevit.framework import List
 from pyrevit import revit, DB, script, forms, UI
 import QuestionableMath
@@ -44,7 +46,8 @@ class ConduitSelectionFilter(UI.Selection.ISelectionFilter):
 		else:
 			return False
 
-__doc__ = 'Get Conduit Run to see Conduit Run length'
+__doc__ = 'Get Conduit Run to see Conduit Run length.'
+
 currentChoice = []
 for i in get_selected_elements(doc):
     currentChoice.append(Reference(i))

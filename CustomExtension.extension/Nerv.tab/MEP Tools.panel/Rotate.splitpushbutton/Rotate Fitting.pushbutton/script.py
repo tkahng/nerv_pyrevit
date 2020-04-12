@@ -46,6 +46,7 @@ __doc__ = 'Rotate Pipe Fittings connected to pipe'\
           'Click the tool, select the pipe and then the fitting ' \
           'Type in a number you want to rotate and you are good to go,'\
           'Can Take negative Values'
+
 pipFilter = PipeSelectionFilter()
 fittingFilter = PipeFittingSelectionFilter()
 choices = uidoc.Selection
@@ -59,6 +60,7 @@ angleInput = str(forms.GetValueWindow.show(None,
         prompt='Please Enter angle',
         title='Angle'))
 angle = (float(angleInput)*math.pi)/180
+
 t = Transaction(doc, 'Rotate Fitting')
 t.Start()
 inn = [connector,pipe]

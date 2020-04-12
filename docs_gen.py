@@ -1,6 +1,11 @@
 import os
 import shutil
 
+def GetDescription(path):
+    des = "\n Description: "
+    truePath = path + "\\script.py"
+
+
 path = 'W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\\Nerv.tab'
 docPath = 'W:\\Tools\\Repo\pyRevit_custom_STV\\docs\\nerv'
 
@@ -20,8 +25,6 @@ buttonTemplate = "\n\
    :align: left\n\
 \n\
    "
-
-print(buttonTemplate.format('saidjwijd'))
 
 masterFileAdd = open("W:\Tools\Repo\pyRevit_custom_STV\docs\index.rst", "a+")
 masterFileRead = open("W:\Tools\Repo\pyRevit_custom_STV\docs\index.rst", "r").read()
@@ -59,16 +62,16 @@ for i, j, y in os.walk(path):
         for item in j:
             # Create .rst for pushbutton
             if ".pushbutton" in item:
-                # if not os.path.isfile(dir + "\\" + item[:-11] + ".rst"):
-                imageDis = dir + "\\" + "_static" + "\\" + item[:-11].replace(' ', '_').lower() + ".png"
-                shutil.copy(i + '\\' + item + "\\" + "icon.png", imageDis)
-                pushButtonFile = open(dir + "\\" + item[:-11].replace(' ', '_').lower() + ".rst", "w")
-                pushButtonFile.write(item[:-11] + buttonTemplate.format("_static" + "/" + item[:-11].replace(' ', '_').lower() + ".png") + item[:-11].replace(' ', '_').lower())
-                pushButtonFile.close()
-                panelIndex = open(dir + "\\index.rst", "a+")
-                panelIndexRead = open(dir + "\\index.rst", "r").read()
-                if not item[:-11].replace(' ', '_').lower() in panelIndexRead:
-                    panelIndex.write("\n   " + item[:-11].replace(' ', '_').lower())
+                if not os.path.isfile(dir + "\\" + item[:-11] + ".rst"):
+                    imageDis = dir + "\\" + "_static" + "\\" + item[:-11].replace(' ', '_').lower() + ".png"
+                    shutil.copy(i + '\\' + item + "\\" + "icon.png", imageDis)
+                    pushButtonFile = open(dir + "\\" + item[:-11].replace(' ', '_').lower() + ".rst", "w")
+                    pushButtonFile.write(item[:-11] + buttonTemplate.format("_static" + "/" + item[:-11].replace(' ', '_').lower() + ".png") + item[:-11].replace(' ', '_').lower())
+                    pushButtonFile.close()
+                    panelIndex = open(dir + "\\index.rst", "a+")
+                    panelIndexRead = open(dir + "\\index.rst", "r").read()
+                    if not item[:-11].replace(' ', '_').lower() in panelIndexRead:
+                        panelIndex.write("\n   " + item[:-11].replace(' ', '_').lower())
             else:
                 # Create Sub-index files
                 subName = item.split(".")[0].replace(' ', '_').lower()
@@ -96,15 +99,16 @@ for i, j, y in os.walk(path):
                                         shutil.copy(i + '\\' + item + "\\" + subButton + "\\"+ "icon.png", imageDis)
                                     except:
                                         shutil.copy(i + '\\' + item  + "\\" + "icon.png", imageDis)
-                                    subPushButtonFile = open(dir + '\\' + subName + "\\" + subButton.split(".")[0].replace(' ', '_').lower() + ".rst", "w")
-                                    subPushButtonFile.write(subButton.split(".")[0] + buttonTemplate.format(
-                                        "_static" + "/" + subButton.split(".")[0].replace(' ', '_').lower() + ".png") + subButton.split(".")[0].replace(
-                                        ' ', '_').lower())
-                                    subPushButtonFile.close()
-                                    subPanelIndex = open(dir + '\\' + subName + "\\index.rst", "a+")
-                                    subPanelIndexRead = open(dir + '\\' + subName + "\\index.rst", "r").read()
-                                    if not subButton.split(".")[0].replace(' ', '_').lower() in subPanelIndexRead:
-                                        subPanelIndex.write("\n   " + subButton.split(".")[0].replace(' ', '_').lower())
+                                    if not os.path.isfile(dir + '\\' + subName + "\\" + subButton.split(".")[0].replace(' ', '_').lower() + ".rst"):
+                                        subPushButtonFile = open(dir + '\\' + subName + "\\" + subButton.split(".")[0].replace(' ', '_').lower() + ".rst", "w")
+                                        subPushButtonFile.write(subButton.split(".")[0] + buttonTemplate.format(
+                                            "_static" + "/" + subButton.split(".")[0].replace(' ', '_').lower() + ".png") + subButton.split(".")[0].replace(
+                                            ' ', '_').lower())
+                                        subPushButtonFile.close()
+                                        subPanelIndex = open(dir + '\\' + subName + "\\index.rst", "a+")
+                                        subPanelIndexRead = open(dir + '\\' + subName + "\\index.rst", "r").read()
+                                        if not subButton.split(".")[0].replace(' ', '_').lower() in subPanelIndexRead:
+                                            subPanelIndex.write("\n   " + subButton.split(".")[0].replace(' ', '_').lower())
 
                                 # dir = os.path.join(docPath, os.path.basename(i[:-6]).replace(' ', '_').lower())
                                 # print(dir)

@@ -18,8 +18,7 @@ doc = __revit__.ActiveUIDocument.Document
 selection = [doc.GetElement(id)
             for id in __revit__.ActiveUIDocument.Selection.GetElementIds()]
 
-__doc__ = 'Select the shared point of the model '\
-          'This is helpful check project info'
+__doc__ = 'Select one element and print out scopebox that the element is in.'
 
 # containment -----------------------------------
 def tolist(obj1):

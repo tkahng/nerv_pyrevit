@@ -34,7 +34,7 @@ from pyrevit import forms
 from Autodesk.Revit.UI import TaskDialog, UIApplication
 from math import *
 
-
+__doc__ = 'Import rooms to space from link model'
 
 
 links = FilteredElementCollector(doc).OfClass(RevitLinkInstance).ToElements()

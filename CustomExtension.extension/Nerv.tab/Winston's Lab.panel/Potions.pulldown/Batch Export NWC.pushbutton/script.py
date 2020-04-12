@@ -28,7 +28,7 @@ from Autodesk.Revit.ApplicationServices import Application
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Open projects and export FBX'\
+__doc__ = 'Open projects and export NWC'\
             'Please do not use lightly'
 uiapp = UIApplication(doc.Application)
 application = uiapp.Application

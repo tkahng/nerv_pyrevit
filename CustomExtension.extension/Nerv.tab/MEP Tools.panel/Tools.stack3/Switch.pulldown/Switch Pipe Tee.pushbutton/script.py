@@ -17,7 +17,7 @@ import os
 from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
-__doc__ = 'Switch Elbow Preference of selected Pipe'\
+__doc__ = 'Switch Tee Preference of selected Pipe'\
           'You can either select the pipe you want to switch ' \
           'or pick from list'
 def CheckSelection(doc):
