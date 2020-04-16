@@ -14,8 +14,8 @@ doc = __revit__.ActiveUIDocument.Document
 
 
 def CreateStraightDuct(csdname, csdwidth, csdheight, csdstart, csdend, csdlength):
-    print(csdname)
-    print(csdlength)
+    #print(csdname)
+    #print(csdlength)
     pp = Plane.CreateByNormalAndOrigin(csdend-csdstart, csdstart)
     profile1 = Arc.Create(pp, csdheight/2, 0, math.pi)
     a = profile1.GetEndPoint(0)
@@ -23,10 +23,10 @@ def CreateStraightDuct(csdname, csdwidth, csdheight, csdstart, csdend, csdlength
     profile2 = Arc.Create(pp, csdwidth/2, math.pi/2, math.pi*3/2)
     c = profile2.GetEndPoint(0)
     d = profile2.GetEndPoint(1)
-    point1 = a+c
-    point2 = b+c
-    point3 = b+d
-    point4 = a+d
+    point1 = a+c - csdstart
+    point2 = b+c - csdstart
+    point3 = b+d - csdstart
+    point4 = a+d - csdstart
     #print(point1)
     #print(point2)
     #print(point3)
@@ -50,10 +50,10 @@ def CreateCurveDuct(width, height, start, end, middle):
     profile2 = Arc.Create(pp, width/2, math.pi/2, math.pi*3/2)
     c = profile2.GetEndPoint(0)
     d = profile2.GetEndPoint(1)
-    point1 = a+c
-    point2 = b+c
-    point3 = b+d
-    point4 = a+d
+    point1 = a+c-start
+    point2 = b+c-start
+    point3 = b+d-start
+    point4 = a+d-start
     #print(point1)
     #print(point2)
     #print(point3)
@@ -63,8 +63,8 @@ def CreateCurveDuct(width, height, start, end, middle):
     DirectShape.CreateElement(doc, ElementId(-2000151)).SetShape([geo])
 
 def CreateStraightPipe(name, diameter, start, end, length):
-    print(name)
-    print(length)
+    #print(name)
+    #print(length)
     pp = Plane.CreateByNormalAndOrigin(end-start, start)
     profile = CurveLoop().Create([Arc.Create(pp, diameter/2, 0 , math.pi),Arc.Create(pp, diameter/2, math.pi , math.pi*2)])
     geo = GeometryCreationUtilities.CreateExtrusionGeometry([profile], end-start, length)
@@ -135,47 +135,45 @@ with open(file, "r") as f:
         t = Transaction(doc, 'Add CLash Points')
         t.Start()
         # Straight Pipe and Duct Creation
-#        if not a.find("center"):
-        if a.find("circpipe"):
-            cirdiameter = Number(a.find("circpipe").attrs['diameter'])
-            systemId = ElementId(607132)
-            pipeTypeId = ElementId(150706)
-            levelId = ElementId(30)
-            cirlength = Number(a.attrs['length'])
-            cirname = a.attrs['name']
-            cirstartPoint = points[a.attrs['refstart']]
-            cirendPoint = points[a.attrs['refend']]
-            try:
-                CreateStraightPipe(cirname, cirdiameter, cirstartPoint, cirendPoint, cirlength)
-                #centerLine = Line.CreateBound(startPoint, endPoint)
-                # Pipe.Create(doc, systemId, pipeTypeId, levelId, startPoint, endPoint)
-                # print('successful')
-            except:
-                print("fail straight pipe")
-            n += 1
-        elif a.find("rectpipe"):
-            recwidth = Number(str(a.find("rectpipe").attrs['width']))
-            recheight = Number(str(a.find("rectpipe").attrs['height']))
-            reclength = Number(a.attrs['length'])
-            systemId = ElementId(607128)
-            ductTypeId = ElementId(139191)
-            levelId = ElementId(30)
-            recName = a.attrs['name']
-            recstartPoint = points[a.attrs['refstart']]
-            recendPoint = points[a.attrs['refend']]
-            try:
-                pass
-                #CreateStraightDuct(recName, recwidth, recheight, recstartPoint, recendPoint, reclength)
-                #Duct.Create(doc, systemId, ductTypeId, levelId, startPoint, endPoint)
-                #GeometryCreationUtilities.CreateSweptGeometry.
+        if not a.find("center"):
+            if a.find("circpipe"):
+                cirdiameter = Number(a.find("circpipe").attrs['diameter'])
+                systemId = ElementId(607132)
+                pipeTypeId = ElementId(150706)
+                levelId = ElementId(30)
+                cirlength = Number(a.attrs['length'])
+                cirname = a.attrs['name']
+                cirstartPoint = points[a.attrs['refstart']]
+                cirendPoint = points[a.attrs['refend']]
+                try:
+                    CreateStraightPipe(cirname, cirdiameter, cirstartPoint, cirendPoint, cirlength)
+                    #centerLine = Line.CreateBound(startPoint, endPoint)
+                    # Pipe.Create(doc, systemId, pipeTypeId, levelId, startPoint, endPoint)
+                    # print('successful')
+                except:
+                    print("fail straight pipe")
+                n += 1
+            elif a.find("rectpipe"):
+                recwidth = Number(str(a.find("rectpipe").attrs['width']))
+                recheight = Number(str(a.find("rectpipe").attrs['height']))
+                reclength = Number(a.attrs['length'])
+                systemId = ElementId(607128)
+                ductTypeId = ElementId(139191)
+                levelId = ElementId(30)
+                recName = a.attrs['name']
+                recstartPoint = points[a.attrs['refstart']]
+                recendPoint = points[a.attrs['refend']]
+                try:
+                    CreateStraightDuct(recName, recwidth, recheight, recstartPoint, recendPoint, reclength)
+                    #Duct.Create(doc, systemId, ductTypeId, levelId, startPoint, endPoint)
+                    #GeometryCreationUtilities.CreateSweptGeometry.
 
-            except:
-                print("fail straight duct")
-            # flex duck and flex pipe
-            n += 1
-        t.Commit()
-    print(n)
-'''
+                except:
+                    print("fail straight duct")
+                # flex duck and flex pipe
+                n += 1
+
+
         else:
             if a.find("circpipe"):
                 diameter = Number(a.find("circpipe").attrs['diameter'])
@@ -195,10 +193,10 @@ with open(file, "r") as f:
 
                 try:
                     # centerLine = Line.CreateBound(startPoint, endPoint)
-                    #CreateCurvePipe(diameter, startPoint, endPoint, midPoint)
-                    CreateStraightPipe(diameter, startPoint, endPoint)
+                    CreateCurvePipe(diameter, startPoint, endPoint, midPoint)
+                # CreateStraightPipe(diameter, startPoint, endPoint)
                 except:
-                    print("fail flex pipe")
+                   print("fail flex pipe")
 
             if a.find("rectpipe"):
                 width = Number(str(a.find("rectpipe").attrs['width']))
@@ -219,8 +217,8 @@ with open(file, "r") as f:
                 ductSystemId = ElementId(607128)
                 ductTypeId = ElementId(139191)
                 try:
-                # CreateCurveDuct(width, height, startPoint, endPoint, midPoint)
-                    CreateStraightDuct(width, height, startPoint, endPoint)
+                    CreateCurveDuct(width, height, startPoint, endPoint, midPoint)
+                    #CreateStraightDuct(width, height, startPoint, endPoint)
                     #FlexDuct.Create(doc, systemId, typeId, levelId, [startPoint, midPoint, endPoint])
                     #Duct.Create(doc, ductSystemId, ductTypeId, levelId, startPoint, midPoint)
                     #Duct.Create(doc, ductSystemId, ductTypeId, levelId, midPoint, endPoint)
@@ -232,4 +230,4 @@ with open(file, "r") as f:
 
         t.Commit()
         #n+= 1
-'''
+
