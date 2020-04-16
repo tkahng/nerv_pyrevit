@@ -1,4 +1,4 @@
-import bs4, clr, math
+import bs4, clr, math, os
 from bs4 import BeautifulSoup
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Line, Transaction, \
     GeometryCreationUtilities, CurveLoop, Arc, Plane, Line, Frame, CurveLoop, DirectShapeLibrary, DirectShape, DirectShapeType
@@ -101,7 +101,7 @@ t.Commit()
 
 # Documentation of work
 points = {}
-file = "C:\\Users\\mengf\\Desktop\\C1152UUMST02C19.xml"
+file = os.path.expanduser("~/Desktop") + "\\C1152UUMST02C19.xml"
 with open(file, "r") as f:
     # Read each line in the file, readlines() returns a list of lines
     content = f.readlines()
