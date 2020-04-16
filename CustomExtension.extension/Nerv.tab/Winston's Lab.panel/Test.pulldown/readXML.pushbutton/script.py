@@ -114,8 +114,8 @@ with open(file, "r") as f:
     for s in struct:
         try:
             # print(a.attrs['name'])
-            x = float(s.find("center").text.split(" ")[0])-1844100
-            y = float(Number(s.find("center").text.split(" ")[1]))-6427300
+            y = float(s.find("center").text.split(" ")[0])-1844100
+            x = float(Number(s.find("center").text.split(" ")[1]))-6427300
             z = float(Number(s.find("invert").attrs['elev'] + str("0")))-300
 
             #print(x)
@@ -177,8 +177,8 @@ with open(file, "r") as f:
         else:
             if a.find("circpipe"):
                 diameter = Number(a.find("circpipe").attrs['diameter'])
-                midNumberX = float(a.find("center").text.split(" ")[0])-1844100
-                midNumberY = float(a.find("center").text.split(" ")[1])-6427300
+                midNumberY = float(a.find("center").text.split(" ")[0])-1844100
+                midNumberX = float(a.find("center").text.split(" ")[1])-6427300
                 startPoint = points[a.attrs['refstart']]
                 endPoint = points[a.attrs['refend']]
                 midNumberZ = (startPoint.Z + endPoint.Z)/2
@@ -202,8 +202,8 @@ with open(file, "r") as f:
                 width = Number(str(a.find("rectpipe").attrs['width']))
                 height = Number(str(a.find("rectpipe").attrs['height']))
 
-                midNumberX = float(a.find("center").text.split(" ")[0])-1844100
-                midNumberY = float(a.find("center").text.split(" ")[1])-6427300
+                midNumberY = float(a.find("center").text.split(" ")[0])-1844100
+                midNumberX = float(a.find("center").text.split(" ")[1])-6427300
                 startPoint = points[a.attrs['refstart']]
                 endPoint = points[a.attrs['refend']]
                 midNumberZ = (startPoint.Z + endPoint.Z)/2
