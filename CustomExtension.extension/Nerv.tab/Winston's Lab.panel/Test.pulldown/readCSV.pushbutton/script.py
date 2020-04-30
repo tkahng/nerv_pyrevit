@@ -1,7 +1,8 @@
 import bs4, clr, math
 from bs4 import BeautifulSoup
 from Autodesk.Revit.DB import BuiltInCategory, ElementId, XYZ, Point, Transform, Line, Transaction, \
-    GeometryCreationUtilities, CurveLoop, Arc, Plane, Line, Frame, CurveLoop, DirectShapeLibrary, DirectShape, DirectShapeType
+    GeometryCreationUtilities, CurveLoop, Arc, Plane, Line, Frame, CurveLoop, DirectShapeLibrary, DirectShape,\
+    DirectShapeType, Curve, VertexPair, SolidOptions
 from Autodesk.Revit.UI import *
 from Autodesk.Revit.DB import *
 from Autodesk.Revit.DB.Plumbing import Pipe, FlexPipe
@@ -13,7 +14,7 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-def CreateCubeStrut(csdname, csdwidth, csdlength, csdheight, csdstart, csdrotation):
+def CreateCubeStrut(csdname, csdwidth, csdlength, csdheight, csdstart, csdrotation, scdthickness):
     print(csdname)
     vector = XYZ(0, 0, csdheight*-1)
     pp = Plane.CreateByNormalAndOrigin(vector, csdstart)
@@ -36,7 +37,7 @@ def CreateCubeStrut(csdname, csdwidth, csdlength, csdheight, csdstart, csdrotati
     ele.SetName(csdname)
     return ele.Id
 
-def CreateRoundStrut(name, diameter, start, height):
+def CreateRoundStrut(name, diameter, start, height, thickness):
     vector = XYZ(0, 0, height*-1)
 
     print(name)
@@ -49,10 +50,31 @@ def CreateRoundStrut(name, diameter, start, height):
     ele.SetName(name)
     return ele.Id
 
+def CreateRoundStrutwithCone(name, diameter, start, height, coneHeight, topDiameter):
+    vector = XYZ(0, 0, height*-1)
+    coneVector = XYZ(0, 0, coneHeight*-1)
+    coneCurve = Line.CreateBound(start, start + coneVector)
+    print(name)
+    print(height)
+    pp = Plane.CreateByNormalAndOrigin(vector, start + coneVector)
+    ppCone = Plane.CreateByNormalAndOrigin(vector, start)
+
+    coneProfile = CurveLoop().Create([Arc.Create(ppCone,topDiameter/2, 0 , math.pi),Arc.Create(ppCone, topDiameter/2, math.pi , math.pi*2)])
+    profile = CurveLoop().Create([Arc.Create(pp, diameter/2, 0 , math.pi),Arc.Create(pp, diameter/2, math.pi , math.pi*2)])
+
+    geo = GeometryCreationUtilities.CreateExtrusionGeometry([profile], vector, height - coneHeight)
+
+    cone = GeometryCreationUtilities.CreateLoftGeometry([coneProfile, profile], SolidOptions(ElementId.InvalidElementId, ElementId.InvalidElementId))
+    ele = DirectShape.CreateElement(doc, ElementId(-2000151))
+    ele.SetShape([geo, cone])
+    ele.SetName(name)
+    return ele.Id
+
 def CreateStraightDuct(csdname, csdwidth, csdheight, thickness, csdstartO, csdendO, csdlength):
     print(csdname)
     print(csdlength)
-    correction = XYZ(0, 0, csdheight / 2)
+    #correction = XYZ(0, 0, csdheight / 2)
+    correction = XYZ(0, 0, 0)
     csdstart = csdstartO + correction
     csdend = csdendO + correction
     pp = Plane.CreateByNormalAndOrigin(csdend-csdstart, csdstart)
@@ -62,7 +84,7 @@ def CreateStraightDuct(csdname, csdwidth, csdheight, thickness, csdstartO, csden
     vector1 = a - csdstart
     vector2 = XYZ((a - csdstart).X, (a - csdstart).Y, 0)
     angle = vector2.AngleTo(vector1)
-    #print(angle)
+    print(angle)
     trans1 = Transform.CreateRotationAtPoint(csdend - csdstart, angle, csdstart)
     trans2 = Transform.CreateRotationAtPoint(csdend - csdstart, angle*(-1), csdstart)
     trans3 = Transform.CreateRotationAtPoint(csdend - csdstart, angle * (-1) + math.pi/2, csdstart)
@@ -80,8 +102,8 @@ def CreateStraightDuct(csdname, csdwidth, csdheight, thickness, csdstartO, csden
     profileorigion = CurveLoop().Create(
         [Line.CreateBound(point1, point2), Line.CreateBound(point2, point3), Line.CreateBound(point3, point4),
          Line.CreateBound(point4, point1)])
-    #print(l1.GetEndPoint(0))
-    #print(l1.GetEndPoint(1))
+    print(l1.GetEndPoint(0))
+    print(l1.GetEndPoint(1))
 
     numbers = {}
     list = []
@@ -106,7 +128,8 @@ def CreateStraightDuct(csdname, csdwidth, csdheight, thickness, csdstartO, csden
     return ele.Id
 
 def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
-    correction = XYZ(0, 0, height / 2)
+    #correction = XYZ(0, 0, height / 2)
+    correction = XYZ(0, 0, 0)
     print(name)
     start = startO + correction
     end = endO + correction
@@ -121,6 +144,7 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         print(start)
         print(end)
         print(middle)
+        #print(path.Center)
         pathCurve = CurveLoop().Create([path])
         pp = Plane.CreateByNormalAndOrigin(path.ComputeDerivatives(0, True).BasisX, start)
         profile1 = Arc.Create(pp, width/2 + thickness, 0, math.pi)
@@ -129,7 +153,7 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         vector1 = a-start
         vector2 = XYZ((a-start).X, (a-start).Y, 0)
         angle = vector2.AngleTo(vector1)
-
+        #print(angle)
         trans1 = Transform.CreateRotationAtPoint(path.ComputeDerivatives(0, True).BasisX, angle, start)
         trans2 = Transform.CreateRotationAtPoint(path.ComputeDerivatives(0, True).BasisX, angle * (-1), start)
         trans3 = Transform.CreateRotationAtPoint(path.ComputeDerivatives(0, True).BasisX, angle * (-1) + math.pi / 2, start)
@@ -142,6 +166,7 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         point2 = b+c-start
         point3 = b+d-start
         point4 = a+d-start
+
         numbers = {}
         list = []
         l1 = Line.CreateBound(point1, point2)
@@ -169,13 +194,15 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         return ele.Id
 
 def CreateStraightPipe(name, diameter, thickness, startO, endO, length):
-    correction = XYZ(0, 0, diameter/2)
+    #correction = XYZ(0, 0, diameter/2)
+    print("Diameter" + str(diameter))
+    correction = XYZ(0, 0, 0)
     start = startO + correction
     end = endO + correction
     print(name)
     print(length)
     pp = Plane.CreateByNormalAndOrigin(end-start, start)
-    profile = CurveLoop().Create([Arc.Create(pp, diameter/2 + thickness, 0 , math.pi), Arc.Create(pp, diameter/2 + thickness, math.pi , math.pi*2)])
+    profile = CurveLoop().Create([Arc.Create(pp, diameter/2 + thickness, 0, math.pi), Arc.Create(pp, diameter/2 + thickness, math.pi, math.pi*2)])
     geo = GeometryCreationUtilities.CreateExtrusionGeometry([profile], end-start, length)
     ele = DirectShape.CreateElement(doc, ElementId(-2000151))
     ele.SetShape([geo])
@@ -186,7 +213,9 @@ def CreateStraightPipe(name, diameter, thickness, startO, endO, length):
     #print(Arc.Create(pp, diameter, math.pi, math.pi * 2).ComputeDerivatives(0.5, True).BasisZ)
 
 def CreateCurvePipe(name, diameter,thickness, startO, endO, middleO):
-    correction = XYZ(0, 0, diameter / 2)
+    print("Diameter" + str(diameter))
+    #correction = XYZ(0, 0, diameter / 2)
+    correction = XYZ(0, 0, 0)
     start = startO + correction
     end = endO + correction
     middle = middleO + correction
@@ -221,6 +250,9 @@ def InchOrFeet(n):
     except:
         return None
 
+xAdjust = -6427300
+yAdjust = -1844100
+zAdjust = -300
 t = Transaction(doc, 'Add CLash Points')
 t.Start()
 
@@ -228,19 +260,166 @@ t.Start()
 # Documentation of work\
 
 points = {}
-file = forms.pick_file(file_ext='xml', multi_file=False, unc_paths=False)
-fileCSV = forms.pick_file(file_ext='csv', multi_file=False, unc_paths=False)
-pressureCSV = forms.pick_file(file_ext='csv', multi_file=False, unc_paths=False)
+
+fileCSV = forms.pick_file(file_ext='txt', multi_file=False, unc_paths=False)
+
 
 wallThicknesses = {}
 
-with open(pressureCSV, "r") as f:
+with open(fileCSV, "r") as f:
     # Read each line in the file, readlines() returns a list of lines
     content = f.readlines()
     # Combine the lines in the list into a string
     for line in content:
         lineData = line.split(",")
         name = lineData[0]
+        dataLine = lineData[1:]
+        data = {}
+        for d in dataLine:
+            #print(d)
+            try:
+                pair = str(d).split(":")
+                #print(pair)
+                data[pair[0].strip()] = pair[1].strip()
+            except:
+                print("Error 1")
+        # Pressure Pipe
+        if name[0:13] == 'Pressure Pipe':
+            startx = float(data['StartX']) + xAdjust
+            starty = float(data['StartY']) + yAdjust
+            startz = float(data['StartZ']) + zAdjust
+            endx = float(data['EndX']) + xAdjust
+            endy = float(data['EndY']) + yAdjust
+            endz = float(data['EndZ']) + zAdjust
+            start = XYZ(startx, starty, startz)
+            end = XYZ(endx, endy, endz)
+            outDiameter = float(data['OuterDiameter'])
+            innerDiameter = float(data['InnerDiameter'])
+            thickness = float(data['WallThickness'])
+            description = data['Style']
+            if "ductile" in description:
+                eleType1 = CreateStraightDuct(name, outDiameter, innerDiameter, thickness, start, end, start.DistanceTo(end))
+                if eleType1:
+                    v1 = doc.GetElement(eleType1).LookupParameter("Mark").Set(str(name))
+                    v2 = doc.GetElement(eleType1).LookupParameter("Comments").Set(str(description))
+            else:
+                eleType2 = CreateStraightPipe(name, innerDiameter, thickness, start, end, start.DistanceTo(end))
+                if eleType2:
+                    v1 = doc.GetElement(eleType2).LookupParameter("Mark").Set(str(name))
+                    v2 = doc.GetElement(eleType2).LookupParameter("Comments").Set(str(description))
+        # Pipes
+        elif name[0:4] == 'Pipe':
+            if float(data['StartX']) != 0.0 and float(data['StartY']) != 0.0 and float(data['StartZ']) != 0.0:
+                startx = float(data['StartX']) + xAdjust
+                starty = float(data['StartY']) + yAdjust
+                startz = float(data['StartZ']) + zAdjust
+                endx = float(data['EndX']) + xAdjust
+                endy = float(data['EndY']) + yAdjust
+                endz = float(data['EndZ']) + zAdjust
+                wallThickness = float(data['Wall Thickness'])/12
+                start = XYZ(startx, starty, startz)
+                end = XYZ(endx, endy, endz)
+                if 'Inner Pipe Diameter' in data.keys():
+                    #print(float(data['Inner Pipe Diameter']))
+                    pipeinnerdiameter = float(data['Inner Pipe Diameter'])
+                    #print(pipeinnerdiameter)
+                    pipediameter = pipeinnerdiameter/12
+                    #print(pipediameter)
+                    if float(data['CenterX']) != 0:
+                        centerx = float(data['CenterX']) + xAdjust
+                        centery = float(data['CenterY']) + yAdjust
+                        centerz = (startz + endz)/2
+                        middle = XYZ(centerx, centery, centerz)
+                        eleType1 = CreateCurvePipe(name, pipediameter, wallThickness, start, end, middle)
+                        if eleType1:
+                            v1 = doc.GetElement(eleType1).LookupParameter("Mark").Set(str(name))
+                            v2 = doc.GetElement(eleType1).LookupParameter("Comments").Set(str(description))
+                    else:
+                        eleType2 = CreateStraightPipe(name, pipediameter, wallThickness, start, end, start.DistanceTo(end))
+                        if eleType2:
+                            v1 = doc.GetElement(eleType2).LookupParameter("Mark").Set(str(name))
+                            v2 = doc.GetElement(eleType2).LookupParameter("Comments").Set(str(description))
+                elif 'Inner Pipe Width' in data.keys():
+                    innerWidth = float(data['Inner Pipe Width'])/12 #+ wallThickness*2
+                    innerHeight = float(data['Inner Pipe Height'])/12 #+wallThickness*2
+                    #print("width" + str(innerWidth))
+                    #print("height" + str(innerHeight))
+                    if float(data['CenterX']) != 0.0:
+                        centerx = float(data['CenterX']) + xAdjust
+                        centery = float(data['CenterY']) + yAdjust
+                        centerz = (startz + endz)/2
+                        middle = XYZ(centerx, centery, centerz)
+                        eleType1 = CreateCurveDuct(name, innerWidth, innerHeight, wallThickness, start, end, middle)
+                        if eleType1:
+                            v1 = doc.GetElement(eleType1).LookupParameter("Mark").Set(str(name))
+                            v2 = doc.GetElement(eleType1).LookupParameter("Comments").Set(str(description))
+                    else:
+                        eleType2 = CreateStraightDuct(name, innerWidth, innerHeight, wallThickness, start, end, start.DistanceTo(end))
+                        if eleType2:
+                            v1 = doc.GetElement(eleType2).LookupParameter("Mark").Set(str(name))
+                            v2 = doc.GetElement(eleType2).LookupParameter("Comments").Set(str(description))
+            else:
+                print("Please check the starting point")
+
+        # Structures
+        elif name[0:9] == 'Structure':
+            print(name)
+            x = float(data['X']) + xAdjust
+            y = float(data['Y']) + yAdjust
+            z = float(data['Z']) + zAdjust
+            position = XYZ(x, y, z)
+            rotation = float(data['Rotation']) * -1
+
+            if rotation != 0 and 'Structure Height' in data.keys() and 'Structure Width' in data.keys() and 'Structure Length' in data.keys():
+                height = float(data['Structure Height']) / 12
+                length = float(data['Structure Length']) / 12
+                width = float(data['Structure Width']) / 12
+                ele = CreateCubeStrut(name, width, length, height, position, rotation, 0)
+                if ele:
+                    v1 = doc.GetElement(ele).LookupParameter("Mark").Set(str(name))
+
+
+            elif rotation != 0 and 'Structure Height' in data.keys() and 'Structure Width' in data.keys() and 'Inner Structure Length' in data.keys():
+                height = float(data['Structure Height']) / 12
+                length = float(data['Inner Structure Length']) / 12 + float(data['Wall Thickness']) / 12 * 2
+                width = float(data['Structure Width']) / 12
+                ele = CreateCubeStrut(name, width, length, height, position, rotation, 0)
+                if ele:
+                    v1 = doc.GetElement(ele).LookupParameter("Mark").Set(str(name))
+
+            elif 'Cone Height' in data.keys() and 'Structure Height' in data.keys() and 'Structure Diameter' in data.keys():
+                height = float(data['Structure Height']) / 12 + int(data['Floor Thickness'])/12
+                diameter = float(data['Structure Diameter']) / 12 + int(data['Wall Thickness'])/12
+                coneHeight = float(data['Cone Height']) / 12
+                coneDiameter = float(data['Frame Diameter']) / 12
+                ele = CreateRoundStrutwithCone(name, diameter, position, height, coneHeight, coneDiameter)
+                if ele:
+                    v1 = doc.GetElement(ele).LookupParameter("Mark").Set(str(name))
+
+            elif 'Rim to Sump Height' in data.keys() and 'Structure Height' in data.keys() and 'Structure Diameter' in data.keys():
+                height = float(data['Structure Height']) / 12 + int(data['Floor Thickness'])/12
+                diameter = float(data['Structure Diameter']) / 12 + int(data['Wall Thickness'])/12
+                ele = CreateRoundStrut(name, diameter, position, height, 0)
+                if ele:
+                    v1 = doc.GetElement(ele).LookupParameter("Mark").Set(str(name))
+
+
+            elif rotation == 0 and 'Structure Height' in data.keys() and 'Structure Diameter' in data.keys():
+                height = float(data['Structure Height'])/12
+                diameter = float(data['Structure Diameter'])/12
+                ele = CreateRoundStrut(name, diameter, position, height, 0)
+                if ele:
+                    v1 = doc.GetElement(ele).LookupParameter("Mark").Set(str(name))
+
+            else:
+                print("Creation Error")
+        # Error Message
+        else:
+            print(name + " not built")
+
+t.Commit()
+
+'''
         description = lineData[1]
         diameter = ()
         width = ()
@@ -274,7 +453,6 @@ with open(pressureCSV, "r") as f:
         print(name)
         print(description)
         print(diameter)
-
         if starty and startx and startz:
             start = XYZ(startx-6427300, starty-1844100, startz-300)
             end = XYZ(endx-6427300, endy-1844100, endz-300)
@@ -285,8 +463,6 @@ with open(pressureCSV, "r") as f:
         else:
             start = None
             end = None
-
-
         if diameter and start:
             eleType1 = CreateStraightPipe(name, diameter, thickness, start, end, length)
             if eleType1:
@@ -336,8 +512,6 @@ with open(fileCSV, "r") as f:
             start = XYZ(startx-6427300, starty-1844100, startz-300)
         else:
             start = None
-
-
         if diameter and start and innerheight:
             eleType3 = CreateRoundStrut(name, diameter, start, innerheight)
             if eleType3:
@@ -500,3 +674,4 @@ with open(file, "r") as f:
 t.Commit()
         #n+= 1
 
+'''

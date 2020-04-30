@@ -1,101 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readXML.pushbutton/script.py" line="78" />
+    <bookmark url="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSV.pushbutton/script.py" line="52" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3ff88f0c-6970-49b2-8ac2-e286445fca0d" name="Default Changelist" comment="Fixed bug 1">
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSV.pushbutton/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSV.pushbutton/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyRevit_custom_STV.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton.old/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton.old/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/_layout" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/_layout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Batch Element Processing.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Batch Element Processing.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Select one Element.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Select one Element.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation(Current View).pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/PAStandards.pulldown/DWG to Annotation.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/LOD - QAQC.pushbutton/EwrQcUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/EWR-LOD-QAQC.pushbutton/EwrQcUtils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/LOD - QAQC.pushbutton/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/EWR-LOD-QAQC.pushbutton/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/LOD - QAQC.pushbutton/__inti__.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/EWR-LOD-QAQC.pushbutton/__inti__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/LOD - QAQC.pushbutton/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/EWR-LOD-QAQC.pushbutton/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/LOD - QAQC.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/EWR QAQC.panel/QAQC.pulldown/EWR-LOD-QAQC.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Check views from files.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Check views from files.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Delete Excess Sheets from files.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Delete Excess Sheets from files.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Unload all Links from files.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/External Batch.panel/Batch File.pulldown/Unload all Links from files.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMax.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMax.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMin.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/AlignMin.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/Toggle Leader.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Align.pulldown/Toggle Leader.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Link.stack3/LinkTypeCheck.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Link.stack3/LinkTypeCheck.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Link.stack3/LinkTypeWorkset.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Link.stack3/LinkTypeWorkset.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Link.stack3/ReloadLink.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Link.stack3/ReloadLink.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Rotate(Z).pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Rotate(Z).pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Show Similar.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/Show Similar.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Bend.splitpushbutton/PrintAllInModel.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Bend.splitpushbutton/PrintAllInModel.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Bend.splitpushbutton/Selection.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Bend.splitpushbutton/Selection.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Length.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Length.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Param.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/CR Param.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/Conduit Run.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Conduit.Stack3/Conduit Run.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/AutoConnection.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/AutoConnection.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fitting.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fitting.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fittings.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Rotate.splitpushbutton/Rotate Fittings.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Measure.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Measure.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Slope.pulldown/all.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Slope.pulldown/all.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Slope.pulldown/irregular.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Slope.pulldown/irregular.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Switch.pulldown/Switch Pipe Tee.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/MEP Tools.panel/Tools.stack3/Switch.pulldown/Switch Pipe Tee.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/Display.splitpushbutton/ShowAll.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/Display.splitpushbutton/ShowAll.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/Display.splitpushbutton/ShowLatestItem.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/Display.splitpushbutton/ShowLatestItem.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/Display.splitpushbutton/ShowToday.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/Display.splitpushbutton/ShowToday.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/SetFile.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Navis Data Import.panel/SetFile.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Reset.panel/Reset.smartbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/DeleteViewsFromSheets.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/DeleteViewsFromSheets.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/Select views from Sheets.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/Select views from Sheets.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/Unbind View Template Controls.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/View &amp; Sheet.panel/Batch Tool.pulldown/Unbind View Template Controls.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Batch.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Batch.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Lines Overlap.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Lines Overlap.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/MatchWorkset.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/MatchWorkset.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Off Axis.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Off Axis.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Seperation&amp;Seperation.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Seperation&amp;Seperation.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Unjoin.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Unjoin.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Wall&amp;Seperation.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Correction.pulldown/Wall&amp;Seperation.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Performance Review.splitpushbutton/ByCategory.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Performance Review.splitpushbutton/ByCategory.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Performance Review.splitpushbutton/Issues.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Other.stack3/Performance Review.splitpushbutton/Issues.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/List.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/List.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/Summary.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/Summary.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/User.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Warnings.panel/Warnings.stack3/User.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Batch Detach and save.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Batch Detach and save.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Batch Export NWC.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Batch Export NWC.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Conduit Run Parameter.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Conduit Run Parameter.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Copy Element Id to File.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Detect Duplicate Elements.pushbutton/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Detect Duplicate Elements.pushbutton/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Detect Duplicate Elements.pushbutton/script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/DownloadWMATACloudModel.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/DownloadWMATACloudModel.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Extend Pipe.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Extend Pipe.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Get all parameters.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Get all parameters.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Get parameters of elements.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Get parameters of elements.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Import Room to Space.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Import Room to Space.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Is it Monitored.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Is it Monitored.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/LineCollector.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/LineCollector.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/LineTypes.pushbutton/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/LineTypes.pushbutton/script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/MLExplode.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/MLExplode.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/MLSelect.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/MLSelect.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Magic.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Magic.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Print All Viewports.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Print All Viewports.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/PrintFileGUID.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/PrintFileGUID.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Recover Elements from Model.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Recover Elements from Model.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Room Bounding Elements.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Room Bounding Elements.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Room fix.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Room fix.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Rotate Text.pushbutton/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Rotate Text.pushbutton/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Rotate Text.pushbutton/script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Select DWG.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Select DWG.pushbutton/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/MelcaLog.pushbutton/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/MelcaLog.pushbutton/script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readXML.pushbutton/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readXML.pushbutton/script.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Nerv_pyRevit" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="77" selection-start-line="77" selection-end-line="77" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readXML.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1870">
+              <caret line="118" column="45" selection-start-line="118" selection-start-column="45" selection-end-line="118" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSV.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="351" column="95" lean-forward="true" selection-start-line="351" selection-start-column="95" selection-end-line="351" selection-end-column="95" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#833#1753#0" />
+                <element signature="e#1823#2278#0" />
+                <element signature="e#2380#4974#0" />
+                <element signature="e#9964#10054#0" />
+                <element signature="e#10079#10285#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/BIM Group Tools.panel/Team.stack2/Parameters.pulldown/Map Parameters.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Batch Element Processing.pushbutton/Pointdata.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Batch Element Processing.pushbutton/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -103,6 +126,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>not built</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -112,7 +140,76 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSVpushbutton/script.py" />
+        <option value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readXML.pushbutton/script.py" />
+        <option value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSV.pushbutton/script.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
   <component name="ProjectId" id="1X2GqiYb6Mre3lzidUVfI37zUXd" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Nerv_pyRevit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nerv_pyRevit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nerv_pyRevit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nerv_pyRevit" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nerv_pyRevit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nerv_pyRevit" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="Nerv.tab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nerv_pyRevit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nerv_pyRevit" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="Nerv.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nerv_pyRevit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nerv_pyRevit" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="Nerv.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
+              <item name="Test.pulldown" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Nerv_pyRevit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Nerv_pyRevit" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomExtension.extension" type="462c0819:PsiDirectoryNode" />
+              <item name="Nerv.tab" type="462c0819:PsiDirectoryNode" />
+              <item name="Winston's Lab.panel" type="462c0819:PsiDirectoryNode" />
+              <item name="Test.pulldown" type="462c0819:PsiDirectoryNode" />
+              <item name="readXML.pushbutton" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -122,21 +219,33 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Selection.pulldown" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Repo\Nerv_pyRevit\CustomExtension.extension\Nerv.tab\Winston's Lab.panel\Test.pulldown" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Selection.pulldown" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Winston's Lab" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Warnings" />
       <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\View &amp; Sheet" />
-      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\Sheets and Views" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\docs\nerv\General" />
+      <recent name="W:\Tools\Repo\pyRevit_custom_STV\CustomExtension.extension\Nerv.tab\General Utilities.panel\Selection.pulldown" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Python.docs_gen">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -309,6 +418,22 @@
       <workItem from="1586443339392" duration="308000" />
       <workItem from="1586524807438" duration="2001000" />
       <workItem from="1586704969481" duration="4747000" />
+      <workItem from="1586902376232" duration="6018000" />
+      <workItem from="1586955022332" duration="1324000" />
+      <workItem from="1586971370355" duration="30637000" />
+      <workItem from="1587036859601" duration="16824000" />
+      <workItem from="1587150178201" duration="12929000" />
+      <workItem from="1587252743213" duration="7773000" />
+      <workItem from="1587306195809" duration="13285000" />
+      <workItem from="1587388317620" duration="1820000" />
+      <workItem from="1587405599440" duration="599000" />
+      <workItem from="1587668533958" duration="1461000" />
+      <workItem from="1587829481197" duration="2396000" />
+      <workItem from="1588040140424" duration="2511000" />
+      <workItem from="1588118190772" duration="11003000" />
+      <workItem from="1588172355349" duration="2152000" />
+      <workItem from="1588174544808" duration="7044000" />
+      <workItem from="1588270386056" duration="6910000" />
     </task>
     <task id="LOCAL-00001" summary="Fix workspace bug">
       <created>1580332278272</created>
@@ -319,6 +444,36 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="124686000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49757674" visible="true" weight="0.12793177" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.5024233" side_tool="true" weight="0.27292112" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -434,5 +589,84 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pyRevit_custom_STV$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1585755824465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
+    <SUITE FILE_PATH="coverage/Nerv_pyRevit$docs_gen.coverage" NAME="docs_gen Coverage Results" MODIFIED="1587399137268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/General Utilities.panel/Selection.pulldown/SelectAllInWorkset.pushbutton" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/ATest.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Clashmodes.pulldown/Declash Mode On.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" selection-start-line="77" selection-end-line="77" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readXML.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="118" column="45" selection-start-line="118" selection-start-column="45" selection-end-line="118" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/BIM Group Tools.panel/Team.stack2/Parameters.pulldown/Map Parameters.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Potions.pulldown/Read Clash Report.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Read Clash.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Batch Element Processing.pushbutton/Pointdata.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Clash Detection.panel/Clash.stack3/Scope Boxes.pulldown/Batch Element Processing.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CustomExtension.extension/Nerv.tab/Winston's Lab.panel/Test.pulldown/readCSV.pushbutton/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="351" column="95" lean-forward="true" selection-start-line="351" selection-start-column="95" selection-end-line="351" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#833#1753#0" />
+            <element signature="e#1823#2278#0" />
+            <element signature="e#2380#4974#0" />
+            <element signature="e#9964#10054#0" />
+            <element signature="e#10079#10285#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
