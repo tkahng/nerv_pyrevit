@@ -35,8 +35,40 @@ from collections import defaultdict
 from pyrevit import script
 from pyrevit import forms
 from Autodesk.Revit.UI import TaskDialog, UIApplication
-
 from Autodesk.Revit.UI.Selection import Selection
+
+'''
+#2020-04-22 Change COBie.Component.Space
+t = Transaction(doc, 'Change COBie.Component.Space')
+t.Start()
+n = 0
+plumbingFixtures = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_PlumbingFixtures).ToElements()
+for plumbingFixture in plumbingFixtures:
+    cobiespace = plumbingFixture.LookupParameter("COBie.Component.Space")
+    if not cobiespace == None:
+        space = cobiespace.AsString()
+        if space == "2154_MEN'S LOCKER ROOM":
+            plumbingFixture.LookupParameter("COBie.Component.Space").Set("MEN'S LOCKER ROOM_2154")
+            n += 1
+print(n)
+t.Commit()
+'''
+
+
+#2020-04-21 Print Sheet Number, Sheet Name, Drawing No.
+sheets = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements()
+for sheet in sheets:
+    number = sheet.LookupParameter("Sheet Number").AsString()
+    name = sheet.LookupParameter("Sheet Name").AsString()
+    drawing = sheet.LookupParameter("Drawing No.").AsString()
+    #list = sheet.LookupParameter("Appears In Sheet List")
+    if drawing == None or drawing == "":
+        print(number + ";" + name + ";" + "Not Filled")
+    else:
+        print(number + ";" + name + ";" + drawing)
+print("Finished.")
+
+
 '''
 LId = uidoc.Selection.GetElementIds()
 worksetsTable = doc.GetWorksetTable()
@@ -49,6 +81,7 @@ for e in LId:
 t.Commit()
 '''
 
+'''
 #2020-02-27 Change View Name from SP to SC
 # Transaction Start
 t = Transaction(doc, 'Change View Name from SP to SC')
@@ -71,7 +104,7 @@ for i in views:
 print(names)
 print("finished")
 t.Commit()
-
+'''
 
 '''
     viewRegex = re.compile(r'^\w\w-\S\S-(.*)')

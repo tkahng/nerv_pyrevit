@@ -80,10 +80,9 @@ else:
         if "-" in DrawingNo:
             x = DrawingNo.split("-")
             y = x[-1]
-            for i in y:
-                number1 = int(i)
-                newNumber1 = number1 + a
-                para.Set("M1323-" + str(newNumber1))
+            number1 = int(y)
+            newNumber1 = number1 + a
+            para.Set("M1323-" + str(newNumber1))
         else:
             number2 = int(DrawingNo)
             newNumber2 = number2 + a

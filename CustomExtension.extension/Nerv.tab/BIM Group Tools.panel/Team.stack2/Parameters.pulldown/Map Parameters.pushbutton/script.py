@@ -38,14 +38,17 @@ selection = Selection.get_selected_elements(doc)
 output = []
 value1 = []
 value2 = []
+id = []
 # Input Parameter Name
 parameter1 = forms.ask_for_string(default='', prompt='Please input Original Parameter', title='Parameter Mapper')
 parameter2 = forms.ask_for_string(default='', prompt='Please input Destination Parameter', title='Parameter Mapper')
-t = Transaction(doc, "Map Parameters")
+
 
 # Transaction Start
-t.Start()
+
 for x in selection:
+    t = Transaction(doc, "Map Parameters")
+    t.Start()
     v1 = x.LookupParameter(parameter1)
     v2 = x.LookupParameter(parameter2)
     if v1 is None:
@@ -57,14 +60,23 @@ for x in selection:
     else:
         if v1.StorageType == v2.StorageType:
             if v1.StorageType == StorageType.Integer:
-                v2.Set(str(v1.AsInteger()))
-                output = "integer"
+                try:
+                    v2.Set(str(v1.AsInteger()))
+                    output = "integer"
+                except:
+                    print(x.Id.IntegerValue)
             elif v1.StorageType == StorageType.String:
-                v2.Set(str(v1.AsString()))
-                output = "string"
+                try:
+                    v2.Set(str(v1.AsString()))
+                    output = "string"
+                except:
+                    print(x.Id.IntegerValue)
             elif v1.StorageType == StorageType.Double:
-                v2.Set(str(v1.AsDouble()))
-                output = "double"
+                try:
+                    v2.Set(str(v1.AsDouble()))
+                    output = "double"
+                except:
+                    print(x.Id.IntegerValue)
             else:
                 output = "Error"
 
@@ -73,6 +85,6 @@ for x in selection:
         else:
             output = alert("The two parameters are not the same type, try again.")
             pass
-t.Commit()
+    t.Commit()
 
 
