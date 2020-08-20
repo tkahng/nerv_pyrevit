@@ -14,6 +14,17 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
+def Importcsv(Filename):
+    flat_list = []
+    with open(Filename, 'r') as f:
+        reader = csv.reader(f)
+        Lst = list(reader)
+        for sublist in Lst:
+            for item in sublist:
+                flat_list.append(item)
+    return (flat_list)
+
+
 import System, Selection
 import System.Threading
 import System.Threading.Tasks

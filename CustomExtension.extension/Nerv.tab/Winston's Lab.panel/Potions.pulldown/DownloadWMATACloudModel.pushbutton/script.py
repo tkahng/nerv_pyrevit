@@ -75,13 +75,31 @@ def SaveCloudModel(document, filePath):
     document.SaveAs(filePath + document.Title + ".rvt", saveOpt)
     document.Close()
 
-filePath = "\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\4020310\\4020310_0001\\90_CAD Models and Sheets\\07_A_Architectural\\"
+def SaveCloudModelandChangeName(document, filePath, Name):
+    worksharingOptions = WorksharingSaveAsOptions()
+    worksharingOptions.SaveAsCentral = True
+    saveOpt = SaveAsOptions()
+    saveOpt.SetWorksharingOptions(worksharingOptions)
+    saveOpt.OverwriteExistingFile = True
+    saveOpt.Compact = True
+    document.SaveAs(filePath + Name + ".rvt", saveOpt)
+    document.Close()
+
+filePath1 = "\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\4020310\\4020310_0001\\90_CAD Models and Sheets\\07_A_Architectural\\"
+filePath2 = "\\\\stvgroup.stvinc.com\\v3\\DGPA\\Vol3\\Projects\\4020310\\4020310_0001\\90_CAD Models and Sheets\\07_A_Architectural\\VE\\"
 modelGUID = Guid("e77aa560-8776-4a0e-8192-3044c5e240df")
 projectGUID = Guid("20ac335a-5ba8-4520-b948-296e529c3306")
+model2GUID = Guid("172edfec-1f93-4385-85eb-a4db3b96d5d1")
+
 versionName = application.VersionName
 if versionName == "Autodesk Revit 2020":
+    # Model 1
     openedDoc = OpenCloudFiles(modelGUID, projectGUID, application, audit=False)
-    SaveCloudModel(openedDoc, filePath)
-    print("Download Complete")
+    SaveCloudModelandChangeName(openedDoc, filePath1, 'T06-ARCH-NBusGarage-r20')
+    # Model 2
+    print("Model 1 Download Complete")
+    openedDoc2 = OpenCloudFiles(model2GUID, projectGUID, application, audit=False)
+    SaveCloudModel(openedDoc2, filePath2)
+    print("Model 2 Download Complete")
 else:
     print("Please open revit 2020 and retry")

@@ -131,7 +131,7 @@ def FillTitleonSheetParam(doc):
         sheetViewIds.append(str(i.ViewId.IntegerValue))
     views = FilteredElementCollector(doc).OfClass(View).ToElements()
     for i in views:
-        name = i.ViewName
+        name = i.Name
         id = str(i.Id.IntegerValue)
         if id in sheetViewIds:
             title = i.LookupParameter('Title on Sheet').AsString()

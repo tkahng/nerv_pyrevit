@@ -62,7 +62,7 @@ def CreateStraightDuct(csdname, csdwidth, csdheight, thickness, csdstartO, csden
     vector1 = a - csdstart
     vector2 = XYZ((a - csdstart).X, (a - csdstart).Y, 0)
     angle = vector2.AngleTo(vector1)
-    print(angle)
+    #print(angle)
     trans1 = Transform.CreateRotationAtPoint(csdend - csdstart, angle, csdstart)
     trans2 = Transform.CreateRotationAtPoint(csdend - csdstart, angle*(-1), csdstart)
     trans3 = Transform.CreateRotationAtPoint(csdend - csdstart, angle * (-1) + math.pi/2, csdstart)
@@ -80,8 +80,8 @@ def CreateStraightDuct(csdname, csdwidth, csdheight, thickness, csdstartO, csden
     profileorigion = CurveLoop().Create(
         [Line.CreateBound(point1, point2), Line.CreateBound(point2, point3), Line.CreateBound(point3, point4),
          Line.CreateBound(point4, point1)])
-    print(l1.GetEndPoint(0))
-    print(l1.GetEndPoint(1))
+    #print(l1.GetEndPoint(0))
+    #print(l1.GetEndPoint(1))
 
     numbers = {}
     list = []
@@ -117,7 +117,10 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         return None
     else:
         path = Arc.Create(start, end, middle)
-        print(path.Center)
+        print(name)
+        print(start)
+        print(end)
+        print(middle)
         pathCurve = CurveLoop().Create([path])
         pp = Plane.CreateByNormalAndOrigin(path.ComputeDerivatives(0, True).BasisX, start)
         profile1 = Arc.Create(pp, width/2 + thickness, 0, math.pi)
@@ -126,7 +129,7 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         vector1 = a-start
         vector2 = XYZ((a-start).X, (a-start).Y, 0)
         angle = vector2.AngleTo(vector1)
-        print(angle)
+
         trans1 = Transform.CreateRotationAtPoint(path.ComputeDerivatives(0, True).BasisX, angle, start)
         trans2 = Transform.CreateRotationAtPoint(path.ComputeDerivatives(0, True).BasisX, angle * (-1), start)
         trans3 = Transform.CreateRotationAtPoint(path.ComputeDerivatives(0, True).BasisX, angle * (-1) + math.pi / 2, start)
@@ -139,10 +142,6 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         point2 = b+c-start
         point3 = b+d-start
         point4 = a+d-start
-        print(point1)
-        print(point2)
-        print(point3)
-        print(point4)
         numbers = {}
         list = []
         l1 = Line.CreateBound(point1, point2)
@@ -161,8 +160,7 @@ def CreateCurveDuct(name, width, height, thickness, startO, endO, middleO):
         list.sort()
         profileorigion = CurveLoop().Create([Line.CreateBound(point1, point2), Line.CreateBound(point2, point3), Line.CreateBound(point3, point4), Line.CreateBound(point4, point1)])
         profile = CurveLoop.CreateViaTransform(profileorigion, numbers[list[0]])
-        print(profile.IsOpen())
-        print(profile.IsRectangular(pp))
+
 
         geo = GeometryCreationUtilities.CreateSweptGeometry(pathCurve, 0, path.GetEndParameter(0), [profile])
         ele = DirectShape.CreateElement(doc, ElementId(-2000151))
@@ -233,6 +231,9 @@ points = {}
 file = forms.pick_file(file_ext='xml', multi_file=False, unc_paths=False)
 fileCSV = forms.pick_file(file_ext='csv', multi_file=False, unc_paths=False)
 pressureCSV = forms.pick_file(file_ext='csv', multi_file=False, unc_paths=False)
+
+wallThicknesses = {}
+
 with open(pressureCSV, "r") as f:
     # Read each line in the file, readlines() returns a list of lines
     content = f.readlines()

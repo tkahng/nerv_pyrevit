@@ -55,6 +55,16 @@ def SaveCloudModel(document, filePath):
     document.SaveAs(filePath + document.Title + ".rvt", saveOpt)
     document.Close()
 
+def SaveCloudModelandChangeName(document, filePath, Name):
+    worksharingOptions = WorksharingSaveAsOptions()
+    worksharingOptions.SaveAsCentral = True
+    saveOpt = SaveAsOptions()
+    saveOpt.SetWorksharingOptions(worksharingOptions)
+    saveOpt.OverwriteExistingFile = True
+    saveOpt.Compact = True
+    document.SaveAs(filePath + Name + ".rvt", saveOpt)
+    document.Close()
+
 filePath = "C:\\Users\\loum\\Desktop\\acad\\"
 modelGUID = Guid("e77aa560-8776-4a0e-8192-3044c5e240df")
 projectGUID = Guid("20ac335a-5ba8-4520-b948-296e529c3306")
@@ -110,9 +120,10 @@ def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
             projectGUID = Guid(list[1])
             modelFilePath = list[2]
             appVersion = str(list[3])
+            name = str(list[4])
             if str(__rvt__.Application.VersionName) == appVersion:
                 openedDoc = OpenCloudFiles(modelGUID, projectGUID, __rvt__.Application, audit=False)
-                SaveCloudModel(openedDoc, modelFilePath)
+                SaveCloudModelandChangeName(openedDoc, modelFilePath, name)
                 print("Cloud Download Complete")
             else:
                 print("Model {} was not downloaded due to version mismatch".format(str(n)))

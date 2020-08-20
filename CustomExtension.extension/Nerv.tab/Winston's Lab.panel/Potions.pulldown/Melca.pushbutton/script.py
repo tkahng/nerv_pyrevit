@@ -16,9 +16,9 @@ sys.path.append(syspath2)
 import System, Selection
 import System.Threading
 import System.Threading.Tasks
-from Autodesk.Revit.DB import Document,FilteredElementCollector, PerformanceAdviser, Family,Transaction,\
+from Autodesk.Revit.DB import Document, FilteredElementCollector, PerformanceAdviser, Family, Transaction,\
     FailureHandlingOptions, CurveElement, BuiltInCategory, ElementId, SpatialElementTag, RevitLinkInstance, \
-    RevitLinkType, View, BoundingBoxXYZ, BuiltInParameter
+    RevitLinkType, View, BoundingBoxXYZ, BuiltInParameter, ViewSet, ViewSheetSet, PrintRange
 import re
 from Autodesk.Revit.DB import Level, BuiltInParameter, WorksetTable, Element
 from Autodesk.Revit.UI import TaskDialog
@@ -37,6 +37,120 @@ from pyrevit import forms
 from Autodesk.Revit.UI import TaskDialog, UIApplication
 from Autodesk.Revit.UI.Selection import Selection
 
+
+def divide_chunks(l, n):
+    # looping till length l
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+vElementIds = []
+
+tempIds = []
+pvElementIds = []
+views = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Views).ToElements()
+n = 0
+
+for view in views:
+    dependency = view.LookupParameter("Dependency")
+    pView = view.LookupParameter("Parent View")
+    if view.IsTemplate:
+        print("Template - " + view.ViewName)
+    else:
+        if dependency.AsString() == "Primary":
+            print("Primary - " + view.ViewName)
+        elif pView != None:
+            parentId = pView.AsElementId()
+            pvElementIds.append(parentId)
+            tempIds.append(view.Id)
+        else:
+            tempIds.append(view.Id)
+for t in tempIds:
+    if t in pvElementIds:
+        b = doc.GetElement(t)
+        print("Parent - " + b.ViewName + t.ToString())
+    else:
+        vElementIds.append(t)
+print("----------------------------------------")
+vpElementIds = []
+viewports = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Viewports).ToElements()
+for viewport in viewports:
+    vpElementIds.append(viewport.ViewId)
+
+delete = []
+for v in vElementIds:
+    if v in vpElementIds:
+        pass
+    else:
+        delete.append(v)
+
+'''     
+for view in views:
+    #n += 1
+    dependency = view.LookupParameter("Dependency")
+    if dependency == None:
+        vElementIds.append(view.Id)
+    elif view.IsTemplate:
+        pass
+    else:
+        if dependency.AsString() == "Primary":
+            n += 1
+            print(view.Name)
+        else:
+            vElementIds.append(view.Id)
+
+    #print(view.Name)
+#print("There are " + n.ToString() + " views in the project.")
+print("There are " + n.ToString() + " Primary views in the project.")
+viewports = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Viewports).ToElements()
+k = 0
+for viewport in viewports:
+    k += 1
+    vpElementId = viewport.ViewId
+    vpElementIds.append(vpElementId)
+#print("There are " + k.ToString() + " views on sheet.")
+'''
+chunks = list(divide_chunks(delete, 200))
+
+for chunk in chunks:
+    for c in chunk:
+        vType = doc.GetElement(c).ViewType
+        vName = doc.GetElement(c).Name
+        print(str(vType) + ";" + vName + ";" + c.ToString())
+    print("-----------------------------------------")
+
+'''
+count = 1
+t = Transaction(doc, 'Create split lists')
+#t.Start()
+for chunk in chunks:
+    viewSet = ViewSet()
+    a = 0
+    for s in chunk:
+        if s in vpElementIds:
+            pass
+        elif doc.GetElement(s).IsTemplate:
+            pass
+        else:
+            viewSet.Insert(doc.GetElement(s))
+            b = doc.GetElement(s)
+            #t = b.ViewType
+            r = str(b.ViewType)
+            n = b.Name
+            a += 1
+            print(r + "," + n + "," + str(s))
+    print(viewSet.Size.ToString())
+    #print(a)
+    # Transaction Start
+    #printManager = doc.PrintManager
+    #printManager.PrintRange = PrintRange.Select
+    #viewSheetSetting = printManager.ViewSheetSetting
+
+    #viewSheetSetting.CurrentViewSheetSet.Views = viewSet
+    #viewSheetSetting.SaveAs('Unused Views' + ' ' + str(count))
+    #count += 1
+#t.Commit()
+'''
+
 '''
 #2020-04-22 Change COBie.Component.Space
 t = Transaction(doc, 'Change COBie.Component.Space')
@@ -54,7 +168,7 @@ print(n)
 t.Commit()
 '''
 
-
+'''
 #2020-04-21 Print Sheet Number, Sheet Name, Drawing No.
 sheets = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements()
 for sheet in sheets:
@@ -67,7 +181,7 @@ for sheet in sheets:
     else:
         print(number + ";" + name + ";" + drawing)
 print("Finished.")
-
+'''
 
 '''
 LId = uidoc.Selection.GetElementIds()

@@ -15,8 +15,9 @@ syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 import Selection
 clr.AddReference('System')
-from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle, Transaction, BuiltInCategory, \
-    RevitLinkInstance, UV, XYZ,SpatialElementBoundaryOptions, CurveArray,ElementId, View, RevitLinkType, FamilySymbol
+from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle, Transaction, BuiltInCategory,\
+    RevitLinkInstance, UV, XYZ, SpatialElementBoundaryOptions, CurveArray, ElementId, View, RevitLinkType, WorksetTable,\
+    Workset, FilteredWorksetCollector, WorksetKind, RevitLinkType, RevitLinkInstance
 
 from pyrevit import revit, DB, forms
 clr. AddReferenceByPartialName('PresentationCore')
@@ -25,74 +26,44 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 import System.Windows.Forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-views = FilteredElementCollector(doc).OfClass(View).ToElements()
-'''
-t = Transaction(doc, 'Change Template')
-t.Start()
-templates = {}
-rawParam = {}
-
-for v in views:
-	if str(v.ViewTemplateId) != "-1":
-		templates[doc.GetElement(v.ViewTemplateId).Name] = doc.GetElement(v.ViewTemplateId)
-
-selectedTemplates = forms.SelectFromList.show(templates.keys(), button_name='Select Item', multiselect=True)
-
-for c in selectedTemplates:
-	for v in templates[c].Parameters:
-		rawParam[v.Definition.Name] = v.Id
-	break
-
-selectedPrarm = forms.SelectFromList.show(rawParam.keys(), button_name='Select Item', multiselect=True)
 
 
-for c in selectedTemplates:
-	para = List[ElementId]()
-	for v in templates[c].Parameters:
-		if v.Definition.Name in selectedPrarm:
-			para.Add(v.Id)
-	templates[c].SetNonControlledTemplateParameterIds(para)
-selection = Selection.get_selected_elements(doc)
+worksetDic = {
+'*LINKED STRUCT-FQ19144N-BL001':'*LINKED T06-STRUCT-NBusGarage-r20',
+'*LINKED HSSTRU-FQ19144N-BL001':'*LINKED T06-HSSTRU-NBusGarage-r20',
+'*LINKED ARCH-FQ19144N-BL001':'*LINKED T06-ARCH-NBusGarage-r20',
+'*LINKED MECH-FQ19144N-BL001':'*LINKED T06-MECH-NBusGarage-r20',
+'*LINKED ELECT-FQ19144N-BL001':'*LINKED T06-ELECT-NBusGarage-r20',
+'*LINKED SIGNAGE-FQ19144N-BL001':'*LINKED T06-SIGNAGE-NBusGarage-r20',
+'*LINKED FOUNDA-FQ19144N-BL001':'*LINKED T06-FOUNDA-NBusGarage-r20',
+'*LINKED INDU-FQ19144N-BL001':'*LINKED T06-INDU-NBusGarage-r20',
+'*LINKED INDUPLUM-FQ19144N-BL001':'*LINKED T06-INDUPLUM-NBusGarage-r20',
+'*LINKED SURVEY-FQ19144N-BL001':'*LINKED T06-SURVEY-NBusGarage-r20',
+'*LINKED HSARCH-FQ19144N-BL001':'*LINKED T06-HSARCH-NBusGarage-r20',
+'*LINKED ESOLAR-FQ19144N-BL001':'*LINKED T06-ESOLAR-NBusGarage-r20'}
 
-
-t.Commit()
-
-def UniqueName(proposedName, namesList):
-    num = 1
-    nameIteration = proposedName + ' ' + str(num)
-    while num < 999:
-        if not proposedName in namesList:
-            return proposedName
-            break
-        elif not nameIteration in namesList:
-            return nameIteration
-            break
-        else:
-            num += 1
-            nameIteration = proposedName + ' ' + str(num)
-            continue
-
-nameList = ["a" , "b", "c", "a 1"]
-
-print(UniqueName('a', nameList))
-
-
-t = Transaction(doc, 'Change Template')
-t.Start()
-
-selection = Selection.get_selected_elements(doc)
-for i in selection:
-    try:
-        i.LookupParameter('COBie.Type.Category').Set('21-05 10 Equipment')
-    except:
-        print("Failure")
-
-t.Commit()
-'''
+worksets = FilteredWorksetCollector(doc).OfKind(WorksetKind.UserWorkset)
+#print("1")
 t = Transaction(doc, 'Change Name')
 t.Start()
 
-families = FilteredElementCollector(doc).OfClass(FamilySymbol).ToElements()
+for workset in worksets:
+    if workset.Name in worksetDic.keys():
+        WorksetTable.RenameWorkset(doc, workset.Id, worksetDic[workset.Name])
+
+t.Commit()
+'''
+links = FilteredElementCollector(doc).OfClass(RevitLinkType).ToElements()
+for l in links:
+    modelPath = 
+    print(l.LookupParameter('Workset').AsValueString())
+    l.LoadFrom(ModelPath, WorksetConfiguration)
+    #print(l.Name.split(":")[0])
+    #print(l.GetType().ToString())
+
+t.Commit()
+
+
 for i in families:
     try:
         proposedName = i.Family.Name.replace(" - ", "-")
@@ -101,4 +72,5 @@ for i in families:
     except:
         print("Failure")
 
-t.Commit()
+
+'''
