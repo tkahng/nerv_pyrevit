@@ -13,9 +13,17 @@ clr.AddReference('RevitAPIUI')
 
 __doc__ = 'Add custom prefix to families.'
 
-# Collect Save location and Rvt Files
-prefix  = 'PA - '
+# Ask for string input from user
+prefix  = forms.ask_for_string(default='', prompt='Please input custom prefix', title='Add Prefix')
 
+cateName = []
+families = FilteredElementCollector(doc).OfClass(FamilySymbol).ToElements()
+for f in families:
+    cate = f.Family.FamilyCategory.Name
+    if not cate in cateName:
+        cateName.append(cate)
+        n
+'''
 def SetDimensionStyle(doc, source, destination):
     elements = FilteredElementCollector(doc).OfClass(Dimension).ToElements()
     for i in elements:
@@ -109,3 +117,4 @@ else:
     else:
         pass
 t.Commit()
+'''

@@ -37,6 +37,8 @@ from pyrevit import forms
 from Autodesk.Revit.UI import TaskDialog, UIApplication
 from Autodesk.Revit.UI.Selection import Selection
 
+__doc__ = 'Report the number of the viewports on sheets in the project'
+
 n = 0
 sheets = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).ToElements()
 for sheet in sheets:

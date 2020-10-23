@@ -40,6 +40,9 @@ from Autodesk.Revit.UI.Selection import Selection
 rooms = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Rooms).ToElements()
 for room in rooms:
     rNumber = room.LookupParameter("Number")
-    print(rNumber)
-    if rNumber.AsString() == "3-13-22":
+    #print(rNumber.AsString())
+    s = rNumber.AsString()
+    if s[:4] == "3-16":
+        print(s)
         print(str(room.Id))
+        print("----------------------------")

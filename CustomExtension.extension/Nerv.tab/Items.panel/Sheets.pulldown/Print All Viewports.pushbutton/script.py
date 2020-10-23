@@ -14,8 +14,6 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
-__doc__ = 'Open projects and resave in a specific location'
-
 # body
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document

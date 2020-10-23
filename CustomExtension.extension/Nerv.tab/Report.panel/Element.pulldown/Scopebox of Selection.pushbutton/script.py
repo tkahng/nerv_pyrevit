@@ -84,10 +84,6 @@ boundingBox = DB.FilteredElementCollector(doc)\
 print ('Total Scope Box Number: ' + str(len(boundingBox)))
 geoLst = []
 for e in boundingBox:
-    geo = e.GetParameters('Name')
-    for a in geo:
-        b = a.AsString()
-        if 'Sector' in b:
-            geoLst.append(b)
+    geoLst.append(e.LookupParameter('Name').AsString())
 print(geoLst)
 

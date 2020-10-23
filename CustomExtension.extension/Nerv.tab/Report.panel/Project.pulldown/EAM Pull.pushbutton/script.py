@@ -132,36 +132,76 @@ if len(collectorFiles) > 0:
         # viewTypeId =  ViewType.ThreeD.Id
         view = View3D.CreateIsometric(openedDoc, threeDViews[0])
 
-        view.ViewName = "EAM View"
+        #view.ViewName = "EAM View"
         # Checking
         #catFilter =
         #idFilter =
         if pickedProcess == "Other Models":
-            collectorEAMElements = [['Model Name', 'Categoty', 'ElementID', 'EAM_11_UAID', 'EAM_EID', 'UAID_Required', 'Sheet', 'New EAM_11_UAID']]
+            collectorEAMElements = [['Model Name', 'Category', 'ElementID', 'Family', 'Type', 'X', 'Y', 'Z', 'EAM_11_UAID', 'EAM_EID', 'UAID_Required', 'Sheet', 'New EAM_11_UAID']]
             elements = FilteredElementCollector(openedDoc, view.Id).WhereElementIsNotElementType().ToElements()#.WherePasses(catFilter).WherePasses(idFilter)
             for ele in elements:
+                # Get Category
                 try:
                     cate = ele.Category.Name
                 except:
                     cate = ""
+                # Get ID
                 id = ele.Id.ToString()
+                # Get Family
+                try:
+                    family = openedDoc.GetElement(ele.LookupParameter('Family').AsElementId()).FamilyName
+                except:
+                    family = ""
+                # Get Type
+                try:
+                    type = openedDoc.GetElement(ele.LookupParameter('Type').AsElementId()).LookupParameter('Type Name').AsString()
+                    # print(type)
+                except:
+                    type = ""
+                # Get Location
+
+                loc = ele.Location
+                try:
+                    try:
+                        point = loc.Point
+                        X = point.X
+                        Y = point.Y
+                        Z = point.Z
+                        #print("point")
+                    except:
+                        startPoint = loc.Curve.GetEndPoint(0)
+                        endPoint = loc.Curve.GetEndPoint(1)
+                        X = (startPoint.X + endPoint.X)/2
+                        Y = (startPoint.Y + endPoint.Y)/2
+                        Z = (startPoint.Z + endPoint.Z)/2
+                        #print("curve")
+                except:
+                    X = ""
+                    Y = ""
+                    Z = ""
+                    #print("None")
+
+                # Get EAM ID
                 try:
                     EAM_11_UAID = ele.LookupParameter('EAM_11_UAID').AsString()
                 except:
                     EAM_11_UAID = ""
+                # Get EID
                 try:
                     EAM_EID = ele.LookupParameter('EAM_EID').AsString()
                 except:
                     EAM_EID = ""
+                # Get UAID
                 try:
                     UAID_Required = ele.LookupParameter('UAID_Required').AsString()
                 except:
                     UAID_Required = ""
-                line = [title, cate, id, EAM_11_UAID, EAM_EID, UAID_Required]
+                line = [title, cate, id, family, type, X, Y, Z, EAM_11_UAID, EAM_EID, UAID_Required]
                 collectorEAMElements.append(line)
             EAMQcUtils.ExcelWriter(excelFile, 'ELEMENTS', 0, 0, collectorEAMElements)
+
         elif pickedProcess == "HVAC Models":
-            collectorEAMElements = [['Model Name', 'Categoty', 'ElementID', 'EAM_11_UAID', 'EAM_12_COMPONENT_01',
+            collectorEAMElements = [['Model Name', 'Categoty', 'Family', 'Type', 'X', 'Y', 'Z', 'ElementID', 'EAM_11_UAID', 'EAM_12_COMPONENT_01',
                                      'EAM_12_COMPONENT_02', 'EAM_12_COMPONENT_03', 'EAM_12_COMPONENT_04',
                                      'EAM_12_COMPONENT_05', 'EAM_12_COMPONENT_06', 'EAM_12_COMPONENT_07',
                                      'EAM_12_COMPONENT_08', 'EAM_12_COMPONENT_09', 'EAM_12_COMPONENT_10',
@@ -174,14 +214,47 @@ if len(collectorFiles) > 0:
                                      'EAM_12_COMPONENT_08', 'EAM_12_COMPONENT_09', 'EAM_12_COMPONENT_10',
                                      'EAM_12_COMPONENT_11', 'EAM_12_COMPONENT_12', 'EAM_12_COMPONENT_13',
                                      'EAM_12_COMPONENT_14', 'EAM_12_COMPONENT_15', 'EAM_EID', 'UAID_Required']
-            elements = FilteredElementCollector(openedDoc).WhereElementIsNotElementType().ToElements()#.WherePasses(catFilter).WherePasses(idFilter)
+            elements = FilteredElementCollector(openedDoc, view.Id).WhereElementIsNotElementType().ToElements()#.WherePasses(catFilter).WherePasses(idFilter)
             for ele in elements:
                 try:
                     cate = ele.Category.Name
                 except:
                     cate = ""
                 id = ele.Id.ToString()
-                line = [title, cate, id]
+                try:
+                    family = openedDoc.GetElement(ele.LookupParameter('Family').AsElementId()).FamilyName
+                except:
+                    family = ""
+                    # Get Type
+                try:
+                    type = openedDoc.GetElement(ele.LookupParameter('Type').AsElementId()).LookupParameter('Type Name').AsString()
+                    # print(type)
+                except:
+                    type = ""
+                    # Get Location
+
+                loc = ele.Location
+                try:
+                    try:
+                        point = loc.Point
+                        X = point.X
+                        Y = point.Y
+                        Z = point.Z
+                        # print("point")
+                    except:
+                        startPoint = loc.Curve.GetEndPoint(0)
+                        endPoint = loc.Curve.GetEndPoint(1)
+                        X = (startPoint.X + endPoint.X) / 2
+                        Y = (startPoint.Y + endPoint.Y) / 2
+                        Z = (startPoint.Z + endPoint.Z) / 2
+                        # print("curve")
+                except:
+                    X = ""
+                    Y = ""
+                    Z = ""
+                    # print("None")
+
+                line = [title, cate, id, family, type, X, Y, Z]
                 for para in paraList:
                     try:
                         value = ele.LookupParameter(para).AsString()

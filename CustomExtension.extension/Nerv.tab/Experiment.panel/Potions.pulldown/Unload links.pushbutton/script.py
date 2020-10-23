@@ -13,6 +13,7 @@ sys.path.append(syspath1)
 syspath2 = config.get('SysDir','SecondaryPackage')
 sys.path.append(syspath2)
 
+from pyRevit_custom_STV.CustomExtension.extension.packages import FileUtilities
 import FileUtilities, Selection
 from pyrevit.framework import List
 from pyrevit import revit, DB, forms

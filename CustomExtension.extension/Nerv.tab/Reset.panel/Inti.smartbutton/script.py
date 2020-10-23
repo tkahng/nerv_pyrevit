@@ -65,15 +65,13 @@ def SaveCloudModelandChangeName(document, filePath, Name):
     document.SaveAs(filePath + Name + ".rvt", saveOpt)
     document.Close()
 
-filePath = "C:\\Users\\loum\\Desktop\\acad\\"
-modelGUID = Guid("e77aa560-8776-4a0e-8192-3044c5e240df")
-projectGUID = Guid("20ac335a-5ba8-4520-b948-296e529c3306")
-
-
-
-# lets create that config file for next time...
-home = expanduser("~")
 def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
+    filePath = "C:\\Users\\loum\\Desktop\\acad\\"
+    modelGUID = Guid("e77aa560-8776-4a0e-8192-3044c5e240df")
+    projectGUID = Guid("20ac335a-5ba8-4520-b948-296e529c3306")
+
+    # lets create that config file for next time...
+    home = expanduser("~")
     '''
     __rvt__.DocumentOpened += \
         framework.EventHandler[

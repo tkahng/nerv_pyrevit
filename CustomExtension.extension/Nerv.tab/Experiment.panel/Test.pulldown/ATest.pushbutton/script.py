@@ -19,7 +19,8 @@ from Autodesk.Revit.DB import Document, FilteredElementCollector, GraphicsStyle,
     RevitLinkInstance, UV, XYZ, SpatialElementBoundaryOptions, CurveArray, ElementId, View, RevitLinkType, WorksetTable,\
     Workset, FilteredWorksetCollector, WorksetKind, RevitLinkType, RevitLinkInstance, View3D, ViewType,ElementClassFilter,\
     ViewFamilyType, ViewFamily, BuiltInParameter, IndependentTag, Reference, TagMode, TagOrientation
-
+from System import EventHandler, Uri
+from Autodesk.Revit.UI.Events import ViewActivatedEventArgs, ViewActivatingEventArgs
 from pyrevit import revit, DB, forms
 clr. AddReferenceByPartialName('PresentationCore')
 clr.AddReferenceByPartialName('PresentationFramework')
@@ -27,25 +28,13 @@ clr.AddReferenceByPartialName('System.Windows.Forms')
 import System.Windows.Forms
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
-#def CreateIsometric:
-
-worksetDic = {
-'*LINKED STRUCT-FQ19144N-BL001':'*LINKED T06-STRUCT-NBusGarage-r20',
-'*LINKED HSSTRU-FQ19144N-BL001':'*LINKED T06-HSSTRU-NBusGarage-r20',
-'*LINKED ARCH-FQ19144N-BL001':'*LINKED T06-ARCH-NBusGarage-r20',
-'*LINKED MECH-FQ19144N-BL001':'*LINKED T06-MECH-NBusGarage-r20',
-'*LINKED ELECT-FQ19144N-BL001':'*LINKED T06-ELECT-NBusGarage-r20',
-'*LINKED SIGNAGE-FQ19144N-BL001':'*LINKED T06-SIGNAGE-NBusGarage-r20',
-'*LINKED FOUNDA-FQ19144N-BL001':'*LINKED T06-FOUNDA-NBusGarage-r20',
-'*LINKED INDU-FQ19144N-BL001':'*LINKED T06-INDU-NBusGarage-r20',
-'*LINKED INDUPLUM-FQ19144N-BL001':'*LINKED T06-INDUPLUM-NBusGarage-r20',
-'*LINKED SURVEY-FQ19144N-BL001':'*LINKED T06-SURVEY-NBusGarage-r20',
-'*LINKED HSARCH-FQ19144N-BL001':'*LINKED T06-HSARCH-NBusGarage-r20',
-'*LINKED ESOLAR-FQ19144N-BL001':'*LINKED T06-ESOLAR-NBusGarage-r20'}
-
-worksets = FilteredWorksetCollector(doc).OfKind(WorksetKind.UserWorkset)
-#print("1")
-t = Transaction(doc, 'Change Name')
+from pyrevit import framework
+from pyrevit import script
+from pyrevit import DB, UI
+import datetime, os
+from pyrevit import HOST_APP, framework
+'''
+t = Transaction(doc, 'Tag Selected Element')
 t.Start()
 selection = Selection.get_selected_elements(doc)
 for a in selection:
@@ -54,24 +43,46 @@ for a in selection:
     print(location.Point)
 t.Commit()
 '''
-links = FilteredElementCollector(doc).OfClass(RevitLinkType).ToElements()
-for l in links:
-    modelPath = 
-    print(l.LookupParameter('Workset').AsValueString())
-    l.LoadFrom(ModelPath, WorksetConfiguration)
-    #print(l.Name.split(":")[0])
-    #print(l.GetType().ToString())
+print(str(datetime.date.today()))
 
-t.Commit()
+class Logger:
+    # File location for logging
+    #fileLocation = ""
+    # Constructor
+    def __init__(self, address):
+        self.fileLocation = address
+    #Logger
+    def Log(self, content, user):
+        date = datetime.datetime
+        if not os.path.exists(self.fileLocation):
+            logFile = open(self.fileLocation, "w")
+            logFile.write(str(datetime.date.today()) + "_" + user + "_" + "Log Start")
+            logFile.close()
 
+        try:
+            writeFile = open(self.fileLocation, "a+")
+            writeFile.write(content)
+            writeFile.close()
+        except:
+            print("Failed")
+logger = Logger("\\\\stvgroup.stvinc.com\\p\\NYNY\\Practices\\Hazem Kahla\\RevitLogs\\" + str(datetime.date.today()) + "_" + str(doc.Application.Username)+ ".txt" )
 
-for i in families:
+separator = ","
+docTitle = doc.Title
+message = str(datetime.datetime)
+
+logger.Log(message, str(doc.Application.Username))
+print(HOST_APP.app)
+
+def event_handler_function(sender, args):
+   print("View activating")
+   event_uidoc = sender.ActiveUIDocument
+   event_doc = sender.ActiveUIDocument.Document
+# I'm using ViewActivating event here as example.
+# The handler function will be executed every time a Revit view is activated:
+def __selfinit__(script_cmp, ui_button_cmp, __rvt__):
     try:
-        proposedName = i.Family.Name.replace(" - ", "-")
-        if i.Family.Name != proposedName:
-            i.Family.Name = proposedName
-    except:
-        print("Failure")
-
-
-'''
+        __rvt__.Application.DocumentChanged += framework.EventHandler[DB.Events.DocumentChangedEventArgs](event_handler_function)
+        return True
+    except Exception:
+        return False

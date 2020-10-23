@@ -67,7 +67,8 @@ def OpenFiles(oFile, app, audit):
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 
-__doc__ = 'Open projects and resave in a specific location'\
+__doc__ = 'Report the selected Model Element Quality Check outcome in an Excel file.'\
+          'Open projects and resave in a specific location.'\
             'Please do not use lightly'
 
 uiapp = UIApplication(doc.Application)

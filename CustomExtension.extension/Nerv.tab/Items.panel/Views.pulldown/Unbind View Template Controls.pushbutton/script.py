@@ -27,7 +27,7 @@ uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
 views = FilteredElementCollector(doc).OfClass(View).ToElements()
 
-__doc__ = 'Unbinde specific View Template Controls'
+__doc__ = 'Unbind specific View Template Controls'
 
 templates = {}
 rawParam = {}
