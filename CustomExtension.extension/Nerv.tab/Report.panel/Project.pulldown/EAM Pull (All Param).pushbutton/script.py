@@ -90,6 +90,34 @@ def OpenFilesandUnload(oFile, app, audit):
     title = currentdoc.Title
     currentdoc.SaveAs(destinationFolder + '\\' + title, saveOp)
     currentdoc.Close(False)
+
+def get_pos_tag_parameters_as_list(element):
+    '''
+    Get a Dictionary of all element name, value and parameter object
+    :param element:
+    :return: dictionary
+    '''
+    parameters = element.Parameters
+    _param = []
+    for param in parameters:
+        if param:
+            name = param.Definition.Name
+            value = ""
+            if 'String' in str(param.StorageType):
+                try:
+                    value = str(param.AsString())
+                    if value:
+                        _param.append(name + ': ' + value)
+                except:
+                    value = str(param.AsValueString())
+                    if value:
+                        _param.append(name + ': '+ value)
+            elif 'Interger' in str(param.StorageType):
+                value = str(param.AsInterger())
+                if value:
+                    _param.append(name + ': ' + value)
+    return _param
+
 # Main
 uidoc = __revit__.ActiveUIDocument
 doc = __revit__.ActiveUIDocument.Document
@@ -137,8 +165,9 @@ if len(collectorFiles) > 0:
         #catFilter =
         #idFilter =
         if pickedProcess == "Other Models":
-            collectorEAMElements = [['Model Name', 'Category', 'ElementID', 'Family', 'Type', 'X', 'Y', 'Z', 'EAM_11_UAID', 'EAM_EID', 'UAID_Required']]
-            elements = FilteredElementCollector(openedDoc, view.Id).WhereElementIsNotElementType().ToElements()#.WherePasses(catFilter).WherePasses(idFilter)
+            collectorEAMElements = [['Model Name', 'Category', 'ElementID', 'Family', 'Type', 'X', 'Y', 'Z', 'EAM_11_UAID', 'EAM_EID', 'UAID_Required', 'Mark',
+                                     "Candidate_1","Candidate_2","Candidate_3","Candidate_4","Candidate_5",]]
+            elements = FilteredElementCollector(openedDoc, view.Id).WhereElementIsNotElementType().ToElements()
             for ele in elements:
                 # Get Category
                 try:
@@ -196,12 +225,22 @@ if len(collectorFiles) > 0:
                     UAID_Required = ele.LookupParameter('UAID_Required').AsString()
                 except:
                     UAID_Required = ""
-                line = [title, cate, id, family, type, X, Y, Z, EAM_11_UAID, EAM_EID, UAID_Required]
-                collectorEAMElements.append(line)
+                # Get Mark value
+                try:
+                    mark = ele.LookupParameter('Mark').AsString()
+                except:
+                    mark = ""
+
+                line = [title, cate, id, family, type, X, Y, Z, EAM_11_UAID, EAM_EID, UAID_Required, mark, "", "", "",
+                        "", "" ]
+                # get possible param for tags
+                lineExtra = get_pos_tag_parameters_as_list(ele)
+                lineAll = line + lineExtra
+                collectorEAMElements.append(lineAll)
             EAMQcUtils.ExcelWriter(excelFile, 'ELEMENTS', 0, 0, collectorEAMElements)
 
         elif pickedProcess == "HVAC Models":
-            collectorEAMElements = [['Model Name', 'Categoty', 'ElementID', 'Family', 'Type', 'X', 'Y', 'Z', 'EAM_11_UAID', 'EAM_12_COMPONENT_01',
+            collectorEAMElements = [['Model Name', 'Categoty', 'Family', 'Type', 'X', 'Y', 'Z', 'ElementID', 'EAM_11_UAID', 'EAM_12_COMPONENT_01',
                                      'EAM_12_COMPONENT_02', 'EAM_12_COMPONENT_03', 'EAM_12_COMPONENT_04',
                                      'EAM_12_COMPONENT_05', 'EAM_12_COMPONENT_06', 'EAM_12_COMPONENT_07',
                                      'EAM_12_COMPONENT_08', 'EAM_12_COMPONENT_09', 'EAM_12_COMPONENT_10',

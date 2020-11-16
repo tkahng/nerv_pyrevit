@@ -84,7 +84,7 @@ def OpenFiles(oFile, app, audit):
     return currentdoc
 
 
-def get_parameters_as_list(element, names):
+def get_parameters_as_dic(element):
     '''
     Get a Dictionary of all element name, value and parameter object
     :param element, paraName:
@@ -102,20 +102,7 @@ def get_parameters_as_list(element, names):
                     _param[name] = str(param.AsValueString())
             elif 'Interger' in str(param.StorageType):
                 _param[name] =str(param.AsInterger())
-            elif 'Double' in str(param.StorageType):
-                _param[name] = str(param.AsDouble())
-            elif 'ElementId' in str(param.StorageType):
-                _param[name] = str(param.AsElementId().IntegerValue)
-            else:
-                _param[name] = "No Value"
-    #print(_param)
-    values = []
-    for name in names:
-        try:
-            values.append(_param[name])
-        except:
-            values.append("n/a")
-    return values
+    return _param
 
 # Not needed anymore
 # First Line of the csv File
@@ -135,21 +122,9 @@ uiapp = UIApplication(doc.Application)
 application = uiapp.Application
 
 # Pick an action, #view specific will create default 3d view with current visibility
-process = ["View Specific", "All Elements"]
-pickedProcess = forms.SelectFromList.show(process, button_name='Select Item', multiselect=False)
 
 if len(collectorFiles) > 0:
     for aDoc in collectorFiles:
-        # Header of Excel file
-        elementTitle = [['Model Name', 'Category', 'ElementID', 'TypeID', 'Mark']]
-        typeTitle = [
-            ['Model Name', 'TypeID', 'Type Name', 'Family Name', 'Assembly Code', 'Assembly Description', 'Model',
-             'Manufacturer', 'Description']]
-
-        # List of Parameters, Please expand
-        elementParaList = ['Mark']
-        typeParaList = ['Type Name', 'Family Name', 'Assembly Code', 'Assembly Description', 'Model', 'Manufacturer',
-                        'Description']
 
         # Open Document
         openedDoc = OpenFiles(aDoc, application, audit=False)
@@ -165,62 +140,38 @@ if len(collectorFiles) > 0:
         # Define and Open Excel File
         excelFile = EAMQcUtils.ExcelOpener(fileName)
         # Create a blank intro Sheet
-        blank = []
-        elements = ()
-        #typesIds = FilteredElementCollector(openedDoc).WhereElementIsElementType().ToElementIds()
-        typeIds = []
-        # Create View
-        if pickedProcess == "View Specific":
-            threeDViews = []
-            viewFamilyTypes = FilteredElementCollector(openedDoc).OfClass(ViewFamilyType).ToElements()
-            for viewFa in viewFamilyTypes:
-                if viewFa.ViewFamily == ViewFamily.ThreeDimensional:
-                    threeDViews.append(viewFa.Id)
-            # viewTypeId =  ViewType.ThreeD.Id
-            view = View3D.CreateIsometric(openedDoc, threeDViews[0])
-            # view.Name = "EAM View"
-            elements = FilteredElementCollector(openedDoc, view.Id).WhereElementIsNotElementType().ToElements()
-        # If all elements are selected
-        elif pickedProcess == "All Elements":
-            elements = FilteredElementCollector(openedDoc).WhereElementIsNotElementType().ToElements()
 
+        elements = FilteredElementCollector(openedDoc).WhereElementIsNotElementType().ToElements()
+        typeIds = []
         # get element instances
         for ele in elements:
-            try:
-                cate = ele.Category.Name
-            except:
-                cate = ""
-            id = ele.Id.ToString()
             typeId = ""
             try:
-                typeId = ele.GetTypeId()
+                typeId = ele.LookupParameter('Type').AsElementId()
                 if not typeId in typeIds:
                     typeIds.append(typeId)
             except:
                 pass
-            line = [title, cate, id, str(typeId.IntegerValue)]
-            # Get Instance parameters
-            for para in elementParaList:
-                try:
-                    value = ele.LookupParameter(para).AsString()
-                except:
-                    value = ""
-                line.append(value)
-            elementTitle.append(line)
-        EAMQcUtils.ExcelWriter(excelFile, 'ELEMENTS', 0, 0, elementTitle)
-
+        typeTitle = []
         # get Family Types
         for type in typeIds:
             # print(type)
-            typeLine = [title, str(type.IntegerValue)]
+            try:
+                name = openedDoc.GetElement(type).LookupParameter('Type Name').AsString()
+            except:
+                name = ""
+            typeLine = [title, name]
             # GEt Type parameters
             values = []
             try:
-                values = get_parameters_as_list(openedDoc.GetElement(type), typeParaList)
+                values = get_parameters_as_dic(openedDoc.GetElement(type))
                 # print(values)
             except:
-                values = []
-            typeAll = typeLine + values
+                values = {}
+            valueList = []
+            for k in values.keys():
+                valueList.append(k + ":" + values[k])
+            typeAll = typeLine + valueList
             typeTitle.append(typeAll)
         EAMQcUtils.ExcelWriter(excelFile, 'TYPES', 0, 0, typeTitle)
         t.Commit()
